@@ -270,6 +270,45 @@
       min-height: 42px;
     }
 
+    /* Nav services dropdown */
+    .nav__dropdown { position: relative; }
+    .nav__dropdown-trigger {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      cursor: pointer;
+      font-size: 0.9375rem; font-weight: 500;
+      color: var(--color-text-soft);
+      transition: color 0.2s ease;
+    }
+    .nav__dropdown-trigger svg {
+      width: 12px; height: 12px; stroke: currentColor; stroke-width: 2.5; fill: none;
+      transition: transform 0.25s ease;
+    }
+    .nav__dropdown:hover .nav__dropdown-trigger,
+    .nav__dropdown:focus-within .nav__dropdown-trigger { color: var(--color-accent); }
+    .nav__dropdown:hover .nav__dropdown-trigger svg,
+    .nav__dropdown:focus-within .nav__dropdown-trigger svg { transform: rotate(180deg); }
+    .nav__menu {
+      position: absolute; top: calc(100% + 0.5rem); left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 280px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 0.5rem;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .nav__dropdown:hover .nav__menu,
+    .nav__dropdown:focus-within .nav__menu {
+      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+    }
+    .nav__menu::before { content: ''; position: absolute; top: -0.5rem; left: 0; right: 0; height: 0.5rem; }
+    .nav__menu-item { display: block; padding: 0.7rem 0.85rem; border-radius: var(--radius); transition: background 0.2s ease; }
+    .nav__menu-item:hover { background: var(--color-bg-alt); }
+    .nav__menu-item h4 { font-family: var(--font-display); font-size: 0.9375rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.15rem; }
+    .nav__menu-item p { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.4; }
+
     /* ---- HERO ---- */
     .hero {
       background: var(--color-bg);
