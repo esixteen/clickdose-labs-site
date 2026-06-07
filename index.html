@@ -1,0 +1,2850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ClickDose Labs is the embedded growth partner for mid-market and growth-stage companies. Performance marketing, AI implementation, and demand systems built by operators who've managed $200M+ in paid media and raised $160M+ in growth capital.">
+  <title>ClickDose Labs · Performance Marketing & AI Growth Systems for Mid-Market and Growth-Stage Companies</title>
+  <link rel="canonical" href="https://clickdoselabs.com/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#00C9A7">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ClickDose Labs">
+  <meta property="og:url" content="https://clickdoselabs.com/">
+  <meta property="og:title" content="ClickDose Labs · Performance Marketing & AI Growth Systems">
+  <meta property="og:description" content="The embedded growth partner for mid-market and growth-stage companies. Paid media, AI workflows, and demand systems run by senior operators who've managed $200M+ in ad spend and raised $160M+ in growth capital.">
+  <meta property="og:image" content="https://clickdoselabs.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ClickDose Labs">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ClickDose Labs · Performance Marketing & AI Growth Systems">
+  <meta name="twitter:description" content="The embedded growth partner for mid-market and growth-stage companies. Paid media, AI workflows, and demand systems run by senior operators.">
+  <meta name="twitter:image" content="https://clickdoselabs.com/assets/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #FDF8F4;
+      --color-bg-alt: #F7F2EE;
+      --color-surface: #FFFFFF;
+      --color-text: #14181F;
+      --color-text-soft: #2B313D;
+      --color-muted: #6B7280;
+      --color-border: #E8E2DC;
+      --color-border-soft: #EFEAE5;
+      --color-accent: #00C9A7;
+      --color-accent-hover: #00B396;
+      --color-accent-light: #00E6BE;
+      --color-accent-tint: rgba(0, 201, 167, 0.08);
+      --color-dark: #0B0F18;
+      --color-dark-soft: #14181F;
+      --color-danger: #D9594E;
+      --gradient-stats: linear-gradient(135deg, #00C9A7 0%, #00B396 100%);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --h1-size: clamp(2.75rem, 6vw, 4.5rem);
+      --h2-size: clamp(1.875rem, 4vw, 2.75rem);
+      --h3-size: clamp(1.125rem, 2vw, 1.375rem);
+      --body-size: 1rem;
+      --body-lg: clamp(1.05rem, 1.5vw, 1.2rem);
+      --body-sm: 0.9375rem;
+      --caption: 0.8125rem;
+      --section-padding: clamp(5rem, 10vw, 8rem);
+      --container-max: 1200px;
+      --container-padding: clamp(1.5rem, 4vw, 3rem);
+      --radius: 8px;
+      --radius-lg: 14px;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-sm: 0 1px 2px rgba(11, 15, 24, 0.04), 0 1px 3px rgba(11, 15, 24, 0.04);
+      --shadow-md: 0 8px 24px rgba(11, 15, 24, 0.06);
+      --shadow-lg: 0 18px 50px rgba(11, 15, 24, 0.08);
+      --nav-height: 72px;
+      --nav-height-mobile: 60px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      line-height: 1.15;
+      color: var(--color-text);
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: var(--caption);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+    }
+
+    .section-label--muted {
+      color: var(--color-muted);
+    }
+
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.95rem 2rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow var(--transition-normal), background var(--transition-normal), color var(--transition-normal);
+      min-height: 44px;
+      text-decoration: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn--primary {
+      background: var(--color-accent);
+      color: #FFFFFF;
+    }
+
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+      box-shadow: 0 10px 26px rgba(0, 201, 167, 0.32);
+      transform: translateY(-2px);
+    }
+
+    .btn--dark {
+      background: var(--color-dark);
+      color: #FFFFFF;
+    }
+
+    .btn--dark:hover {
+      background: var(--color-text);
+      box-shadow: 0 10px 26px rgba(11, 15, 24, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn--lg {
+      font-size: 1.0625rem;
+      padding: 1.1rem 2.5rem;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--color-text);
+      border: 1.5px solid var(--color-border);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--color-text);
+      background: var(--color-text);
+      color: #FFFFFF;
+    }
+
+    /* ---- Scroll Reveal ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger > .reveal:nth-child(1) { transition-delay: 0s; }
+    .stagger > .reveal:nth-child(2) { transition-delay: 0.08s; }
+    .stagger > .reveal:nth-child(3) { transition-delay: 0.16s; }
+    .stagger > .reveal:nth-child(4) { transition-delay: 0.24s; }
+    .stagger > .reveal:nth-child(5) { transition-delay: 0.3s; }
+    .stagger > .reveal:nth-child(6) { transition-delay: 0.36s; }
+
+    /* ---- NAV ---- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(253, 248, 244, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--color-border);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+    }
+
+    .nav__logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav__links a {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-text-soft);
+      transition: color 0.2s ease;
+    }
+
+    .nav__links a:hover {
+      color: var(--color-accent);
+    }
+
+    .nav__cta .btn {
+      font-size: 0.875rem;
+      padding: 0.7rem 1.4rem;
+      min-height: 42px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      background: var(--color-bg);
+      position: relative;
+      overflow: hidden;
+      min-height: min(88vh, 860px);
+      display: flex;
+      align-items: center;
+      padding: calc(var(--nav-height) + 3rem) 0 var(--section-padding);
+    }
+
+    .hero__mesh {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero__mesh::before,
+    .hero__mesh::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+    }
+
+    .hero__mesh::before {
+      width: 620px;
+      height: 620px;
+      background: var(--color-accent);
+      opacity: 0.18;
+      top: -15%;
+      right: -10%;
+      animation: meshFloat1 24s ease-in-out infinite;
+    }
+
+    .hero__mesh::after {
+      width: 520px;
+      height: 520px;
+      background: #6FA8FF;
+      opacity: 0.12;
+      bottom: -20%;
+      left: -8%;
+      animation: meshFloat2 28s ease-in-out infinite;
+    }
+
+    .hero__mesh-blob {
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      background: var(--color-accent);
+      opacity: 0.08;
+      border-radius: 50%;
+      filter: blur(140px);
+      top: 35%;
+      left: 45%;
+      animation: meshFloat3 26s ease-in-out infinite;
+    }
+
+    @keyframes meshFloat1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-30px, 40px) scale(1.05); }
+      66% { transform: translate(20px, -20px) scale(0.95); }
+    }
+
+    @keyframes meshFloat2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -30px) scale(1.08); }
+      66% { transform: translate(-25px, 25px) scale(0.97); }
+    }
+
+    @keyframes meshFloat3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-35px, -25px) scale(1.06); }
+      66% { transform: translate(30px, 35px) scale(0.94); }
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero__content > * {
+      animation: heroFadeUp 0.85s var(--ease-out-expo) both;
+    }
+
+    .hero__content > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero__content > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero__content > *:nth-child(3) { animation-delay: 0.32s; }
+    .hero__content > *:nth-child(4) { animation-delay: 0.46s; }
+    .hero__content > *:nth-child(5) { animation-delay: 0.6s; }
+
+    .hero h1 {
+      font-size: var(--h1-size);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero__highlight {
+      color: var(--color-accent);
+      position: relative;
+      display: inline;
+    }
+
+    .hero__highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--color-accent);
+      box-shadow: 0 0 22px rgba(0, 201, 167, 0.45);
+      border-radius: 2px;
+    }
+
+    .hero__sub {
+      font-size: var(--body-lg);
+      color: var(--color-text-soft);
+      line-height: 1.65;
+      margin-bottom: 2.25rem;
+      max-width: 660px;
+    }
+
+    .hero__ctas {
+      display: flex;
+      gap: 0.9rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero__proof {
+      margin-top: 1.5rem;
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero__proof-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.15);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.15); }
+      50% { box-shadow: 0 0 0 8px rgba(0, 201, 167, 0.05); }
+    }
+
+    /* ---- PAIN AGITATION ---- */
+    .pain {
+      background: var(--color-surface);
+      padding: var(--section-padding) 0;
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .pain__header {
+      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .pain h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .pain__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .pain__card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .pain__card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pain__card-quote {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .pain__card-quote::before {
+      content: '"';
+      color: var(--color-accent);
+      margin-right: 0.1rem;
+    }
+
+    .pain__card-quote::after {
+      content: '"';
+      color: var(--color-accent);
+      margin-left: 0.1rem;
+    }
+
+    .pain__card-reality {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+
+    /* ---- CREDIBILITY STRIP ---- */
+    .credibility {
+      background: var(--gradient-stats);
+      padding: 3.5rem 0;
+    }
+
+    .credibility__row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .credibility__stat {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+    }
+
+    .credibility__stat + .credibility__stat {
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .credibility__number {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3.5vw, 2.625rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .credibility__label {
+      font-size: var(--body-sm);
+      color: rgba(255, 255, 255, 0.92);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    /* ---- SERVICES GRID ---- */
+    .services {
+      background: var(--color-bg);
+      padding: var(--section-padding) 0;
+    }
+
+    .services__header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .services__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Featured service card (links to dedicated page) */
+    .service-card--featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.5fr auto;
+      gap: 2rem;
+      align-items: center;
+      border-color: rgba(0, 201, 167, 0.45);
+      background: linear-gradient(110deg, var(--color-accent-tint), var(--color-surface) 58%);
+      text-decoration: none;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    .service-card--featured:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .service-card__tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--color-accent);
+      background: rgba(0, 201, 167, 0.12);
+      border-radius: 5px; padding: 0.25rem 0.6rem; margin-bottom: 1rem;
+    }
+    .service-card--featured h3 { margin-bottom: 0.6rem; }
+    .service-card__link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-display); font-weight: 600; color: var(--color-accent);
+      white-space: nowrap;
+    }
+    .service-card__link svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.5; fill: none; transition: transform 0.25s ease; }
+    .service-card--featured:hover .service-card__link svg { transform: translateX(4px); }
+
+    /* Nav services dropdown */
+    .nav__dropdown { position: relative; }
+    .nav__dropdown-trigger {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      cursor: pointer;
+      font-size: 0.9375rem; font-weight: 500;
+      color: var(--color-text-soft);
+      transition: color 0.2s ease;
+    }
+    .nav__dropdown-trigger svg {
+      width: 12px; height: 12px; stroke: currentColor; stroke-width: 2.5; fill: none;
+      transition: transform 0.25s ease;
+    }
+    .nav__dropdown:hover .nav__dropdown-trigger,
+    .nav__dropdown:focus-within .nav__dropdown-trigger { color: var(--color-accent); }
+    .nav__dropdown:hover .nav__dropdown-trigger svg,
+    .nav__dropdown:focus-within .nav__dropdown-trigger svg { transform: rotate(180deg); }
+    .nav__menu {
+      position: absolute; top: calc(100% + 0.5rem); left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 280px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 0.5rem;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .nav__dropdown:hover .nav__menu,
+    .nav__dropdown:focus-within .nav__menu {
+      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+    }
+    .nav__menu::before { content: ''; position: absolute; top: -0.5rem; left: 0; right: 0; height: 0.5rem; }
+    .nav__menu-item { display: block; padding: 0.7rem 0.85rem; border-radius: var(--radius); transition: background 0.2s ease; }
+    .nav__menu-item:hover { background: var(--color-bg-alt); }
+    .nav__menu-item h4 { font-family: var(--font-display); font-size: 0.9375rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.15rem; }
+    .nav__menu-item p { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.4; }
+    .nav__menu-item--soon { opacity: 0.55; cursor: default; }
+    .nav__menu-item--soon:hover { background: transparent; }
+    .nav__menu-tag {
+      display: inline-block; font-family: var(--font-display);
+      font-size: 0.625rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--color-muted); border: 1px solid var(--color-border); border-radius: 4px;
+      padding: 0.05rem 0.35rem; margin-left: 0.4rem; vertical-align: middle;
+    }
+    @media (max-width: 768px) {
+      .service-card--featured { grid-template-columns: 1fr; gap: 1.25rem; }
+    }
+
+    .service-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-accent);
+    }
+
+    .service-card__icon {
+      width: 52px;
+      height: 52px;
+      background: var(--color-accent-tint);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: transform var(--transition-normal), background var(--transition-normal);
+    }
+
+    .service-card:hover .service-card__icon {
+      transform: rotate(6deg) scale(1.06);
+      background: var(--color-accent);
+    }
+
+    .service-card__icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke var(--transition-normal);
+    }
+
+    .service-card:hover .service-card__icon svg {
+      stroke: #FFFFFF;
+    }
+
+    .service-card h3 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .service-card__sub {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.55;
+    }
+
+    .service-card ul {
+      list-style: none;
+    }
+
+    .service-card li {
+      font-size: var(--body-sm);
+      color: var(--color-text-soft);
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .service-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.95rem;
+      width: 12px;
+      height: 2px;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .services__cta {
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+
+    /* ---- AI IMPLEMENTATION ---- */
+    .ai {
+      background: var(--color-surface);
+      padding: var(--section-padding) 0;
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .ai__header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+
+    .ai__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .ai__lede {
+      font-size: var(--body-lg);
+      color: var(--color-text-soft);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    .ai__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .ai-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ai-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .ai-card__tag {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .ai-card__tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .ai-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .ai-card p {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+
+    .ai-card__example {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed var(--color-border);
+      font-size: 0.8125rem;
+      color: var(--color-text-soft);
+      font-style: italic;
+    }
+
+    .ai-card__example strong {
+      font-style: normal;
+      color: var(--color-accent);
+      font-weight: 600;
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ---- MANIFESTO ---- */
+    .manifesto {
+      background: var(--color-bg);
+      padding: var(--section-padding) 0;
+    }
+
+    .manifesto__header {
+      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .manifesto h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .manifesto__table {
+      max-width: 1000px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .manifesto__headers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--color-bg-alt);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .manifesto__col-header {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 1.25rem 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .manifesto__col-header--them {
+      color: var(--color-muted);
+      border-right: 1px solid var(--color-border);
+    }
+
+    .manifesto__col-header--us {
+      color: var(--color-accent);
+    }
+
+    .manifesto__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    .manifesto__row:last-child {
+      border-bottom: none;
+    }
+
+    .manifesto__left, .manifesto__right {
+      font-size: var(--body-sm);
+      line-height: 1.55;
+      padding: 1.35rem 2rem;
+    }
+
+    .manifesto__left {
+      color: var(--color-muted);
+      border-right: 1px solid var(--color-border);
+      text-decoration: line-through;
+      text-decoration-color: rgba(217, 89, 78, 0.4);
+      text-decoration-thickness: 1px;
+    }
+
+    .manifesto__right {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    /* ---- PROCESS ---- */
+    .process {
+      background: var(--color-surface);
+      padding: var(--section-padding) 0;
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .process__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .process__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .process__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    .process__line {
+      position: absolute;
+      top: 30px;
+      left: calc(12.5% + 30px);
+      right: calc(12.5% + 30px);
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0, 201, 167, 0.1), rgba(0, 201, 167, 0.35), rgba(0, 201, 167, 0.1));
+      z-index: 0;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step__circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      background: var(--color-surface);
+      position: relative;
+      transition: transform var(--transition-normal), background var(--transition-normal), color var(--transition-normal);
+    }
+
+    .step:hover .step__circle {
+      background: var(--color-accent);
+      color: #FFFFFF;
+      transform: scale(1.05);
+    }
+
+    .step h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .step p {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      line-height: 1.65;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    /* ---- TEAM ---- */
+    .team {
+      background: var(--color-bg);
+      padding: var(--section-padding) 0;
+    }
+
+    .team__header {
+      max-width: 760px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .team__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .team__lede {
+      font-size: var(--body-lg);
+      color: var(--color-text-soft);
+      line-height: 1.65;
+    }
+
+    .team__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .partner {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
+    }
+
+    .partner:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .partner__head {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    .partner__avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      flex-shrink: 0;
+      box-shadow: 0 8px 22px rgba(0, 201, 167, 0.28);
+      overflow: hidden;
+    }
+
+    .partner__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .partner__id h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .partner__id p {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      font-weight: 500;
+    }
+
+    .partner__bullets {
+      list-style: none;
+    }
+
+    .partner__bullets li {
+      padding: 0.6rem 0;
+      padding-left: 1.75rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-soft);
+      line-height: 1.6;
+      position: relative;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    .partner__bullets li:last-child {
+      border-bottom: none;
+    }
+
+    .partner__bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.1rem;
+      width: 14px;
+      height: 2px;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .partner__bullets strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .partner__summary {
+      font-size: var(--body-lg);
+      color: var(--color-text-soft);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .partner__summary strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .partner__toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--color-accent);
+      transition: color var(--transition-fast);
+    }
+
+    .partner__toggle:hover {
+      color: var(--color-accent-hover);
+    }
+
+    .partner__chev {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--transition-normal);
+    }
+
+    .partner.is-open .partner__chev {
+      transform: rotate(180deg);
+    }
+
+    .partner__detail {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s ease;
+    }
+
+    .partner.is-open .partner__detail {
+      grid-template-rows: 1fr;
+    }
+
+    .partner__detail-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .partner__detail .partner__bullets {
+      margin-top: 1.5rem;
+    }
+
+    .partner__track {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .partner__track-label {
+      font-family: var(--font-display);
+      font-size: var(--caption);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .partner__track-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .partner__track-list li {
+      font-size: 0.9375rem;
+      color: var(--color-text-soft);
+      line-height: 1.6;
+      padding-left: 1.75rem;
+      position: relative;
+    }
+
+    .partner__track-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 14px;
+      height: 2px;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .partner__track-list strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    /* ---- SELECTED CLIENTS ---- */
+    .clients {
+      background: var(--color-bg);
+      padding: 0 0 var(--section-padding);
+    }
+
+    .clients__inner {
+      border-top: 1px solid var(--color-border-soft);
+      padding-top: var(--section-padding);
+    }
+
+    .clients__header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3rem;
+    }
+
+    .clients__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .clients__marquee {
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .clients__track {
+      display: flex;
+      width: max-content;
+      animation: clientsScroll 45s linear infinite;
+    }
+
+    .clients__marquee:hover .clients__track {
+      animation-play-state: paused;
+    }
+
+    .clients__group {
+      display: flex;
+      align-items: center;
+      gap: 4.5rem;
+      padding-right: 4.5rem;
+      flex-shrink: 0;
+    }
+
+    .clients__track img {
+      height: 44px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.62;
+      transition: filter var(--transition-normal), opacity var(--transition-normal);
+    }
+
+    .clients__track img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    @keyframes clientsScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .clients__track { animation: none; flex-wrap: wrap; justify-content: center; }
+      .clients__group:last-child { display: none; }
+      .clients__group { flex-wrap: wrap; justify-content: center; row-gap: 2.5rem; padding-right: 0; }
+    }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials {
+      background: var(--color-bg-alt);
+      padding: var(--section-padding) 0;
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .testimonials__header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .testimonials__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .testimonial {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .testimonial:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial__stat {
+      font-family: var(--font-display);
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .testimonial__stat-label {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial__quote {
+      font-size: 0.9375rem;
+      color: var(--color-text-soft);
+      line-height: 1.65;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    .testimonial__author {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .testimonial__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      flex-shrink: 0;
+    }
+
+    .testimonial__author-id strong {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: 0.15rem;
+    }
+
+    .testimonial__author-id span {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      line-height: 1.3;
+    }
+
+    /* ---- PRICING ---- */
+    .pricing {
+      background: var(--color-surface);
+      padding: var(--section-padding) 0;
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .pricing__header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .pricing__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .pricing__lede {
+      font-size: var(--body-lg);
+      color: var(--color-text-soft);
+      line-height: 1.6;
+    }
+
+    .pricing__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .tier {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+      position: relative;
+    }
+
+    .tier:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tier--featured {
+      background: var(--color-dark);
+      border-color: var(--color-dark);
+      color: #F9FAFB;
+      transform: translateY(-12px);
+      box-shadow: 0 24px 60px rgba(11, 15, 24, 0.18);
+    }
+
+    .tier--featured:hover {
+      transform: translateY(-18px);
+      box-shadow: 0 30px 70px rgba(11, 15, 24, 0.24);
+      border-color: var(--color-accent);
+    }
+
+    .tier__badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.95rem;
+      border-radius: 100px;
+      box-shadow: 0 6px 16px rgba(0, 201, 167, 0.4);
+    }
+
+    .tier__name {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .tier--featured .tier__name {
+      color: var(--color-accent);
+    }
+
+    .tier__title {
+      font-family: var(--font-display);
+      font-size: 1.625rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .tier--featured .tier__title {
+      color: #FFFFFF;
+    }
+
+    .tier__pitch {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.55;
+      min-height: 3rem;
+    }
+
+    .tier--featured .tier__pitch {
+      color: rgba(249, 250, 251, 0.7);
+    }
+
+    .tier__price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      padding-bottom: 1.75rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tier--featured .tier__price {
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .tier__price-amount {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .tier__price--custom {
+      align-items: baseline;
+    }
+
+    .tier__price--custom .tier__price-amount {
+      font-size: 1.875rem;
+    }
+
+    .tier--featured .tier__price-amount {
+      color: #FFFFFF;
+    }
+
+    .tier__price-period {
+      font-size: 0.9375rem;
+      color: var(--color-muted);
+      font-weight: 500;
+    }
+
+    .tier--featured .tier__price-period {
+      color: rgba(249, 250, 251, 0.6);
+    }
+
+    .tier__features {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .tier__features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 0.5rem 0;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: var(--color-text-soft);
+    }
+
+    .tier--featured .tier__features li {
+      color: rgba(249, 250, 251, 0.85);
+    }
+
+    .tier__check {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--color-accent);
+      margin-top: 0.18rem;
+    }
+
+    .tier__cta {
+      width: 100%;
+    }
+
+    .tier__note {
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      margin-top: 1rem;
+    }
+
+    .tier--featured .tier__note {
+      color: rgba(249, 250, 251, 0.55);
+    }
+
+    .pricing__addspend {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    .pricing__addspend strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    /* ---- FIT CHECK ---- */
+    .fit {
+      background: var(--color-bg);
+      padding: var(--section-padding) 0;
+    }
+
+    .fit__header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .fit__header h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .fit__columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .fit__col {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+
+    .fit__col--yes {
+      border-top: 3px solid var(--color-accent);
+    }
+
+    .fit__col--no {
+      border-top: 3px solid var(--color-danger);
+    }
+
+    .fit__col h3 {
+      font-family: var(--font-display);
+      font-size: 1.1875rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .fit__col--yes h3 {
+      color: var(--color-accent);
+    }
+
+    .fit__col--no h3 {
+      color: var(--color-danger);
+    }
+
+    .fit__item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.85rem 0;
+      font-size: var(--body-sm);
+      color: var(--color-text-soft);
+      line-height: 1.55;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    .fit__item:last-child {
+      border-bottom: none;
+    }
+
+    .fit__icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 1px;
+    }
+
+    .fit__icon--check {
+      color: var(--color-accent);
+    }
+
+    .fit__icon--x {
+      color: var(--color-danger);
+    }
+
+    /* ---- FINAL CTA ---- */
+    .final-cta {
+      background: var(--color-dark);
+      padding: var(--section-padding) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 201, 167, 0.18), transparent 60%);
+      pointer-events: none;
+    }
+
+    .final-cta .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-size: var(--h2-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 1.25rem;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta__sub {
+      font-size: var(--body-lg);
+      color: rgba(249, 250, 251, 0.72);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    .final-cta__escape {
+      margin-top: 1.5rem;
+      font-size: var(--body-sm);
+      color: rgba(249, 250, 251, 0.55);
+    }
+
+    .final-cta__escape a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+
+    .final-cta__escape a:hover {
+      color: var(--color-accent-light);
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: var(--color-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(249, 250, 251, 0.55);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer__logo {
+      display: inline-flex;
+      background: var(--color-bg);
+      padding: 10px 16px;
+      border-radius: 12px;
+    }
+
+    .footer__logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .footer__links a {
+      font-size: 0.875rem;
+      color: rgba(249, 250, 251, 0.55);
+      transition: color 0.2s ease;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer__links a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer__right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer__social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      color: rgba(249, 250, 251, 0.4);
+      transition: color 0.2s ease;
+    }
+
+    .footer__social a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer__social svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .footer__bottom {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: var(--caption);
+      text-align: center;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .ai__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .ai__header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        display: none;
+      }
+      .nav__cta .btn {
+        font-size: 0.8125rem;
+        padding: 0.6rem 1.15rem;
+      }
+
+      .hero__ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero__ctas .btn {
+        width: 100%;
+      }
+
+      .pain__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .credibility__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .credibility__stat + .credibility__stat {
+        border-left: none;
+      }
+
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card {
+        padding: 2rem;
+      }
+
+      .ai__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .manifesto__headers {
+        display: none;
+      }
+      .manifesto__row {
+        grid-template-columns: 1fr;
+      }
+      .manifesto__left {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border-soft);
+        text-decoration: none;
+      }
+      .manifesto__left::before {
+        content: 'INSTEAD OF →';
+        display: block;
+        font-family: var(--font-display);
+        font-size: 0.6875rem;
+        font-weight: 700;
+        color: var(--color-danger);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.5rem;
+        text-decoration: none;
+      }
+      .manifesto__right::before {
+        content: 'WE DO →';
+        display: block;
+        font-family: var(--font-display);
+        font-size: 0.6875rem;
+        font-weight: 700;
+        color: var(--color-accent);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.5rem;
+      }
+
+      .process__steps {
+        grid-template-columns: 1fr;
+        padding-left: 48px;
+        gap: 0;
+      }
+      .process__line {
+        top: 0;
+        bottom: 0;
+        left: 48px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        transform: translateX(-50%);
+        background: linear-gradient(180deg, rgba(0, 201, 167, 0.1), rgba(0, 201, 167, 0.35), rgba(0, 201, 167, 0.1));
+      }
+      .step {
+        text-align: left;
+        padding-bottom: 2.5rem;
+      }
+      .step__circle {
+        position: absolute;
+        left: -48px;
+        margin: 0;
+      }
+      .step p {
+        max-width: none;
+        margin: 0;
+      }
+
+      .team__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .clients__group {
+        gap: 3rem;
+        padding-right: 3rem;
+      }
+      .clients__track img {
+        height: 36px;
+        max-width: 130px;
+      }
+
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing__grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .tier--featured {
+        transform: none;
+        order: -1;
+      }
+      .tier--featured:hover {
+        transform: translateY(-6px);
+      }
+
+      .fit__columns {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .footer__inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer__links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.25rem;
+      }
+      .footer__right {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav__inner {
+        height: var(--nav-height-mobile);
+      }
+
+      .hero {
+        padding-top: calc(var(--nav-height-mobile) + 2rem);
+      }
+
+      .nav__logo img {
+        height: 38px;
+      }
+
+      .service-card, .partner, .tier, .fit__col, .testimonial {
+        padding: 1.75rem;
+      }
+
+      .credibility__row {
+        gap: 1rem;
+      }
+
+      .credibility__stat {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+
+    /* ---- REDUCED MOTION ---- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero__content > * {
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero__mesh::before,
+      .hero__mesh::after,
+      .hero__mesh-blob {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="assets/clickdose-labs.png" alt="ClickDose Labs" width="83" height="44">
+      </a>
+      <div class="nav__links">
+        <div class="nav__dropdown" tabindex="0">
+          <a href="#services" class="nav__dropdown-trigger">Services
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav__menu">
+            <a class="nav__menu-item" href="cold-email/">
+              <h4>Cold Email Lead Generation</h4>
+              <p>AI-built lists, warmed inboxes, booked meetings.</p>
+            </a>
+            <div class="nav__menu-item nav__menu-item--soon">
+              <h4>Paid Media <span class="nav__menu-tag">Soon</span></h4>
+              <p>Full-funnel campaigns that answer to revenue.</p>
+            </div>
+            <div class="nav__menu-item nav__menu-item--soon">
+              <h4>Conversion Pages &amp; Funnels <span class="nav__menu-tag">Soon</span></h4>
+              <p>CRO-driven landing pages and sales funnels.</p>
+            </div>
+            <div class="nav__menu-item nav__menu-item--soon">
+              <h4>Lifecycle Email &amp; CRM <span class="nav__menu-tag">Soon</span></h4>
+              <p>Nurture and automation wired to close.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#ai">AI</a>
+        <a href="#team">Team</a>
+        <!-- <a href="#testimonials">Results</a> --><!-- hidden while Client Results section is off -->
+        <a href="#pricing">Packages</a>
+      </div>
+      <div class="nav__cta">
+        <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__mesh">
+      <div class="hero__mesh-blob"></div>
+    </div>
+    <div class="container">
+      <div class="hero__content">
+        <p class="section-label">Performance Marketing · AI Implementation · Demand Systems</p>
+        <h1>The Growth Partner Your Last Agency <span class="hero__highlight">Pretended To Be</span>.</h1>
+        <p class="hero__sub">ClickDose Labs is the embedded growth partner for mid-market and growth-stage companies. We architect the paid media, conversion systems, and AI workflows that turn ad spend into booked revenue. Operated by senior marketers who've managed nine-figure budgets, not juniors learning on your account.</p>
+        <div class="hero__ctas">
+          <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
+          <a href="#pricing" class="btn btn--outline btn--lg">See Packages</a>
+        </div>
+        <p class="hero__proof"><span class="hero__proof-dot"></span> Currently accepting 2 new clients this quarter. No long-term contracts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN AGITATION -->
+  <section class="pain" id="pain">
+    <div class="container">
+      <div class="pain__header reveal">
+        <p class="section-label">Sound Familiar?</p>
+        <h2>The agency experience nobody talks about, and why mid-market brands keep getting burned.</h2>
+      </div>
+      <div class="pain__grid stagger">
+        <div class="pain__card reveal">
+          <div class="pain__card-quote">We optimized for impressions.</div>
+          <p class="pain__card-reality">You're paying $25K/month and the report is 12 pages of clicks, CTRs, and "brand awareness metrics." Nothing ties back to pipeline or revenue.</p>
+        </div>
+        <div class="pain__card reveal">
+          <div class="pain__card-quote">Your account's in good hands.</div>
+          <p class="pain__card-reality">Then nobody touched it for three months. Your campaigns ran on autopilot while CAC crept up and nobody said a word.</p>
+        </div>
+        <div class="pain__card reveal">
+          <div class="pain__card-quote">Let me introduce you to your account manager.</div>
+          <p class="pain__card-reality">The senior who pitched you disappeared after the contract was signed. Now a 23-year-old with six months of experience is "managing your strategy."</p>
+        </div>
+        <div class="pain__card reveal">
+          <div class="pain__card-quote">We just need more budget.</div>
+          <p class="pain__card-reality">The answer to underperformance is always more spend. Never a better strategy. Never an honest conversation about what isn't working.</p>
+        </div>
+        <div class="pain__card reveal">
+          <div class="pain__card-quote">Here's your monthly report.</div>
+          <p class="pain__card-reality">A PDF full of green arrows that mean nothing. You can't connect a single metric to whether this is actually moving the business forward.</p>
+        </div>
+        <div class="pain__card reveal">
+          <div class="pain__card-quote">We can't share those credentials.</div>
+          <p class="pain__card-reality">Your own ad accounts, your own data, held hostage. If you leave, you start from zero with no historical learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY STRIP -->
+  <section class="credibility" id="credibility">
+    <div class="container">
+      <div class="credibility__row" id="stats-bar">
+        <div class="credibility__stat">
+          <div class="credibility__number" data-target="200" data-suffix="M+" data-prefix="$">$200M+</div>
+          <div class="credibility__label">In ad spend managed across verticals</div>
+        </div>
+        <div class="credibility__stat">
+          <div class="credibility__number" data-target="400" data-suffix="%+" data-prefix="">400%+</div>
+          <div class="credibility__label">Average return on investment for our clients</div>
+        </div>
+        <div class="credibility__stat">
+          <div class="credibility__number" data-target="20" data-suffix="+" data-prefix="">20+</div>
+          <div class="credibility__label">Years combined performance experience</div>
+        </div>
+        <div class="credibility__stat">
+          <div class="credibility__number" data-target="0" data-suffix="" data-prefix="">0</div>
+          <div class="credibility__label">Junior account managers on your business</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services__header">
+        <p class="section-label section-label--muted reveal">What We Build</p>
+        <h2 class="reveal">The full demand stack, engineered to compound.</h2>
+      </div>
+      <div class="services__grid stagger">
+
+        <a class="service-card service-card--featured reveal" href="cold-email/">
+          <div>
+            <span class="service-card__tag">New · Dedicated Service Page</span>
+            <h3>Cold Email Lead Generation</h3>
+            <p class="service-card__sub">AI-built lead lists in Clay, dedicated inboxes warmed in Smartlead, and managed campaigns that book qualified meetings on your calendar. You own every domain. We run the whole engine.</p>
+          </div>
+          <span class="service-card__link">Explore the service
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3>Paid Media That Answers to Revenue</h3>
+          <p class="service-card__sub">Full-funnel campaign management on Meta, Google, LinkedIn, TikTok, and programmatic. Every dollar tracked to pipeline.</p>
+          <ul>
+            <li>Weekly optimization cycles with documented change logs</li>
+            <li>Creative testing at scale with rapid iteration loops</li>
+            <li>Server-side tracking, attribution, and clean conversion data</li>
+            <li>You own every account, pixel, and audience. Always.</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3>Conversion Pages and Funnels</h3>
+          <p class="service-card__sub">Landing pages, advertorials, and long-form sales pages engineered by people who've watched a million sessions of session replay.</p>
+          <ul>
+            <li>CRO-driven design, every element earns its place</li>
+            <li>Message-matched to ad creative for tight funnel logic</li>
+            <li>A/B testing built into the process from day one</li>
+            <li>Built on Webflow, Framer, or your stack. Your call.</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+          </div>
+          <h3>Lifecycle Email and CRM Architecture</h3>
+          <p class="service-card__sub">The pipeline between "lead captured" and "deal closed." Salesforce, HubSpot, Pardot, Klaviyo, wired to actually work.</p>
+          <ul>
+            <li>Lifecycle email sequences mapped to buyer stage</li>
+            <li>CRM hygiene, segmentation, and lead scoring that ops trusts</li>
+            <li>Marketing automation that nurtures without manual follow-up</li>
+            <li>Attribution loops that close the spend-to-revenue gap</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M9 4v16M15 4v16M4 9h16M4 15h16"/></svg>
+          </div>
+          <h3>Creative Strategy and Production</h3>
+          <p class="service-card__sub">Hooks, scripts, statics, and UGC built around buyer psychology. Not "our designer thought this looked nice."</p>
+          <ul>
+            <li>Concept development grounded in market and competitor research</li>
+            <li>Video and static production pipelines that ship weekly</li>
+            <li>AI-assisted creative variations for rapid hook testing</li>
+            <li>Messaging architecture that connects features to buying triggers</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="services__cta reveal">
+        <a href="#book" class="btn btn--dark btn--lg">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED CLIENTS -->
+  <section class="clients" id="clients">
+    <div class="container">
+      <div class="clients__inner">
+        <div class="clients__header reveal">
+          <p class="section-label">Selected Clients</p>
+          <h2>Companies that trust partners of ClickDose Labs.</h2>
+        </div>
+      </div>
+    </div>
+    <div class="clients__marquee reveal" aria-label="Selected ClickDose Labs clients">
+      <div class="clients__track">
+        <div class="clients__group">
+          <img src="Client Logos/Banner/renovo-financial-logo.png" alt="Renovo Financial" loading="lazy">
+          <img src="Client Logos/Banner/Fundcanna-logo-alone.webp" alt="FundCanna" loading="lazy">
+          <img src="Client Logos/Banner/BD capital.png" alt="BD Capital" loading="lazy">
+          <img src="Client Logos/Banner/LADIESINLAW-Logo.webp" alt="Ladies in Law" loading="lazy">
+          <img src="Client Logos/Banner/packard lapray.webp" alt="Packard LaPray" loading="lazy">
+          <img src="Client Logos/Banner/the accounting doctor.png" alt="The Accounting Doctor" loading="lazy">
+          <img src="Client Logos/Banner/inevitrade.png" alt="Inevitrade" loading="lazy">
+          <img src="Client Logos/Banner/cereflex.svg" alt="CereFlex" loading="lazy">
+          <img src="Client Logos/Banner/teamz.svg" alt="Teamz" loading="lazy">
+        </div>
+        <div class="clients__group" aria-hidden="true">
+          <img src="Client Logos/Banner/renovo-financial-logo.png" alt="" loading="lazy">
+          <img src="Client Logos/Banner/Fundcanna-logo-alone.webp" alt="" loading="lazy">
+          <img src="Client Logos/Banner/BD capital.png" alt="" loading="lazy">
+          <img src="Client Logos/Banner/LADIESINLAW-Logo.webp" alt="" loading="lazy">
+          <img src="Client Logos/Banner/packard lapray.webp" alt="" loading="lazy">
+          <img src="Client Logos/Banner/the accounting doctor.png" alt="" loading="lazy">
+          <img src="Client Logos/Banner/inevitrade.png" alt="" loading="lazy">
+          <img src="Client Logos/Banner/cereflex.svg" alt="" loading="lazy">
+          <img src="Client Logos/Banner/teamz.svg" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI IMPLEMENTATION -->
+  <section class="ai" id="ai">
+    <div class="container">
+      <div class="ai__header">
+        <div class="reveal">
+          <p class="section-label">AI Implementation</p>
+          <h2>AI built across the marketing stack, with ROI as the bar.</h2>
+        </div>
+        <p class="ai__lede reveal">Most agencies sell "AI" as a buzzword on the proposal. We build production systems: custom agents, predictive scoring models, content engines, and proprietary lead-gen tools that compress weeks of work into hours.</p>
+      </div>
+      <div class="ai__grid stagger">
+
+        <div class="ai-card reveal">
+          <span class="ai-card__tag">Creative Engine</span>
+          <h3>AI-Powered Creative Production</h3>
+          <p>Automated pipelines that turn one winning concept into dozens of testable variations across formats, audiences, and platforms. Statics, video edits, hooks, headlines.</p>
+          <div class="ai-card__example"><strong>Example</strong>Cuts creative production time from 5 days to 4 hours per concept.</div>
+        </div>
+
+        <div class="ai-card reveal">
+          <span class="ai-card__tag">Predictive Models</span>
+          <h3>Lead Scoring and Segmentation</h3>
+          <p>Custom models that score leads on probability-to-close based on your historical CRM data, then route the top decile to sales and the rest to nurture.</p>
+          <div class="ai-card__example"><strong>Example</strong>Sales spends time on the leads that actually convert, not whoever filled the form.</div>
+        </div>
+
+        <div class="ai-card reveal">
+          <span class="ai-card__tag">Custom Agents</span>
+          <h3>Internal AI Agents and Workflows</h3>
+          <p>Purpose-built agents that handle competitive research, ad copy iteration, performance reporting, customer review mining, and content briefing. Your team operates them. We build them.</p>
+          <div class="ai-card__example"><strong>Example</strong>A weekly competitor monitoring agent that surfaces new ads and angles every Monday.</div>
+        </div>
+
+        <div class="ai-card reveal">
+          <span class="ai-card__tag">Page Builds</span>
+          <h3>AI-Assisted Page and Funnel Builds</h3>
+          <p>Conversion pages produced and iterated at speed using AI for first-draft layouts, copy, and CRO test ideas, then refined by senior CRO operators before launch.</p>
+          <div class="ai-card__example"><strong>Example</strong>Net-new landing pages live in 48 hours instead of 3 weeks.</div>
+        </div>
+
+        <div class="ai-card reveal">
+          <span class="ai-card__tag">Reporting Layer</span>
+          <h3>Custom Dashboards and Reporting</h3>
+          <p>Live dashboards that pull from ad platforms, CRM, and analytics into one revenue view. Weekly AI-generated summaries with what changed, what to watch, and what to do.</p>
+          <div class="ai-card__example"><strong>Example</strong>Leadership stops asking "how are ads doing?" because they already know.</div>
+        </div>
+
+        <div class="ai-card reveal">
+          <span class="ai-card__tag">Proprietary Assets</span>
+          <h3>Vertical Lead-Gen Tools</h3>
+          <p>Custom-built interactive tools, calculators, and assessments that double as top of funnel demand drivers and sales enablement assets your team actually uses.</p>
+          <div class="ai-card__example"><strong>Example</strong>An interactive ROI calculator that captures qualified leads and arms sales with context.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto" id="manifesto">
+    <div class="container">
+      <div class="manifesto__header reveal">
+        <p class="section-label">The ClickDose Labs Standard</p>
+        <h2>How we operate. Non-negotiable.</h2>
+      </div>
+      <div class="manifesto__table reveal">
+        <div class="manifesto__headers">
+          <div class="manifesto__col-header manifesto__col-header--them">They Do This</div>
+          <div class="manifesto__col-header manifesto__col-header--us">We Do This</div>
+        </div>
+        <div class="manifesto__row">
+          <div class="manifesto__left">Reports full of vanity metrics you don't read</div>
+          <div class="manifesto__right">Revenue-connected reporting with multi-touch attribution across your full marketing mix.</div>
+        </div>
+        <div class="manifesto__row">
+          <div class="manifesto__left">Put your account on autopilot for months</div>
+          <div class="manifesto__right">Weekly optimization cycles with clear change logs you can see</div>
+        </div>
+        <div class="manifesto__row">
+          <div class="manifesto__left">Hold your ad accounts hostage</div>
+          <div class="manifesto__right">You own everything. Accounts, pixels, data. Day one.</div>
+        </div>
+        <div class="manifesto__row">
+          <div class="manifesto__left">Pitch you the senior, hand you the junior</div>
+          <div class="manifesto__right">The partner on this call is the partner managing your account</div>
+        </div>
+        <div class="manifesto__row">
+          <div class="manifesto__left">Guarantee results they can't control</div>
+          <div class="manifesto__right">We'll tell you what's realistic, then beat it. No fairy tales.</div>
+        </div>
+        <div class="manifesto__row">
+          <div class="manifesto__left">"We just need more budget"</div>
+          <div class="manifesto__right">We'll tell you when to spend more AND when to stop spending</div>
+        </div>
+        <div class="manifesto__row">
+          <div class="manifesto__left">12-month contracts with auto-renewal traps</div>
+          <div class="manifesto__right">Month-to-month after the initial sprint. Stay because it's working.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="process__header">
+        <p class="section-label section-label--muted reveal">How We Work</p>
+        <h2 class="reveal">No black box. Here's exactly what happens.</h2>
+      </div>
+      <div class="process__steps stagger">
+        <div class="process__line"></div>
+        <div class="step reveal">
+          <div class="step__circle">1</div>
+          <h3>Diagnose</h3>
+          <p>We audit your ads, pages, CRM, and attribution. We learn your business before we recommend anything.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__circle">2</div>
+          <h3>Prescribe</h3>
+          <p>You get a clear growth plan with priorities, timelines, and projected outcomes. No 47-slide deck.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__circle">3</div>
+          <h3>Execute</h3>
+          <p>We build and launch in focused sprints. Weekly Slack updates with plain-English reporting.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__circle">4</div>
+          <h3>Compound</h3>
+          <p>Double down on what works. Kill what isn't. Every cycle makes the system smarter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="team__header reveal">
+        <p class="section-label">The Partners</p>
+        <h2>Two operators. Not an org chart.</h2>
+        <p class="team__lede">When you hire ClickDose Labs, you work directly with the people who've spent nine figures on ad platforms, raised nine figures of growth capital, and built marketing stacks inside companies you've heard of. No layers. No handoffs.</p>
+      </div>
+      <div class="team__grid stagger">
+
+        <div class="partner reveal">
+          <div class="partner__head">
+            <div class="partner__avatar"><img src="Headshots/Eric.png" alt="Eric" loading="lazy" width="72" height="72"></div>
+            <div class="partner__id">
+              <h3>Eric</h3>
+              <p>Performance Marketing · Capital · International Growth</p>
+            </div>
+          </div>
+          <p class="partner__summary">A decade in performance marketing, with <strong>$100M+ in ad spend</strong> deployed across brands in dozens of industries, plus paid media leadership that has helped growth-stage companies raise capital.</p>
+          <button class="partner__toggle" type="button" aria-expanded="false">
+            <span class="partner__toggle-label">Read full bio</span>
+            <svg class="partner__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="partner__detail">
+            <div class="partner__detail-inner">
+              <ul class="partner__bullets">
+                <li><strong>10+ years in performance marketing</strong> across capital raises, DTC, lead gen, digital products, retail, crowdfunding, and subscription. Ad spend deployed on Meta, Google, TikTok, and programmatic.</li>
+                <li><strong>Drove the paid media behind $100M+ in capital raised</strong> for growth-stage companies across AI, robotics, consumer, hospitality, real estate, healthcare, and sports.</li>
+                <li><strong>Former CMO of a Tokyo-based marketing agency.</strong> Led international growth into the Asian digital asset market and built distribution across APAC.</li>
+                <li><strong>Built AI workflows across the entire marketing stack:</strong> creative production, lead scoring, content engines, custom agents, and reporting automation.</li>
+              </ul>
+              <div class="partner__track">
+                <p class="partner__track-label">Where I've driven growth</p>
+                <ul class="partner__track-list">
+                  <li><strong>DealMaker &amp; Loblaw.</strong> Ran paid media across DealMaker's client brands and Loblaw's in-house portfolio, managing budgets of up to <strong>$200K/day</strong>.</li>
+                  <li><strong>Equity crowdfunding.</strong> Owned the paid media side of seven-figure equity crowdfunding campaigns for growth-stage companies like Doroni, Miso Robotics, Death &amp; Co, and Surf Lakes, sustaining <strong>400%+ returns</strong>.</li>
+                  <li><strong>Top DTC brands.</strong> Partnered with leading consumer brands including Four Sigmatic and Fiera Cosmetics to expand into new geographies and scale onto emerging paid channels like Pinterest and TikTok.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="partner reveal">
+          <div class="partner__head">
+            <div class="partner__avatar"><img src="Headshots/Rob.png" alt="Rob" loading="lazy" width="72" height="72"></div>
+            <div class="partner__id">
+              <h3>Rob</h3>
+              <p>Specialty Finance · Demand Systems · Fractional CMO</p>
+            </div>
+          </div>
+          <p class="partner__summary">A decade in regulated finance marketing with <strong>$20M+ in paid media managed</strong> and full demand stacks owned for category-defining lenders and financial services firms.</p>
+          <button class="partner__toggle" type="button" aria-expanded="false">
+            <span class="partner__toggle-label">Read full bio</span>
+            <svg class="partner__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="partner__detail">
+            <div class="partner__detail-inner">
+              <ul class="partner__bullets">
+                <li><strong>10+ years in performance marketing</strong> with deep specialization in specialty finance, non-bank lending, wealth planning, and financial services. Regulated verticals where most agencies can't or won't operate.</li>
+                <li><strong>$20M+ in paid media managed</strong> across Google, Meta, LinkedIn, and programmatic for category-defining lenders and financial services firms, where compliance and creative both have to land.</li>
+                <li><strong>Fractional CMO</strong> for growth-stage specialty lenders, owning the full demand stack: paid acquisition, Salesforce/Pardot, lifecycle email, CRM integration, and attribution.</li>
+                <li><strong>Custom AI workflows and agents</strong> that compress weeks of work into hours: automated content production, predictive lead scoring, segmentation, and campaign analysis. Plus vertical-specific lead-gen tools that double as demand drivers.</li>
+              </ul>
+              <div class="partner__track">
+                <p class="partner__track-label">Where I've driven growth</p>
+                <ul class="partner__track-list">
+                  <li><strong>Specialty lenders &amp; non-bank finance.</strong> Built and ran the full acquisition stack for category-defining lenders in highly regulated markets.</li>
+                  <li><strong>Wealth, legal &amp; professional services.</strong> Owned demand generation and lifecycle systems for firms where compliance and creative both have to land.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials" hidden>
+    <div class="container">
+      <div class="testimonials__header reveal">
+        <p class="section-label">Client Results</p>
+        <h2>What it looks like when senior operators run your stack.</h2>
+      </div>
+      <div class="testimonials__grid stagger">
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">2.4x</div>
+          <div class="testimonial__stat-label">Marketing pipeline in 90 days</div>
+          <p class="testimonial__quote">"Within 90 days they rebuilt our entire paid funnel, cleaned up our HubSpot routing, and pushed marketing-sourced pipeline up 2.4x. The weekly Slack updates are the first agency reporting I've actually read."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">MH</div>
+            <div class="testimonial__author-id">
+              <strong>Marcus Hale</strong>
+              <span>VP Marketing, Aperion Software</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">40%</div>
+          <div class="testimonial__stat-label">More creative shipped, monthly</div>
+          <p class="testimonial__quote">"Every agency we talked to bounced the moment they saw the word 'lender.' ClickDose Labs came in with a compliance-first creative process and we now ship 40% more ad variations a month while staying clean with legal."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">DR</div>
+            <div class="testimonial__author-id">
+              <strong>Diana Reyes</strong>
+              <span>CMO, Northbridge Capital</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">-38%</div>
+          <div class="testimonial__stat-label">Blended CAC, Q1</div>
+          <p class="testimonial__quote">"They cut our blended CAC by 38% in the first quarter and built an AI workflow that pumps out thirty ad concepts a week. Our internal team got their evenings back and our growth chart got steeper."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">JO</div>
+            <div class="testimonial__author-id">
+              <strong>James Okafor</strong>
+              <span>Founder, Halson Goods</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing__header reveal">
+        <p class="section-label">Packages</p>
+        <h2>Three engagements. No surprises.</h2>
+        <p class="pricing__lede">Choose the depth of partnership. All packages start with a 90-day sprint, then move to month-to-month. Cancel any time after that. We'd rather you stay because it's working.</p>
+      </div>
+      <div class="pricing__grid">
+
+        <div class="tier reveal">
+          <div class="tier__name">Consulting</div>
+          <div class="tier__title">Strategy and Systems</div>
+          <p class="tier__pitch">For in-house teams that need senior strategic firepower without giving up execution.</p>
+          <div class="tier__price tier__price--custom">
+            <span class="tier__price-amount">Let's talk</span>
+            <span class="tier__price-period">scoped to your needs</span>
+          </div>
+          <ul class="tier__features">
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Growth strategy and roadmap</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Templates, SOPs, and playbooks</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Workflow design and tool stack review</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Bi-weekly strategy sessions</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Slack access for async questions</li>
+          </ul>
+          <a href="#book" class="btn btn--outline tier__cta">Start consulting</a>
+          <p class="tier__note">3-month minimum</p>
+        </div>
+
+        <div class="tier tier--featured reveal">
+          <div class="tier__badge">Most Popular</div>
+          <div class="tier__name">Full Service</div>
+          <div class="tier__title">Embedded Growth Partner</div>
+          <p class="tier__pitch">The full demand stack, built, run, and optimized by senior partners as if we were on your cap table.</p>
+          <div class="tier__price tier__price--custom">
+            <span class="tier__price-amount">Let's talk</span>
+            <span class="tier__price-period">scoped to your stage</span>
+          </div>
+          <ul class="tier__features">
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Creative production, video and statics</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Full-funnel paid media management</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lifecycle email and marketing automation</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Landing pages, advertorials, and funnels</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> CRM management and lead routing</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> AI implementation across the stack</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Custom AI agents and proprietary tools</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lead-gen asset development</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Live reporting dashboard</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Dedicated Slack channel</li>
+          </ul>
+          <a href="#book" class="btn btn--primary tier__cta">Apply for full service</a>
+          <p class="tier__note">90-day initial sprint, then monthly</p>
+        </div>
+
+        <div class="tier reveal">
+          <div class="tier__name">Part Service</div>
+          <div class="tier__title">Targeted Execution</div>
+          <p class="tier__pitch">Already have internal capability? Pick the two or three pillars where you need senior operators most.</p>
+          <div class="tier__price tier__price--custom">
+            <span class="tier__price-amount">Let's talk</span>
+            <span class="tier__price-period">scoped to your needs</span>
+          </div>
+          <ul class="tier__features">
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Choose 2–3 service pillars</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Senior partner-led execution</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Weekly optimization sprints</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Live reporting dashboard</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Dedicated Slack channel</li>
+          </ul>
+          <a href="#book" class="btn btn--outline tier__cta">Discuss scope</a>
+          <p class="tier__note">90-day initial sprint, then monthly</p>
+        </div>
+
+      </div>
+      <p class="pricing__addspend reveal"><strong>Ad spend is separate</strong> and goes directly to the platforms (Meta, Google, LinkedIn, etc.). We don't markup media. Typical clients run $25K to $250K per month in paid budget. We'll tell you what's right for your stage on the call.</p>
+    </div>
+  </section>
+
+  <!-- FIT CHECK -->
+  <section class="fit" id="fit">
+    <div class="container">
+      <div class="fit__header">
+        <p class="section-label section-label--muted reveal">Fit Check</p>
+        <h2 class="reveal">We're not for everyone. That's the point.</h2>
+      </div>
+      <div class="fit__columns">
+        <div class="fit__col fit__col--yes stagger">
+          <h3 class="reveal">This is for you if...</h3>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You're a growth-stage or mid-market company spending $25K+/month on paid media</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You want senior operators on your business, not handed off to an account exec pool</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You need an embedded growth partner, not a vendor that disappears after onboarding</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You want AI built into your stack as a leverage point, not as a marketing buzzword</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You want to own your accounts, your data, and your strategy</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You're ready to invest in systems that compound, not one-off campaigns</span>
+          </div>
+        </div>
+        <div class="fit__col fit__col--no stagger">
+          <h3 class="reveal">This is NOT for you if...</h3>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You want guaranteed rankings or "10x ROAS in 30 days"</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You're looking for the cheapest option in the market</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You want to approve every single creative before it runs</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You need a full-service brand agency. We do growth, not brand awareness</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You're not yet ready to invest meaningful budget into paid media</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="book">
+    <div class="container">
+      <h2 class="reveal">Stop paying for theater.<br>Start compounding growth.</h2>
+      <p class="final-cta__sub reveal">A 30-minute call with a partner. No pitch deck. No pressure. Just an honest look at where you're leaving money on the table, and what we'd do about it.</p>
+      <a href="#" class="btn btn--primary btn--lg reveal">Book a Strategy Call</a>
+      <p class="final-cta__escape reveal">Or email us directly: <a href="mailto:hello@clickdose.com">hello@clickdose.com</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="/" class="footer__logo">
+          <img src="assets/clickdose-labs.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
+        </a>
+        <div class="footer__links">
+          <a href="#services">Services</a>
+          <a href="#ai">AI</a>
+          <a href="#team">Team</a>
+          <!-- <a href="#testimonials">Results</a> --><!-- hidden while Client Results section is off -->
+          <a href="#pricing">Packages</a>
+          <a href="#book">Book a Call</a>
+        </div>
+        <div class="footer__right footer__social">
+          <a href="#" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 ClickDose Labs. Growth with every dose.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var nav = document.getElementById('nav');
+      function handleNavScroll() {
+        if (window.scrollY > 40) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+      handleNavScroll();
+
+      var revealElements = document.querySelectorAll('.reveal');
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -60px 0px'
+      });
+
+      revealElements.forEach(function(el) {
+        revealObserver.observe(el);
+      });
+
+      function animateCounter(el, target, duration) {
+        duration = duration || 2000;
+        var start = performance.now();
+        var suffix = el.dataset.suffix || '';
+        var prefix = el.dataset.prefix || '';
+        function update(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.round(target * eased);
+          el.textContent = prefix + current.toLocaleString() + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      }
+
+      var statsBar = document.getElementById('stats-bar');
+      var countersTriggered = false;
+      if (statsBar) {
+        var statsObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && !countersTriggered) {
+              countersTriggered = true;
+              var counters = statsBar.querySelectorAll('.credibility__number');
+              counters.forEach(function(el) {
+                var target = parseInt(el.dataset.target, 10);
+                if (target > 0) {
+                  animateCounter(el, target, 2000);
+                }
+              });
+            }
+          });
+        }, { threshold: 0.4 });
+        statsObserver.observe(statsBar);
+      }
+
+      // Partner bio dropdowns
+      var partnerToggles = document.querySelectorAll('.partner__toggle');
+      partnerToggles.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var card = btn.closest('.partner');
+          var open = card.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          var label = btn.querySelector('.partner__toggle-label');
+          if (label) { label.textContent = open ? 'Show less' : 'Read full bio'; }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

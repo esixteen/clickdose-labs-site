@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Done-for-you outbound cold email lead generation. We build AI-targeted lead lists in Clay, warm dedicated sending infrastructure in Smartlead, and run AI-personalized campaigns that book qualified meetings, fully managed by senior operators.">
+  <title>Cold Email Lead Generation · ClickDose Labs | AI-Built Lists, Inbox-Ready Infrastructure, Booked Meetings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    /* ============ Page-specific sections ============ */
+    .section { padding: var(--section-padding) 0; }
+    .section--alt { background: var(--color-bg-alt); }
+    .section__head { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
+    .section__head--left { text-align: left; margin-left: 0; }
+    .section__head h2 { font-size: var(--h2-size); }
+    .section__head p { color: var(--color-text-soft); font-size: var(--body-lg); margin-top: 1rem; line-height: 1.6; }
+
+    /* ---- HERO ---- */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      padding: calc(var(--nav-height) + clamp(4rem, 10vw, 7rem)) 0 clamp(4rem, 9vw, 7rem);
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(0, 201, 167, 0.16), transparent 60%);
+      filter: blur(20px);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero__content { max-width: 860px; margin: 0 auto; }
+    .page-hero h1 { font-size: var(--h1-size); letter-spacing: -0.02em; }
+    .page-hero__highlight { position: relative; color: var(--color-accent); white-space: nowrap; }
+    .page-hero__highlight::after {
+      content: '';
+      position: absolute; left: 0; right: 0; bottom: 0.08em;
+      height: 0.16em;
+      background: var(--color-accent-tint);
+      z-index: -1;
+      border-radius: 2px;
+    }
+    .page-hero__sub {
+      font-size: var(--body-lg);
+      color: var(--color-text-soft);
+      max-width: 680px;
+      margin: 1.5rem auto 0;
+      line-height: 1.6;
+    }
+    .page-hero__ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2.25rem;
+      flex-wrap: wrap;
+    }
+    .page-hero__proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+    }
+    .page-hero__proof span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .page-hero__proof .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
+
+    /* ---- VALUE PROP ---- */
+    .vp__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 2.5rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .vp__item {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+    .vp__check {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--color-accent-tint);
+      color: var(--color-accent);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .vp__check svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 3; fill: none; }
+    .vp__item span { font-size: var(--body-size); color: var(--color-text-soft); font-weight: 500; }
+
+    /* ---- WHO ---- */
+    .who__list { max-width: 760px; margin: 0 auto; display: grid; gap: 1rem; }
+    .who__item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.6rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .who__num {
+      flex-shrink: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--color-accent);
+      font-size: 1.05rem;
+    }
+    .who__item p { color: var(--color-text-soft); font-size: var(--body-size); }
+
+    /* ---- TIMELINE (Your First 90 Days) ---- */
+    .timeline {
+      display: grid;
+      gap: 1.1rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .phase {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.85rem 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    .phase:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .phase__meta {
+      border-right: 1px solid var(--color-border-soft);
+      padding-right: 1.5rem;
+    }
+    .phase__num {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+    .phase__days {
+      font-family: var(--font-display);
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-top: 0.35rem;
+      line-height: 1.1;
+    }
+    .phase__days small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      letter-spacing: 0;
+      margin-top: 0.3rem;
+      text-transform: none;
+    }
+    .phase__body h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+    .phase__body h3 .tool {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-tint);
+      border-radius: 4px;
+      padding: 0.15rem 0.45rem;
+      vertical-align: middle;
+      margin-left: 0.4rem;
+    }
+    .phase__body p {
+      color: var(--color-text-soft);
+      font-size: var(--body-sm);
+      line-height: 1.6;
+    }
+    .phase__deliverables {
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--color-border-soft);
+    }
+    .phase__deliverables-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.55rem;
+    }
+    .phase__deliverables ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .phase__deliverables li {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text-soft);
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border-soft);
+      border-radius: 6px;
+      padding: 0.3rem 0.6rem;
+    }
+
+    /* ---- SYSTEM ---- */
+    .system__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .system__card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .system__card h3 { font-size: 1.0625rem; margin-bottom: 0.5rem; }
+    .system__card p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.6; }
+
+    /* ---- COMPARE ---- */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .compare__col {
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--color-border);
+    }
+    .compare__col--bad { background: var(--color-surface); }
+    .compare__col--good { background: var(--color-dark); border-color: var(--color-dark); }
+    .compare__col h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+    .compare__col--good h3 { color: #fff; border-bottom-color: rgba(255,255,255,0.1); }
+    .compare__row {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      padding: 0.7rem 0;
+      font-size: var(--body-sm);
+    }
+    .compare__col--bad .compare__row { color: var(--color-muted); }
+    .compare__col--good .compare__row { color: rgba(255,255,255,0.82); }
+    .compare__icon { flex-shrink: 0; width: 18px; height: 18px; stroke-width: 2.5; fill: none; margin-top: 2px; }
+    .compare__col--bad .compare__icon { stroke: var(--color-danger); }
+    .compare__col--good .compare__icon { stroke: var(--color-accent-light); }
+
+    /* ---- INCLUDED ---- */
+    .included__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .included__item {
+      display: flex; gap: 0.85rem; align-items: flex-start;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+    .included__check {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px;
+      background: var(--color-accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .included__check svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 3.5; fill: none; }
+    .included__item span { font-size: var(--body-size); color: var(--color-text-soft); font-weight: 500; }
+
+    /* ---- COMMITMENT ---- */
+    .commitment { background: var(--color-bg-alt); }
+    .commitment__card {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(2.5rem, 5vw, 3.5rem);
+      box-shadow: var(--shadow-md);
+    }
+    .commitment__icon {
+      width: 56px; height: 56px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: var(--color-accent-tint);
+      color: var(--color-accent);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .commitment__icon svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 2; fill: none; }
+    .commitment__card h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem; }
+    .commitment__list {
+      list-style: none;
+      padding: 0;
+      margin: 1.75rem auto 0;
+      max-width: 600px;
+      text-align: left;
+    }
+    .commitment__list li {
+      position: relative;
+      padding: 1rem 0 1rem 2.25rem;
+      border-bottom: 1px solid var(--color-border-soft);
+      color: var(--color-text-soft);
+      font-size: var(--body-size);
+      line-height: 1.6;
+    }
+    .commitment__list li:last-child { border-bottom: none; }
+    .commitment__list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 1.3rem;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--color-accent-tint);
+      border: 2px solid var(--color-accent);
+    }
+
+    /* ---- FAQ ---- */
+    .faq__list { max-width: 760px; margin: 0 auto; }
+    .faq__item { border-bottom: 1px solid var(--color-border); }
+    .faq__q {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      background: none; border: none; cursor: pointer;
+      text-align: left;
+      padding: 1.5rem 0;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.0625rem;
+      color: var(--color-text);
+    }
+    .faq__q svg { flex-shrink: 0; width: 20px; height: 20px; stroke: var(--color-accent); stroke-width: 2.5; fill: none; transition: transform 0.3s var(--ease-out-expo); }
+    .faq__item.open .faq__q svg { transform: rotate(45deg); }
+    .faq__a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-out-expo); }
+    .faq__a p { padding: 0 0 1.5rem; color: var(--color-text-soft); font-size: var(--body-size); line-height: 1.65; }
+
+    /* ---- FINAL CTA ---- */
+    .final {
+      background: var(--color-dark);
+      text-align: center;
+      padding: clamp(5rem, 9vw, 7rem) 0;
+    }
+    .final h2 { color: #fff; font-size: var(--h2-size); }
+    .final p { color: rgba(255,255,255,0.7); font-size: var(--body-lg); max-width: 600px; margin: 1.25rem auto 2.25rem; line-height: 1.6; }
+    .final__escape { font-size: var(--body-sm); color: rgba(255,255,255,0.5); margin-top: 1.5rem; }
+    .final__escape a { color: var(--color-accent-light); }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .vp__grid, .system__grid, .compare, .included__grid { grid-template-columns: 1fr; }
+      .phase { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.5rem 1.5rem; }
+      .phase__meta { border-right: none; border-bottom: 1px solid var(--color-border-soft); padding-right: 0; padding-bottom: 0.85rem; }
+      .section__head { margin-bottom: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <img src="../../Logos/ClickDose Logo Black Text.png" alt="ClickDose Labs" width="140" height="32">
+      </a>
+      <div class="nav__links">
+        <div class="nav__dropdown" tabindex="0">
+          <span class="nav__dropdown-trigger">Services
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+          <div class="nav__menu">
+            <a class="nav__menu-item" href="#hero">
+              <h4>Cold Email Lead Generation</h4>
+              <p>AI-built lists, warmed inboxes, booked meetings.</p>
+            </a>
+            <div class="nav__menu-item nav__menu-item--soon">
+              <h4>Paid Media <span class="nav__menu-tag">Soon</span></h4>
+              <p>Full-funnel campaigns that answer to revenue.</p>
+            </div>
+            <div class="nav__menu-item nav__menu-item--soon">
+              <h4>Conversion Pages &amp; Funnels <span class="nav__menu-tag">Soon</span></h4>
+              <p>CRO-driven landing pages and sales funnels.</p>
+            </div>
+            <div class="nav__menu-item nav__menu-item--soon">
+              <h4>Lifecycle Email &amp; CRM <span class="nav__menu-tag">Soon</span></h4>
+              <p>Nurture and automation wired to close.</p>
+            </div>
+          </div>
+        </div>
+        <a href="../index.html#ai">AI</a>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#testimonials">Results</a>
+        <a href="../index.html#pricing">Packages</a>
+      </div>
+      <div class="nav__cta">
+        <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero" id="hero">
+    <div class="container">
+      <div class="page-hero__content">
+        <p class="section-label">Outbound Cold Email · Powered by AI</p>
+        <h1>Turn cold email into your most <span class="page-hero__highlight">predictable</span> pipeline channel.</h1>
+        <p class="page-hero__sub">We build the lists, warm the inboxes, and run AI-personalized campaigns that book qualified meetings on your calendar. Powered by Clay and Smartlead, fully managed by senior operators. You own every domain. You just take the calls.</p>
+        <div class="page-hero__ctas">
+          <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
+          <a href="#how" class="btn btn--outline btn--lg">See How It Works</a>
+        </div>
+        <p class="page-hero__proof">
+          <span><span class="dot"></span> AI-built lead lists</span>
+          <span><span class="dot"></span> Inbox-placement infrastructure</span>
+          <span><span class="dot"></span> You own every domain &amp; inbox</span>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- VALUE PROP -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">The Offer</p>
+        <h2>We build and run the outbound engine. You take the meetings.</h2>
+        <p>Hiring and managing an SDR team is slow and expensive. Most of the work isn't even selling. It's list-building, inbox setup, and chasing deliverability. We hand you the output of that team, without the payroll or the ramp time.</p>
+      </div>
+      <div class="vp__grid stagger">
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Qualified meetings booked directly on your calendar</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Hyper-targeted lead lists built with AI, not scraped junk</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Dedicated sending domains and inboxes, warmed and protected</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>AI-personalized copy crafted per lead, tested for replies not opens</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Weekly reporting tied to meetings booked, not vanity metrics</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>No long ramp, no headcount, no management overhead</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label section-label--muted">Who This Is For</p>
+        <h2>Built for B2B teams that can close, and just need more at-bats.</h2>
+      </div>
+      <div class="who__list stagger">
+        <div class="who__item reveal"><span class="who__num">01</span><p>You sell a B2B product or service with a clear ideal customer and a deal size that justifies outbound.</p></div>
+        <div class="who__item reveal"><span class="who__num">02</span><p>Your bottleneck is pipeline, not closing. You can handle more qualified sales conversations than you're getting today.</p></div>
+        <div class="who__item reveal"><span class="who__num">03</span><p>You want a predictable flow of booked meetings without hiring, training, and managing an SDR team.</p></div>
+        <div class="who__item reveal"><span class="who__num">04</span><p>You're ready to run a real outbound setup, with dedicated domains and inboxes, and let senior operators handle it end to end.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR FIRST 90 DAYS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">From Setup to Scale</p>
+        <h2>Your first 90 days, mapped to the day.</h2>
+        <p>A repeatable system, not a one-off blast. Here's exactly what we build and run on your behalf, week by week.</p>
+      </div>
+
+      <div class="timeline stagger">
+
+        <div class="phase reveal">
+          <div class="phase__meta">
+            <div class="phase__num">Phase 01</div>
+            <div class="phase__days">Days 1-7<small>Strategy &amp; ICP</small></div>
+          </div>
+          <div class="phase__body">
+            <h3>Define who you're going after, and why they should care.</h3>
+            <p>Kickoff, ICP definition, offer and positioning review, messaging strategy, and KPI alignment. We build the blueprint your campaigns will run on, so nothing later is built on guesswork.</p>
+            <div class="phase__deliverables">
+              <span class="phase__deliverables-label">Deliverables</span>
+              <ul>
+                <li>ICP &amp; account criteria</li>
+                <li>Offer audit</li>
+                <li>Messaging angles</li>
+                <li>KPI &amp; reporting plan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase reveal">
+          <div class="phase__meta">
+            <div class="phase__num">Phase 02</div>
+            <div class="phase__days">Days 7-21<small>Infrastructure</small></div>
+          </div>
+          <div class="phase__body">
+            <h3>Build the sending stack <span class="tool">Smartlead</span></h3>
+            <p>We register dedicated sending domains, set up inboxes, and configure SPF, DKIM, and DMARC the right way. Warmup starts in Smartlead so your reputation is climbing while we build everything else.</p>
+            <div class="phase__deliverables">
+              <span class="phase__deliverables-label">Deliverables</span>
+              <ul>
+                <li>Dedicated domains</li>
+                <li>Inboxes provisioned</li>
+                <li>SPF / DKIM / DMARC</li>
+                <li>Warmup running</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase reveal">
+          <div class="phase__meta">
+            <div class="phase__num">Phase 03</div>
+            <div class="phase__days">Days 14-35<small>Lists &amp; AI Copy</small></div>
+          </div>
+          <div class="phase__body">
+            <h3>AI-built lists. AI-personalized copy. <span class="tool">Clay</span></h3>
+            <p>We build and enrich targeted lead lists in Clay, verify every email, and segment by intent. Then our AI implementation generates a custom opening line for each lead, drawn from what we know about them (their role, company, signals, recent activity), so every message reads like it was written for one person.</p>
+            <div class="phase__deliverables">
+              <span class="phase__deliverables-label">Deliverables</span>
+              <ul>
+                <li>Enriched, verified lists</li>
+                <li>Intent segmentation</li>
+                <li>AI-personalized sequences</li>
+                <li>A/B-tested angles</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase reveal">
+          <div class="phase__meta">
+            <div class="phase__num">Phase 04</div>
+            <div class="phase__days">Days 35-60<small>Launch &amp; Ramp</small></div>
+          </div>
+          <div class="phase__body">
+            <h3>Live campaigns, throttled and rotated.</h3>
+            <p>Sequences go live in Smartlead. Sends are throttled and rotated across inboxes to protect deliverability. Replies route into your inbox, meetings start booking, and we report weekly on what's working and what we're changing.</p>
+            <div class="phase__deliverables">
+              <span class="phase__deliverables-label">Deliverables</span>
+              <ul>
+                <li>Campaigns live</li>
+                <li>Reply routing</li>
+                <li>Weekly reporting</li>
+                <li>Meetings booked</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase reveal">
+          <div class="phase__meta">
+            <div class="phase__num">Phase 05</div>
+            <div class="phase__days">Days 60-90<small>Optimize &amp; Scale</small></div>
+          </div>
+          <div class="phase__body">
+            <h3>Double down on what books meetings.</h3>
+            <p>We read the reply data every week, cut what's flat, double down on the angles booking calls, and add domains and inboxes to scale volume safely. By day 90 you have a tuned, scalable channel, not a one-off campaign.</p>
+            <div class="phase__deliverables">
+              <span class="phase__deliverables-label">Deliverables</span>
+              <ul>
+                <li>Winning angles scaled</li>
+                <li>New domains added</li>
+                <li>Volume ramped safely</li>
+                <li>Pipeline projection</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SYSTEM -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label section-label--muted">The System</p>
+        <h2>Why our emails land in the inbox, not the spam folder.</h2>
+        <p>Most cold email fails on one thing: deliverability. You can have a perfect list and perfect copy, but if you land in spam, none of it matters. Here's how we engineer inbox placement.</p>
+      </div>
+      <div class="system__grid stagger">
+        <div class="system__card reveal">
+          <h3>AI list-building in Clay</h3>
+          <p>Waterfall enrichment pulls the right contacts from multiple data sources, and every email is verified and bounce-checked before a single message goes out.</p>
+        </div>
+        <div class="system__card reveal">
+          <h3>Dedicated domains &amp; inboxes</h3>
+          <p>We send from separate domains built for outbound, never your primary domain. Your main company email reputation stays protected no matter what.</p>
+        </div>
+        <div class="system__card reveal">
+          <h3>Real inbox warmup</h3>
+          <p>Smartlead warms every inbox over weeks and keeps warming in the background, building the sender reputation that gets you into the inbox and keeps you there.</p>
+        </div>
+        <div class="system__card reveal">
+          <h3>Throttled, rotated sending</h3>
+          <p>Human-like send volumes, spread across inboxes and ramped gradually. Campaigns scale without tripping spam filters or torching deliverability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CLICKDOSE -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">The Difference</p>
+        <h2>Most outbound fails the same few ways. We fixed each one.</h2>
+      </div>
+      <div class="compare">
+        <div class="compare__col compare__col--bad reveal">
+          <h3>The usual way</h3>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Months to hire, onboard, and ramp an SDR before a single email goes out.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Risky sending from your primary domain. One bad campaign burns your reputation.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Scraped, stale lists and spray-and-pray sending that bounces.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Reports full of opens and sends. Metrics that don't pay the bills.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>"Set and forget" agency that disappears after onboarding.</span></div>
+        </div>
+        <div class="compare__col compare__col--good reveal">
+          <h3>With ClickDose</h3>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Live campaigns in weeks. No headcount, no ramp, no management.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Dedicated, warmed domains keep your primary domain untouched and safe.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>AI-built, verified, intent-segmented lists. Quality over volume.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Reported on the only metric that matters: qualified meetings booked.</span></div>
+          <div class="compare__row"><svg class="compare__icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Weekly optimization by a senior operator on your account.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label section-label--muted">What's Included</p>
+        <h2>Everything you need to run outbound, done for you.</h2>
+      </div>
+      <div class="included__grid stagger">
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>ICP definition &amp; messaging strategy</span></div>
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>AI-built, verified lead lists (Clay)</span></div>
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>AI-personalized copy generated per lead</span></div>
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Dedicated sending domains &amp; inboxes</span></div>
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Full inbox warmup &amp; deliverability monitoring (Smartlead)</span></div>
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Daily sending, reply routing &amp; inbox management</span></div>
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Weekly reporting on meetings booked</span></div>
+        <div class="included__item reveal"><span class="included__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>A senior operator on your account, never a junior</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMITMENT -->
+  <section class="section commitment">
+    <div class="container">
+      <div class="commitment__card reveal">
+        <div class="commitment__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p class="section-label" style="text-align:center;">Our Commitment</p>
+        <h2>What every account gets. No exceptions.</h2>
+        <ul class="commitment__list">
+          <li><strong>A senior operator on your account every week.</strong> Reading your reply data, shipping changes based on what's actually working. Never an autopilot account. Never a junior.</li>
+          <li><strong>Your primary domain stays untouched.</strong> We send from dedicated infrastructure built for outbound, so your company's email reputation is protected no matter what runs.</li>
+          <li><strong>An honest read on the strategy call.</strong> If we don't believe we can move the needle for your offer, we will tell you before either of us commits. We only take on accounts we can deliver for.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">Questions</p>
+        <h2>The things smart buyers ask first.</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <button class="faq__q">Will this hurt my company's domain reputation?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a"><p>No. We never send from your primary domain. We register and warm dedicated sending domains built specifically for outbound, so your main company email, the one your customers and prospects already trust, stays completely protected.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">How soon will we start seeing meetings booked?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a"><p>Domain and inbox warmup takes a few weeks before we send at volume. Rushing this is what lands you in spam. Once campaigns are live, replies and booked meetings build from there as we optimize. We trade a slightly slower start for deliverability that actually lasts.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Who writes the email copy?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a"><p>We do. We write the angles, sequences, and follow-ups, and our AI implementation generates a custom opening line for each lead based on what we know about them. You'll review and approve the messaging before anything goes live, and we tune it based on real reply data, not guesses.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">What do you need from us to get started?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a"><p>A clear picture of your ideal customer and your offer, and a calendar to route booked meetings to. We handle the rest: domains, inboxes, list-building, copy, sending, and reporting.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">Is cold email even compliant?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a"><p>Done right, yes. We target relevant business contacts, include clear identification and opt-out handling, and follow the rules that apply to commercial email. Targeted, relevant outreach to the right people is the opposite of spam.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q">What does it cost?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a"><p>It depends on your target volume and how many domains and inboxes we run. We scope it on a short strategy call once we understand your ICP and goals. Book one below and we'll map it out together.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="book">
+    <div class="container">
+      <h2 class="reveal">Ready to make cold email<br>your most predictable channel?</h2>
+      <p class="reveal">A 30-minute call with a senior operator. We'll map your ICP, your numbers, and exactly what we'd build to start booking meetings. No pitch deck, no pressure.</p>
+      <a href="#" class="btn btn--primary btn--lg reveal">Book a Strategy Call</a>
+      <p class="final__escape reveal">Or email us directly: <a href="mailto:hello@clickdose.com">hello@clickdose.com</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo">
+          <img src="../../Logos/ClickDose Logo White Text.png" alt="ClickDose Labs" loading="lazy" width="120" height="28">
+        </a>
+        <div class="footer__links">
+          <a href="#hero">Cold Email</a>
+          <a href="../index.html#ai">AI</a>
+          <a href="../index.html#team">Team</a>
+          <a href="../index.html#testimonials">Results</a>
+          <a href="../index.html#pricing">Packages</a>
+          <a href="#book">Book a Call</a>
+        </div>
+        <div class="footer__right footer__social">
+          <a href="#" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 ClickDose Labs. Growth with every dose.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var nav = document.getElementById('nav');
+      function handleNavScroll() {
+        if (window.scrollY > 40) { nav.classList.add('scrolled'); }
+        else { nav.classList.remove('scrolled'); }
+      }
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+      handleNavScroll();
+
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq__q').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.parentElement;
+          var answer = btn.nextElementSibling;
+          var isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq__item.open').forEach(function(openItem) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq__a').style.maxHeight = null;
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
