@@ -834,6 +834,7 @@
         el.setAttribute("data-cal-namespace", "intro");
         el.setAttribute("data-cal-link", "team/clickdose-labs/intro");
         el.setAttribute("data-cal-config", '{"layout":"month_view"}');
+        el.addEventListener("click", function (e) { e.preventDefault(); });
       });
     });
 
