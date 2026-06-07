@@ -826,7 +826,7 @@
     Cal("init", "intro", { origin: "https://cal.com" });
 
     // Prefetch the booking page so the popup opens instantly instead of loading on click
-    Cal.ns.intro("preload", { calLink: "team/clickdose-labs/intro" });
+    Cal.ns.intro("preload", { calLink: "team/clickdose-labs/intro", type: "modal" });
 
     // Tag every "Book a Call" button so Cal opens it as a popup
     document.addEventListener("DOMContentLoaded", function () {
