@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eric Sciberras is a growth marketer with 10+ years and $100M+ in managed paid media. AI-native builder who ships his own marketing tools with Claude Code, Higgsfield, Clay, and Vercel. Partner at ClickDose Labs.">
+  <title>Eric Sciberras · Growth Marketer & AI-Native Builder | ClickDose Labs</title>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://clickdoselabs.com/eric-sciberras/">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#00C9A7">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="ClickDose Labs">
+  <meta property="og:url" content="https://clickdoselabs.com/eric-sciberras/">
+  <meta property="og:title" content="Eric Sciberras · Growth Marketer & AI-Native Builder">
+  <meta property="og:description" content="10+ years, $100M+ in managed paid media, and an AI-native builder shipping his own marketing tools with Claude Code.">
+  <meta property="og:image" content="https://clickdoselabs.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eric Sciberras · Growth Marketer & AI-Native Builder">
+  <meta name="twitter:description" content="10+ years, $100M+ in managed paid media, and an AI-native builder shipping his own marketing tools with Claude Code.">
+  <meta name="twitter:image" content="https://clickdoselabs.com/assets/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles.css">
+  <style>
+    .section { padding: var(--section-padding) 0; }
+    .section--alt { background: var(--color-bg-alt); }
+    .section__head { max-width: 720px; margin: 0 auto 3rem; text-align: center; }
+    .section__head h2 { font-size: var(--h2-size); }
+    .section__head p { color: var(--color-text-soft); font-size: var(--body-lg); margin-top: 1rem; }
+
+    /* ---- HERO ---- */
+    .profile-hero {
+      position: relative; overflow: hidden;
+      padding: calc(var(--nav-height) + clamp(3rem, 8vw, 5.5rem)) 0 clamp(3rem, 7vw, 5rem);
+    }
+    .profile-hero::before {
+      content: ''; position: absolute; top: -25%; left: 60%;
+      transform: translateX(-50%); width: 820px; height: 560px;
+      background: radial-gradient(ellipse at center, rgba(0,201,167,.15), transparent 60%);
+      filter: blur(20px); z-index: 0;
+    }
+    .profile-hero__inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 200px 1fr; gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+    .profile-hero__photo {
+      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+      border: 4px solid var(--color-surface); box-shadow: var(--shadow-lg);
+    }
+    .profile-hero .eyebrow {
+      font-size: var(--caption); text-transform: uppercase; letter-spacing: .12em;
+      color: var(--color-accent-hover); font-weight: 600; margin-bottom: .75rem;
+    }
+    .profile-hero h1 { font-size: var(--h1-size); line-height: 1.02; letter-spacing: -.02em; }
+    .profile-hero .role {
+      font-family: var(--font-display); font-size: clamp(1.05rem,2vw,1.3rem);
+      color: var(--color-text-soft); margin-top: .6rem; font-weight: 500;
+    }
+    .profile-hero .lede { color: var(--color-text-soft); font-size: var(--body-lg); margin: 1.25rem 0 1.75rem; max-width: 560px; }
+    .profile-hero__cta { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; }
+    .profile-hero__social { display: flex; gap: .9rem; margin-left: .5rem; }
+    .profile-hero__social a { color: var(--color-muted); transition: color var(--transition-normal); }
+    .profile-hero__social a:hover { color: var(--color-accent-hover); }
+    .profile-hero__social svg { width: 22px; height: 22px; fill: currentColor; }
+
+    /* ---- STATS ---- */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--color-border);
+      border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .stat { background: var(--color-surface); padding: clamp(1.5rem,3vw,2.25rem) 1.25rem; text-align: center; }
+    .stat__num { font-family: var(--font-display); font-size: clamp(1.75rem,3.5vw,2.5rem); font-weight: 700;
+      background: var(--gradient-stats); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat__label { color: var(--color-muted); font-size: var(--body-sm); margin-top: .4rem; }
+
+    /* ---- TRACK RECORD TABLE ---- */
+    .raise-table { width: 100%; border-collapse: collapse; background: var(--color-surface);
+      border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .raise-table th, .raise-table td { padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid var(--color-border-soft); }
+    .raise-table th { font-size: var(--caption); text-transform: uppercase; letter-spacing: .07em; color: var(--color-muted); background: var(--color-bg-alt); }
+    .raise-table td { font-size: var(--body-sm); }
+    .raise-table tr:last-child td { border-bottom: none; }
+    .raise-table .num { font-variant-numeric: tabular-nums; font-weight: 600; }
+    .raise-table .roas { color: var(--color-accent-hover); font-weight: 700; font-variant-numeric: tabular-nums; }
+    .raise-note { color: var(--color-muted); font-size: var(--body-sm); margin-top: 1rem; text-align: center; }
+
+    /* ---- TIMELINE ---- */
+    .timeline { max-width: 820px; margin: 0 auto; }
+    .tl-item { display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--color-border-soft); }
+    .tl-item:first-child { border-top: none; }
+    .tl-when { color: var(--color-muted); font-size: var(--body-sm); font-weight: 500; }
+    .tl-role { font-family: var(--font-display); font-weight: 600; font-size: var(--h3-size); }
+    .tl-co { color: var(--color-accent-hover); }
+    .tl-desc { color: var(--color-text-soft); margin-top: .4rem; font-size: var(--body-sm); }
+
+    /* ---- BUILDS ---- */
+    .builds { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+    .build { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+      padding: 1.5rem; transition: transform var(--transition-normal), box-shadow var(--transition-normal); }
+    .build:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .build h3 { font-family: var(--font-display); font-size: var(--h3-size); }
+    .build p { color: var(--color-text-soft); font-size: var(--body-sm); margin-top: .5rem; }
+    .build a { color: var(--color-accent-hover); font-size: var(--body-sm); font-weight: 600; margin-top: .75rem; display: inline-block; }
+
+    /* ---- CONTACT ---- */
+    .contact-cta { background: var(--color-dark); color: #fff; border-radius: var(--radius-lg); padding: clamp(2.5rem,5vw,4rem); text-align: center; }
+    .contact-cta h2 { font-size: var(--h2-size); color: #fff; }
+    .contact-cta p { color: rgba(255,255,255,.7); font-size: var(--body-lg); margin: 1rem auto 2rem; max-width: 520px; }
+
+    /* ---- NEWSLETTER FEATURE ---- */
+    .newsletter { background: var(--gradient-stats); border-radius: var(--radius-lg); padding: clamp(2.5rem,5vw,4.5rem); text-align: center; box-shadow: var(--shadow-lg); }
+    .newsletter .eyebrow2 { text-transform: uppercase; letter-spacing: .14em; font-size: var(--caption); font-weight: 700; color: #06352c; }
+    .newsletter h2 { font-size: var(--h2-size); margin-top: .6rem; color: #04201b; }
+    .newsletter p { font-size: var(--body-lg); margin: 1rem auto 1.75rem; max-width: 580px; color: #06352c; }
+    .newsletter .btn--ondark { background: #06251f; color: #fff; }
+    .newsletter .btn--ondark:hover { background: #021310; }
+    .newsletter__meta { margin-top: 1.1rem; font-size: var(--body-sm); color: #06352c; opacity: .85; }
+
+    @media (max-width: 720px) {
+      .profile-hero__inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .profile-hero .lede { margin-left: auto; margin-right: auto; }
+      .profile-hero__cta { justify-content: center; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .tl-item { grid-template-columns: 1fr; gap: .35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" width="83" height="44">
+      </a>
+      <div class="nav__links">
+        <div class="nav__dropdown" tabindex="0">
+          <span class="nav__dropdown-trigger">Services
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+          <div class="nav__menu">
+            <a class="nav__menu-item" href="../growth-marketing/">
+              <h4>Growth Marketing</h4>
+              <p>Inbound customer acquisition: paid media + CRO.</p>
+            </a>
+            <a class="nav__menu-item" href="../cold-email/">
+              <h4>Cold Email Lab</h4>
+              <p>Outbound customer acquisition: AI cold email.</p>
+            </a>
+          </div>
+        </div>
+        <a href="../index.html#team">Team</a>
+        <a href="../index.html#pricing">Packages</a>
+      </div>
+      <div class="nav__cta">
+        <a href="#contact" class="btn btn--dark">Get in Touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="profile-hero">
+    <div class="container">
+      <div class="profile-hero__inner">
+        <img class="profile-hero__photo" src="../Headshots/Eric.png" alt="Eric Sciberras" width="200" height="200">
+        <div>
+          <p class="eyebrow">Partner · ClickDose Labs</p>
+          <h1>Eric Sciberras</h1>
+          <p class="role">Growth Marketer · AI-Native Builder</p>
+          <p class="lede">A decade hitting growth targets and managing massive paid media budgets: $100M+ in lifetime ad spend across DTC, lead gen, retail, and capital raises. I'm AI-native. I build my own marketing tools and products with Claude Code, and work fluently with Higgsfield, Clay, and Vercel.</p>
+          <div class="profile-hero__cta">
+            <a href="#contact" class="btn btn--primary btn--lg">Work with me</a>
+            <a href="#track-record" class="btn btn--outline">See the results</a>
+            <span class="profile-hero__social">
+              <a href="https://www.linkedin.com/in/eric-sciberras" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              <a href="https://github.com/esixteen" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+              <a href="https://www.clickdose.com" aria-label="Newsletter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"/><path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"/></svg></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="stats reveal">
+        <div class="stat"><div class="stat__num">$100M+</div><div class="stat__label">Ad spend managed</div></div>
+        <div class="stat"><div class="stat__num">$95M+</div><div class="stat__label">Capital raised (paid media)</div></div>
+        <div class="stat"><div class="stat__num">10+ yrs</div><div class="stat__label">Performance marketing</div></div>
+        <div class="stat"><div class="stat__num">$800K/day</div><div class="stat__label">Peak budgets run</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD -->
+  <section class="section section--alt" id="track-record">
+    <div class="container">
+      <div class="section__head">
+        <h2>Results that compound</h2>
+        <p>One slice of the work: equity crowdfunding campaigns where I led the paid media. Real dollars raised, real return on ad spend.</p>
+      </div>
+      <div style="max-width:760px;margin:0 auto;">
+        <table class="raise-table reveal">
+          <thead><tr><th>Industry</th><th>Capital Raised</th><th>ROAS</th></tr></thead>
+          <tbody>
+            <tr><td>AI / AdTech</td><td class="num">$28.7M</td><td class="roas">841%</td></tr>
+            <tr><td>MedTech</td><td class="num">$4.7M</td><td class="roas">2,828%</td></tr>
+            <tr><td>Hospitality</td><td class="num">$4.6M</td><td class="roas">314%</td></tr>
+            <tr><td>Sports &amp; Leisure</td><td class="num">$4.4M</td><td class="roas">426%</td></tr>
+            <tr><td>Robotics</td><td class="num">$25M</td><td class="roas">259%</td></tr>
+            <tr><td>Aerospace</td><td class="num">$30M</td><td class="roas">435%</td></tr>
+          </tbody>
+        </table>
+        <p class="raise-note">~$97M raised in total across these campaigns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I'VE DONE -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>What I've done</h2>
+        <p>A decade of growth work across DTC, retail, capital raises, and everything in between.</p>
+      </div>
+      <div class="builds stagger">
+        <div class="build reveal"><h3>$100M+ in paid media</h3><p>Deployed across DTC, lead gen, big retail, and growth-stage capital raises over 10+ years.</p></div>
+        <div class="build reveal"><h3>Budgets at scale</h3><p>Ran paid media from major daily budgets down to lean test spend, dialing it to the goal: aggressive when the play is growth, controlled when it's testing new messaging.</p></div>
+        <div class="build reveal"><h3>$95M+ raised</h3><p>Drove the paid media behind equity crowdfunding campaigns across AI, robotics, medtech, and aerospace.</p></div>
+        <div class="build reveal"><h3>CMO in Tokyo</h3><p>Led a fintech marketing agency and ran blockchain summits with 2,000+ attendees.</p></div>
+        <div class="build reveal"><h3>Seven-figure growth</h3><p>Built and led marketing teams to multiple consecutive seven-figure growth years.</p></div>
+        <div class="build reveal"><h3>1.7M+ views</h3><p>Produced and directed a documentary that crossed 1.7 million views on YouTube.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I'M WORKING ON -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>What I'm working on now</h2>
+        <p>Building growth, and the tools that drive it.</p>
+      </div>
+      <div class="builds stagger" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <div class="build reveal"><h3>ClickDose Labs</h3><p>Partner at a growth marketing agency helping DTC and growth-stage brands acquire customers profitably.</p><a href="https://clickdoselabs.com" target="_blank" rel="noopener">clickdoselabs.com →</a></div>
+        <div class="build reveal"><h3>AI marketing tools</h3><p>Building production tools and products with Claude Code that compress the marketing stack from weeks to hours.</p></div>
+        <div class="build reveal"><h3>The ClickDose newsletter</h3><p>Writing about how AI is reshaping growth marketing: the tools, the tactics, and what's actually working.</p><a href="https://www.clickdose.com" target="_blank" rel="noopener">clickdose.com →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-NATIVE -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>AI-native, not AI-curious</h2>
+        <p>The job is changing fast. I don't just use AI tools, I build with them. Here's my daily stack.</p>
+      </div>
+      <div class="builds stagger">
+        <div class="build reveal"><h3>Claude Code</h3><p>Vibe-codes production tools and products, not just prototypes. Everything below was built here.</p></div>
+        <div class="build reveal"><h3>Higgsfield</h3><p>AI image and video generation for ad creative at the speed paid media actually needs.</p></div>
+        <div class="build reveal"><h3>Clay</h3><p>Data enrichment and AI-personalized outbound that turns lists into pipeline.</p></div>
+        <div class="build reveal"><h3>Vercel</h3><p>Ships and hosts the apps, landing pages, and tools, from idea to live URL.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILDS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>Things I've shipped</h2>
+        <p>Products and tools I built myself with Claude Code. Proof I stay close to the work.</p>
+      </div>
+      <div class="builds stagger">
+        <div class="build reveal"><h3>DeepTickerAI</h3><p>An AI-powered stock tracker. Search, screen, compare, and watch 500+ AI stocks with live data.</p></div>
+        <div class="build reveal"><h3>Bulls Intel</h3><p>Financial calculators and trade journaling for traders, with a chatbot to answer market questions.</p><a href="https://markets.bullsonwallstreet.com/" target="_blank" rel="noopener">markets.bullsonwallstreet.com →</a></div>
+        <div class="build reveal"><h3>ClickDose Creative HQ</h3><p>A local AI generator for Meta ad creatives: image and copy production in one workflow.</p></div>
+        <div class="build reveal"><h3>CereFlex Labs</h3><p>Full ecommerce storefront and science-backed landing pages for a DTC brain-health brand.</p><a href="https://cereflexlabs.com" target="_blank" rel="noopener">cereflexlabs.com →</a></div>
+        <div class="build reveal"><h3>ClickDose Labs</h3><p>The agency site you're on now. Designed, built, and shipped end to end.</p><a href="https://clickdoselabs.com" target="_blank" rel="noopener">clickdoselabs.com →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter reveal">
+        <p class="eyebrow2">The ClickDose Newsletter</p>
+        <h2>AI-powered growth, in your inbox.</h2>
+        <p>I write about how AI is changing growth marketing: the tools I'm building, the tactics that are working, and what I'm learning in public. No fluff, just what moves the number.</p>
+        <a href="https://www.clickdose.com" target="_blank" rel="noopener" class="btn btn--ondark btn--lg">Read the newsletter</a>
+        <p class="newsletter__meta">Free. Read by marketers and founders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <div class="contact-cta reveal">
+        <h2>Let's build something that grows.</h2>
+        <p>Scaling a brand, building an AI-powered growth system, or want a partner who can run the budgets and ship the tools? I'd like to hear about it.</p>
+        <a href="mailto:esciberras88@gmail.com" class="btn btn--primary btn--lg">Email me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo" style="display:inline-flex; background:var(--color-bg); padding:10px 16px; border-radius:12px;">
+          <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
+        </a>
+        <div class="footer__links">
+          <a href="../growth-marketing/">Growth Marketing</a>
+          <a href="../cold-email/">Cold Email Lab</a>
+          <a href="../index.html#team">Team</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer__right footer__social">
+          <a href="https://www.linkedin.com/in/eric-sciberras" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://github.com/esixteen" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 ClickDose Labs. Growth with every dose.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav shadow + reveal-on-scroll (mirrors site behavior)
+    const nav = document.getElementById('nav');
+    if (nav) addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
