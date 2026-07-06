@@ -1916,6 +1916,33 @@
         animation: none;
       }
     }
+    /* ---- PAGE LAB SPOTLIGHT + WORK MARQUEE ---- */
+    .plab { padding: clamp(4.5rem, 9vw, 7rem) 0; text-align: center; }
+    .plab__inner { max-width: 780px; margin: 0 auto; }
+    .plab__badge { display: inline-block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); background: var(--color-accent-tint); padding: 0.35rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
+    .plab h2 { font-size: var(--h2-size); letter-spacing: -0.02em; }
+    .plab__sub { color: var(--color-text-soft); font-size: var(--body-lg); margin: 1rem auto 0; max-width: 680px; line-height: 1.6; }
+    .plab__ctas { display: flex; gap: 1rem; justify-content: center; margin-top: 1.75rem; flex-wrap: wrap; }
+    .plab__rows { margin-top: 2.75rem; display: grid; gap: 1.1rem; }
+    .marquee { position: relative; overflow: hidden; padding: 0.4rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+    .marquee__track { display: flex; gap: 1.1rem; width: max-content; animation: marqueeScroll var(--mq-duration, 60s) linear infinite; will-change: transform; }
+    .marquee--reverse .marquee__track { animation-direction: reverse; }
+    .marquee:hover .marquee__track { animation-play-state: paused; }
+    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .mq-card { flex: 0 0 auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md); background: var(--color-surface); }
+    .mq-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .marquee--pages .mq-card { width: 200px; height: 288px; }
+    .marquee--pages .mq-card img { object-position: top center; }
+    .marquee--statics .mq-card { width: 240px; height: 300px; }
+    @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+    @media (max-width: 768px) {
+      .marquee--pages .mq-card { width: 140px; height: 202px; }
+      .marquee--statics .mq-card { width: 176px; height: 220px; }
+    }
+    /* ---- Offer add-ons ---- */
+    .tier__addons-label { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); margin: 1.25rem 0 0.6rem; text-align: left; }
+    .tier__addons { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: 0.5rem; }
+    .tier__addons li { font-size: 0.9375rem; color: var(--color-text-soft); text-align: left; padding: 0.55rem 0.75rem; background: var(--color-bg-alt); border: 1px dashed var(--color-border); border-radius: 8px; }
   </style>
 </head>
 <body>
@@ -1928,9 +1955,9 @@
       </a>
       <div class="nav__links">
         <div class="nav__dropdown" tabindex="0">
-          <a href="#engines" class="nav__dropdown-trigger">Services
+          <span class="nav__dropdown-trigger">Services
             <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </a>
+          </span>
           <div class="nav__menu">
             <a class="nav__menu-item" href="page-lab/">
               <h4>Page Lab</h4>
@@ -1938,17 +1965,16 @@
             </a>
             <a class="nav__menu-item" href="growth-lab/">
               <h4>Growth Lab</h4>
-              <p>Inbound customer acquisition: paid media + CRO.</p>
+              <p>Paid media that fills your pages with traffic.</p>
             </a>
             <a class="nav__menu-item" href="cold-email/">
               <h4>Cold Email Lab</h4>
-              <p>Outbound customer acquisition: AI cold email.</p>
+              <p>Outbound that books qualified meetings.</p>
             </a>
           </div>
         </div>
-        <a href="#team">Team</a>
         <a href="#testimonials">Results</a>
-        <a href="#pricing">Packages</a>
+        <a href="#pricing">Pricing</a>
       </div>
       <div class="nav__cta">
         <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
@@ -1963,12 +1989,12 @@
     </div>
     <div class="container">
       <div class="hero__content">
-        <p class="section-label">Customer &amp; Lead Acquisition</p>
-        <h1>The acquisition engine for companies that need to <span class="hero__highlight">grow now</span>.</h1>
-        <p class="hero__sub">ClickDose Labs is the acquisition partner for growth-stage companies. We bring you customers two ways: paid <strong>inbound</strong> through Growth Lab, and targeted <strong>outbound</strong> through Cold Email Lab.</p>
+        <p class="section-label">Productized Growth · ClickDose Labs</p>
+        <h1>Unlimited landing pages, live in <span class="hero__highlight">days</span>. Plus the traffic to fill them.</h1>
+        <p class="hero__sub">Page Lab builds high-converting landing pages at AI speed, for one flat monthly fee. Then our <strong>inbound</strong> engine (Growth Lab) and <strong>outbound</strong> engine (Cold Email Lab) drive qualified traffic to them. Pages plus traffic, run by marketers who've managed $200M+ in spend.</p>
         <div class="hero__ctas">
           <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
-          <a href="#engines" class="btn btn--outline btn--lg">See how it works</a>
+          <a href="#page-lab" class="btn btn--outline btn--lg">See Page Lab</a>
         </div>
         <p class="hero__proof"><span class="hero__proof-dot"></span> Senior partners on every account. No long-term contracts.</p>
       </div>
@@ -1990,6 +2016,79 @@
         <div class="credibility__stat">
           <div class="credibility__number" data-target="0" data-suffix="" data-prefix="">0</div>
           <div class="credibility__label">Junior account managers on your business</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE LAB SPOTLIGHT -->
+  <section class="plab" id="page-lab">
+    <div class="container">
+      <div class="plab__inner reveal">
+        <span class="plab__badge">The Lead Offer</span>
+        <h2>Page Lab: unlimited landing pages, built in days.</h2>
+        <p class="plab__sub">A flat $1,500/mo for as many conversion-ready pages as you can send us, built by in-house marketers with AI. Every page below was made with the exact system. The second row is the static ad creative you can add on.</p>
+        <div class="plab__ctas">
+          <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
+          <a href="page-lab/" class="btn btn--outline btn--lg">Explore Page Lab &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <div class="plab__rows reveal">
+      <div class="marquee marquee--pages">
+        <div class="marquee__track" style="--mq-duration:72s">
+          <!-- HOME:PAGES:START -->
+            <div class="mq-card"><img src="assets/page-lab/pages/changing-brain-health.jpg" alt="Advertorial landing page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/6-things.jpg" alt="Listicle landing page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/sleep.jpg" alt="Sleep landing page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/rhythm.jpg" alt="Rhythm landing page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/am.jpg" alt="Product page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/pm.jpg" alt="Product page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="Bundle page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/science.jpg" alt="Science page" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/mrlandlordloan.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/bdcapital.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card"><img src="assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/changing-brain-health.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/sleep.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/rhythm.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/am.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/pm.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/science.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/mrlandlordloan.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/bdcapital.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="" loading="lazy" width="200" height="288"></div>
+            <!-- HOME:PAGES:END -->
+        </div>
+      </div>
+      <div class="marquee marquee--statics marquee--reverse">
+        <div class="marquee__track" style="--mq-duration:56s">
+          <!-- HOME:STATICS:START -->
+            <div class="mq-card"><img src="assets/page-lab/statics/brainfog-alt1.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/memory-1.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/v14.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/v15.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/v17-4.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/v17.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/fuse.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/gi5-fuse-email.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/gi5-goodboy-email.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/goodboy.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card"><img src="assets/page-lab/statics/v10.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/brainfog-alt1.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/memory-1.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v14.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v15.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v17-4.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v17.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/fuse.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/gi5-fuse-email.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/gi5-goodboy-email.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/goodboy.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v10.jpg" alt="" loading="lazy" width="240" height="300"></div>
+            <!-- HOME:STATICS:END -->
         </div>
       </div>
     </div>
@@ -2027,30 +2126,30 @@
   <section class="engines" id="engines">
     <div class="container">
       <div class="engines__header reveal">
-        <p class="section-label">How we grow you</p>
-        <h2>Two engines. One job: getting you customers.</h2>
+        <p class="section-label">Fill your pages with traffic</p>
+        <h2>Two engines that drive qualified traffic to your pages.</h2>
       </div>
       <div class="engines__grid stagger reveal">
 
         <div class="engine">
           <p class="engine__label">Inbound</p>
-          <h3 class="engine__title">Inbound Customer Acquisition</h3>
+          <h3 class="engine__title">Paid media that fills your pages</h3>
           <p class="engine__brand">Growth Lab</p>
-          <p class="engine__desc">Paid traffic that converts. We run the ads and build the pages, funnels, and copy that turn that spend into booked revenue.</p>
+          <p class="engine__desc">The traffic engine for your Page Lab pages. We run the paid media across Meta, Google, and TikTok and test messaging scientifically, so qualified clicks land on pages built to convert.</p>
           <ul class="engine__list">
             <li>Paid media — Meta, Google, TikTok</li>
-            <li>Landing pages &amp; funnels</li>
-            <li>CRO &amp; conversion copywriting</li>
+            <li>Scientific messaging &amp; offer testing</li>
             <li>Creative production, powered by AI</li>
+            <li>Reporting tied to CAC and revenue</li>
           </ul>
-          <a class="engine__cta" href="growth-lab/">Explore Growth Lab →</a>
+          <a class="engine__cta" href="growth-lab/">Explore Growth Lab &rarr;</a>
         </div>
 
         <div class="engine">
           <p class="engine__label">Outbound</p>
-          <h3 class="engine__title">Outbound Customer Acquisition</h3>
+          <h3 class="engine__title">Outbound that books meetings</h3>
           <p class="engine__brand">Cold Email Lab</p>
-          <p class="engine__desc">Your pipeline. Warm leads. No guesswork. AI-built targeting and deliverability that get you in front of the right buyers.</p>
+          <p class="engine__desc">The pipeline engine. AI-built targeting and warmed deliverability that put you in front of the right buyers, then send them to a page built to convert.</p>
           <ul class="engine__list">
             <li>AI-built, targeted prospect lists</li>
             <li>Inbox infrastructure &amp; deliverability</li>
@@ -2346,65 +2445,66 @@
   <section class="pricing" id="pricing">
     <div class="container">
       <div class="pricing__header reveal">
-        <p class="section-label">Packages</p>
-        <h2>Three engagements. No surprises.</h2>
-        <p class="pricing__lede">Choose the depth of partnership. Every engagement is month-to-month. Cancel anytime. We'd rather you stay because it's working.</p>
+        <p class="section-label">The Offer</p>
+        <h2>Start with pages. Add the traffic. Get the strategy.</h2>
+        <p class="pricing__lede">Page Lab is the front door: a flat monthly fee for unlimited landing pages. Layer on static creative, paid media, cold email, or senior consulting as you grow. Month-to-month, cancel anytime.</p>
       </div>
       <div class="pricing__grid">
 
         <div class="tier reveal">
           <div class="tier__name">Consulting</div>
-          <div class="tier__title">Strategy and Systems</div>
-          <p class="tier__pitch">For in-house teams that need senior strategic firepower without giving up execution.</p>
+          <div class="tier__title">Senior Strategy &amp; Advisory</div>
+          <p class="tier__pitch">For teams that want the operator brain, not the execution. Senior growth strategy from marketers who have spent $200M+.</p>
           <ul class="tier__features">
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Growth strategy and roadmap</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Templates, SOPs, and playbooks</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Workflow design and tool stack review</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Channel, offer, and messaging strategy</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Scientific testing frameworks</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Bi-weekly strategy sessions</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Slack access for async questions</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Async access for questions</li>
           </ul>
-          <a href="#book" class="btn btn--outline tier__cta">Start consulting</a>
-          <p class="tier__note">No long-term contracts</p>
+          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <p class="tier__note">Let&rsquo;s talk &middot; No long-term contracts</p>
         </div>
 
         <div class="tier tier--featured reveal">
-          <div class="tier__badge">Most Popular</div>
-          <div class="tier__name">Full Service</div>
-          <div class="tier__title">Embedded Growth Partner</div>
-          <p class="tier__pitch">The full demand stack, built, run, and optimized by senior partners as if we were on your cap table.</p>
+          <div class="tier__badge">Start Here</div>
+          <div class="tier__name">Page Lab</div>
+          <div class="tier__title">Unlimited Landing Pages</div>
+          <div class="tier__price"><span class="tier__price-amount">$1,500</span><span class="tier__price-period">/mo</span></div>
+          <p class="tier__pitch">Unlimited conversion-ready pages, built in days by in-house marketers with AI. One flat fee.</p>
           <ul class="tier__features">
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Creative production, video and statics</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Full-funnel paid media management</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lifecycle email and marketing automation</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Landing pages, advertorials, and funnels</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> CRM management and lead routing</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> AI implementation across the stack</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Custom AI agents and proprietary tools</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lead-gen asset development</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Live reporting dashboard</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Dedicated Slack channel</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Unlimited pages, one active build at a time</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Conversion copy and CRO built in</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Days, not weeks, turnaround</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Unlimited revisions and maintenance</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> You own every page, on your stack</li>
           </ul>
-          <a href="#book" class="btn btn--primary tier__cta">Apply for full service</a>
-          <p class="tier__note">No long-term contracts</p>
+          <p class="tier__addons-label">Add on as you grow</p>
+          <ul class="tier__addons">
+            <li>+ Static Creatives &mdash; <strong>$1,000/mo</strong></li>
+            <li>+ Paid Media &middot; Growth Lab &mdash; <strong>let&rsquo;s talk</strong></li>
+          </ul>
+          <a href="#book" class="btn btn--primary tier__cta">Book a Strategy Call</a>
+          <p class="tier__note">Cancel anytime &middot; No long-term contracts</p>
         </div>
 
         <div class="tier reveal">
-          <div class="tier__name">Part Service</div>
-          <div class="tier__title">Targeted Execution</div>
-          <p class="tier__pitch">Already have internal capability? Pick the two or three pillars where you need senior operators most.</p>
+          <div class="tier__name">Cold Email Lab</div>
+          <div class="tier__title">Done-For-You Outbound</div>
+          <p class="tier__pitch">A managed outbound engine that books qualified meetings, then sends prospects to a page built to convert.</p>
           <ul class="tier__features">
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Choose 2–3 service pillars</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Senior partner-led execution</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Weekly optimization sprints</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Live reporting dashboard</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Dedicated Slack channel</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> AI-built, targeted prospect lists</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Warmed inbox infrastructure</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> AI-personalized campaigns</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lead scoring and qualification</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Fully managed sending and follow-up</li>
           </ul>
-          <a href="#book" class="btn btn--outline tier__cta">Discuss scope</a>
-          <p class="tier__note">No long-term contracts</p>
+          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <p class="tier__note">Let&rsquo;s talk &middot; No long-term contracts</p>
         </div>
 
       </div>
-      <p class="pricing__addspend reveal"><strong>Ad spend is separate</strong> and goes directly to the platforms (Meta, Google, LinkedIn, etc.). We don't markup media. We'll tell you what's right for your stage on the call.</p>
+      <p class="pricing__addspend reveal"><strong>Ad spend is separate</strong> and goes directly to the platforms (Meta, Google, etc.). We don&rsquo;t mark up media. We&rsquo;ll tell you what&rsquo;s right for your stage on the call.</p>
     </div>
   </section>
 
@@ -2426,17 +2526,20 @@
           <img src="assets/clickdose-labs.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
         </a>
         <div class="footer__links">
-          <a href="#engines">Services</a>
+          <a href="page-lab/">Page Lab</a>
+          <a href="growth-lab/">Growth Lab</a>
+          <a href="cold-email/">Cold Email Lab</a>
           <a href="#team">Team</a>
-          <a href="#testimonials">Results</a>
-          <a href="#pricing">Packages</a>
-          <a href="#book">Book a Call</a>
+          <a href="#book">Book a Strategy Call</a>
           <a href="privacy-policy/">Privacy Policy</a>
           <a href="terms/">Terms</a>
         </div>
         <div class="footer__right footer__social">
           <a href="https://www.linkedin.com/company/clickdose-labs/" aria-label="LinkedIn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://x.com/clickdoselabs" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
         </div>
       </div>

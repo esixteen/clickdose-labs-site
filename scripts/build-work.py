@@ -76,7 +76,7 @@ def build_statics():
     for f in images_in(src):
         s = slugify(f)
         sips_jpg(os.path.join(src, f), os.path.join(out, s + ".jpg"))
-        items.append((f"../assets/page-lab/statics/{s}.jpg", "Static creative by ClickDose Labs"))
+        items.append((f"assets/page-lab/statics/{s}.jpg", "Static creative by ClickDose Labs"))
     return items
 
 
@@ -99,7 +99,7 @@ def build_pages():
             os.remove(tmp)
         else:
             sips_jpg(src_path, dst)
-        items.append((f"../assets/page-lab/pages/{s}.jpg", alt))
+        items.append((f"assets/page-lab/pages/{s}.jpg", alt))
 
     # 1) image files dropped straight into Page Examples/
     for f in images_in(src):
@@ -119,7 +119,7 @@ def build_pages():
     return items
 
 
-def track_html(items, w, h, indent="            "):
+def track_html(items, w, h, prefix, indent="            "):
     if not items:
         return f"{indent}<!-- no items found; drop files in the source folder and re-run -->"
 
@@ -127,20 +127,28 @@ def track_html(items, w, h, indent="            "):
         attr = ' aria-hidden="true"' if hidden else ""
         text = "" if hidden else alt
         return (f'{indent}<div class="mq-card"{attr}>'
-                f'<img src="{src}" alt="{text}" loading="lazy" width="{w}" height="{h}"></div>')
+                f'<img src="{prefix}{src}" alt="{text}" loading="lazy" width="{w}" height="{h}"></div>')
 
     first = [card(s, a, False) for s, a in items]   # visible set
     dupe = [card(s, a, True) for s, a in items]     # duplicate for the seamless -50% loop
     return "\n".join(first + dupe)
 
 
-def inject(html, tag, inner):
-    start, end = f"<!-- PL:{tag}:START -->", f"<!-- PL:{tag}:END -->"
+def inject(html, marker, inner):
+    start, end = f"<!-- {marker}:START -->", f"<!-- {marker}:END -->"
     pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
     if not pattern.search(html):
-        sys.exit(f"Marker PL:{tag} not found in index.html")
+        sys.exit(f"Marker {marker} not found")
     replacement = f"{start}\n{inner}\n            {end}"
     return pattern.sub(lambda _m: replacement, html)
+
+
+# (path, src_prefix, marker_tag, page_dims, static_dims) — the marquee lives on both
+# the Page Lab page and the homepage, at slightly different card sizes.
+TARGETS = [
+    ("page-lab/index.html", "../", "PL",   (208, 300), (256, 320)),
+    ("index.html",          "",    "HOME", (200, 288), (240, 300)),
+]
 
 
 def main():
@@ -150,12 +158,13 @@ def main():
     if not pages or not statics:
         print("warning: a row is empty — the marquee will show a placeholder comment.")
 
-    html_path = os.path.join(SERVICES, "page-lab/index.html")
-    html = open(html_path, encoding="utf-8").read()
-    html = inject(html, "PAGES", track_html(pages, PAGE_W, PAGE_H))
-    html = inject(html, "STATICS", track_html(statics, STATIC_W, STATIC_H))
-    open(html_path, "w", encoding="utf-8").write(html)
-    print("page-lab/index.html marquee updated.")
+    for path, prefix, tag, pdim, sdim in TARGETS:
+        fp = os.path.join(SERVICES, path)
+        html = open(fp, encoding="utf-8").read()
+        html = inject(html, f"{tag}:PAGES", track_html(pages, pdim[0], pdim[1], prefix))
+        html = inject(html, f"{tag}:STATICS", track_html(statics, sdim[0], sdim[1], prefix))
+        open(fp, "w", encoding="utf-8").write(html)
+        print(f"{path} marquee updated.")
 
 
 if __name__ == "__main__":
