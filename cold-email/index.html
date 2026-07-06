@@ -22,7 +22,7 @@
   <meta property="og:image" content="https://clickdoselabs.com/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ClickDose Labs — Cold Email Lab">
+  <meta property="og:image:alt" content="ClickDose Labs · Cold Email Lab">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cold Email Lab · Outbound Customer Acquisition | ClickDose Labs">
@@ -405,6 +405,20 @@
       .phase__meta { border-right: none; border-bottom: 1px solid var(--color-border-soft); padding-right: 0; padding-bottom: 0.85rem; }
       .section__head { margin-bottom: 2.5rem; }
     }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; max-width: 1100px; margin: 0 auto; }
+    .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: 1 / -1; }
+    .testimonial { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal); }
+    .testimonial:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: var(--shadow-lg); }
+    .testimonial__stat { font-family: var(--font-display); font-size: 1.875rem; font-weight: 700; color: var(--color-accent); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.4rem; }
+    .testimonial__stat-label { font-size: 0.8125rem; color: var(--color-muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-display); margin-bottom: 1.5rem; }
+    .testimonial__quote { font-size: 0.9375rem; color: var(--color-text-soft); line-height: 1.65; flex-grow: 1; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border-soft); }
+    .testimonial__author { display: flex; align-items: center; gap: 0.85rem; }
+    .testimonial__avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--color-bg); border: 1.5px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--color-text); flex-shrink: 0; }
+    .testimonial__author-id strong { display: block; font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.2; margin-bottom: 0.15rem; }
+    .testimonial__author-id span { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.3; }
+    @media (max-width: 768px) { .testimonials__grid { grid-template-columns: 1fr; } .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: auto; } .testimonial { padding: 1.75rem; } }
   </style>
 </head>
 <body>
@@ -740,6 +754,42 @@
         <div class="faq__item">
           <button class="faq__q">What does it cost?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
           <div class="faq__a"><p>It depends on your target volume and how many domains and inboxes we run. We scope it on a short strategy call once we understand your ICP and goals. Book one below and we'll map it out together.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--alt" id="testimonials">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label section-label--muted">Client Results</p>
+        <h2>Results from the operators on your account.</h2>
+      </div>
+      <div class="testimonials__grid stagger">
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">+32%</div>
+          <div class="testimonial__stat-label">Qualified applications, net-new demand</div>
+          <p class="testimonial__quote">"Within 90 days they built an online demand gen engine we simply didn't have before and lifted qualified applications by 32%. Leads now come to us, not the other way around, and many of those first-touch borrowers are still repeat clients today."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">MS</div><div class="testimonial__author-id"><strong>Michael Schoenfeld</strong><span>Managing Director of Originations, BD Capital</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">3x</div>
+          <div class="testimonial__stat-label">More qualified consult requests</div>
+          <p class="testimonial__quote">"They helped us launch online demand gen from scratch, overhaul our website, and tighten the lead-to-client pipeline. The result is 3x more qualified consult requests and enough steady demand to confidently expand into new practice areas."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">AS</div><div class="testimonial__author-id"><strong>Ameena R. Sheikh</strong><span>Co-Founder, LADIES IN LAW</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">$5M/yr</div>
+          <div class="testimonial__stat-label">From zero in digital revenue</div>
+          <p class="testimonial__quote">"They built our webinar funnels, spun up demand gen across every major platform, and took us from a startup to over $5M a year in digital product revenue. With real attribution and tracking in place, scaling became repeatable, and we've grown into one of the top names in our space."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">CP</div><div class="testimonial__author-id"><strong>Craig Percoco</strong><span>CEO, Inevitrade</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">Growth</div>
+          <div class="testimonial__stat-label">Their trusted D2C growth partner</div>
+          <p class="testimonial__quote">"Eric and Rob are an unbelievable team to work with. They handle our marketing and have consistently delivered with professionalism, creativity, and a strong understanding of what drives results. Their expertise in the D2C space really stands out, and they've been a valuable partner for our business. They are responsive, strategic, and genuinely committed to helping their clients succeed. I would highly recommend their services to anyone in the D2C space looking for a marketing team they can trust."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">DT</div><div class="testimonial__author-id"><strong>Dawson Taylor</strong><span>Managing Director, CereFlex Labs</span></div></div>
         </div>
       </div>
     </div>

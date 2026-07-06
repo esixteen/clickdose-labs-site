@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Growth Lab is inbound customer acquisition from ClickDose Labs. We run paid media on Meta, Google, and TikTok and build the landing pages, funnels, copy, and creative that turn that traffic into booked revenue. Paid and conversion built as one system, run by senior operators.">
-  <title>Growth Lab · ClickDose Labs | Paid Media + CRO Built as One System</title>
+  <meta name="description" content="Growth Lab is the paid-media engine from ClickDose Labs. We run paid media on Meta, Google, and TikTok and test messaging scientifically to fill your pages with qualified traffic. Pairs with Page Lab. Run by marketers who have managed $200M+ in spend.">
+  <title>Growth Lab · ClickDose Labs | Paid Media That Fills Your Pages</title>
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://clickdoselabs.com/growth-lab/">
 
@@ -17,16 +17,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ClickDose Labs">
   <meta property="og:url" content="https://clickdoselabs.com/growth-lab/">
-  <meta property="og:title" content="Growth Lab · Inbound Customer Acquisition | ClickDose Labs">
-  <meta property="og:description" content="Paid media + CRO built as one system. We run the ads and build the pages, funnels, copy, and creative that turn spend into booked revenue.">
+  <meta property="og:title" content="Growth Lab · Paid Media | ClickDose Labs">
+  <meta property="og:description" content="Paid media that fills your pages with qualified traffic. Scientific messaging testing across Meta, Google, and TikTok. Pairs with Page Lab.">
   <meta property="og:image" content="https://clickdoselabs.com/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ClickDose Labs — Growth Lab">
+  <meta property="og:image:alt" content="ClickDose Labs · Growth Lab">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Growth Lab · Inbound Customer Acquisition | ClickDose Labs">
-  <meta name="twitter:description" content="Paid media + CRO built as one system, run by senior operators. Turn ad spend into booked revenue.">
+  <meta name="twitter:title" content="Growth Lab · Paid Media | ClickDose Labs">
+  <meta name="twitter:description" content="Paid media that fills your pages with qualified traffic, run by senior operators. Pairs with Page Lab.">
   <meta name="twitter:image" content="https://clickdoselabs.com/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -368,6 +368,20 @@
       .vp__grid, .system__grid, .compare, .included__grid, .ai__grid, .steps { grid-template-columns: 1fr; }
       .section__head { margin-bottom: 2.5rem; }
     }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; max-width: 1100px; margin: 0 auto; }
+    .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: 1 / -1; }
+    .testimonial { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 2.25rem; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal); }
+    .testimonial:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: var(--shadow-lg); }
+    .testimonial__stat { font-family: var(--font-display); font-size: 1.875rem; font-weight: 700; color: var(--color-accent); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.4rem; }
+    .testimonial__stat-label { font-size: 0.8125rem; color: var(--color-muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-display); margin-bottom: 1.5rem; }
+    .testimonial__quote { font-size: 0.9375rem; color: var(--color-text-soft); line-height: 1.65; flex-grow: 1; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border-soft); }
+    .testimonial__author { display: flex; align-items: center; gap: 0.85rem; }
+    .testimonial__avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--color-bg); border: 1.5px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--color-text); flex-shrink: 0; }
+    .testimonial__author-id strong { display: block; font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.2; margin-bottom: 0.15rem; }
+    .testimonial__author-id span { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.3; }
+    @media (max-width: 768px) { .testimonials__grid { grid-template-columns: 1fr; } .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: auto; } .testimonial { padding: 1.75rem; } }
   </style>
 </head>
 <body>
@@ -411,17 +425,17 @@
   <header class="page-hero" id="hero">
     <div class="container">
       <div class="page-hero__content">
-        <p class="section-label">Inbound Customer Acquisition · Growth Lab</p>
-        <h1>Turn paid traffic into <span class="page-hero__highlight">booked revenue</span>, not just clicks.</h1>
-        <p class="page-hero__sub">We run the paid media and build the landing pages, funnels, copy, and creative that convert it. Acquisition and conversion run as one system by senior operators, so the spend that drives the click also drives a customer.</p>
+        <p class="section-label">Paid Media · Growth Lab</p>
+        <h1>Paid media that fills your pages with <span class="page-hero__highlight">qualified traffic</span>.</h1>
+        <p class="page-hero__sub">You have the pages. We bring the traffic. Growth Lab runs your paid media across Meta, Google, and TikTok and tests messaging scientifically, so every dollar sends qualified buyers to pages built to convert. Run by marketers who have managed $200M+ in spend. Pairs perfectly with Page Lab.</p>
         <div class="page-hero__ctas">
           <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
           <a href="#how" class="btn btn--outline btn--lg">See how it works</a>
         </div>
         <p class="page-hero__proof">
-          <span><span class="dot"></span> Paid media + CRO as one system</span>
+          <span><span class="dot"></span> Meta, Google &amp; TikTok</span>
+          <span><span class="dot"></span> Scientific messaging testing</span>
           <span><span class="dot"></span> You own your ad accounts &amp; data</span>
-          <span><span class="dot"></span> Senior operators, never juniors</span>
         </p>
       </div>
     </div>
@@ -431,14 +445,14 @@
   <section class="section">
     <div class="container">
       <div class="section__head reveal">
-        <p class="section-label">The Offer</p>
-        <h2>Most agencies do ads or conversion. We do both, on purpose.</h2>
-        <p>An ad agency gets the click and hands you a page they didn't build. A web shop builds the page but never sees your ad data. The handoff is where budget dies. We own the whole path, so the ad, the page, and the offer are tuned to the same goal: a customer.</p>
+        <p class="section-label">The Traffic Engine</p>
+        <h2>Page Lab builds the pages. Growth Lab fills them.</h2>
+        <p>Traffic is only half the job. We run the paid media and test the messaging scientifically, so the spend that drives the click lands on a page built to convert it. One team accountable from ad to conversion, whether we built the page in Page Lab or you already have your own.</p>
       </div>
       <div class="vp__grid stagger">
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Paid media across Meta, Google, and TikTok, managed end to end</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Landing pages and funnels built to convert the traffic we send</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Conversion copywriting written against your real buyer, not filler</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Scientific testing of messaging, offers, and audiences</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Drives straight to your Page Lab pages, tuned to the same goal</span></div>
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Creative production at the pace testing demands, powered by AI</span></div>
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Reporting tied to revenue and cost per acquisition, not impressions</span></div>
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>You keep every ad account, pixel, and page we build for you</span></div>
@@ -467,8 +481,8 @@
     <div class="container">
       <div class="section__head reveal">
         <p class="section-label">The System</p>
-        <h2>Four parts, run as one engine.</h2>
-        <p>Ads get the click. The page, the funnel, the copy, and the creative turn that click into a customer. We build and run all four so nothing falls through the gap between them.</p>
+        <h2>Everything the traffic engine needs, run for you.</h2>
+        <p>Growth Lab runs the media and the testing that turn spend into qualified traffic. Point it at the Page Lab pages we build, or at pages you already have.</p>
       </div>
       <div class="system__grid stagger">
         <div class="system__card reveal">
@@ -476,12 +490,12 @@
           <p>Campaign strategy, build, and daily management across Meta, Google, and TikTok. Audience structure, bidding, and budget pacing aimed at cost per acquisition, not vanity reach.</p>
         </div>
         <div class="system__card reveal">
-          <h3>Landing pages &amp; funnels</h3>
-          <p>We build the destination the ads point to: fast, focused pages and multi-step funnels designed around a single conversion, wired to your tracking from day one.</p>
+          <h3>Scientific messaging testing</h3>
+          <p>Structured, continuous testing of hooks, angles, offers, and audiences. We change what the data tells us to, then prove the lift, so the winning message gets the budget.</p>
         </div>
         <div class="system__card reveal">
-          <h3>CRO &amp; conversion copywriting</h3>
-          <p>Senior conversion copy and structured testing on headlines, offers, and page flow. We change what the data tells us to change, then prove the lift.</p>
+          <h3>Reporting tied to CAC &amp; revenue</h3>
+          <p>Reporting built around cost per acquisition and revenue, not impressions. You always know what your spend turned into, and where the next dollar should go.</p>
         </div>
         <div class="system__card reveal">
           <h3>Creative production</h3>
@@ -654,6 +668,42 @@
         <div class="faq__item">
           <button class="faq__q">What does it cost?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
           <div class="faq__a"><p>It depends on your channels, budget, and how much of the system we're building versus optimizing. We scope it on a short strategy call once we understand your goals and your numbers. Book one below and we'll map it out together.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--alt" id="testimonials">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label section-label--muted">Client Results</p>
+        <h2>Results from the operators on your account.</h2>
+      </div>
+      <div class="testimonials__grid stagger">
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">+32%</div>
+          <div class="testimonial__stat-label">Qualified applications, net-new demand</div>
+          <p class="testimonial__quote">"Within 90 days they built an online demand gen engine we simply didn't have before and lifted qualified applications by 32%. Leads now come to us, not the other way around, and many of those first-touch borrowers are still repeat clients today."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">MS</div><div class="testimonial__author-id"><strong>Michael Schoenfeld</strong><span>Managing Director of Originations, BD Capital</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">3x</div>
+          <div class="testimonial__stat-label">More qualified consult requests</div>
+          <p class="testimonial__quote">"They helped us launch online demand gen from scratch, overhaul our website, and tighten the lead-to-client pipeline. The result is 3x more qualified consult requests and enough steady demand to confidently expand into new practice areas."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">AS</div><div class="testimonial__author-id"><strong>Ameena R. Sheikh</strong><span>Co-Founder, LADIES IN LAW</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">$5M/yr</div>
+          <div class="testimonial__stat-label">From zero in digital revenue</div>
+          <p class="testimonial__quote">"They built our webinar funnels, spun up demand gen across every major platform, and took us from a startup to over $5M a year in digital product revenue. With real attribution and tracking in place, scaling became repeatable, and we've grown into one of the top names in our space."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">CP</div><div class="testimonial__author-id"><strong>Craig Percoco</strong><span>CEO, Inevitrade</span></div></div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">Growth</div>
+          <div class="testimonial__stat-label">Their trusted D2C growth partner</div>
+          <p class="testimonial__quote">"Eric and Rob are an unbelievable team to work with. They handle our marketing and have consistently delivered with professionalism, creativity, and a strong understanding of what drives results. Their expertise in the D2C space really stands out, and they've been a valuable partner for our business. They are responsive, strategic, and genuinely committed to helping their clients succeed. I would highly recommend their services to anyone in the D2C space looking for a marketing team they can trust."</p>
+          <div class="testimonial__author"><div class="testimonial__avatar">DT</div><div class="testimonial__author-id"><strong>Dawson Taylor</strong><span>Managing Director, CereFlex Labs</span></div></div>
         </div>
       </div>
     </div>
