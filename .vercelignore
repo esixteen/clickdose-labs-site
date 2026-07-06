@@ -1,5 +1,5 @@
 # Source work masters + build tooling. Versioned in git as our work archive,
 # but not deployed. The site only needs the generated files in assets/page-lab/.
 Statics/
-Pages/
+Page Examples/
 scripts/

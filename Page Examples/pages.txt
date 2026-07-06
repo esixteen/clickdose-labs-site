@@ -4,7 +4,7 @@
 #
 # Two ways to add a page:
 #   1) Paste its live URL below (it gets screenshotted automatically at mobile width), OR
-#   2) Drop an image file (png/jpg) straight into this Pages/ folder.
+#   2) Drop an image file (png/jpg) straight into this Page Examples/ folder.
 #
 # After editing, run:  python3 services/scripts/build-work.py
 

@@ -4,8 +4,8 @@ build-work.py — regenerate the Page Lab "The Work" marquee from source folders
 
 WHERE YOUR WORK LIVES (the source of truth — just drop files here):
   services/Statics/          static creatives (png/jpg/jpeg/webp)  -> bottom row
-  services/Pages/            page screenshots (png/jpg/jpeg/webp)  -> top row
-  services/Pages/pages.txt   OR live page URLs, one per line ("url | Label"),
+  services/Page Examples/            page screenshots (png/jpg/jpeg/webp)  -> top row
+  services/Page Examples/pages.txt   OR live page URLs, one per line ("url | Label"),
                              screenshotted automatically at mobile width.
 
 WHAT IT GENERATES (safe to delete, always regenerated):
@@ -81,7 +81,7 @@ def build_statics():
 
 
 def build_pages():
-    src, out = os.path.join(SERVICES, "Pages"), os.path.join(SERVICES, "assets/page-lab/pages")
+    src, out = os.path.join(SERVICES, "Page Examples"), os.path.join(SERVICES, "assets/page-lab/pages")
     clean_dir(out)
     os.makedirs(src, exist_ok=True)
     items, used = [], set()
@@ -101,11 +101,11 @@ def build_pages():
             sips_jpg(src_path, dst)
         items.append((f"../assets/page-lab/pages/{s}.jpg", alt))
 
-    # 1) image files dropped straight into Pages/
+    # 1) image files dropped straight into Page Examples/
     for f in images_in(src):
         add(slugify(f), os.path.join(src, f), "Landing page by ClickDose Labs")
 
-    # 2) live URLs in Pages/pages.txt
+    # 2) live URLs in Page Examples/pages.txt
     txt = os.path.join(src, "pages.txt")
     if os.path.exists(txt):
         for line in open(txt, encoding="utf-8"):
