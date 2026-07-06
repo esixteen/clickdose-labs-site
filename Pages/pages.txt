@@ -1,0 +1,18 @@
+# Page Lab — live pages to feature in the "The Work" marquee.
+# One page per line.  Format:   https://your-page-url  |  Label (optional)
+# Lines starting with # are ignored. Blank lines are fine.
+#
+# Two ways to add a page:
+#   1) Paste its live URL below (it gets screenshotted automatically at mobile width), OR
+#   2) Drop an image file (png/jpg) straight into this Pages/ folder.
+#
+# After editing, run:  python3 services/scripts/build-work.py
+
+https://cereflexlabs.com/pages/changing-brain-health | Advertorial landing page
+https://cereflexlabs.com/pages/6-things/ | Listicle landing page
+https://cereflexlabs.com/pages/sleep | Sleep landing page
+https://cereflexlabs.com/pages/rhythm | Rhythm landing page
+https://cereflexlabs.com/products/am | Product page
+https://cereflexlabs.com/products/pm | Product page
+https://cereflexlabs.com/products/am-pm-brain-supplement-package | Bundle page
+https://cereflexlabs.com/pages/science | Science page
