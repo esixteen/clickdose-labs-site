@@ -1,5 +1,7 @@
 # Source work masters + build tooling. Versioned in git as our work archive,
 # but not deployed. The site only needs the generated files in assets/page-lab/.
-Statics/
-Page Examples/
-scripts/
+# Leading slashes anchor these to the deploy root so they do NOT also match the
+# nested assets/page-lab/statics/ folder (matching is case-insensitive).
+/Statics/
+/Page Examples/
+/scripts/
