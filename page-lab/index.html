@@ -295,6 +295,35 @@
     .addon__price strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; display: block; }
     .addon__price span { font-size: var(--caption); color: var(--color-muted); }
 
+    /* ---- TESTIMONIALS ---- */
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: 1 / -1; }
+    .testimonial {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    .testimonial:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: var(--shadow-lg); }
+    .testimonial__stat { font-family: var(--font-display); font-size: 1.875rem; font-weight: 700; color: var(--color-accent); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.4rem; }
+    .testimonial__stat-label { font-size: 0.8125rem; color: var(--color-muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-display); margin-bottom: 1.5rem; }
+    .testimonial__quote { font-size: 0.9375rem; color: var(--color-text-soft); line-height: 1.65; flex-grow: 1; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border-soft); }
+    .testimonial__author { display: flex; align-items: center; gap: 0.85rem; }
+    .testimonial__avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--color-bg); border: 1.5px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--color-text); flex-shrink: 0; }
+    .testimonial__author-id strong { display: block; font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.2; margin-bottom: 0.15rem; }
+    .testimonial__author-id span { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.3; }
+
     /* ---- FAQ ---- */
     .faq__list { max-width: 760px; margin: 0 auto; }
     .faq__item { border-bottom: 1px solid var(--color-border); }
@@ -327,7 +356,9 @@
 
     /* ---- Responsive ---- */
     @media (max-width: 768px) {
-      .vp__grid, .steps, .stats3 { grid-template-columns: 1fr; }
+      .vp__grid, .steps, .stats3, .testimonials__grid { grid-template-columns: 1fr; }
+      .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: auto; }
+      .testimonial { padding: 1.75rem; }
       .section__head { margin-bottom: 2.5rem; }
       .marquee--pages .mq-card { width: 150px; height: 218px; }
       .marquee--statics .mq-card { width: 220px; height: 220px; }
@@ -379,14 +410,14 @@
       <div class="page-hero__content">
         <p class="section-label">Landing Pages, Productized · Page Lab</p>
         <h1>Landing pages live in <span class="page-hero__highlight">days</span>, not weeks.</h1>
-        <p class="page-hero__sub">One flat monthly fee. Unlimited page requests, built by a marketer who ships with AI. Conversion copy, fast turnaround, and ongoing maintenance included. The output of a full web team, without the agency timeline or the agency invoice.</p>
+        <p class="page-hero__sub">One flat monthly fee. Unlimited page requests, built by marketers who ship with AI. Conversion copy, fast turnaround, and ongoing maintenance included. The output of a full web team, without the agency timeline or the agency invoice.</p>
         <div class="page-hero__ctas">
           <a href="#book" class="btn btn--primary btn--lg">Get started, $1,500/mo</a>
           <a href="#work" class="btn btn--outline btn--lg">See example pages</a>
         </div>
         <p class="page-hero__proof">
+          <span><span class="dot"></span> First page live in 3 days</span>
           <span><span class="dot"></span> Unlimited requests</span>
-          <span><span class="dot"></span> 1 active build at a time</span>
           <span><span class="dot"></span> Maintenance included</span>
         </p>
       </div>
@@ -398,16 +429,16 @@
     <div class="container">
       <div class="section__head reveal">
         <p class="section-label">Why We Built This</p>
-        <h2>We used to pay $1,500 a month for one landing page.</h2>
+        <h2>We lived the slow, expensive way. So we rebuilt it.</h2>
       </div>
       <div class="origin__body reveal">
-        <p>One page. Every month. That was the deal with our old vendor, and at the time we were glad to get it. Then we rebuilt our entire process around AI and started shipping finished pages in a day.</p>
-        <p>Same budget. The same $1,500. Except now it buys 10 to 15 pages instead of one. Page Lab is that exact system, opened up for you. Boutique studios still charge $2,000 to $2,500 for a single page. With Page Lab, that is roughly what a whole month costs.</p>
+        <p>Creative agencies charge upwards of $5,000 for a single landing page. The providers promising unlimited pages quietly cap out at about two a month. We know, because we lived it: an agency taking weeks to build one page that we could put together in three hours.</p>
+        <p>So we built the fix. Page Lab delivers real high-volume page builds without the wait or the invoice. Expect 10 to 15 pages a month, each with expert copy and CRO-driven design. Your first page goes live in three days, while most providers are still quoting ten.</p>
       </div>
       <div class="stats3 stagger">
-        <div class="stat stat--muted reveal"><div class="stat__num">1</div><div class="stat__label">page a month, the old way</div></div>
+        <div class="stat stat--muted reveal"><div class="stat__num">$5,000</div><div class="stat__label">what agencies charge for one page</div></div>
+        <div class="stat stat--muted reveal"><div class="stat__num">2</div><div class="stat__label">monthly pages from "unlimited" providers</div></div>
         <div class="stat reveal"><div class="stat__num">10&ndash;15</div><div class="stat__label">pages a month with Page Lab</div></div>
-        <div class="stat stat--muted reveal"><div class="stat__num">$2,500</div><div class="stat__label">what studios charge for one page</div></div>
       </div>
     </div>
   </section>
@@ -425,7 +456,7 @@
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Conversion copywriting and CRO judgment, not just design</span></div>
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Finished pages in days, not weeks, at AI speed</span></div>
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Ongoing page edits and maintenance included every month</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Built for your stack: Shopify, Webflow, WordPress, or standalone</span></div>
+        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Built fast on Shopify and Vercel (Webflow and WordPress on request)</span></div>
         <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>You own every page we build, forever</span></div>
       </div>
     </div>
@@ -514,7 +545,7 @@
         </div>
       </div>
       <div>
-        <p class="work__caption">Static ad creatives · add-on</p>
+        <p class="work__caption">Static creatives for ads &amp; social · add-on</p>
         <div class="marquee marquee--statics marquee--reverse">
           <div class="marquee__track" style="--mq-duration:56s">
             <div class="mq-card"><img src="../assets/page-lab/static-fuse.jpg" alt="Static ad creative built in ClickDose Creative HQ" loading="lazy" width="300" height="300"></div>
@@ -535,6 +566,71 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials" style="border-top:1px solid var(--color-border-soft)">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">Client Results</p>
+        <h2>You're not hiring a page mill. You're hiring this team.</h2>
+      </div>
+      <div class="testimonials__grid stagger">
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">+32%</div>
+          <div class="testimonial__stat-label">Qualified applications, net-new demand</div>
+          <p class="testimonial__quote">"Within 90 days they built an online demand gen engine we simply didn't have before and lifted qualified applications by 32%. Leads now come to us, not the other way around, and many of those first-touch borrowers are still repeat clients today."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">MS</div>
+            <div class="testimonial__author-id">
+              <strong>Michael Schoenfeld</strong>
+              <span>Managing Director of Originations, BD Capital</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">3x</div>
+          <div class="testimonial__stat-label">More qualified consult requests</div>
+          <p class="testimonial__quote">"They helped us launch online demand gen from scratch, overhaul our website, and tighten the lead-to-client pipeline. The result is 3x more qualified consult requests and enough steady demand to confidently expand into new practice areas."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">AS</div>
+            <div class="testimonial__author-id">
+              <strong>Ameena R. Sheikh</strong>
+              <span>Co-Founder, LADIES IN LAW</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">$5M/yr</div>
+          <div class="testimonial__stat-label">From zero in digital revenue</div>
+          <p class="testimonial__quote">"They built our webinar funnels, spun up demand gen across every major platform, and took us from a startup to over $5M a year in digital product revenue. With real attribution and tracking in place, scaling became repeatable, and we've grown into one of the top names in our space."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">CP</div>
+            <div class="testimonial__author-id">
+              <strong>Craig Percoco</strong>
+              <span>CEO, Inevitrade</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="testimonial__stat">Growth</div>
+          <div class="testimonial__stat-label">Their trusted D2C growth partner</div>
+          <p class="testimonial__quote">"Eric and Rob are an unbelievable team to work with. They handle our marketing and have consistently delivered with professionalism, creativity, and a strong understanding of what drives results. Their expertise in the D2C space really stands out, and they've been a valuable partner for our business. They are responsive, strategic, and genuinely committed to helping their clients succeed. I would highly recommend their services to anyone in the D2C space looking for a marketing team they can trust."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">DT</div>
+            <div class="testimonial__author-id">
+              <strong>Dawson Taylor</strong>
+              <span>Managing Director, CereFlex Labs</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="section section--alt" id="pricing">
     <div class="container">
@@ -542,7 +638,7 @@
         <p class="section-label section-label--muted">Pricing</p>
         <h2>One plan. One price. Unlimited pages.</h2>
       </div>
-      <p class="pricing__anchor reveal">Boutique studios charge <strong>$2,000 to $2,500 for a single page</strong>. Page Lab is a month of pages, written to convert and kept maintained, for <strong>$1,500 flat</strong>.</p>
+      <p class="pricing__anchor reveal">Agencies charge upwards of <strong>$5,000 for a single page</strong>, and the "unlimited" providers cap out around two a month. Page Lab is 10 to 15 pages, written to convert and kept maintained, for <strong>$1,500 flat</strong>.</p>
       <div class="plans">
         <div class="plan reveal">
           <span class="plan__badge">Lead offer</span>
@@ -563,7 +659,7 @@
         <div class="addon reveal">
           <div class="addon__info">
             <h3>Add Static Creatives</h3>
-            <p>30 to 40 static ad creatives a month, built in ClickDose Creative HQ. Add it to any Page Lab plan.</p>
+            <p>30 to 40 static creatives a month, built in ClickDose Creative HQ. Use them for paid ads or organic social. Add it to any Page Lab plan.</p>
           </div>
           <div class="addon__price">
             <strong>+$1,000</strong>
@@ -596,7 +692,7 @@
         </div>
         <div class="faq__item">
           <button class="faq__q">What platforms do you build on?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>We build on your existing site, whether that is Shopify, Webflow, WordPress, or a standalone hosted page. Everything ships on your stack, in your accounts.</p></div>
+          <div class="faq__a"><p>We build fastest on Shopify and Vercel, and that is where most of our work ships. We can also build on Webflow or WordPress, though those pages may take a little longer. Either way, everything ships on your stack, in your accounts.</p></div>
         </div>
         <div class="faq__item">
           <button class="faq__q">Do I own the pages?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
@@ -608,11 +704,11 @@
         </div>
         <div class="faq__item">
           <button class="faq__q">How does the static creatives add-on work?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>For an extra $1,000 a month, we produce 30 to 40 static ad creatives in ClickDose Creative HQ, our in-house AI creative studio. It is the fastest way to feed your ad testing while your pages get built.</p></div>
+          <div class="faq__a"><p>For an extra $1,000 a month, we produce 30 to 40 static creatives in ClickDose Creative HQ, our in-house AI creative studio. Use them for paid ads or organic social. It is the fastest way to feed your ad testing and your content calendar while your pages get built.</p></div>
         </div>
         <div class="faq__item">
           <button class="faq__q">How is this different from an agency or a freelancer?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>An agency is slow and expensive. A freelancer is inconsistent and disappears. A design subscription hands you pretty pages with no conversion thinking. Page Lab is a flat fee, fast turnaround, real CRO judgment, and maintenance, from a marketer who has spent over $100M on paid media.</p></div>
+          <div class="faq__a"><p>An agency is slow and expensive. A freelancer is inconsistent and disappears. A design subscription hands you pretty pages with no conversion thinking. Page Lab is a flat fee, fast turnaround, real CRO judgment, and maintenance, from marketers who have spent over $100M on paid media.</p></div>
         </div>
       </div>
     </div>
