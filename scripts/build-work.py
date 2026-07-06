@@ -37,7 +37,9 @@ def slugify(name):
     return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", base)).strip("-") or "item"
 
 
-def sips_jpg(src, dst, longest=1000, quality=82):
+def sips_jpg(src, dst, longest=760, quality=80):
+    # Cards render <=320px (=<640px on 2x retina), so 760px longest side keeps
+    # them crisp while minimizing file size. All output is .jpg.
     subprocess.run(
         ["sips", "-s", "format", "jpeg", "-s", "formatOptions", str(quality),
          "-Z", str(longest), src, "--out", dst],
