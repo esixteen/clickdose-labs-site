@@ -1,6 +1,19 @@
 {
   "redirects": [
-    { "source": "/growth-marketing", "destination": "/growth-lab", "permanent": true },
-    { "source": "/growth-marketing/", "destination": "/growth-lab/", "permanent": true }
+    {
+      "source": "/growth-marketing",
+      "destination": "/growth-lab",
+      "permanent": true
+    },
+    {
+      "source": "/growth-marketing/",
+      "destination": "/growth-lab/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

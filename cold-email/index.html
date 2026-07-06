@@ -437,6 +437,18 @@
     .testimonial__author-id strong { display: block; font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.2; margin-bottom: 0.15rem; }
     .testimonial__author-id span { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.3; }
     @media (max-width: 768px) { .testimonials__grid { grid-template-columns: 1fr; } .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: auto; } .testimonial { padding: 1.75rem; } }
+
+    /* ---- OFFER BOX ---- */
+    .offerbox { max-width: 760px; margin: 0 auto; background: var(--color-surface); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: clamp(2rem, 4vw, 2.85rem); text-align: center; }
+    .offerbox__name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; }
+    .offerbox__price { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin: 0.75rem 0 0.15rem; }
+    .offerbox__price span { font-size: 1rem; color: var(--color-muted); font-weight: 500; }
+    .offerbox__pitch { color: var(--color-text-soft); font-size: var(--body-size); max-width: 560px; margin: 0.5rem auto 1.5rem; line-height: 1.6; }
+    .offerbox__list { list-style: none; padding: 0; margin: 0 auto 1.75rem; max-width: 520px; display: grid; gap: 0.6rem; text-align: left; }
+    .offerbox__list li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: var(--body-sm); color: var(--color-text-soft); }
+    .offerbox__list svg { flex-shrink: 0; width: 20px; height: 20px; stroke: var(--color-accent); stroke-width: 3; fill: none; margin-top: 1px; }
+    .offerbox .btn { min-width: 260px; }
+    .offerbox__note { text-align: center; font-size: var(--caption); color: var(--color-muted); margin-top: 1rem; }
   </style>
 </head>
 <body>
@@ -444,7 +456,7 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="../index.html" class="nav__logo">
+      <a href="../" class="nav__logo">
         <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" width="83" height="44">
       </a>
       <div class="nav__links">
@@ -468,7 +480,7 @@
           </div>
         </div>
         <a href="#testimonials">Results</a>
-        <a href="../index.html#pricing">Pricing</a>
+        <a href="#pricing">Pricing</a>
       </div>
       <div class="nav__cta">
         <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
@@ -785,30 +797,56 @@
         <h2>Results from the operators on your account.</h2>
       </div>
       <div class="testimonials__grid stagger">
-        <div class="testimonial reveal">
-          <div class="testimonial__stat">+32%</div>
-          <div class="testimonial__stat-label">Qualified applications, net-new demand</div>
-          <p class="testimonial__quote">"Within 90 days they built an online demand gen engine we simply didn't have before and lifted qualified applications by 32%. Leads now come to us, not the other way around, and many of those first-touch borrowers are still repeat clients today."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">MS</div><div class="testimonial__author-id"><strong>Michael Schoenfeld</strong><span>Managing Director of Originations, BD Capital</span></div></div>
-        </div>
-        <div class="testimonial reveal">
-          <div class="testimonial__stat">3x</div>
-          <div class="testimonial__stat-label">More qualified consult requests</div>
-          <p class="testimonial__quote">"They helped us launch online demand gen from scratch, overhaul our website, and tighten the lead-to-client pipeline. The result is 3x more qualified consult requests and enough steady demand to confidently expand into new practice areas."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">AS</div><div class="testimonial__author-id"><strong>Ameena R. Sheikh</strong><span>Co-Founder, LADIES IN LAW</span></div></div>
-        </div>
-        <div class="testimonial reveal">
-          <div class="testimonial__stat">$5M/yr</div>
-          <div class="testimonial__stat-label">From zero in digital revenue</div>
-          <p class="testimonial__quote">"They built our webinar funnels, spun up demand gen across every major platform, and took us from a startup to over $5M a year in digital product revenue. With real attribution and tracking in place, scaling became repeatable, and we've grown into one of the top names in our space."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">CP</div><div class="testimonial__author-id"><strong>Craig Percoco</strong><span>CEO, Inevitrade</span></div></div>
-        </div>
-        <div class="testimonial reveal">
-          <div class="testimonial__stat">Growth</div>
-          <div class="testimonial__stat-label">Their trusted D2C growth partner</div>
-          <p class="testimonial__quote">"Eric and Rob are an unbelievable team to work with. They handle our marketing and have consistently delivered with professionalism, creativity, and a strong understanding of what drives results. Their expertise in the D2C space really stands out, and they've been a valuable partner for our business. They are responsive, strategic, and genuinely committed to helping their clients succeed. I would highly recommend their services to anyone in the D2C space looking for a marketing team they can trust."</p>
-          <div class="testimonial__author"><div class="testimonial__avatar">DT</div><div class="testimonial__author-id"><strong>Dawson Taylor</strong><span>Managing Director, CereFlex Labs</span></div></div>
-        </div>
+            <!-- TESTIMONIALS:START -->
+            <div class="testimonial reveal">
+              <div class="testimonial__stat">+32%</div>
+              <div class="testimonial__stat-label">Qualified applications, net-new demand</div>
+              <p class="testimonial__quote">"Within 90 days they built an online demand gen engine we simply didn't have before and lifted qualified applications by 32%. Leads now come to us, not the other way around, and many of those first-touch borrowers are still repeat clients today."</p>
+              <div class="testimonial__author"><div class="testimonial__avatar">MS</div><div class="testimonial__author-id"><strong>Michael Schoenfeld</strong><span>Managing Director of Originations, BD Capital</span></div></div>
+            </div>
+            <div class="testimonial reveal">
+              <div class="testimonial__stat">3x</div>
+              <div class="testimonial__stat-label">More qualified consult requests</div>
+              <p class="testimonial__quote">"They helped us launch online demand gen from scratch, overhaul our website, and tighten the lead-to-client pipeline. The result is 3x more qualified consult requests and enough steady demand to confidently expand into new practice areas."</p>
+              <div class="testimonial__author"><div class="testimonial__avatar">AS</div><div class="testimonial__author-id"><strong>Ameena R. Sheikh</strong><span>Co-Founder, LADIES IN LAW</span></div></div>
+            </div>
+            <div class="testimonial reveal">
+              <div class="testimonial__stat">$5M/yr</div>
+              <div class="testimonial__stat-label">From zero in digital revenue</div>
+              <p class="testimonial__quote">"They built our webinar funnels, spun up demand gen across every major platform, and took us from a startup to over $5M a year in digital product revenue. With real attribution and tracking in place, scaling became repeatable, and we've grown into one of the top names in our space."</p>
+              <div class="testimonial__author"><div class="testimonial__avatar">CP</div><div class="testimonial__author-id"><strong>Craig Percoco</strong><span>CEO, Inevitrade</span></div></div>
+            </div>
+            <div class="testimonial reveal">
+              <div class="testimonial__stat">Growth</div>
+              <div class="testimonial__stat-label">Their trusted D2C growth partner</div>
+              <p class="testimonial__quote">"Eric and Rob are an unbelievable team to work with. They handle our marketing and have consistently delivered with professionalism, creativity, and a strong understanding of what drives results. Their expertise in the D2C space really stands out, and they've been a valuable partner for our business. They are responsive, strategic, and genuinely committed to helping their clients succeed. I would highly recommend their services to anyone in the D2C space looking for a marketing team they can trust."</p>
+              <div class="testimonial__author"><div class="testimonial__avatar">DT</div><div class="testimonial__author-id"><strong>Dawson Taylor</strong><span>Managing Director, CereFlex Labs</span></div></div>
+            </div>
+            <!-- TESTIMONIALS:END -->
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="section section--alt" id="pricing">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label section-label--muted">Pricing</p>
+        <h2>Priced to your volume. Scoped on a call.</h2>
+      </div>
+      <div class="offerbox reveal">
+        <div class="offerbox__name">Cold Email Lab</div>
+        <div class="offerbox__price">Custom <span>/ month</span></div>
+        <p class="offerbox__pitch">A done-for-you outbound engine, scoped to your market and sending volume. You take the meetings; we handle the rest.</p>
+        <ul class="offerbox__list">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> AI-built, targeted prospect lists</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Warmed inbox infrastructure &amp; deliverability</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> AI-personalized campaigns &amp; follow-up</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Lead scoring &amp; qualification</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Fully managed sending, start to finish</li>
+        </ul>
+        <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
+        <p class="offerbox__note">Month-to-month &middot; Cancel anytime &middot; You own your domains &amp; data</p>
       </div>
     </div>
   </section>
@@ -827,14 +865,14 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <a href="../index.html" class="footer__logo" style="display:inline-flex; background:var(--color-bg); padding:10px 16px; border-radius:12px;">
+        <a href="../" class="footer__logo" style="display:inline-flex; background:var(--color-bg); padding:10px 16px; border-radius:12px;">
           <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
         </a>
         <div class="footer__links">
           <a href="../page-lab/">Page Lab</a>
           <a href="../growth-lab/">Growth Lab</a>
           <a href="../cold-email/">Cold Email Lab</a>
-          <a href="../index.html#team">Team</a>
+          <a href="../#team">Team</a>
           <a href="#book">Book a Strategy Call</a>
           <a href="../privacy-policy/">Privacy Policy</a>
           <a href="../terms/">Terms</a>

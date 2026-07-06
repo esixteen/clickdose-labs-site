@@ -7,6 +7,9 @@ WHERE YOUR WORK LIVES (the source of truth — just drop files here):
   services/Page Examples/            page screenshots (png/jpg/jpeg/webp)  -> top row
   services/Page Examples/pages.txt   OR live page URLs, one per line ("url | Label"),
                              screenshotted automatically at mobile width.
+  services/testimonials.json  the shared testimonials, injected into every page that
+                             has a testimonials section (homepage + all service pages),
+                             so the work marquee and testimonials update together.
 
 WHAT IT GENERATES (safe to delete, always regenerated):
   services/assets/page-lab/statics/*.jpg   web-optimized copies
@@ -21,7 +24,7 @@ Requires macOS `sips` (built in) and Google Chrome (only if pages.txt lists URLs
 Everything is ordered alphabetically by filename, so prefix names (01-, 02-) to
 control order in the marquee.
 """
-import os, re, glob, subprocess, sys
+import os, re, glob, json, subprocess, sys
 
 SERVICES = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
@@ -150,6 +153,24 @@ TARGETS = [
     ("index.html",          "",    "HOME", (200, 288), (240, 300)),
 ]
 
+# Pages carrying the shared testimonials block (single source: testimonials.json).
+TESTIMONIAL_PAGES = ["index.html", "page-lab/index.html", "growth-lab/index.html", "cold-email/index.html"]
+
+
+def build_testimonials_html(indent="            "):
+    data = json.load(open(os.path.join(SERVICES, "testimonials.json"), encoding="utf-8"))
+    cards = []
+    for t in data:
+        cards.append(
+            f'{indent}<div class="testimonial reveal">\n'
+            f'{indent}  <div class="testimonial__stat">{t["stat"]}</div>\n'
+            f'{indent}  <div class="testimonial__stat-label">{t["label"]}</div>\n'
+            f'{indent}  <p class="testimonial__quote">"{t["quote"]}"</p>\n'
+            f'{indent}  <div class="testimonial__author"><div class="testimonial__avatar">{t["avatar"]}</div>'
+            f'<div class="testimonial__author-id"><strong>{t["name"]}</strong><span>{t["role"]}</span></div></div>\n'
+            f'{indent}</div>')
+    return "\n".join(cards)
+
 
 def main():
     statics = build_statics()
@@ -157,14 +178,23 @@ def main():
     print(f"optimized {len(pages)} page(s) and {len(statics)} static(s)")
     if not pages or not statics:
         print("warning: a row is empty — the marquee will show a placeholder comment.")
+    testimonials = build_testimonials_html()
 
-    for path, prefix, tag, pdim, sdim in TARGETS:
+    # per-page marquee injections
+    marquee = {path: [(f"{tag}:PAGES",   track_html(pages,   pd[0], pd[1], pre)),
+                      (f"{tag}:STATICS", track_html(statics, sd[0], sd[1], pre))]
+               for path, pre, tag, pd, sd in TARGETS}
+
+    # read/inject/write each affected page exactly once (marquee + testimonials update together)
+    for path in sorted(set(list(marquee) + TESTIMONIAL_PAGES)):
         fp = os.path.join(SERVICES, path)
         html = open(fp, encoding="utf-8").read()
-        html = inject(html, f"{tag}:PAGES", track_html(pages, pdim[0], pdim[1], prefix))
-        html = inject(html, f"{tag}:STATICS", track_html(statics, sdim[0], sdim[1], prefix))
+        for marker, inner in marquee.get(path, []):
+            html = inject(html, marker, inner)
+        if path in TESTIMONIAL_PAGES:
+            html = inject(html, "TESTIMONIALS", testimonials)
         open(fp, "w", encoding="utf-8").write(html)
-        print(f"{path} marquee updated.")
+        print(f"{path} updated.")
 
 
 if __name__ == "__main__":
