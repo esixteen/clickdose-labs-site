@@ -60,14 +60,14 @@
         },
         {
           "@type": "Offer",
-          "name": "Page Lab Pro",
-          "price": "3000",
+          "name": "Creative Lab (add-on)",
+          "price": "1000",
           "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
-          "name": "Full Stack",
-          "price": "4000",
+          "name": "Test Lab (add-on)",
+          "price": "1000",
           "priceCurrency": "USD"
         }
       ]
@@ -208,15 +208,20 @@
 
     /* ---- WORK / MARQUEE ---- */
     .work__caption {
-      text-align: center;
+      display: table;
+      margin: 0 auto 1rem;
       font-size: var(--caption);
       font-family: var(--font-display);
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--color-muted);
-      margin: 0 0 0.9rem;
+      color: var(--color-text);
+      background: var(--color-accent-tint);
+      border: 1px solid var(--color-accent);
+      border-radius: 999px;
+      padding: 0.45rem 1.1rem;
     }
+    .work__caption span { color: var(--color-muted); font-weight: 600; }
     .marquee {
       position: relative;
       overflow: hidden;
@@ -250,7 +255,8 @@
     .marquee--pages .mq-card { width: 208px; height: 300px; }
     .marquee--pages .mq-card img { object-position: top center; }
     .marquee--statics .mq-card { width: 256px; height: 320px; }
-    .work__rows { display: grid; gap: 1.6rem; }
+    /* minmax(0,1fr) stops the max-content marquee track from inflating the column */
+    .work__rows { display: grid; gap: 1.6rem; grid-template-columns: minmax(0, 1fr); }
     /* Strategy annotation chips, applied by JS keyed on img src */
     .mq-chip {
       position: absolute;
@@ -566,6 +572,7 @@
       line-height: 1.5;
       margin-bottom: 0.85rem;
     }
+    .tier--featured .tier__day { color: rgba(249, 250, 251, 0.65); }
     .tier__pitch {
       font-size: var(--body-sm);
       color: var(--color-muted);
@@ -590,22 +597,28 @@
     .tier__cta { width: 100%; }
     .tier__note { text-align: center; font-size: 0.8125rem; color: var(--color-muted); margin-top: 1rem; }
     .tier--featured .tier__note { color: rgba(249, 250, 251, 0.55); }
-    .addon {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem 1.5rem; flex-wrap: wrap;
-      max-width: 1100px;
-      margin: 1.75rem auto 0;
-      background: var(--color-surface);
-      border: 1px dashed var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.75rem;
+    .tier__addon-tag {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.45rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-accent-hover);
+      background: var(--color-accent-tint);
+      border: 1px solid var(--color-accent);
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
     }
-    .addon__info h3 { font-size: 1.0625rem; margin-bottom: 0.3rem; }
-    .addon__info p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.55; max-width: 640px; }
-    .addon__info p strong { color: var(--color-text); }
-    .addon__price { text-align: right; white-space: nowrap; }
-    .addon__price strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; display: block; }
-    .addon__price span { font-size: var(--caption); color: var(--color-muted); }
+    .pricing__full-system {
+      text-align: center;
+      margin-top: 2.25rem;
+      font-family: var(--font-display);
+      font-size: var(--body-lg);
+      color: var(--color-text);
+    }
+    .pricing__full-system strong { color: var(--color-accent-hover); font-weight: 700; }
     .pricing__notes {
       text-align: center;
       margin-top: 2.75rem;
@@ -743,7 +756,7 @@
       <div class="page-hero__content">
         <p class="section-label">Page Lab · A Monthly Conversion Program</p>
         <h1>Stop guessing which message converts. Start <span class="page-hero__highlight">testing</span> it.</h1>
-        <p class="page-hero__sub">Page Lab is a monthly conversion program. We build your landing pages, test messaging angles against real traffic, and iterate until the data picks a winner. Flat fee, senior operators, always shipping. Your first page is live within about a week.</p>
+        <p class="page-hero__sub">Page Lab is a monthly conversion program. We build your landing pages, test messaging angles against real traffic, and iterate until the data picks a winner. Flat fee, senior operators, always shipping. Your first page is live within a week.</p>
         <div class="page-hero__ctas">
           <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
           <a href="#work" class="btn btn--outline btn--lg">See the work</a>
@@ -803,7 +816,7 @@
     </div>
     <div class="work__rows reveal">
       <div>
-        <p class="work__caption">Landing &amp; advertorial pages</p>
+        <p class="work__caption">Landing Page Examples <span>· Included in Page Lab</span></p>
         <div class="marquee marquee--pages">
           <div class="marquee__track" style="--mq-duration:72s">
             <!-- PL:PAGES:START -->
@@ -834,7 +847,7 @@
         </div>
       </div>
       <div>
-        <p class="work__caption">Static creatives for ads &amp; social · Page Lab Pro</p>
+        <p class="work__caption">Static Ad Examples <span>· Creative Lab add-on</span></p>
         <div class="marquee marquee--statics marquee--reverse">
           <div class="marquee__track" style="--mq-duration:56s">
             <!-- PL:STATICS:START -->
@@ -994,6 +1007,10 @@
             <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             <span>You want a dedicated testing loop without hiring a team</span>
           </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You want the cost savings that AI brings, without having to learn all the different tools</span>
+          </div>
         </div>
         <div class="fit__col fit__col--no stagger">
           <h3 class="reveal">This is NOT for you if...</h3>
@@ -1023,8 +1040,6 @@
         <span class="platform-badge">Vercel</span>
         <span class="platform-badge">Webflow</span>
         <span class="platform-badge">WordPress</span>
-        <span class="platform-badge">GoHighLevel</span>
-        <span class="platform-badge">ClickFunnels</span>
       </div>
     </div>
   </section>
@@ -1034,16 +1049,17 @@
     <div class="container">
       <div class="section__head reveal">
         <p class="section-label section-label--muted">Pricing</p>
-        <h2>One program. Three ways to run it.</h2>
-        <p>Every plan is run by the same senior team, on the same testing loop.</p>
+        <h2>One program. Add what you need.</h2>
+        <p>Start with Page Lab. Layer on the add-ons as your testing program grows. Same senior team, same loop.</p>
       </div>
       <div class="pricing__grid">
 
-        <div class="tier reveal">
+        <div class="tier tier--featured reveal">
+          <div class="tier__badge">The Core Program</div>
           <div class="tier__name">Page Lab</div>
           <div class="tier__price"><span class="tier__price-amount">$2,000</span><span class="tier__price-period">/mo</span></div>
           <p class="tier__day">About $66 a day for a senior landing page and conversion team.</p>
-          <p class="tier__pitch">The core program. Pages built, tested against your traffic, and iterated until the messaging wins.</p>
+          <p class="tier__pitch">Pages built, tested against your traffic, and iterated until the messaging wins.</p>
           <ul class="tier__features">
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Conversion copywriting and messaging angles for every page</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Design and build on your stack. You own everything.</li>
@@ -1053,51 +1069,39 @@
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Always-on request queue, one active build at a time</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Revision rounds until the page ships right, active-page maintenance included</li>
           </ul>
-          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <a href="#book" class="btn btn--primary tier__cta">Book a Strategy Call</a>
           <p class="tier__note">Month to month · Cancel anytime</p>
         </div>
 
         <div class="tier reveal">
-          <div class="tier__name">Page Lab Pro</div>
-          <div class="tier__price"><span class="tier__price-amount">$3,000</span><span class="tier__price-period">/mo</span></div>
-          <p class="tier__pitch">Everything in Page Lab, plus static ad creatives to feed your paid channels.</p>
+          <div class="tier__name">Creative Lab <span class="tier__addon-tag">Add-on</span></div>
+          <div class="tier__price"><span class="tier__price-amount">+$1,000</span><span class="tier__price-period">/mo</span></div>
+          <p class="tier__pitch">Static ad creatives to feed your paid channels, matched to the pages we're testing.</p>
           <ul class="tier__features">
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Everything in Page Lab</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Static ad creatives every month</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Creative matched to the page angles being tested</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> One team across pages and ads, one message end to end</li>
           </ul>
           <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
-          <p class="tier__note">Month to month · Cancel anytime</p>
+          <p class="tier__note">Requires an active Page Lab seat</p>
         </div>
 
-        <div class="tier tier--featured reveal">
-          <div class="tier__badge">Best Value</div>
-          <div class="tier__name">Full Stack</div>
-          <div class="tier__price"><span class="tier__price-amount">$4,000</span><span class="tier__price-period">/mo</span></div>
-          <p class="tier__pitch">Pro plus Test Lab: the complete conversion system.</p>
+        <div class="tier reveal">
+          <div class="tier__name">Test Lab <span class="tier__addon-tag">Add-on</span></div>
+          <div class="tier__price"><span class="tier__price-amount">+$1,000</span><span class="tier__price-period">/mo</span></div>
+          <p class="tier__pitch">A structured A/B testing program on your traffic. This is where the data picks the winner.</p>
           <ul class="tier__features">
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Everything in Page Lab Pro</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Test Lab: a structured A/B testing program on your traffic</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Hypotheses, test setup, and disciplined reads on every experiment</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Hypotheses and test setup on your pages</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Disciplined reads on every experiment</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> A monthly readout tied to CVR and CAC</li>
           </ul>
-          <a href="#book" class="btn btn--primary tier__cta">Book a Strategy Call</a>
-          <p class="tier__note">Month to month · Cancel anytime</p>
+          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <p class="tier__note">Requires an active Page Lab seat and live paid media spend</p>
         </div>
 
       </div>
 
-      <div class="addon reveal">
-        <div class="addon__info">
-          <h3>Test Lab · Add-on</h3>
-          <p>A structured A/B testing program on your traffic: hypotheses, test setup, and a monthly readout tied to CVR and CAC. <strong>Requires an active Page Lab seat.</strong></p>
-        </div>
-        <div class="addon__price">
-          <strong>+$1,000</strong>
-          <span>/ month</span>
-        </div>
-      </div>
+      <p class="pricing__full-system reveal">The full system, Page Lab plus both add-ons, runs <strong>$4,000 a month</strong>.</p>
 
       <p class="pricing__notes reveal">
         <strong>Month to month. Cancel anytime. No long-term contracts.</strong><br>
@@ -1159,7 +1163,7 @@
           <button class="faq__q" aria-expanded="false" aria-controls="faq-a5">How fast is the first page?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
           <div class="faq__a" id="faq-a5">
             <div class="faq__a-inner">
-              <p>Your first page is live within about a week. After that, iterations move in days, not quarters. The exact pace depends on how quickly you turn around feedback: fast reviewers keep the loop tight.</p>
+              <p>Your first page is live within a week. After that, iterations move in days, not quarters. The exact pace depends on how quickly you turn around feedback: fast reviewers keep the loop tight.</p>
             </div>
           </div>
         </div>
