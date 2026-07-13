@@ -20,7 +20,7 @@
   <meta property="og:site_name" content="ClickDose Labs">
   <meta property="og:url" content="https://clickdoselabs.com/">
   <meta property="og:title" content="ClickDose Labs · Turn More Traffic Into Customers">
-  <meta property="og:description" content="We build your pages and ad creative, scientifically test the messaging until it converts, then scale the winners with paid media and cold email. More customers from the traffic you already have.">
+  <meta property="og:description" content="We build your landing pages, test the messaging against real traffic, and put paid media behind what wins. More customers from the traffic you already have.">
   <meta property="og:image" content="https://clickdoselabs.com/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -29,7 +29,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ClickDose Labs · Turn More Traffic Into Customers">
-  <meta name="twitter:description" content="We build your pages and creative, test the message until it converts, then scale with paid media. More customers from the traffic you already have.">
+  <meta name="twitter:description" content="We build your landing pages, test the messaging against real traffic, and put paid media behind what wins. More customers from the traffic you already have.">
   <meta name="twitter:image" content="https://clickdoselabs.com/assets/og-image.png">
 
   <!-- Structured data -->
@@ -40,7 +40,7 @@
     "name": "ClickDose Labs",
     "url": "https://clickdoselabs.com/",
     "logo": "https://clickdoselabs.com/assets/clickdose-labs.png",
-    "description": "ClickDose Labs helps growth-stage companies turn more of their traffic into customers, building landing pages and ad creative, scientifically testing the messaging, and scaling winners with paid media (Growth Lab) and cold email (Cold Email Lab).",
+    "description": "ClickDose Labs helps growth-stage companies turn more of their traffic into customers: landing pages built and tested against real traffic (Page Lab), paid media behind the winning messages (Growth Lab), and outbound pipeline (Cold Email Lab).",
     "sameAs": ["https://www.linkedin.com/company/clickdose-labs/", "https://x.com/clickdoselabs"]
   }
   </script>
@@ -48,356 +48,81 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared/styles.css">
   <style>
-    :root {
-      --color-bg: #FDF8F4;
-      --color-bg-alt: #F7F2EE;
-      --color-surface: #FFFFFF;
-      --color-text: #14181F;
-      --color-text-soft: #2B313D;
-      --color-muted: #6B7280;
-      --color-border: #E8E2DC;
-      --color-border-soft: #EFEAE5;
-      --color-accent: #00C9A7;
-      --color-accent-hover: #00B396;
-      --color-accent-light: #00E6BE;
-      --color-accent-tint: rgba(0, 201, 167, 0.08);
-      --color-dark: #0B0F18;
-      --color-dark-soft: #14181F;
-      --color-danger: #D9594E;
-      --gradient-stats: linear-gradient(135deg, #00C9A7 0%, #00B396 100%);
-      --font-display: 'Space Grotesk', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --h1-size: clamp(2.75rem, 6vw, 4.5rem);
-      --h2-size: clamp(1.875rem, 4vw, 2.75rem);
-      --h3-size: clamp(1.125rem, 2vw, 1.375rem);
-      --body-size: 1rem;
-      --body-lg: clamp(1.05rem, 1.5vw, 1.2rem);
-      --body-sm: 0.9375rem;
-      --caption: 0.8125rem;
-      --section-padding: clamp(5rem, 10vw, 8rem);
-      --container-max: 1200px;
-      --container-padding: clamp(1.5rem, 4vw, 3rem);
-      --radius: 8px;
-      --radius-lg: 14px;
-      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      --shadow-sm: 0 1px 2px rgba(11, 15, 24, 0.04), 0 1px 3px rgba(11, 15, 24, 0.04);
-      --shadow-md: 0 8px 24px rgba(11, 15, 24, 0.06);
-      --shadow-lg: 0 18px 50px rgba(11, 15, 24, 0.08);
-      --nav-height: 72px;
-      --nav-height-mobile: 60px;
-    }
+    /* Homepage-specific styles. Foundation (tokens, base, buttons, nav, footer, reveal) lives in shared/styles.css. */
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-weight: 400;
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding: 0 var(--container-padding);
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-display);
-      line-height: 1.15;
-      color: var(--color-text);
-    }
-
-    .section-label {
-      font-family: var(--font-display);
-      font-size: var(--caption);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      color: var(--color-accent);
-    }
-
-    .section-label--muted {
-      color: var(--color-muted);
-    }
-
-    /* ---- Buttons ---- */
-    .btn {
+    /* Homepage logo sizing overrides shared defaults */
+    .nav__logo img { height: 44px; width: auto; }
+    .footer__logo {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.95rem 2rem;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow var(--transition-normal), background var(--transition-normal), color var(--transition-normal);
-      min-height: 44px;
-      text-decoration: none;
-      line-height: 1;
-      white-space: nowrap;
+      background: var(--color-bg);
+      padding: 10px 16px;
+      border-radius: 12px;
     }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn--primary {
-      background: var(--color-accent);
-      color: #FFFFFF;
-    }
-
-    .btn--primary:hover {
-      background: var(--color-accent-hover);
-      box-shadow: 0 10px 26px rgba(0, 201, 167, 0.32);
-      transform: translateY(-2px);
-    }
-
-    .btn--dark {
-      background: var(--color-dark);
-      color: #FFFFFF;
-    }
-
-    .btn--dark:hover {
-      background: var(--color-text);
-      box-shadow: 0 10px 26px rgba(11, 15, 24, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .btn--lg {
-      font-size: 1.0625rem;
-      padding: 1.1rem 2.5rem;
-    }
-
-    .btn--outline {
-      background: transparent;
-      color: var(--color-text);
-      border: 1.5px solid var(--color-border);
-    }
-
-    .btn--outline:hover {
-      border-color: var(--color-text);
-      background: var(--color-text);
-      color: #FFFFFF;
-    }
-
-    /* ---- Scroll Reveal ---- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stagger > .reveal:nth-child(1) { transition-delay: 0s; }
-    .stagger > .reveal:nth-child(2) { transition-delay: 0.08s; }
-    .stagger > .reveal:nth-child(3) { transition-delay: 0.16s; }
-    .stagger > .reveal:nth-child(4) { transition-delay: 0.24s; }
-    .stagger > .reveal:nth-child(5) { transition-delay: 0.3s; }
-    .stagger > .reveal:nth-child(6) { transition-delay: 0.36s; }
-
-    /* ---- NAV ---- */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease;
-    }
-
-    .nav.scrolled {
-      background: rgba(253, 248, 244, 0.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: var(--color-border);
-    }
-
-    .nav__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: var(--nav-height);
-    }
-
-    .nav__logo img {
-      height: 44px;
-      width: auto;
-    }
-
-    .nav__links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .nav__links a {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--color-text-soft);
-      transition: color 0.2s ease;
-    }
-
-    .nav__links a:hover {
-      color: var(--color-accent);
-    }
-
-    .nav__cta .btn {
-      font-size: 0.875rem;
-      padding: 0.7rem 1.4rem;
-      min-height: 42px;
-    }
-
-    /* Nav services dropdown */
-    .nav__dropdown { position: relative; }
-    .nav__dropdown-trigger {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      cursor: pointer;
-      font-size: 0.9375rem; font-weight: 500;
-      color: var(--color-text-soft);
-      transition: color 0.2s ease;
-    }
-    .nav__dropdown-trigger svg {
-      width: 12px; height: 12px; stroke: currentColor; stroke-width: 2.5; fill: none;
-      transition: transform 0.25s ease;
-    }
-    .nav__dropdown:hover .nav__dropdown-trigger,
-    .nav__dropdown:focus-within .nav__dropdown-trigger { color: var(--color-accent); }
-    .nav__dropdown:hover .nav__dropdown-trigger svg,
-    .nav__dropdown:focus-within .nav__dropdown-trigger svg { transform: rotate(180deg); }
-    .nav__menu {
-      position: absolute; top: calc(100% + 0.5rem); left: 50%;
-      transform: translateX(-50%) translateY(8px);
-      min-width: 280px;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      padding: 0.5rem;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-    }
-    .nav__dropdown:hover .nav__menu,
-    .nav__dropdown:focus-within .nav__menu {
-      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
-    }
-    .nav__menu::before { content: ''; position: absolute; top: -0.5rem; left: 0; right: 0; height: 0.5rem; }
-    .nav__menu-item { display: block; padding: 0.7rem 0.85rem; border-radius: var(--radius); transition: background 0.2s ease; }
-    .nav__menu-item:hover { background: var(--color-bg-alt); }
-    .nav__menu-item h4 { font-family: var(--font-display); font-size: 0.9375rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.15rem; }
-    .nav__menu-item p { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.4; }
+    .footer__logo img { height: 36px; width: auto; display: block; }
 
     /* ---- HERO ---- */
     .hero {
-      background: var(--color-bg);
       position: relative;
       overflow: hidden;
       min-height: min(88vh, 860px);
       display: flex;
       align-items: center;
       padding: calc(var(--nav-height) + 3rem) 0 var(--section-padding);
+      background: var(--color-bg);
     }
 
-    .hero__mesh {
+    /* Build-collage background: slow-panning columns of real page screenshots.
+       Swappable for video later (see VIDEO SWAP comment in the markup). */
+    .hero__media {
       position: absolute;
       inset: 0;
       z-index: 0;
       pointer-events: none;
+      overflow: hidden;
     }
 
-    .hero__mesh::before,
-    .hero__mesh::after {
-      content: '';
+    .hero__collage {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
+      inset: -6% -3%;
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      transform: rotate(-3deg);
     }
 
-    .hero__mesh::before {
-      width: 620px;
-      height: 620px;
-      background: var(--color-accent);
-      opacity: 0.18;
-      top: -15%;
-      right: -10%;
-      animation: meshFloat1 24s ease-in-out infinite;
+    .hero__col {
+      flex: 1;
+      min-width: 0;
+      animation: collageDrift var(--drift, 60s) linear infinite;
+      animation-delay: var(--drift-delay, 0s);
+      will-change: transform;
     }
 
-    .hero__mesh::after {
-      width: 520px;
-      height: 520px;
-      background: #6FA8FF;
-      opacity: 0.12;
-      bottom: -20%;
-      left: -8%;
-      animation: meshFloat2 28s ease-in-out infinite;
+    .hero__col--reverse { animation-direction: reverse; }
+
+    .hero__col img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+      filter: saturate(0.8);
     }
 
-    .hero__mesh-blob {
+    /* Each column holds its image set twice; -50% of the column's own
+       height equals exactly one set, so the loop is seamless. */
+    @keyframes collageDrift {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+
+    .hero__overlay {
       position: absolute;
-      width: 460px;
-      height: 460px;
-      background: var(--color-accent);
-      opacity: 0.08;
-      border-radius: 50%;
-      filter: blur(140px);
-      top: 35%;
-      left: 45%;
-      animation: meshFloat3 26s ease-in-out infinite;
-    }
-
-    @keyframes meshFloat1 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-30px, 40px) scale(1.05); }
-      66% { transform: translate(20px, -20px) scale(0.95); }
-    }
-
-    @keyframes meshFloat2 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(40px, -30px) scale(1.08); }
-      66% { transform: translate(-25px, 25px) scale(0.97); }
-    }
-
-    @keyframes meshFloat3 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-35px, -25px) scale(1.06); }
-      66% { transform: translate(30px, 35px) scale(0.94); }
+      inset: 0;
+      background:
+        linear-gradient(100deg, rgba(253, 248, 244, 0.97) 0%, rgba(253, 248, 244, 0.92) 45%, rgba(253, 248, 244, 0.68) 100%),
+        linear-gradient(180deg, rgba(253, 248, 244, 0.7) 0%, rgba(253, 248, 244, 0.2) 40%, rgba(253, 248, 244, 0.75) 100%);
     }
 
     .hero__content {
@@ -419,7 +144,6 @@
     .hero__content > *:nth-child(2) { animation-delay: 0.18s; }
     .hero__content > *:nth-child(3) { animation-delay: 0.32s; }
     .hero__content > *:nth-child(4) { animation-delay: 0.46s; }
-    .hero__content > *:nth-child(5) { animation-delay: 0.6s; }
 
     .hero h1 {
       font-size: var(--h1-size);
@@ -452,7 +176,7 @@
       color: var(--color-text-soft);
       line-height: 1.65;
       margin-bottom: 2.25rem;
-      max-width: 660px;
+      max-width: 640px;
     }
 
     .hero__ctas {
@@ -462,330 +186,380 @@
       flex-wrap: wrap;
     }
 
-    .hero__proof {
-      margin-top: 1.5rem;
-      font-size: var(--body-sm);
-      color: var(--color-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .hero__proof-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--color-accent);
-      box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.15);
-      animation: pulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 4px rgba(0, 201, 167, 0.15); }
-      50% { box-shadow: 0 0 0 8px rgba(0, 201, 167, 0.05); }
-    }
-
-    /* ---- PAIN AGITATION ---- */
-    .pain {
+    /* ---- PROOF STRIP ---- */
+    .proof {
       background: var(--color-surface);
       padding: var(--section-padding) 0;
       border-top: 1px solid var(--color-border-soft);
     }
 
-    .pain__header {
-      max-width: 720px;
-      margin-bottom: 3rem;
-    }
-
-    .pain h2 {
-      font-size: var(--h2-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .pain__grid {
+    .proof__stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto 3.5rem;
     }
 
-    .pain__card {
+    .proof-stat {
       background: var(--color-bg);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 2rem;
+      padding: 2rem 2.25rem;
       transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
     }
 
-    .pain__card:hover {
+    .proof-stat:hover {
       transform: translateY(-4px);
       border-color: var(--color-accent);
       box-shadow: var(--shadow-md);
     }
 
-    .pain__card-quote {
+    .proof-stat__number {
       font-family: var(--font-display);
-      font-size: 1.0625rem;
-      font-weight: 600;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+
+    .proof-stat__label {
+      font-size: var(--body-size);
+      font-weight: 500;
       color: var(--color-text);
+      line-height: 1.45;
       margin-bottom: 0.75rem;
-      line-height: 1.4;
     }
 
-    .pain__card-quote::before {
-      content: '"';
-      color: var(--color-accent);
-      margin-right: 0.1rem;
-    }
-
-    .pain__card-quote::after {
-      content: '"';
-      color: var(--color-accent);
-      margin-left: 0.1rem;
-    }
-
-    .pain__card-reality {
-      font-size: var(--body-sm);
+    .proof-stat__source {
+      font-size: var(--caption);
       color: var(--color-muted);
-      line-height: 1.65;
     }
 
-    /* ---- CREDIBILITY STRIP ---- */
-    .credibility {
-      background: var(--gradient-stats);
-      padding: 3.5rem 0;
+    .proof__eyebrow {
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
-    .credibility__row {
+    .logos__marquee {
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .logos__track {
+      display: flex;
+      width: max-content;
+      animation: logosScroll 45s linear infinite;
+    }
+
+    .logos__marquee:hover .logos__track {
+      animation-play-state: paused;
+    }
+
+    .logos__group {
       display: flex;
       align-items: center;
-      justify-content: center;
-      max-width: 1080px;
-      margin: 0 auto;
+      gap: 4.5rem;
+      padding-right: 4.5rem;
+      flex-shrink: 0;
     }
 
-    .credibility__stat {
-      flex: 1;
-      text-align: center;
-      padding: 0.5rem 1.5rem;
+    .logos__track img {
+      height: 44px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.62;
+      transition: filter var(--transition-normal), opacity var(--transition-normal);
     }
 
-    .credibility__stat + .credibility__stat {
-      border-left: 1px solid rgba(255, 255, 255, 0.25);
+    .logos__track img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
     }
 
-    .credibility__number {
+    @keyframes logosScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---- MARQUEE STRIP (repeating message band) ---- */
+    .strip {
+      background: var(--gradient-stats);
+      padding: 1.1rem 0;
+      overflow: hidden;
+    }
+
+    .strip__track {
+      display: flex;
+      width: max-content;
+      animation: stripScroll 42s linear infinite;
+      will-change: transform;
+    }
+
+    .strip__group {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .strip__group span {
       font-family: var(--font-display);
-      font-size: clamp(1.85rem, 3.5vw, 2.625rem);
-      font-weight: 700;
+      font-weight: 600;
+      font-size: 1.0625rem;
       color: #FFFFFF;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
     }
 
-    .credibility__label {
-      font-size: var(--body-sm);
-      color: rgba(255, 255, 255, 0.92);
-      margin-top: 0.4rem;
-      line-height: 1.4;
+    .strip__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.65);
+      margin: 0 1.75rem;
+      flex-shrink: 0;
     }
 
-    /* ---- MANIFESTO ---- */
-    .manifesto {
+    @keyframes stripScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---- THE LEAK ---- */
+    .leak {
       background: var(--color-bg);
       padding: var(--section-padding) 0;
     }
 
-    .manifesto__header {
+    .leak__header {
       max-width: 720px;
-      margin-bottom: 3rem;
+      margin-bottom: 2.75rem;
     }
 
-    .manifesto h2 {
+    .leak h2 {
       font-size: var(--h2-size);
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
-    .manifesto__table {
-      max-width: 1000px;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
+    .leak__list {
+      list-style: none;
+      max-width: 800px;
+      margin-bottom: 2.25rem;
     }
 
-    .manifesto__headers {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--color-bg-alt);
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .manifesto__col-header {
+    .leak__list li {
+      position: relative;
+      padding: 1.1rem 0 1.1rem 2.1rem;
       font-family: var(--font-display);
-      font-size: 0.8125rem;
-      font-weight: 700;
-      padding: 1.25rem 2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .manifesto__col-header--them {
-      color: var(--color-muted);
-      border-right: 1px solid var(--color-border);
-    }
-
-    .manifesto__col-header--us {
-      color: var(--color-accent);
-    }
-
-    .manifesto__row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.45;
       border-bottom: 1px solid var(--color-border-soft);
     }
 
-    .manifesto__row:last-child {
-      border-bottom: none;
+    .leak__list li:last-child { border-bottom: none; }
+
+    .leak__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.85rem;
+      width: 18px;
+      height: 3px;
+      background: var(--color-danger);
+      border-radius: 2px;
     }
 
-    .manifesto__left, .manifesto__right {
-      font-size: var(--body-sm);
-      line-height: 1.55;
-      padding: 1.35rem 2rem;
+    .leak__math {
+      max-width: 800px;
+      background: var(--color-dark);
+      color: #F9FAFB;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2.25rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.0625rem, 1.8vw, 1.1875rem);
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .manifesto__left {
-      color: var(--color-muted);
-      border-right: 1px solid var(--color-border);
-      text-decoration: line-through;
-      text-decoration-color: rgba(217, 89, 78, 0.4);
-      text-decoration-thickness: 1px;
+    .leak__math::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--color-accent);
     }
 
-    .manifesto__right {
-      color: var(--color-text);
-      font-weight: 500;
+    .leak__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-accent);
+      transition: color 0.2s ease, gap 0.2s ease;
     }
 
-    /* ---- PROCESS ---- */
-    .process {
+    .leak__link:hover {
+      color: var(--color-accent-hover);
+      gap: 0.65rem;
+    }
+
+    /* ---- THE LABS ---- */
+    .labs {
       background: var(--color-surface);
       padding: var(--section-padding) 0;
       border-top: 1px solid var(--color-border-soft);
     }
 
-    .process__header {
+    .labs__header {
       text-align: center;
-      margin-bottom: 4rem;
+      max-width: 720px;
+      margin: 0 auto 3rem;
     }
 
-    .process__header h2 {
+    .labs__header h2 {
       font-size: var(--h2-size);
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
-    .process__steps {
+    /* auto-fit grid: a fourth card slots in without a redesign */
+    .labs__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      position: relative;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
     }
 
-    .process__line {
+    .lab-card {
+      position: relative;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .lab-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lab-card--lead {
+      border-top-color: var(--color-accent);
+    }
+
+    .lab-card__badge {
       position: absolute;
-      top: 30px;
-      left: calc(12.5% + 30px);
-      right: calc(12.5% + 30px);
-      height: 2px;
-      background: linear-gradient(90deg, rgba(0, 201, 167, 0.1), rgba(0, 201, 167, 0.35), rgba(0, 201, 167, 0.1));
-      z-index: 0;
+      top: -12px;
+      left: 2rem;
+      background: var(--color-accent);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      box-shadow: 0 6px 16px rgba(0, 201, 167, 0.4);
     }
 
-    .step {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .step__circle {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid var(--color-accent);
+    .lab-card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--color-accent-tint);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1.25rem;
-      font-family: var(--font-display);
-      font-size: 1.125rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .lab-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-accent);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lab-card h3 {
+      font-size: 1.375rem;
       font-weight: 700;
-      color: var(--color-accent);
-      background: var(--color-surface);
-      position: relative;
-      transition: transform var(--transition-normal), background var(--transition-normal), color var(--transition-normal);
+      margin-bottom: 0.6rem;
     }
 
-    .step:hover .step__circle {
-      background: var(--color-accent);
-      color: #FFFFFF;
-      transform: scale(1.05);
-    }
-
-    .step h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .step p {
+    .lab-card__desc {
       font-size: var(--body-sm);
-      color: var(--color-muted);
-      line-height: 1.65;
-      max-width: 260px;
-      margin: 0 auto;
+      color: var(--color-text-soft);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
 
-    /* ---- TEAM ---- */
-    .team {
+    .lab-card__link {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--color-accent);
+      transition: color 0.2s ease;
+    }
+
+    .lab-card__link:hover { color: var(--color-accent-hover); }
+
+    /* ---- THE PARTNERS ---- */
+    .partners {
       background: var(--color-bg);
       padding: var(--section-padding) 0;
     }
 
-    .team__header {
-      max-width: 760px;
-      margin: 0 auto 4rem;
+    .partners__header {
       text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3rem;
     }
 
-    .team__header h2 {
+    .partners__header h2 {
       font-size: var(--h2-size);
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
     }
 
-    .team__lede {
-      font-size: var(--body-lg);
-      color: var(--color-text-soft);
-      line-height: 1.65;
-    }
-
-    .team__grid {
+    .partners__grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .partner {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 2.5rem;
+      padding: 2.25rem;
       transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
     }
 
@@ -799,26 +573,17 @@
       display: flex;
       align-items: center;
       gap: 1.25rem;
-      margin-bottom: 1.75rem;
-      padding-bottom: 1.75rem;
-      border-bottom: 1px solid var(--color-border-soft);
+      margin-bottom: 1.35rem;
     }
 
     .partner__avatar {
       width: 72px;
       height: 72px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.625rem;
-      font-weight: 700;
-      color: #FFFFFF;
       flex-shrink: 0;
-      box-shadow: 0 8px 22px rgba(0, 201, 167, 0.28);
       overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0, 201, 167, 0.28);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
     }
 
     .partner__avatar img {
@@ -841,736 +606,30 @@
       font-weight: 500;
     }
 
-    .partner__bullets {
-      list-style: none;
-    }
-
-    .partner__bullets li {
-      padding: 0.6rem 0;
-      padding-left: 1.75rem;
-      font-size: 0.9375rem;
-      color: var(--color-text-soft);
-      line-height: 1.6;
-      position: relative;
-      border-bottom: 1px solid var(--color-border-soft);
-    }
-
-    .partner__bullets li:last-child {
-      border-bottom: none;
-    }
-
-    .partner__bullets li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 1.1rem;
-      width: 14px;
-      height: 2px;
-      background: var(--color-accent);
-      border-radius: 2px;
-    }
-
-    .partner__bullets strong {
-      color: var(--color-text);
-      font-weight: 600;
-    }
-
-    .partner__summary {
-      font-size: var(--body-lg);
+    .partner__line {
+      font-size: var(--body-size);
       color: var(--color-text-soft);
       line-height: 1.65;
-      margin-bottom: 1.5rem;
     }
 
-    .partner__summary strong {
+    .partner__line strong {
       color: var(--color-text);
       font-weight: 600;
     }
 
-    .partner__toggle {
+    .partner__link {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--color-accent);
-      transition: color var(--transition-fast);
-    }
-
-    .partner__toggle:hover {
-      color: var(--color-accent-hover);
-    }
-
-    .partner__chev {
-      width: 16px;
-      height: 16px;
-      transition: transform var(--transition-normal);
-    }
-
-    .partner.is-open .partner__chev {
-      transform: rotate(180deg);
-    }
-
-    .partner__detail {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.4s ease;
-    }
-
-    .partner.is-open .partner__detail {
-      grid-template-rows: 1fr;
-    }
-
-    .partner__detail-inner {
-      overflow: hidden;
-      min-height: 0;
-    }
-
-    .partner__detail .partner__bullets {
-      margin-top: 1.5rem;
-    }
-
-    .partner__track {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--color-border-soft);
-    }
-
-    .partner__track-label {
-      font-family: var(--font-display);
-      font-size: var(--caption);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 0.85rem;
-    }
-
-    .partner__track-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    .partner__track-list li {
-      font-size: 0.9375rem;
-      color: var(--color-text-soft);
-      line-height: 1.6;
-      padding-left: 1.75rem;
-      position: relative;
-    }
-
-    .partner__track-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.55rem;
-      width: 14px;
-      height: 2px;
-      background: var(--color-accent);
-      border-radius: 2px;
-    }
-
-    .partner__track-list strong {
-      color: var(--color-text);
-      font-weight: 600;
-    }
-
-    /* ---- SELECTED CLIENTS ---- */
-    .clients {
-      background: var(--color-bg);
-      padding: 0 0 var(--section-padding);
-    }
-
-    .clients__inner {
-      border-top: 1px solid var(--color-border-soft);
-      padding-top: var(--section-padding);
-    }
-
-    .clients__header {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 3rem;
-    }
-
-    .clients__header h2 {
-      font-size: var(--h2-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .clients__marquee {
-      position: relative;
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    }
-
-    .clients__track {
-      display: flex;
-      width: max-content;
-      animation: clientsScroll 45s linear infinite;
-    }
-
-    .clients__marquee:hover .clients__track {
-      animation-play-state: paused;
-    }
-
-    .clients__group {
-      display: flex;
-      align-items: center;
-      gap: 4.5rem;
-      padding-right: 4.5rem;
-      flex-shrink: 0;
-    }
-
-    .clients__track img {
-      height: 44px;
-      width: auto;
-      max-width: 170px;
-      object-fit: contain;
-      filter: grayscale(100%);
-      opacity: 0.62;
-      transition: filter var(--transition-normal), opacity var(--transition-normal);
-    }
-
-    .clients__track img:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
-
-    @keyframes clientsScroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .clients__track { animation: none; flex-wrap: wrap; justify-content: center; }
-      .clients__group:last-child { display: none; }
-      .clients__group { flex-wrap: wrap; justify-content: center; row-gap: 2.5rem; padding-right: 0; }
-    }
-
-    /* ---- TWO ENGINES ---- */
-    .engines {
-      background: var(--color-bg-alt);
-      padding: var(--section-padding) 0;
-      border-top: 1px solid var(--color-border-soft);
-    }
-    .engines__header {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 3rem;
-    }
-    .engines__header h2 {
-      font-size: var(--h2-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .engines__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    .engine {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
-    }
-    .engine:hover {
-      border-color: var(--color-accent);
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
-    .engine__label {
-      font-family: var(--font-display);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 0.6rem;
-    }
-    .engine__title {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.2rem;
-    }
-    .engine__brand {
-      font-size: var(--body);
-      font-weight: 600;
-      color: var(--color-accent-hover);
-      margin-bottom: 1rem;
-    }
-    .engine__desc {
-      font-size: var(--body);
-      color: var(--color-text-soft);
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-    }
-    .engine__list {
-      list-style: none;
-      margin-bottom: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-    .engine__list li {
-      position: relative;
-      padding-left: 1.6rem;
-      font-size: 0.9375rem;
-      color: var(--color-text-soft);
-      line-height: 1.5;
-    }
-    .engine__list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.5rem;
-      width: 14px;
-      height: 2px;
-      background: var(--color-accent);
-      border-radius: 2px;
-    }
-    .engine__cta {
-      margin-top: auto;
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--color-accent);
-      text-decoration: none;
-    }
-    .engine__cta:hover { color: var(--color-accent-hover); }
-
-    /* ---- TESTIMONIALS ---- */
-    .testimonials {
-      background: var(--color-bg-alt);
-      padding: var(--section-padding) 0;
-      border-top: 1px solid var(--color-border-soft);
-    }
-
-    .testimonials__header {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 3.5rem;
-    }
-
-    .testimonials__header h2 {
-      font-size: var(--h2-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-
-    .testimonials__grid .testimonial:nth-child(4):last-child {
-      grid-column: 1 / -1;
-    }
-
-    .testimonial {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
-    }
-
-    .testimonial:hover {
-      transform: translateY(-6px);
-      border-color: var(--color-accent);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .testimonial__stat {
-      font-family: var(--font-display);
-      font-size: 1.875rem;
-      font-weight: 700;
-      color: var(--color-accent);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
-    }
-
-    .testimonial__stat-label {
-      font-size: 0.8125rem;
-      color: var(--color-muted);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-family: var(--font-display);
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial__quote {
-      font-size: 0.9375rem;
-      color: var(--color-text-soft);
-      line-height: 1.65;
-      flex-grow: 1;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--color-border-soft);
-    }
-
-    .testimonial__author {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .testimonial__avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--color-bg);
-      border: 1.5px solid var(--color-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--color-text);
-      flex-shrink: 0;
-    }
-
-    .testimonial__author-id strong {
-      display: block;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--color-text);
-      line-height: 1.2;
-      margin-bottom: 0.15rem;
-    }
-
-    .testimonial__author-id span {
-      font-size: 0.8125rem;
-      color: var(--color-muted);
-      line-height: 1.3;
-    }
-
-    /* ---- PRICING ---- */
-    .pricing {
-      background: var(--color-surface);
-      padding: var(--section-padding) 0;
-      border-top: 1px solid var(--color-border-soft);
-    }
-
-    .pricing__header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 3.5rem;
-    }
-
-    .pricing__header h2 {
-      font-size: var(--h2-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
-    }
-
-    .pricing__lede {
-      font-size: var(--body-lg);
-      color: var(--color-text-soft);
-      line-height: 1.6;
-    }
-
-    .pricing__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-
-    .tier {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem 2rem;
-      display: flex;
-      flex-direction: column;
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
-      position: relative;
-    }
-
-    .tier:hover {
-      transform: translateY(-6px);
-      border-color: var(--color-accent);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .tier--featured {
-      background: var(--color-dark);
-      border-color: var(--color-dark);
-      color: #F9FAFB;
-      transform: translateY(-12px);
-      box-shadow: 0 24px 60px rgba(11, 15, 24, 0.18);
-    }
-
-    .tier--featured:hover {
-      transform: translateY(-18px);
-      box-shadow: 0 30px 70px rgba(11, 15, 24, 0.24);
-      border-color: var(--color-accent);
-    }
-
-    .tier__badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--color-accent);
-      color: #FFFFFF;
-      font-family: var(--font-display);
-      font-size: 0.6875rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.45rem 0.95rem;
-      border-radius: 100px;
-      box-shadow: 0 6px 16px rgba(0, 201, 167, 0.4);
-    }
-
-    .tier__name {
-      font-family: var(--font-display);
-      font-size: 0.8125rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .tier--featured .tier__name {
-      color: var(--color-accent);
-    }
-
-    .tier__title {
-      font-family: var(--font-display);
-      font-size: 1.625rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      line-height: 1.2;
-    }
-
-    .tier--featured .tier__title {
-      color: #FFFFFF;
-    }
-
-    .tier__pitch {
-      font-size: var(--body-sm);
-      color: var(--color-muted);
-      margin-bottom: 1.75rem;
-      line-height: 1.55;
-      min-height: 3rem;
-    }
-
-    .tier--featured .tier__pitch {
-      color: rgba(249, 250, 251, 0.7);
-    }
-
-    .tier__price {
-      display: flex;
-      align-items: baseline;
       gap: 0.4rem;
-      padding-bottom: 1.75rem;
-      margin-bottom: 1.75rem;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .tier--featured .tier__price {
-      border-bottom-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .tier__price-amount {
+      margin-top: 1.1rem;
       font-family: var(--font-display);
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-
-    .tier__price--custom {
-      align-items: baseline;
-    }
-
-    .tier__price--custom .tier__price-amount {
-      font-size: 1.875rem;
-    }
-
-    .tier--featured .tier__price-amount {
-      color: #FFFFFF;
-    }
-
-    .tier__price-period {
-      font-size: 0.9375rem;
-      color: var(--color-muted);
-      font-weight: 500;
-    }
-
-    .tier--featured .tier__price-period {
-      color: rgba(249, 250, 251, 0.6);
-    }
-
-    .tier__features {
-      list-style: none;
-      margin-bottom: 2rem;
-      flex-grow: 1;
-    }
-
-    .tier__features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
-      padding: 0.5rem 0;
-      font-size: 0.9375rem;
-      line-height: 1.5;
-      color: var(--color-text-soft);
-    }
-
-    .tier--featured .tier__features li {
-      color: rgba(249, 250, 251, 0.85);
-    }
-
-    .tier__check {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      color: var(--color-accent);
-      margin-top: 0.18rem;
-    }
-
-    .tier__cta {
-      width: 100%;
-    }
-
-    .tier__note {
-      text-align: center;
-      font-size: 0.8125rem;
-      color: var(--color-muted);
-      margin-top: 1rem;
-    }
-
-    .tier--featured .tier__note {
-      color: rgba(249, 250, 251, 0.55);
-    }
-
-    .pricing__addspend {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: var(--body-sm);
-      color: var(--color-muted);
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.65;
-    }
-
-    .pricing__addspend strong {
-      color: var(--color-text);
       font-weight: 600;
-    }
-
-    /* ---- FIT CHECK ---- */
-    .fit {
-      background: var(--color-bg);
-      padding: var(--section-padding) 0;
-    }
-
-    .fit__header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .fit__header h2 {
-      font-size: var(--h2-size);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .fit__columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      max-width: 1040px;
-      margin: 0 auto;
-    }
-
-    .fit__col {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-    }
-
-    .fit__col--yes {
-      border-top: 3px solid var(--color-accent);
-    }
-
-    .fit__col--no {
-      border-top: 3px solid var(--color-danger);
-    }
-
-    .fit__col h3 {
-      font-family: var(--font-display);
-      font-size: 1.1875rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-
-    .fit__col--yes h3 {
+      font-size: 0.9375rem;
       color: var(--color-accent);
+      transition: color 0.2s ease;
     }
 
-    .fit__col--no h3 {
-      color: var(--color-danger);
-    }
-
-    .fit__item {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      padding: 0.85rem 0;
-      font-size: var(--body-sm);
-      color: var(--color-text-soft);
-      line-height: 1.55;
-      border-bottom: 1px solid var(--color-border-soft);
-    }
-
-    .fit__item:last-child {
-      border-bottom: none;
-    }
-
-    .fit__icon {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      margin-top: 1px;
-    }
-
-    .fit__icon--check {
-      color: var(--color-accent);
-    }
-
-    .fit__icon--x {
-      color: var(--color-danger);
-    }
+    .partner__link:hover { color: var(--color-accent-hover); }
 
     /* ---- FINAL CTA ---- */
     .final-cta {
@@ -1603,20 +662,10 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       color: #FFFFFF;
-      margin-bottom: 1.25rem;
+      margin-bottom: 2.25rem;
       max-width: 760px;
       margin-left: auto;
       margin-right: auto;
-    }
-
-    .final-cta__sub {
-      font-size: var(--body-lg);
-      color: rgba(249, 250, 251, 0.72);
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.65;
     }
 
     .final-cta__escape {
@@ -1636,314 +685,59 @@
       color: var(--color-accent-light);
     }
 
-    /* ---- FOOTER ---- */
-    .footer {
-      background: var(--color-dark);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      color: rgba(249, 250, 251, 0.55);
-      padding: 3rem 0 2rem;
-    }
-
-    .footer__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer__logo {
-      display: inline-flex;
-      background: var(--color-bg);
-      padding: 10px 16px;
-      border-radius: 12px;
-    }
-
-    .footer__logo img {
-      height: 36px;
-      width: auto;
-      display: block;
-    }
-
-    .footer__links {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .footer__links a {
-      font-size: 0.875rem;
-      color: rgba(249, 250, 251, 0.55);
-      transition: color 0.2s ease;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-    }
-
-    .footer__links a:hover {
-      color: #FFFFFF;
-    }
-
-    .footer__right {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer__social a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      color: rgba(249, 250, 251, 0.4);
-      transition: color 0.2s ease;
-    }
-
-    .footer__social a:hover {
-      color: #FFFFFF;
-    }
-
-    .footer__social svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
-
-    .footer__bottom {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: var(--caption);
-      text-align: center;
-    }
-
     /* ---- RESPONSIVE ---- */
     @media (max-width: 768px) {
-      .nav__links {
-        display: none;
-      }
-      .nav__cta .btn {
-        font-size: 0.8125rem;
-        padding: 0.6rem 1.15rem;
-      }
+      .hero__col:nth-child(4) { display: none; }
 
-      .hero__ctas {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .hero__ctas .btn {
-        width: 100%;
-      }
-
-      .pain__grid {
+      .proof__stats {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
       }
 
-      .credibility__row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-      }
-      .credibility__stat + .credibility__stat {
-        border-left: none;
-      }
-
-      .manifesto__headers {
-        display: none;
-      }
-      .manifesto__row {
-        grid-template-columns: 1fr;
-      }
-      .manifesto__left {
-        border-right: none;
-        border-bottom: 1px solid var(--color-border-soft);
-        text-decoration: none;
-      }
-      .manifesto__left::before {
-        content: 'INSTEAD OF →';
-        display: block;
-        font-family: var(--font-display);
-        font-size: 0.6875rem;
-        font-weight: 700;
-        color: var(--color-danger);
-        letter-spacing: 0.08em;
-        margin-bottom: 0.5rem;
-        text-decoration: none;
-      }
-      .manifesto__right::before {
-        content: 'WE DO →';
-        display: block;
-        font-family: var(--font-display);
-        font-size: 0.6875rem;
-        font-weight: 700;
-        color: var(--color-accent);
-        letter-spacing: 0.08em;
-        margin-bottom: 0.5rem;
-      }
-
-      .process__steps {
-        grid-template-columns: 1fr;
-        padding-left: 48px;
-        gap: 0;
-      }
-      .process__line {
-        top: 0;
-        bottom: 0;
-        left: 48px;
-        right: auto;
-        width: 2px;
-        height: auto;
-        transform: translateX(-50%);
-        background: linear-gradient(180deg, rgba(0, 201, 167, 0.1), rgba(0, 201, 167, 0.35), rgba(0, 201, 167, 0.1));
-      }
-      .step {
-        text-align: left;
-        padding-bottom: 2.5rem;
-      }
-      .step__circle {
-        position: absolute;
-        left: -48px;
-        margin: 0;
-      }
-      .step p {
-        max-width: none;
-        margin: 0;
-      }
-
-      .team__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .engines__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .clients__group {
+      .logos__group {
         gap: 3rem;
         padding-right: 3rem;
       }
-      .clients__track img {
+      .logos__track img {
         height: 36px;
         max-width: 130px;
       }
 
-      .testimonials__grid {
+      .partners__grid {
         grid-template-columns: 1fr;
-      }
-
-      .testimonials__grid .testimonial:nth-child(4):last-child {
-        grid-column: auto;
-      }
-
-      .pricing__grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .tier--featured {
-        transform: none;
-        order: -1;
-      }
-      .tier--featured:hover {
-        transform: translateY(-6px);
-      }
-
-      .fit__columns {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-      }
-
-      .footer__inner {
-        flex-direction: column;
-        text-align: center;
-      }
-      .footer__links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.25rem;
-      }
-      .footer__right {
-        justify-content: center;
       }
     }
 
     @media (max-width: 480px) {
-      .nav__inner {
-        height: var(--nav-height-mobile);
-      }
-
       .hero {
         padding-top: calc(var(--nav-height-mobile) + 2rem);
       }
+      .nav__logo img { height: 38px; }
+      .hero__col:nth-child(3) { display: none; }
 
-      .nav__logo img {
-        height: 38px;
-      }
-
-      .partner, .tier, .fit__col, .testimonial {
+      .partner, .lab-card, .proof-stat {
         padding: 1.75rem;
       }
-
-      .credibility__row {
-        gap: 1rem;
-      }
-
-      .credibility__stat {
-        padding: 0.5rem 0.75rem;
+      .leak__math {
+        padding: 1.5rem 1.5rem 1.5rem 1.75rem;
       }
     }
 
     /* ---- REDUCED MOTION ---- */
+    /* shared/styles.css zeroes animation durations globally; these make the
+       intent explicit: static collage arrangement, no scrolling bands. */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-
+      .hero__col,
+      .strip__track,
+      .logos__track,
       .hero__content > * {
-        opacity: 1;
-        transform: none;
-      }
-
-      .hero__mesh::before,
-      .hero__mesh::after,
-      .hero__mesh-blob {
         animation: none;
       }
+      .hero__content > * { opacity: 1; transform: none; }
+      .logos__track { flex-wrap: wrap; justify-content: center; }
+      .logos__group:last-child, .strip__group:last-child { display: none; }
+      .logos__group { flex-wrap: wrap; justify-content: center; row-gap: 2.5rem; padding-right: 0; }
     }
-    /* ---- PAGE LAB SPOTLIGHT + WORK MARQUEE ---- */
-    .plab { padding: clamp(4.5rem, 9vw, 7rem) 0; text-align: center; }
-    .plab__inner { max-width: 780px; margin: 0 auto; }
-    .plab__badge { display: inline-block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); background: var(--color-accent-tint); padding: 0.35rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
-    .plab h2 { font-size: var(--h2-size); letter-spacing: -0.02em; }
-    .plab__sub { color: var(--color-text-soft); font-size: var(--body-lg); margin: 1rem auto 0; max-width: 680px; line-height: 1.6; }
-    .plab__ctas { display: flex; gap: 1rem; justify-content: center; margin-top: 1.75rem; flex-wrap: wrap; }
-    .plab__rows { margin-top: 2.75rem; display: grid; gap: 1.1rem; }
-    .marquee { position: relative; overflow: hidden; padding: 0.4rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
-    .marquee__track { display: flex; gap: 1.1rem; width: max-content; animation: marqueeScroll var(--mq-duration, 60s) linear infinite; will-change: transform; }
-    .marquee--reverse .marquee__track { animation-direction: reverse; }
-    .marquee:hover .marquee__track { animation-play-state: paused; }
-    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .mq-card { flex: 0 0 auto; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-md); background: var(--color-surface); }
-    .mq-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .marquee--pages .mq-card { width: 200px; height: 288px; }
-    .marquee--pages .mq-card img { object-position: top center; }
-    .marquee--statics .mq-card { width: 240px; height: 300px; }
-    @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
-    @media (max-width: 768px) {
-      .marquee--pages .mq-card { width: 140px; height: 202px; }
-      .marquee--statics .mq-card { width: 176px; height: 220px; }
-    }
-    /* ---- Offer add-ons ---- */
-    .tier__addons-label { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); margin: 1.25rem 0 0.6rem; text-align: left; }
-    .tier__addons { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: 0.5rem; }
-    .tier__addons li { font-size: 0.9375rem; color: var(--color-text-soft); text-align: left; padding: 0.55rem 0.75rem; background: var(--color-bg-alt); border: 1px dashed var(--color-border); border-radius: 8px; }
   </style>
 </head>
 <body>
@@ -1962,7 +756,7 @@
           <div class="nav__menu">
             <a class="nav__menu-item" href="page-lab/">
               <h4>Page Lab</h4>
-              <p>Productized landing pages, built at AI speed.</p>
+              <p>Landing pages built, tested, and iterated until the messaging wins.</p>
             </a>
             <a class="nav__menu-item" href="growth-lab/">
               <h4>Growth Lab</h4>
@@ -1974,8 +768,8 @@
             </a>
           </div>
         </div>
-        <a href="#testimonials">Results</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#proof">Results</a>
+        <a href="#partners">Team</a>
       </div>
       <div class="nav__cta">
         <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
@@ -1985,311 +779,90 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero__mesh">
-      <div class="hero__mesh-blob"></div>
+    <div class="hero__media" aria-hidden="true">
+      <!-- VIDEO SWAP: to replace the collage with a real background video, delete
+           .hero__collage below and drop in:
+           <video class="hero__video" autoplay muted loop playsinline poster="..."
+                  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+             <source src="..." type="video/mp4">
+           </video>
+           Keep .hero__overlay as the contrast layer. -->
+      <div class="hero__collage">
+        <div class="hero__col" style="--drift: 55s;">
+          <img src="assets/page-lab/pages/changing-brain-health.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/bdcapital.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/v14.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/sleep.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/changing-brain-health.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/bdcapital.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/v14.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/sleep.jpg" alt="" width="510" height="760">
+        </div>
+        <div class="hero__col hero__col--reverse" style="--drift: 72s; --drift-delay: -18s;">
+          <img src="assets/page-lab/pages/6-things.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/memory-1.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/rhythm.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/am.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/6-things.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/memory-1.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/rhythm.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/am.jpg" alt="" width="510" height="760">
+        </div>
+        <div class="hero__col" style="--drift: 64s; --drift-delay: -30s;">
+          <img src="assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/science.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/brainfog-alt1.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/pm.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/pages/science.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/brainfog-alt1.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/pm.jpg" alt="" width="510" height="760">
+        </div>
+        <div class="hero__col hero__col--reverse" style="--drift: 80s; --drift-delay: -44s;">
+          <img src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/v15.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/mrlandlordloan.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/gi5-fuse-email.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/v15.jpg" alt="" width="608" height="760">
+          <img src="assets/page-lab/pages/mrlandlordloan.jpg" alt="" width="510" height="760">
+          <img src="assets/page-lab/statics/gi5-fuse-email.jpg" alt="" width="608" height="760">
+        </div>
+      </div>
+      <div class="hero__overlay"></div>
     </div>
     <div class="container">
       <div class="hero__content">
         <p class="section-label">Conversion-Led Growth · ClickDose Labs</p>
         <h1>Turn more of your traffic into <span class="hero__highlight">customers</span>.</h1>
-        <p class="hero__sub">We build your landing pages and static ad creative, then scientifically test the messaging until we find what actually converts, and scale the winners with paid media and cold email. More customers from the traffic you already have, from a team that's managed $200M+ in spend.</p>
+        <p class="hero__sub">We build your landing pages, test the messaging against real traffic, and put paid media behind what wins. Run by operators who've managed $200M+ in spend.</p>
         <div class="hero__ctas">
           <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
-          <a href="#page-lab" class="btn btn--outline btn--lg">See Page Lab</a>
-        </div>
-        <p class="hero__proof"><span class="hero__proof-dot"></span> Senior partners on every account. No long-term contracts.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREDIBILITY STRIP -->
-  <section class="credibility" id="credibility">
-    <div class="container">
-      <div class="credibility__row" id="stats-bar">
-        <div class="credibility__stat">
-          <div class="credibility__number" data-target="200" data-suffix="M+" data-prefix="$">$200M+</div>
-          <div class="credibility__label">In ad spend managed across verticals</div>
-        </div>
-        <div class="credibility__stat">
-          <div class="credibility__number" data-target="20" data-suffix="+" data-prefix="">20+</div>
-          <div class="credibility__label">Years combined performance experience</div>
-        </div>
-        <div class="credibility__stat">
-          <div class="credibility__number" data-target="0" data-suffix="" data-prefix="">0</div>
-          <div class="credibility__label">Junior account managers on your business</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE LAB SPOTLIGHT -->
-  <section class="plab" id="page-lab">
+  <!-- PROOF STRIP -->
+  <section class="proof" id="proof">
     <div class="container">
-      <div class="plab__inner reveal">
-        <span class="plab__badge">Landing Pages That Convert</span>
-        <h2>Landing pages built to convert, shipped in days.</h2>
-        <p class="plab__sub">A flat $1,500/mo for as many conversion-ready pages as you can send us, built by in-house marketers with AI. Every page below was made with the exact system. The second row is the static ad creative you can add on.</p>
-        <div class="plab__ctas">
-          <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
-          <a href="page-lab/" class="btn btn--outline btn--lg">Explore Page Lab &rarr;</a>
+      <div class="proof__stats stagger">
+        <div class="proof-stat reveal">
+          <div class="proof-stat__number">+32%</div>
+          <div class="proof-stat__label">Qualified applications, net-new demand</div>
+          <div class="proof-stat__source">Michael Schoenfeld · Managing Director of Originations, BD Capital</div>
+        </div>
+        <div class="proof-stat reveal">
+          <div class="proof-stat__number">$5M/yr</div>
+          <div class="proof-stat__label">From zero in digital revenue</div>
+          <div class="proof-stat__source">Craig Percoco · CEO, Inevitrade</div>
         </div>
       </div>
+      <p class="section-label section-label--muted proof__eyebrow reveal">Selected Clients</p>
     </div>
-    <div class="plab__rows reveal">
-      <div class="marquee marquee--pages">
-        <div class="marquee__track" style="--mq-duration:72s">
-          <!-- HOME:PAGES:START -->
-            <div class="mq-card"><img src="assets/page-lab/pages/changing-brain-health.jpg" alt="Advertorial landing page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/6-things.jpg" alt="Listicle landing page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/sleep.jpg" alt="Sleep landing page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/rhythm.jpg" alt="Rhythm landing page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/am.jpg" alt="Product page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/pm.jpg" alt="Product page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="Bundle page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/science.jpg" alt="Science page" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/mrlandlordloan.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/bdcapital.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card"><img src="assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/changing-brain-health.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/sleep.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/rhythm.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/am.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/pm.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/science.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/mrlandlordloan.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/bdcapital.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="" loading="lazy" width="200" height="288"></div>
-            <!-- HOME:PAGES:END -->
-        </div>
-      </div>
-      <div class="marquee marquee--statics marquee--reverse">
-        <div class="marquee__track" style="--mq-duration:56s">
-          <!-- HOME:STATICS:START -->
-            <div class="mq-card"><img src="assets/page-lab/statics/brainfog-alt1.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/memory-1.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/v14.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/v15.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/v17-4.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/v17.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/fuse.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/gi5-fuse-email.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/gi5-goodboy-email.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/goodboy.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card"><img src="assets/page-lab/statics/v10.jpg" alt="Static creative by ClickDose Labs" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/brainfog-alt1.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/memory-1.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v14.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v15.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v17-4.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v17.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/fuse.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/gi5-fuse-email.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/gi5-goodboy-email.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/goodboy.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="assets/page-lab/statics/v10.jpg" alt="" loading="lazy" width="240" height="300"></div>
-            <!-- HOME:STATICS:END -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAIN AGITATION -->
-  <section class="pain" id="pain">
-    <div class="container">
-      <div class="pain__header reveal">
-        <p class="section-label">Sound Familiar?</p>
-        <h2>The agency experience nobody talks about, and why mid-market brands keep getting burned.</h2>
-      </div>
-      <div class="pain__grid stagger">
-        <div class="pain__card reveal">
-          <div class="pain__card-quote">Your account's in good hands.</div>
-          <p class="pain__card-reality">Then nobody touched it for three months. Your campaigns ran on autopilot while CAC crept up and nobody said a word.</p>
-        </div>
-        <div class="pain__card reveal">
-          <div class="pain__card-quote">Let me introduce you to your account manager.</div>
-          <p class="pain__card-reality">The senior who pitched you disappeared after the contract was signed. Now a 23-year-old with six months of experience is "managing your strategy."</p>
-        </div>
-        <div class="pain__card reveal">
-          <div class="pain__card-quote">We just need more budget.</div>
-          <p class="pain__card-reality">The answer to underperformance is always more spend. Never a better strategy. Never an honest conversation about what isn't working.</p>
-        </div>
-        <div class="pain__card reveal">
-          <div class="pain__card-quote">Here's your monthly report.</div>
-          <p class="pain__card-reality">A PDF full of green arrows that mean nothing. You can't connect a single metric to whether this is actually moving the business forward.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TWO ENGINES -->
-  <section class="engines" id="engines">
-    <div class="container">
-      <div class="engines__header reveal">
-        <p class="section-label">Fill your pages with traffic</p>
-        <h2>Two engines that drive qualified traffic to your pages.</h2>
-      </div>
-      <div class="engines__grid stagger reveal">
-
-        <div class="engine">
-          <p class="engine__label">Inbound</p>
-          <h3 class="engine__title">Paid media that fills your pages</h3>
-          <p class="engine__brand">Growth Lab</p>
-          <p class="engine__desc">The traffic engine for your Page Lab pages. We run the paid media across Meta, Google, and TikTok and test messaging scientifically, so qualified clicks land on pages built to convert.</p>
-          <ul class="engine__list">
-            <li>Paid media across Meta, Google, and TikTok</li>
-            <li>Scientific messaging &amp; offer testing</li>
-            <li>Ad concepts, scripts &amp; static creative</li>
-            <li>Reporting tied to CAC and revenue</li>
-          </ul>
-          <a class="engine__cta" href="growth-lab/">Explore Growth Lab &rarr;</a>
-        </div>
-
-        <div class="engine">
-          <p class="engine__label">Outbound</p>
-          <h3 class="engine__title">Outbound that books meetings</h3>
-          <p class="engine__brand">Cold Email Lab</p>
-          <p class="engine__desc">The pipeline engine. AI-built targeting and warmed deliverability that put you in front of the right buyers, then send them to a page built to convert.</p>
-          <ul class="engine__list">
-            <li>AI-built, targeted prospect lists</li>
-            <li>Inbox infrastructure &amp; deliverability</li>
-            <li>Lead scoring &amp; qualification</li>
-            <li>Fully managed sending &amp; follow-up</li>
-          </ul>
-          <a class="engine__cta" href="cold-email/">Explore Cold Email Lab →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="container">
-      <div class="process__header">
-        <p class="section-label section-label--muted reveal">How We Work</p>
-        <h2 class="reveal">Build. Test. Scale what converts.</h2>
-      </div>
-      <div class="process__steps stagger">
-        <div class="process__line"></div>
-        <div class="step reveal">
-          <div class="step__circle">1</div>
-          <h3>Build</h3>
-          <p>We build your landing pages and static ad creative, and script the angles for the videos you supply.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step__circle">2</div>
-          <h3>Test</h3>
-          <p>We put multiple messages, offers, and angles in front of real traffic and let the data crown the winner.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step__circle">3</div>
-          <h3>Scale</h3>
-          <p>We put paid media behind the message that converts, across Meta, Google, and TikTok.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step__circle">4</div>
-          <h3>Grow</h3>
-          <p>Winning messages compound. Your cost per customer drops, and growth becomes repeatable.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="team" id="team">
-    <div class="container">
-      <div class="team__header reveal">
-        <p class="section-label">The Partners</p>
-        <h2>Senior operators on your account. From day one.</h2>
-        <p class="team__lede">When you hire ClickDose Labs, you work directly with the people who've spent nine figures on ad platforms and built marketing stacks inside companies you've heard of. No layers. No handoffs.</p>
-      </div>
-      <div class="team__grid stagger">
-
-        <div class="partner reveal">
-          <div class="partner__head">
-            <div class="partner__avatar"><img src="assets/Headshots/Eric.png" alt="Eric, performance marketing partner at ClickDose Labs" loading="lazy" width="72" height="72"></div>
-            <div class="partner__id">
-              <h3>Eric</h3>
-              <p>Performance Marketing · Capital · International Growth</p>
-            </div>
-          </div>
-          <p class="partner__summary">A decade in performance marketing, with <strong>$100M+ in ad spend</strong> deployed across brands in dozens of industries, plus paid media leadership that has helped growth-stage companies raise capital.</p>
-          <button class="partner__toggle" type="button" aria-expanded="false">
-            <span class="partner__toggle-label">Read full bio</span>
-            <svg class="partner__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="partner__detail">
-            <div class="partner__detail-inner">
-              <ul class="partner__bullets">
-                <li><strong>10+ years in performance marketing</strong> across capital raises, DTC, lead gen, digital products, retail, crowdfunding, and subscription. Ad spend deployed on Meta, Google, TikTok, and programmatic.</li>
-                <li><strong>Drove the paid media behind $100M+ in capital raised</strong> for growth-stage companies across AI, robotics, consumer, hospitality, real estate, healthcare, and sports.</li>
-                <li><strong>Former CMO of a Tokyo-based marketing agency.</strong> Led international growth into the Asian digital asset market and built distribution across APAC.</li>
-                <li><strong>Built AI workflows across the entire marketing stack:</strong> static ad creative, lead scoring, content engines, custom agents, and reporting automation.</li>
-              </ul>
-              <div class="partner__track">
-                <p class="partner__track-label">Where He's Driven Growth</p>
-                <ul class="partner__track-list">
-                  <li><strong>DealMaker &amp; Loblaw.</strong> Ran paid media across DealMaker's client brands and Loblaw's in-house portfolio, managing budgets of up to <strong>$700K/day</strong>.</li>
-                  <li><strong>Equity crowdfunding.</strong> Owned the paid media side of seven-figure equity crowdfunding campaigns for growth-stage companies across Robotics, AI, Aviation, Sports, and Hospitality, sustaining <strong>400%+ returns</strong>.</li>
-                  <li><strong>Top DTC brands.</strong> Partnered with leading consumer brands including top beverage and beauty names to expand into new geographies and scale onto emerging paid channels like Pinterest and TikTok.</li>
-                </ul>
-              </div>
-              <a href="eric-sciberras/" class="partner__link" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.25rem;font-weight:600;color:var(--color-accent-hover);">View full profile &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="partner reveal">
-          <div class="partner__head">
-            <div class="partner__avatar"><img src="assets/Headshots/Rob.png" alt="Rob, demand systems partner at ClickDose Labs" loading="lazy" width="72" height="72"></div>
-            <div class="partner__id">
-              <h3>Rob</h3>
-              <p>Specialty Finance · Demand Systems · Fractional CMO</p>
-            </div>
-          </div>
-          <p class="partner__summary">A decade building demand systems inside regulated finance, <strong>embedded as fractional CMO in 10+ growth-stage companies</strong>, owning the full acquisition stack from paid media to CRM and attribution.</p>
-          <button class="partner__toggle" type="button" aria-expanded="false">
-            <span class="partner__toggle-label">Read full bio</span>
-            <svg class="partner__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="partner__detail">
-            <div class="partner__detail-inner">
-              <ul class="partner__bullets">
-                <li><strong>10+ years in performance marketing</strong> with deep specialization in specialty finance, non-bank lending, wealth planning, and financial services. Regulated verticals where most agencies can't or won't operate.</li>
-                <li><strong>$20M+ in paid media managed</strong> across Google, Meta, LinkedIn, and programmatic for category-defining lenders and financial services firms, where compliance and creative both have to land.</li>
-                <li><strong>Fractional CMO</strong> for growth-stage specialty lenders, owning the full demand stack: paid acquisition, Salesforce/Pardot, lifecycle email, CRM integration, and attribution.</li>
-                <li><strong>Custom AI workflows and agents</strong> that compress weeks of work into hours: automated content production, predictive lead scoring, segmentation, and campaign analysis. Plus vertical-specific lead-gen tools that double as demand drivers.</li>
-              </ul>
-              <div class="partner__track">
-                <p class="partner__track-label">Where He's Driven Growth</p>
-                <ul class="partner__track-list">
-                  <li><strong>Specialty lenders &amp; non-bank finance.</strong> Built and ran the full acquisition stack for category-defining lenders in highly regulated markets.</li>
-                  <li><strong>Wealth, legal &amp; professional services.</strong> Owned demand generation and lifecycle systems for firms where compliance and creative both have to land.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SELECTED CLIENTS -->
-  <section class="clients" id="clients">
-    <div class="container">
-      <div class="clients__inner">
-        <div class="clients__header reveal">
-          <p class="section-label">Selected Clients</p>
-          <h2>Companies We've Grown.</h2>
-        </div>
-      </div>
-    </div>
-    <div class="clients__marquee reveal" aria-label="Selected ClickDose Labs clients">
-      <div class="clients__track">
-        <div class="clients__group">
+    <div class="logos__marquee reveal" aria-label="Selected ClickDose Labs clients">
+      <div class="logos__track">
+        <div class="logos__group">
           <img src="assets/Client Logos/Banner/renovo-financial-logo.png" alt="Renovo Financial" loading="lazy">
           <img src="assets/Client Logos/Banner/Fundcanna-logo-alone.webp" alt="FundCanna" loading="lazy">
           <img src="assets/Client Logos/Banner/BD capital.png" alt="BD Capital" loading="lazy">
@@ -2300,7 +873,7 @@
           <img src="assets/Client Logos/Banner/cereflex.svg" alt="CereFlex" loading="lazy">
           <img src="assets/Client Logos/Banner/teamz.svg" alt="Teamz" loading="lazy">
         </div>
-        <div class="clients__group" aria-hidden="true">
+        <div class="logos__group" aria-hidden="true">
           <img src="assets/Client Logos/Banner/renovo-financial-logo.png" alt="" loading="lazy">
           <img src="assets/Client Logos/Banner/Fundcanna-logo-alone.webp" alt="" loading="lazy">
           <img src="assets/Client Logos/Banner/BD capital.png" alt="" loading="lazy">
@@ -2315,166 +888,140 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="testimonials__header reveal">
-        <p class="section-label">Client Results</p>
-        <h2>What it looks like when senior operators run your stack.</h2>
+  <!-- MARQUEE STRIP -->
+  <div class="strip" aria-label="More revenue from the traffic you already bought.">
+    <div class="strip__track">
+      <div class="strip__group">
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
       </div>
-      <div class="testimonials__grid stagger">
-            <!-- TESTIMONIALS:START -->
-            <div class="testimonial reveal">
-              <div class="testimonial__stat">+32%</div>
-              <div class="testimonial__stat-label">Qualified applications, net-new demand</div>
-              <p class="testimonial__quote">"Within 90 days they built an online demand gen engine we simply didn't have before and lifted qualified applications by 32%. Leads now come to us, not the other way around, and many of those first-touch borrowers are still repeat clients today."</p>
-              <div class="testimonial__author"><div class="testimonial__avatar">MS</div><div class="testimonial__author-id"><strong>Michael Schoenfeld</strong><span>Managing Director of Originations, BD Capital</span></div></div>
-            </div>
-            <div class="testimonial reveal">
-              <div class="testimonial__stat">3x</div>
-              <div class="testimonial__stat-label">More qualified consult requests</div>
-              <p class="testimonial__quote">"They helped us launch online demand gen from scratch, overhaul our website, and tighten the lead-to-client pipeline. The result is 3x more qualified consult requests and enough steady demand to confidently expand into new practice areas."</p>
-              <div class="testimonial__author"><div class="testimonial__avatar">AS</div><div class="testimonial__author-id"><strong>Ameena R. Sheikh</strong><span>Co-Founder, LADIES IN LAW</span></div></div>
-            </div>
-            <div class="testimonial reveal">
-              <div class="testimonial__stat">$5M/yr</div>
-              <div class="testimonial__stat-label">From zero in digital revenue</div>
-              <p class="testimonial__quote">"They built our webinar funnels, spun up demand gen across every major platform, and took us from a startup to over $5M a year in digital product revenue. With real attribution and tracking in place, scaling became repeatable, and we've grown into one of the top names in our space."</p>
-              <div class="testimonial__author"><div class="testimonial__avatar">CP</div><div class="testimonial__author-id"><strong>Craig Percoco</strong><span>CEO, Inevitrade</span></div></div>
-            </div>
-            <div class="testimonial reveal">
-              <div class="testimonial__stat">Growth</div>
-              <div class="testimonial__stat-label">Their trusted D2C growth partner</div>
-              <p class="testimonial__quote">"Eric and Rob are an unbelievable team to work with. They handle our marketing and have consistently delivered with professionalism, creativity, and a strong understanding of what drives results. Their expertise in the D2C space really stands out, and they've been a valuable partner for our business. They are responsive, strategic, and genuinely committed to helping their clients succeed. I would highly recommend their services to anyone in the D2C space looking for a marketing team they can trust."</p>
-              <div class="testimonial__author"><div class="testimonial__avatar">DT</div><div class="testimonial__author-id"><strong>Dawson Taylor</strong><span>Managing Director, CereFlex Labs</span></div></div>
-            </div>
-            <!-- TESTIMONIALS:END -->
+      <div class="strip__group" aria-hidden="true">
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE LEAK -->
+  <section class="leak" id="leak">
+    <div class="container">
+      <div class="leak__header reveal">
+        <p class="section-label">The Leak</p>
+        <h2>What your current pages are costing you.</h2>
+      </div>
+      <ul class="leak__list stagger">
+        <li class="reveal">Every visitor hitting an untested page is ad spend converting at a fraction of what it could.</li>
+        <li class="reveal">One page and one angle means the ad platform can only find one kind of customer.</li>
+        <li class="reveal">A six-week page turnaround means eight tests a year. Your competitors run eighty.</li>
+      </ul>
+      <div class="leak__math reveal">At $20k/mo in spend, the gap between a 1.5% and a 2% page is thousands of dollars a month. Every month, compounding.</div>
+      <a href="page-lab/" class="leak__link reveal">See how Page Lab fixes this &rarr;</a>
+    </div>
+  </section>
+
+  <!-- THE LABS -->
+  <section class="labs" id="labs">
+    <div class="container">
+      <div class="labs__header reveal">
+        <p class="section-label">The Labs</p>
+        <h2>One system. Three labs.</h2>
+      </div>
+      <div class="labs__grid stagger">
+
+        <a href="page-lab/" class="lab-card lab-card--lead reveal">
+          <span class="lab-card__badge">Start Here</span>
+          <div class="lab-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3>Page Lab</h3>
+          <p class="lab-card__desc">A monthly conversion program: landing pages built, tested, and iterated until the messaging wins.</p>
+          <span class="lab-card__link">Explore Page Lab &rarr;</span>
+        </a>
+
+        <a href="growth-lab/" class="lab-card reveal">
+          <div class="lab-card__icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3>Growth Lab</h3>
+          <p class="lab-card__desc">The paid-media engine. We put spend behind the messages that already won.</p>
+          <span class="lab-card__link">Explore Growth Lab &rarr;</span>
+        </a>
+
+        <a href="cold-email/" class="lab-card reveal">
+          <div class="lab-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <h3>Cold Email Lab</h3>
+          <p class="lab-card__desc">Outbound pipeline for B2B: cold email that books qualified calls.</p>
+          <span class="lab-card__link">Explore Cold Email Lab &rarr;</span>
+        </a>
+
       </div>
     </div>
   </section>
 
-  <!-- FIT CHECK -->
-  <section class="fit" id="fit">
+  <!-- THE PARTNERS -->
+  <section class="partners" id="partners">
     <div class="container">
-      <div class="fit__header">
-        <p class="section-label section-label--muted reveal">Fit Check</p>
-        <h2 class="reveal">We're not for everyone. That's the point.</h2>
+      <div class="partners__header reveal">
+        <p class="section-label">The Partners</p>
+        <h2>Senior operators on your account. From day one.</h2>
       </div>
-      <div class="fit__columns">
-        <div class="fit__col fit__col--yes stagger">
-          <h3 class="reveal">This is for you if...</h3>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            <span>You want more customers from your traffic, not just cheaper clicks or prettier pages</span>
+      <div class="partners__grid stagger">
+
+        <div class="partner reveal">
+          <div class="partner__head">
+            <div class="partner__avatar"><img src="assets/Headshots/Eric.png" alt="Eric, performance marketing partner at ClickDose Labs" loading="lazy" width="72" height="72"></div>
+            <div class="partner__id">
+              <h3>Eric</h3>
+              <p>Performance Marketing · Capital · International Growth</p>
+            </div>
           </div>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            <span>You want your pages and messaging tested against real data, not guessed at</span>
-          </div>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            <span>You're running paid media, or ready to, and want it pointed at pages that convert</span>
-          </div>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            <span>You want to own your accounts, your pages, and your data</span>
-          </div>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            <span>You want senior operators on your account, not a junior from an account pool</span>
-          </div>
+          <p class="partner__line">A decade in performance marketing, with <strong>$100M+ in ad spend</strong> deployed across brands in dozens of industries.</p>
+          <a href="eric-sciberras/" class="partner__link">Full profile &rarr;</a>
         </div>
-        <div class="fit__col fit__col--no stagger">
-          <h3 class="reveal">This is NOT for you if...</h3>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
-            <span>You want guaranteed rankings or "10x ROAS in 30 days"</span>
+
+        <div class="partner reveal">
+          <div class="partner__head">
+            <div class="partner__avatar"><img src="assets/Headshots/Rob.png" alt="Rob, demand systems partner at ClickDose Labs" loading="lazy" width="72" height="72"></div>
+            <div class="partner__id">
+              <h3>Rob</h3>
+              <p>Specialty Finance · Demand Systems · Fractional CMO</p>
+            </div>
           </div>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
-            <span>You're looking for the cheapest option in the market</span>
-          </div>
-          <div class="fit__item reveal">
-            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
-            <span>You need a full-service brand agency. We do growth, not brand awareness</span>
-          </div>
+          <p class="partner__line">A decade building demand systems inside regulated finance, <strong>embedded as fractional CMO in 10+ growth-stage companies</strong>.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="pricing__header reveal">
-        <p class="section-label">The Offer</p>
-        <h2>Start with pages. Add the traffic. Get the strategy.</h2>
-        <p class="pricing__lede">Page Lab is the front door: a flat monthly fee for unlimited landing pages. Layer on static creative, paid media, cold email, or senior consulting as you grow. Month-to-month, cancel anytime.</p>
+  <!-- MARQUEE STRIP -->
+  <div class="strip" aria-label="More revenue from the traffic you already bought.">
+    <div class="strip__track">
+      <div class="strip__group">
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
       </div>
-      <div class="pricing__grid">
-
-        <div class="tier reveal">
-          <div class="tier__name">Consulting</div>
-          <div class="tier__title">Senior Strategy &amp; Advisory</div>
-          <p class="tier__pitch">For teams that want the operator brain, not the execution. Senior growth strategy from marketers who have spent $200M+.</p>
-          <ul class="tier__features">
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Growth strategy and roadmap</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Channel, offer, and messaging strategy</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Scientific testing frameworks</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Bi-weekly strategy sessions</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Async access for questions</li>
-          </ul>
-          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
-          <p class="tier__note">Let&rsquo;s talk &middot; No long-term contracts</p>
-        </div>
-
-        <div class="tier tier--featured reveal">
-          <div class="tier__badge">Start Here</div>
-          <div class="tier__name">Page Lab</div>
-          <div class="tier__title">Unlimited Landing Pages</div>
-          <div class="tier__price"><span class="tier__price-amount">$1,500</span><span class="tier__price-period">/mo</span></div>
-          <p class="tier__pitch">Unlimited conversion-ready pages, built in days by in-house marketers with AI. One flat fee.</p>
-          <ul class="tier__features">
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Unlimited pages, one active build at a time</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Conversion copy and CRO built in</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Days, not weeks, turnaround</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Unlimited revisions and maintenance</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> You own every page, on your stack</li>
-          </ul>
-          <p class="tier__addons-label">Add on as you grow</p>
-          <ul class="tier__addons">
-            <li>+ Static Creatives: <strong>$1,000/mo</strong></li>
-            <li>+ Paid Media &middot; Growth Lab: <strong>let&rsquo;s talk</strong></li>
-          </ul>
-          <a href="#book" class="btn btn--primary tier__cta">Book a Strategy Call</a>
-          <p class="tier__note">Cancel anytime &middot; No long-term contracts</p>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier__name">Cold Email Lab</div>
-          <div class="tier__title">Done-For-You Outbound</div>
-          <p class="tier__pitch">A managed outbound engine that books qualified meetings, then sends prospects to a page built to convert.</p>
-          <ul class="tier__features">
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> AI-built, targeted prospect lists</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Warmed inbox infrastructure</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> AI-personalized campaigns</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lead scoring and qualification</li>
-            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Fully managed sending and follow-up</li>
-          </ul>
-          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
-          <p class="tier__note">Let&rsquo;s talk &middot; No long-term contracts</p>
-        </div>
-
+      <div class="strip__group" aria-hidden="true">
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
+        <span>More revenue from the traffic you already bought.</span><span class="strip__dot"></span>
       </div>
-      <p class="pricing__addspend reveal"><strong>Ad spend is separate</strong> and goes directly to the platforms (Meta, Google, etc.). We don&rsquo;t mark up media. We&rsquo;ll tell you what&rsquo;s right for your stage on the call.</p>
     </div>
-  </section>
+  </div>
 
   <!-- FINAL CTA -->
   <section class="final-cta" id="book">
     <div class="container">
-      <h2 class="reveal">Stop paying for theater.<br>Start compounding growth.</h2>
-      <p class="final-cta__sub reveal">A 30-minute call with a partner. One conversation. We'll tell you exactly what we'd do about the money you're leaving on the table.</p>
+      <h2 class="reveal">Stop paying for theater.</h2>
       <a href="#book" class="btn btn--primary btn--lg reveal">Book a Strategy Call</a>
       <p class="final-cta__escape reveal">Or email us directly: <a href="mailto:info@clickdose.com">info@clickdose.com</a></p>
     </div>
@@ -2491,7 +1038,7 @@
           <a href="page-lab/">Page Lab</a>
           <a href="growth-lab/">Growth Lab</a>
           <a href="cold-email/">Cold Email Lab</a>
-          <a href="#team">Team</a>
+          <a href="#partners">Team</a>
           <a href="#book">Book a Strategy Call</a>
           <a href="privacy-policy/">Privacy Policy</a>
           <a href="terms/">Terms</a>
@@ -2539,54 +1086,6 @@
 
       revealElements.forEach(function(el) {
         revealObserver.observe(el);
-      });
-
-      function animateCounter(el, target, duration) {
-        duration = duration || 2000;
-        var start = performance.now();
-        var suffix = el.dataset.suffix || '';
-        var prefix = el.dataset.prefix || '';
-        function update(now) {
-          var elapsed = now - start;
-          var progress = Math.min(elapsed / duration, 1);
-          var eased = 1 - Math.pow(1 - progress, 3);
-          var current = Math.round(target * eased);
-          el.textContent = prefix + current.toLocaleString() + suffix;
-          if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-      }
-
-      var statsBar = document.getElementById('stats-bar');
-      var countersTriggered = false;
-      if (statsBar) {
-        var statsObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting && !countersTriggered) {
-              countersTriggered = true;
-              var counters = statsBar.querySelectorAll('.credibility__number');
-              counters.forEach(function(el) {
-                var target = parseInt(el.dataset.target, 10);
-                if (target > 0) {
-                  animateCounter(el, target, 2000);
-                }
-              });
-            }
-          });
-        }, { threshold: 0.4 });
-        statsObserver.observe(statsBar);
-      }
-
-      // Partner bio dropdowns
-      var partnerToggles = document.querySelectorAll('.partner__toggle');
-      partnerToggles.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var card = btn.closest('.partner');
-          var open = card.classList.toggle('is-open');
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-          var label = btn.querySelector('.partner__toggle-label');
-          if (label) { label.textContent = open ? 'Show less' : 'Read full bio'; }
-        });
       });
     })();
   </script>

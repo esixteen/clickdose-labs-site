@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Unlimited landing pages built in days at AI speed by in-house marketers. Conversion copy and maintenance included. $1,500/mo flat from ClickDose Labs.">
-  <title>Page Lab · ClickDose Labs | Landing Pages Live in Days, Not Weeks</title>
+  <meta name="description" content="Page Lab is a monthly conversion program from ClickDose Labs: landing pages built, tested against real traffic, and iterated until the messaging wins. Run by senior operators.">
+  <title>Page Lab: Landing Pages Built, Tested, Iterated | ClickDose Labs</title>
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://clickdoselabs.com/page-lab/">
 
@@ -17,16 +17,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ClickDose Labs">
   <meta property="og:url" content="https://clickdoselabs.com/page-lab/">
-  <meta property="og:title" content="Page Lab · Landing Pages Live in Days, Not Weeks | ClickDose Labs">
-  <meta property="og:description" content="A flat monthly fee for unlimited landing pages built at AI speed by in-house marketers. Conversion copy and maintenance included. First page live in 3 days. $1,500/mo.">
+  <meta property="og:title" content="Page Lab: Landing Pages Built, Tested, Iterated | ClickDose Labs">
+  <meta property="og:description" content="Page Lab is a monthly conversion program from ClickDose Labs: landing pages built, tested against real traffic, and iterated until the messaging wins. Run by senior operators.">
   <meta property="og:image" content="https://clickdoselabs.com/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="ClickDose Labs · Page Lab">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Page Lab · Landing Pages Live in Days, Not Weeks | ClickDose Labs">
-  <meta name="twitter:description" content="A flat monthly fee for unlimited landing pages built at AI speed by in-house marketers. First page live in 3 days. $1,500/mo.">
+  <meta name="twitter:title" content="Page Lab: Landing Pages Built, Tested, Iterated | ClickDose Labs">
+  <meta name="twitter:description" content="Page Lab is a monthly conversion program from ClickDose Labs: landing pages built, tested against real traffic, and iterated until the messaging wins. Run by senior operators.">
   <meta name="twitter:image" content="https://clickdoselabs.com/assets/og-image.png">
 
   <!-- Structured data -->
@@ -35,9 +35,9 @@
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Page Lab",
-    "serviceType": "Landing page design and development subscription",
+    "serviceType": "Landing page conversion program",
     "url": "https://clickdoselabs.com/page-lab/",
-    "description": "Unlimited high-converting landing pages built in days at AI speed by in-house marketers. Conversion copy and maintenance included.",
+    "description": "A monthly conversion program: landing pages built, tested against real traffic, and iterated until the messaging wins. Run by senior operators.",
     "provider": {
       "@type": "Organization",
       "name": "ClickDose Labs",
@@ -45,20 +45,32 @@
     },
     "areaServed": "Worldwide",
     "offers": {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       "priceCurrency": "USD",
-      "price": "1500",
+      "lowPrice": "2000",
+      "highPrice": "4000",
+      "offerCount": "3",
       "url": "https://clickdoselabs.com/page-lab/",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": "1500",
-        "priceCurrency": "USD",
-        "referenceQuantity": {
-          "@type": "QuantitativeValue",
-          "value": "1",
-          "unitCode": "MON"
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Page Lab",
+          "price": "2000",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Page Lab Pro",
+          "price": "3000",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full Stack",
+          "price": "4000",
+          "priceCurrency": "USD"
         }
-      }
+      ]
     }
   }
   </script>
@@ -71,7 +83,7 @@
     /* ============ Page-specific sections ============ */
     .section { padding: var(--section-padding) 0; }
     .section--alt { background: var(--color-bg-alt); }
-    .section__head { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
+    .section__head { max-width: 760px; margin: 0 auto 3.5rem; text-align: center; }
     .section__head h2 { font-size: var(--h2-size); }
     .section__head p { color: var(--color-text-soft); font-size: var(--body-lg); margin-top: 1rem; line-height: 1.6; }
 
@@ -79,7 +91,7 @@
     .page-hero {
       position: relative;
       overflow: hidden;
-      padding: calc(var(--nav-height) + clamp(4rem, 10vw, 7rem)) 0 clamp(4rem, 9vw, 7rem);
+      padding: calc(var(--nav-height) + clamp(4rem, 10vw, 6.5rem)) 0 0;
       text-align: center;
     }
     .page-hero::before {
@@ -107,7 +119,7 @@
     .page-hero__sub {
       font-size: var(--body-lg);
       color: var(--color-text-soft);
-      max-width: 700px;
+      max-width: 720px;
       margin: 1.5rem auto 0;
       line-height: 1.6;
     }
@@ -130,105 +142,69 @@
     }
     .page-hero__proof span { display: inline-flex; align-items: center; gap: 0.4rem; }
     .page-hero__proof .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
+    /* Gallery slice bleeding into the hero bottom edge. Populated by JS from the
+       real marquee track so build-work.py stays the single source of truth. */
+    .page-hero__strip {
+      position: relative;
+      height: 190px;
+      margin-top: clamp(3rem, 6vw, 4.5rem);
+      overflow: hidden;
+    }
+    .page-hero__strip::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 70px;
+      background: linear-gradient(to bottom, transparent, var(--color-bg));
+      pointer-events: none;
+    }
+    .page-hero__strip .marquee { padding: 0; }
+    .page-hero__strip .marquee__track:empty { animation: none; }
 
-    /* ---- ORIGIN / STORY ---- */
-    .origin__body { max-width: 720px; margin: 0 auto; text-align: center; }
-    .origin__body p { color: var(--color-text-soft); font-size: var(--body-lg); line-height: 1.7; }
-    .origin__body p + p { margin-top: 1.25rem; }
-    .stats3 {
+    /* ---- THE LEAK ---- */
+    .leak__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      max-width: 860px;
-      margin: 3.25rem auto 0;
-    }
-    .stat {
-      text-align: center;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 1.85rem 1.25rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .stat__num { font-family: var(--font-display); font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--color-accent); line-height: 1; }
-    .stat__label { color: var(--color-text-soft); font-size: var(--body-sm); margin-top: 0.7rem; line-height: 1.45; }
-    .stat--muted .stat__num { color: var(--color-muted); }
-
-    /* ---- VALUE PROP ---- */
-    .vp__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem 2.5rem;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-    .vp__item {
-      display: flex;
-      gap: 0.85rem;
-      align-items: flex-start;
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--color-border-soft);
-    }
-    .vp__check {
-      flex-shrink: 0;
-      width: 24px; height: 24px;
-      border-radius: 50%;
-      background: var(--color-accent-tint);
-      color: var(--color-accent);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .vp__check svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 3; fill: none; }
-    .vp__item span { font-size: var(--body-size); color: var(--color-text-soft); font-weight: 500; }
-
-    /* ---- WHO ---- */
-    .who__list { max-width: 760px; margin: 0 auto; display: grid; gap: 1rem; }
-    .who__item {
-      display: flex; gap: 1rem; align-items: flex-start;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 1.4rem 1.6rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .who__num {
-      flex-shrink: 0;
-      font-family: var(--font-display);
-      font-weight: 700;
-      color: var(--color-accent);
-      font-size: 1.05rem;
-    }
-    .who__item p { color: var(--color-text-soft); font-size: var(--body-size); }
-
-    /* ---- PROCESS / STEPS ---- */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
       max-width: 1040px;
       margin: 0 auto;
     }
-    .stepcard {
+    .leak-card {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-danger);
       border-radius: var(--radius-lg);
       padding: 1.85rem 1.6rem;
       box-shadow: var(--shadow-sm);
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     }
-    .stepcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .stepcard__num {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      border: 2px solid var(--color-accent);
-      color: var(--color-accent);
-      display: flex; align-items: center; justify-content: center;
+    .leak-card__num {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 1.1rem;
+      font-size: 0.8125rem;
+      letter-spacing: 0.08em;
+      color: var(--color-danger);
+      margin-bottom: 0.85rem;
     }
-    .stepcard h3 { font-size: 1.0625rem; margin-bottom: 0.5rem; }
-    .stepcard p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.6; }
+    .leak-card h3 { font-size: 1.0625rem; margin-bottom: 0.6rem; }
+    .leak-card p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.65; }
+    .leak__math {
+      max-width: 1040px;
+      margin: 2.25rem auto 0;
+      background: var(--color-dark);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.85rem, 4vw, 2.75rem) clamp(1.5rem, 4vw, 3rem);
+      text-align: center;
+    }
+    .leak__math p {
+      color: rgba(249, 250, 251, 0.85);
+      font-family: var(--font-display);
+      font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+      font-weight: 600;
+      line-height: 1.5;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .leak__math strong { color: var(--color-accent-light); font-weight: 700; }
 
     /* ---- WORK / MARQUEE ---- */
     .work__caption {
@@ -262,6 +238,7 @@
       to   { transform: translateX(-50%); }
     }
     .mq-card {
+      position: relative;
       flex: 0 0 auto;
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -274,62 +251,137 @@
     .marquee--pages .mq-card img { object-position: top center; }
     .marquee--statics .mq-card { width: 256px; height: 320px; }
     .work__rows { display: grid; gap: 1.6rem; }
-
-    /* ---- PRICING ---- */
-    .pricing__anchor {
-      max-width: 660px;
-      margin: 0 auto 2.75rem;
-      text-align: center;
-      color: var(--color-text-soft);
-      font-size: var(--body-lg);
-      line-height: 1.6;
-    }
-    .pricing__anchor strong { color: var(--color-text); font-weight: 700; }
-    .plans { max-width: 540px; margin: 0 auto; display: grid; gap: 1.1rem; }
-    .plan {
-      position: relative;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-top: 3px solid var(--color-accent);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      padding: clamp(2rem, 4vw, 2.85rem);
-    }
-    .plan__badge {
-      position: absolute; top: -0.85rem; left: 50%;
-      transform: translateX(-50%);
-      background: var(--color-accent); color: #fff;
+    /* Strategy annotation chips, applied by JS keyed on img src */
+    .mq-chip {
+      position: absolute;
+      left: 0.5rem; right: 0.5rem; bottom: 0.5rem;
+      background: rgba(11, 15, 24, 0.85);
+      color: #FFFFFF;
       font-family: var(--font-display);
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.35rem 0.9rem; border-radius: 999px;
-      white-space: nowrap;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      line-height: 1.35;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      text-align: center;
+      pointer-events: none;
     }
-    .plan__name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; }
-    .plan__tagline { color: var(--color-muted); font-size: var(--body-sm); margin-top: 0.3rem; }
-    .plan__price { display: flex; align-items: baseline; gap: 0.4rem; margin: 1.35rem 0 0.15rem; }
-    .plan__amount { font-family: var(--font-display); font-size: 3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
-    .plan__per { color: var(--color-muted); font-size: var(--body-size); font-weight: 500; }
-    .plan__features { list-style: none; display: grid; gap: 0.75rem; margin: 1.85rem 0; }
-    .plan__features li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: var(--body-sm); color: var(--color-text-soft); }
-    .plan__check { flex-shrink: 0; width: 20px; height: 20px; stroke: var(--color-accent); stroke-width: 3; fill: none; margin-top: 1px; }
-    .plan .btn { width: 100%; }
-    .plan__note { text-align: center; font-size: var(--caption); color: var(--color-muted); margin-top: 1rem; }
-    .addon {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem 1.5rem; flex-wrap: wrap;
-      background: var(--color-bg-alt);
+    .mq-chip::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      margin-right: 0.4rem;
+      vertical-align: middle;
+    }
+
+    /* ---- WHAT YOU GET ---- */
+    .scope__list { max-width: 680px; margin: 0 auto; }
+    .scope__item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+    .scope__item:last-child { border-bottom: none; }
+    .scope__check {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--color-accent-tint);
+      color: var(--color-accent);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .scope__check svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 3; fill: none; }
+    .scope__item span { font-size: var(--body-lg); color: var(--color-text-soft); font-weight: 500; line-height: 1.5; }
+    .scope__terms {
+      max-width: 680px;
+      margin: 2.5rem auto 0;
+      background: var(--color-surface);
       border: 1px dashed var(--color-border);
+      border-left: 3px solid var(--color-accent);
       border-radius: var(--radius-lg);
       padding: 1.5rem 1.75rem;
     }
-    .addon__info h3 { font-size: 1.0625rem; margin-bottom: 0.2rem; }
-    .addon__info p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.5; max-width: 340px; }
-    .addon__price { text-align: right; white-space: nowrap; }
-    .addon__price strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; display: block; }
-    .addon__price span { font-size: var(--caption); color: var(--color-muted); }
+    .scope__terms p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.7; }
 
-    /* ---- TESTIMONIALS ---- */
+    /* ---- THE LOOP ---- */
+    .loop__steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .loop__line {
+      position: absolute;
+      top: 30px;
+      left: calc(10% + 30px);
+      right: calc(10% + 30px);
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0, 201, 167, 0.1), rgba(0, 201, 167, 0.35), rgba(0, 201, 167, 0.1));
+      z-index: 0;
+    }
+    .step { text-align: center; position: relative; z-index: 1; }
+    .step__circle {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--color-accent);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.1rem;
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      background: var(--color-surface);
+      transition: transform var(--transition-normal), background var(--transition-normal), color var(--transition-normal);
+    }
+    .step:hover .step__circle {
+      background: var(--color-accent);
+      color: #FFFFFF;
+      transform: scale(1.05);
+    }
+    .step h3 { font-size: 1.1875rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .step p {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      line-height: 1.6;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+    /* ---- PROOF / TESTIMONIALS ---- */
+    .proof__stat {
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+    .proof__stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--color-accent);
+    }
+    .proof__stat-label {
+      color: var(--color-text-soft);
+      font-size: var(--body-lg);
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+    .proof__framing {
+      text-align: center;
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
     .testimonials__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -358,6 +410,214 @@
     .testimonial__author-id strong { display: block; font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.2; margin-bottom: 0.15rem; }
     .testimonial__author-id span { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.3; }
 
+    /* ---- FIT CHECK ---- */
+    .fit__columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .fit__col {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .fit__col--yes { border-top: 3px solid var(--color-accent); }
+    .fit__col--no { border-top: 3px solid var(--color-danger); }
+    .fit__col h3 {
+      font-family: var(--font-display);
+      font-size: 1.1875rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .fit__col--yes h3 { color: var(--color-accent); }
+    .fit__col--no h3 { color: var(--color-danger); }
+    .fit__item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.85rem 0;
+      font-size: var(--body-sm);
+      color: var(--color-text-soft);
+      line-height: 1.55;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+    .fit__item:last-child { border-bottom: none; }
+    .fit__item a { color: var(--color-accent-hover); font-weight: 600; }
+    .fit__icon { flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px; }
+    .fit__icon--check { color: var(--color-accent); }
+    .fit__icon--x { color: var(--color-danger); }
+
+    /* ---- PLATFORMS ---- */
+    .platforms { padding: clamp(3.5rem, 7vw, 5rem) 0; border-top: 1px solid var(--color-border-soft); }
+    .platforms__line {
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--body-lg);
+      margin-bottom: 1.75rem;
+    }
+    .platforms__row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--color-text-soft);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 0.6rem 1.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .platform-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    /* ---- PRICING ---- */
+    .pricing__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .tier {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+      position: relative;
+    }
+    .tier:hover {
+      transform: translateY(-6px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-lg);
+    }
+    .tier--featured {
+      background: var(--color-dark);
+      border-color: var(--color-dark);
+      color: #F9FAFB;
+      transform: translateY(-12px);
+      box-shadow: 0 24px 60px rgba(11, 15, 24, 0.18);
+    }
+    .tier--featured:hover {
+      transform: translateY(-18px);
+      box-shadow: 0 30px 70px rgba(11, 15, 24, 0.24);
+      border-color: var(--color-accent);
+    }
+    .tier__badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.95rem;
+      border-radius: 100px;
+      box-shadow: 0 6px 16px rgba(0, 201, 167, 0.4);
+      white-space: nowrap;
+    }
+    .tier__name {
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 1.25rem;
+    }
+    .tier--featured .tier__name { color: var(--color-accent); }
+    .tier__price { display: flex; align-items: baseline; gap: 0.4rem; margin-bottom: 0.85rem; }
+    .tier__price-amount {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .tier--featured .tier__price-amount { color: #FFFFFF; }
+    .tier__price-period { font-size: 0.9375rem; color: var(--color-muted); font-weight: 500; }
+    .tier--featured .tier__price-period { color: rgba(249, 250, 251, 0.6); }
+    .tier__day {
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      line-height: 1.5;
+      margin-bottom: 0.85rem;
+    }
+    .tier__pitch {
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      line-height: 1.55;
+    }
+    .tier--featured .tier__pitch { color: rgba(249, 250, 251, 0.7); border-bottom-color: rgba(255, 255, 255, 0.12); }
+    .tier__features { list-style: none; margin-bottom: 2rem; flex-grow: 1; }
+    .tier__features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 0.45rem 0;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: var(--color-text-soft);
+    }
+    .tier--featured .tier__features li { color: rgba(249, 250, 251, 0.85); }
+    .tier__check { flex-shrink: 0; width: 18px; height: 18px; color: var(--color-accent); margin-top: 0.18rem; }
+    .tier__cta { width: 100%; }
+    .tier__note { text-align: center; font-size: 0.8125rem; color: var(--color-muted); margin-top: 1rem; }
+    .tier--featured .tier__note { color: rgba(249, 250, 251, 0.55); }
+    .addon {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem 1.5rem; flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 1.75rem auto 0;
+      background: var(--color-surface);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+    }
+    .addon__info h3 { font-size: 1.0625rem; margin-bottom: 0.3rem; }
+    .addon__info p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.55; max-width: 640px; }
+    .addon__info p strong { color: var(--color-text); }
+    .addon__price { text-align: right; white-space: nowrap; }
+    .addon__price strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; display: block; }
+    .addon__price span { font-size: var(--caption); color: var(--color-muted); }
+    .pricing__notes {
+      text-align: center;
+      margin-top: 2.75rem;
+      font-size: var(--body-sm);
+      color: var(--color-muted);
+      line-height: 1.8;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pricing__notes strong { color: var(--color-text); font-weight: 600; }
+
     /* ---- FAQ ---- */
     .faq__list { max-width: 760px; margin: 0 auto; }
     .faq__item { border-bottom: 1px solid var(--color-border); }
@@ -375,7 +635,29 @@
     .faq__q svg { flex-shrink: 0; width: 20px; height: 20px; stroke: var(--color-accent); stroke-width: 2.5; fill: none; transition: transform 0.3s var(--ease-out-expo); }
     .faq__item.open .faq__q svg { transform: rotate(45deg); }
     .faq__a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-out-expo); }
-    .faq__a p { padding: 0 0 1.5rem; color: var(--color-text-soft); font-size: var(--body-size); line-height: 1.65; }
+    .faq__a-inner { padding: 0 0 1.5rem; }
+    .faq__a-inner p { color: var(--color-text-soft); font-size: var(--body-size); line-height: 1.65; }
+    .faq__a-inner p + p { margin-top: 0.85rem; }
+    .faq__compare {
+      list-style: none;
+      margin: 1.1rem 0 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .faq__compare li {
+      font-size: var(--body-sm);
+      color: var(--color-text-soft);
+      line-height: 1.55;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border-soft);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+    }
+    .faq__compare li strong { color: var(--color-text); font-family: var(--font-display); font-weight: 600; }
+    .faq__compare li:last-child {
+      border-color: var(--color-accent);
+      background: var(--color-accent-tint);
+    }
 
     /* ---- FINAL CTA ---- */
     .final {
@@ -384,20 +666,37 @@
       padding: clamp(5rem, 9vw, 7rem) 0;
     }
     .final h2 { color: #fff; font-size: var(--h2-size); }
-    .final p { color: rgba(255,255,255,0.7); font-size: var(--body-lg); max-width: 600px; margin: 1.25rem auto 2.25rem; line-height: 1.6; }
+    .final p { color: rgba(255,255,255,0.7); font-size: var(--body-lg); max-width: 620px; margin: 1.25rem auto 2.25rem; line-height: 1.6; }
     .final__escape { font-size: var(--body-sm); color: rgba(255,255,255,0.5); margin-top: 1.5rem; }
     .final__escape a { color: var(--color-accent-light); }
 
     /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+      .pricing__grid { grid-template-columns: 1fr; max-width: 480px; }
+      .tier--featured { transform: none; }
+      .tier--featured:hover { transform: translateY(-6px); }
+      .addon { max-width: 480px; }
+    }
     @media (max-width: 768px) {
-      .vp__grid, .steps, .stats3, .testimonials__grid { grid-template-columns: 1fr; }
+      .leak__grid, .loop__steps, .testimonials__grid, .fit__columns { grid-template-columns: 1fr; }
+      .loop__line { display: none; }
+      .loop__steps { gap: 2.25rem; max-width: 420px; }
       .testimonials__grid .testimonial:nth-child(4):last-child { grid-column: auto; }
       .testimonial { padding: 1.75rem; }
       .section__head { margin-bottom: 2.5rem; }
       .marquee--pages .mq-card { width: 150px; height: 218px; }
       .marquee--statics .mq-card { width: 190px; height: 238px; }
+      .mq-chip { font-size: 0.625rem; padding: 0.35rem 0.45rem; }
+      .page-hero__strip { height: 150px; }
+      .fit__col { padding: 1.85rem; }
       .addon { flex-direction: column; align-items: flex-start; }
       .addon__price { text-align: left; }
+      .scope__item span { font-size: var(--body-size); }
+    }
+    @media (max-width: 480px) {
+      .page-hero__ctas .btn { width: 100%; }
+      .page-hero__strip { height: 120px; }
+      .platform-badge { font-size: 0.875rem; padding: 0.5rem 1.1rem; }
     }
   </style>
 </head>
@@ -417,7 +716,7 @@
           <div class="nav__menu">
             <a class="nav__menu-item" href="../page-lab/">
               <h4>Page Lab</h4>
-              <p>Productized landing pages, built at AI speed.</p>
+              <p>Landing pages built, tested, and iterated until the messaging wins.</p>
             </a>
             <a class="nav__menu-item" href="../growth-lab/">
               <h4>Growth Lab</h4>
@@ -442,118 +741,64 @@
   <header class="page-hero" id="hero">
     <div class="container">
       <div class="page-hero__content">
-        <p class="section-label">Better Pages, Faster · Page Lab</p>
-        <h1>Landing pages live in <span class="page-hero__highlight">days</span>, not weeks.</h1>
-        <p class="page-hero__sub">One flat monthly fee. Unlimited page requests, built by marketers who ship with AI. Conversion copy, fast turnaround, and ongoing maintenance included. The output of a full web team, without the agency timeline or the agency invoice.</p>
+        <p class="section-label">Page Lab · A Monthly Conversion Program</p>
+        <h1>Stop guessing which message converts. Start <span class="page-hero__highlight">testing</span> it.</h1>
+        <p class="page-hero__sub">Page Lab is a monthly conversion program. We build your landing pages, test messaging angles against real traffic, and iterate until the data picks a winner. Flat fee, senior operators, always shipping. Your first page is live within about a week.</p>
         <div class="page-hero__ctas">
           <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
-          <a href="#work" class="btn btn--outline btn--lg">See example pages</a>
+          <a href="#work" class="btn btn--outline btn--lg">See the work</a>
         </div>
         <p class="page-hero__proof">
-          <span><span class="dot"></span> First page live in 3 days</span>
-          <span><span class="dot"></span> Unlimited requests</span>
-          <span><span class="dot"></span> Maintenance included</span>
+          <span><span class="dot"></span> Senior operators on every build</span>
+          <span><span class="dot"></span> You own every page, forever</span>
+          <span><span class="dot"></span> Capped at 8 clients</span>
         </p>
+      </div>
+    </div>
+    <div class="page-hero__strip" aria-hidden="true">
+      <div class="marquee marquee--pages">
+        <div class="marquee__track" id="heroStripTrack" style="--mq-duration:96s"></div>
       </div>
     </div>
   </header>
 
-  <!-- ORIGIN / STORY -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="section-label">Why We Built This</p>
-        <h2>We lived the slow, expensive way. So we rebuilt it.</h2>
-      </div>
-      <div class="origin__body reveal">
-        <p>Creative agencies charge upwards of $5,000 for a single landing page. The providers promising unlimited pages quietly cap out at about two a month. We know, because we lived it: an agency taking weeks to build one page that we could put together in three hours.</p>
-        <p>So we built the fix. Page Lab delivers real high-volume page builds without the wait or the invoice. There is no monthly cap: you get as many pages as you can put in front of us, each with expert copy and CRO-driven design. Your first goes live in three days, while most providers are still quoting ten. And it is all handled in-house by experienced marketers, never shipped off to contractors overseas.</p>
-      </div>
-      <div class="stats3 stagger">
-        <div class="stat stat--muted reveal"><div class="stat__num">$5,000</div><div class="stat__label">what agencies charge for one page</div></div>
-        <div class="stat stat--muted reveal"><div class="stat__num">2</div><div class="stat__label">monthly pages from "unlimited" providers</div></div>
-        <div class="stat reveal"><div class="stat__num">Unlimited</div><div class="stat__label">pages a month with Page Lab</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT YOU GET -->
+  <!-- THE COST -->
   <section class="section section--alt">
     <div class="container">
       <div class="section__head reveal">
-        <p class="section-label section-label--muted">What You Get</p>
-        <h2>A whole web team's output, for one flat fee.</h2>
-        <p>Not a design queue that hands you pretty pages nobody converts on. Real landing pages, written and built to sell, shipped fast and kept up to date.</p>
+        <p class="section-label" style="color:var(--color-danger)">The Leak</p>
+        <h2>What your current pages are costing you.</h2>
       </div>
-      <div class="vp__grid stagger">
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Unlimited page requests, with one active build at a time</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Conversion copywriting and CRO judgment, not just design</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Finished pages in days, not weeks, at AI speed</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Ongoing page edits and maintenance included every month</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Built fast on Shopify and Vercel (Webflow and WordPress on request)</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>You own every page we build, forever</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Handled in-house by experienced marketers, never offshored to contractors</span></div>
-        <div class="vp__item reveal"><span class="vp__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>A dedicated point of contact who actually learns your brand</span></div>
+      <div class="leak__grid stagger">
+        <div class="leak-card reveal">
+          <div class="leak-card__num">01</div>
+          <h3>The conversion tax</h3>
+          <p>Every visitor hitting an untested page is ad spend converting at a fraction of what it could. You are paying full price for half the result.</p>
+        </div>
+        <div class="leak-card reveal">
+          <div class="leak-card__num">02</div>
+          <h3>The starving algorithm</h3>
+          <p>One page and one angle means the ad platform can only find one kind of customer. The algorithm is starving.</p>
+        </div>
+        <div class="leak-card reveal">
+          <div class="leak-card__num">03</div>
+          <h3>The testing gap</h3>
+          <p>If a new page takes your team six weeks, you run eight tests a year. Your competitors run eighty.</p>
+        </div>
+      </div>
+      <div class="leak__math reveal">
+        <p>At $20k/mo in spend, the gap between a 1.5% and a 2% page is <strong>thousands of dollars a month</strong>. Every month, compounding.</p>
       </div>
     </div>
   </section>
 
-  <!-- WHO THIS IS FOR -->
-  <section class="section">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="section-label">Who This Is For</p>
-        <h2>Two kinds of businesses get the most out of Page Lab.</h2>
-      </div>
-      <div class="who__list stagger">
-        <div class="who__item reveal"><span class="who__num">01</span><p>You want the output of the AI tools without learning them. You would rather hand off a brief and get finished, on-brand pages back, and pocket the cost savings.</p></div>
-        <div class="who__item reveal"><span class="who__num">02</span><p>You need volume and speed. New offers to test, new angles, new messaging, and you need them live this week, not next quarter.</p></div>
-        <div class="who__item reveal"><span class="who__num">03</span><p>You need a new site or a stack of landing pages built fast, by someone who thinks about conversion, not just how it looks.</p></div>
-        <div class="who__item reveal"><span class="who__num">04</span><p>You are done paying agency prices and waiting agency timelines for work that AI can now turn around in a fraction of the time.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section section--alt" id="how">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="section-label section-label--muted">How It Works</p>
-        <h2>Request. Build. Ship. Repeat.</h2>
-        <p>Unlimited requests, one active build at a time. Your queue never closes, and nothing sits half-finished.</p>
-      </div>
-      <div class="steps stagger">
-        <div class="stepcard reveal">
-          <div class="stepcard__num">01</div>
-          <h3>Send a request</h3>
-          <p>Drop your page, offer, or idea into a simple brief. Add as many requests to your queue as you want.</p>
-        </div>
-        <div class="stepcard reveal">
-          <div class="stepcard__num">02</div>
-          <h3>We build</h3>
-          <p>One page at a time, drafted at AI speed and shaped by a real conversion marketer, not a template.</p>
-        </div>
-        <div class="stepcard reveal">
-          <div class="stepcard__num">03</div>
-          <h3>Review &amp; revise</h3>
-          <p>You review, we refine until it is right. Revisions are unlimited, so the page ships when you love it.</p>
-        </div>
-        <div class="stepcard reveal">
-          <div class="stepcard__num">04</div>
-          <h3>Live &amp; maintained</h3>
-          <p>We ship it and keep it maintained, then pull the next request off your queue and start again.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE WORK / PROOF MARQUEE -->
+  <!-- THE WORK / GALLERY -->
   <section class="section" id="work">
     <div class="container">
       <div class="section__head reveal">
         <p class="section-label">The Work</p>
-        <h2>Real pages and ads we've shipped.</h2>
-        <p>Every page below was built with the exact system behind Page Lab. The second row is the kind of static ad creative you can add on.</p>
+        <h2>Pages built to test a thesis, not fill a portfolio.</h2>
+        <p>Every page ships with a named angle and a reason for every section.</p>
       </div>
     </div>
     <div class="work__rows reveal">
@@ -589,7 +834,7 @@
         </div>
       </div>
       <div>
-        <p class="work__caption">Static creatives for ads &amp; social · add-on</p>
+        <p class="work__caption">Static creatives for ads &amp; social · Page Lab Pro</p>
         <div class="marquee marquee--statics marquee--reverse">
           <div class="marquee__track" style="--mq-duration:56s">
             <!-- PL:STATICS:START -->
@@ -622,13 +867,76 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section" id="testimonials" style="border-top:1px solid var(--color-border-soft)">
+  <!-- WHAT YOU GET -->
+  <section class="section section--alt">
     <div class="container">
       <div class="section__head reveal">
-        <p class="section-label">Client Results</p>
+        <p class="section-label section-label--muted">What You Get</p>
+        <h2>A conversion team, not a design queue.</h2>
+      </div>
+      <div class="scope__list stagger">
+        <div class="scope__item reveal"><span class="scope__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Conversion copywriting and messaging angles for every page</span></div>
+        <div class="scope__item reveal"><span class="scope__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Design and build on your stack. You own everything.</span></div>
+        <div class="scope__item reveal"><span class="scope__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>A monthly testing plan: which angles to run, what to measure</span></div>
+        <div class="scope__item reveal"><span class="scope__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Iteration on live pages based on performance data</span></div>
+        <div class="scope__item reveal"><span class="scope__check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>One senior point of contact</span></div>
+      </div>
+      <div class="scope__terms reveal">
+        <p>Always-on request queue, one active build at a time. Most clients see 8 to 12 pages a month. Revision rounds until the page ships right. Active-page maintenance included while subscribed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LOOP -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">The Loop</p>
+        <h2>Request. Build. Ship. Measure. Iterate.</h2>
+      </div>
+      <div class="loop__steps stagger">
+        <div class="loop__line"></div>
+        <div class="step reveal">
+          <div class="step__circle">1</div>
+          <h3>Request</h3>
+          <p>Drop it in the queue. No tickets, no scoping calls.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__circle">2</div>
+          <h3>Build</h3>
+          <p>Conversion copy and design, built as one piece.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__circle">3</div>
+          <h3>Ship</h3>
+          <p>Live on your stack in days, not quarters.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__circle">4</div>
+          <h3>Measure</h3>
+          <p>Real traffic decides, not opinions.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step__circle">5</div>
+          <h3>Iterate</h3>
+          <p>Winners get pushed further. Losers teach us what to test next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="section section--alt" id="testimonials">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label section-label--muted">The Team Behind The Pages</p>
         <h2>You're not hiring a page mill. You're hiring this team.</h2>
       </div>
+      <div class="proof__stat reveal">
+        <div class="proof__stat-num">$200M+</div>
+        <p class="proof__stat-label">in managed paid media spend. That is the conversion judgment behind every angle, headline, and layout call we make on your pages.</p>
+      </div>
+      <p class="proof__framing reveal">The results below came from this team's judgment across full growth engagements. Page Lab puts that same judgment on your pages, every month.</p>
       <div class="testimonials__grid stagger">
             <!-- TESTIMONIALS:START -->
             <div class="testimonial reveal">
@@ -660,42 +968,142 @@
     </div>
   </section>
 
+  <!-- FIT CHECK -->
+  <section class="section" id="fit">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">Fit Check</p>
+        <h2>Page Lab works when the conditions are right.</h2>
+      </div>
+      <div class="fit__columns">
+        <div class="fit__col fit__col--yes stagger">
+          <h3 class="reveal">This is for you if...</h3>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You already have traffic. Page Lab exists to test against it.</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You spend real budget on paid media</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You have no full-time conversion staff</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>You want a dedicated testing loop without hiring a team</span>
+          </div>
+        </div>
+        <div class="fit__col fit__col--no stagger">
+          <h3 class="reveal">This is NOT for you if...</h3>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You need brand identity, SEO, or social media management</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You have no traffic yet. Start with <a href="../cold-email/">Cold Email Lab</a> for pipeline or <a href="../growth-lab/">Growth Lab</a> for paid traffic, then come back.</span>
+          </div>
+          <div class="fit__item reveal">
+            <svg class="fit__icon fit__icon--x" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="5" x2="5" y2="17"/><line x1="5" y1="5" x2="17" y2="17"/></svg>
+            <span>You want one perfect page with no testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section class="platforms">
+    <div class="container">
+      <p class="platforms__line reveal">Built on your stack. You own every page, forever.</p>
+      <div class="platforms__row reveal">
+        <span class="platform-badge">Shopify</span>
+        <span class="platform-badge">Vercel</span>
+        <span class="platform-badge">Webflow</span>
+        <span class="platform-badge">WordPress</span>
+        <span class="platform-badge">GoHighLevel</span>
+        <span class="platform-badge">ClickFunnels</span>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="section section--alt" id="pricing">
     <div class="container">
       <div class="section__head reveal">
         <p class="section-label section-label--muted">Pricing</p>
-        <h2>One plan. One price. Unlimited pages.</h2>
+        <h2>One program. Three ways to run it.</h2>
+        <p>Every plan is run by the same senior team, on the same testing loop.</p>
       </div>
-      <p class="pricing__anchor reveal">Agencies charge upwards of <strong>$5,000 for a single page</strong>, and the "unlimited" providers cap out around two a month. Page Lab is <strong>unlimited pages</strong>, written to convert and kept maintained, for <strong>$1,500 flat</strong>.</p>
-      <div class="plans">
-        <div class="plan reveal">
-          <span class="plan__badge">Lead offer</span>
-          <div class="plan__name">Page Lab</div>
-          <div class="plan__tagline">Your always-on landing page team.</div>
-          <div class="plan__price"><span class="plan__amount">$1,500</span><span class="plan__per">/ month</span></div>
-          <ul class="plan__features">
-            <li><svg class="plan__check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Unlimited page requests, one active build at a time</span></li>
-            <li><svg class="plan__check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Unlimited pages, no monthly cap</span></li>
-            <li><svg class="plan__check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Conversion copywriting and CRO built in</span></li>
-            <li><svg class="plan__check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Days, not weeks, turnaround</span></li>
-            <li><svg class="plan__check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Unlimited revisions and ongoing maintenance</span></li>
-            <li><svg class="plan__check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>You own every page, on your stack</span></li>
+      <div class="pricing__grid">
+
+        <div class="tier reveal">
+          <div class="tier__name">Page Lab</div>
+          <div class="tier__price"><span class="tier__price-amount">$2,000</span><span class="tier__price-period">/mo</span></div>
+          <p class="tier__day">About $66 a day for a senior landing page and conversion team.</p>
+          <p class="tier__pitch">The core program. Pages built, tested against your traffic, and iterated until the messaging wins.</p>
+          <ul class="tier__features">
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Conversion copywriting and messaging angles for every page</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Design and build on your stack. You own everything.</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> A monthly testing plan: which angles to run, what to measure</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Iteration on live pages based on performance data</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> One senior point of contact</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Always-on request queue, one active build at a time</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Revision rounds until the page ships right, active-page maintenance included</li>
           </ul>
-          <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
-          <p class="plan__note">1 active build at a time · Cancel anytime · No long-term contract</p>
+          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <p class="tier__note">Month to month · Cancel anytime</p>
         </div>
-        <div class="addon reveal">
-          <div class="addon__info">
-            <h3>Add Static Creatives</h3>
-            <p>Unlimited static creatives, built in ClickDose Creative HQ. Use them for paid ads or organic social. Add it to any Page Lab plan.</p>
-          </div>
-          <div class="addon__price">
-            <strong>+$1,000</strong>
-            <span>/ month</span>
-          </div>
+
+        <div class="tier reveal">
+          <div class="tier__name">Page Lab Pro</div>
+          <div class="tier__price"><span class="tier__price-amount">$3,000</span><span class="tier__price-period">/mo</span></div>
+          <p class="tier__pitch">Everything in Page Lab, plus static ad creatives to feed your paid channels.</p>
+          <ul class="tier__features">
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Everything in Page Lab</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Static ad creatives every month</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Creative matched to the page angles being tested</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> One team across pages and ads, one message end to end</li>
+          </ul>
+          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <p class="tier__note">Month to month · Cancel anytime</p>
+        </div>
+
+        <div class="tier tier--featured reveal">
+          <div class="tier__badge">Best Value</div>
+          <div class="tier__name">Full Stack</div>
+          <div class="tier__price"><span class="tier__price-amount">$4,000</span><span class="tier__price-period">/mo</span></div>
+          <p class="tier__pitch">Pro plus Test Lab: the complete conversion system.</p>
+          <ul class="tier__features">
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Everything in Page Lab Pro</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Test Lab: a structured A/B testing program on your traffic</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Hypotheses, test setup, and disciplined reads on every experiment</li>
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> A monthly readout tied to CVR and CAC</li>
+          </ul>
+          <a href="#book" class="btn btn--primary tier__cta">Book a Strategy Call</a>
+          <p class="tier__note">Month to month · Cancel anytime</p>
+        </div>
+
+      </div>
+
+      <div class="addon reveal">
+        <div class="addon__info">
+          <h3>Test Lab · Add-on</h3>
+          <p>A structured A/B testing program on your traffic: hypotheses, test setup, and a monthly readout tied to CVR and CAC. <strong>Requires an active Page Lab seat.</strong></p>
+        </div>
+        <div class="addon__price">
+          <strong>+$1,000</strong>
+          <span>/ month</span>
         </div>
       </div>
+
+      <p class="pricing__notes reveal">
+        <strong>Month to month. Cancel anytime. No long-term contracts.</strong><br>
+        We don't do brand identity, SEO, or social media management.<br>
+        Page Lab is capped at 8 clients.
+      </p>
     </div>
   </section>
 
@@ -708,40 +1116,68 @@
       </div>
       <div class="faq__list">
         <div class="faq__item">
-          <button class="faq__q">What counts as a page, and what can I request?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>Landing pages, advertorials, product pages, opt-in and sales pages, or a small multi-page site. If it is a page built to convert, it is in scope. You can queue as many requests as you like. We build them one at a time.</p></div>
+          <button class="faq__q" aria-expanded="false" aria-controls="faq-a1">Why wouldn't I just hire a designer for a one-time build?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a" id="faq-a1">
+            <div class="faq__a-inner">
+              <p>A designer sells you one guess, once. Their success metric is "the client approved it." Ours is your conversion rate.</p>
+              <p>The value is shots on goal: ten tested angles beat one polished guess, because nobody knows which message converts until real traffic votes.</p>
+              <p>The math: lifting a page from 1.5% to 2% conversion is a 33% reduction in CAC. Page Lab pays for itself on the first winning test. A static site never pays for itself at all.</p>
+              <ul class="faq__compare">
+                <li><strong>Freelancer one-off:</strong> one page, one guess, no iteration.</li>
+                <li><strong>Cheap page shop:</strong> volume without conversion strategy.</li>
+                <li><strong>Traditional agency:</strong> strategy, at $5,000 a page and weeks of waiting per build.</li>
+                <li><strong>Page Lab:</strong> copy, build, testing, and iteration in one monthly loop.</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="faq__item">
-          <button class="faq__q">Is it really unlimited, and how many pages will I actually get?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>Yes, unlimited. Queue as many pages as you want, with one active build at a time. Because we move fast, most clients land around 10 to 15 finished pages a month, and 30 to 40 statics on the add-on. Your actual number depends on page complexity, how many revision rounds each takes, and how quickly you turn around feedback.</p></div>
+          <button class="faq__q" aria-expanded="false" aria-controls="faq-a2">What does one active build with an always-on queue mean?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a" id="faq-a2">
+            <div class="faq__a-inner">
+              <p>You can add as many requests to your queue as you want, whenever you want. We work them one at a time, in your priority order, so nothing sits half-finished. The moment one page ships, the next request starts. The queue never closes.</p>
+            </div>
+          </div>
         </div>
         <div class="faq__item">
-          <button class="faq__q">How fast is turnaround?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>Your first page goes live in about three days, where most providers are still quoting ten. After that, pages come back in a few days each. That speed is the whole point, and it is what keeps an unlimited queue actually moving.</p></div>
+          <button class="faq__q" aria-expanded="false" aria-controls="faq-a3">How many pages will we actually get?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a" id="faq-a3">
+            <div class="faq__a-inner">
+              <p>Most clients see 8 to 12 pages a month. The biggest driver is your feedback speed: the faster you review and respond, the faster the queue moves. Complex pages and extra revision rounds take longer, simple angle variants ship quickly.</p>
+            </div>
+          </div>
         </div>
         <div class="faq__item">
-          <button class="faq__q">What if I need more than one page at once?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>Queue as many requests as you want. We work one active build at a time and move fast, so the queue clears quickly. If your volume outgrows a single plan, we will talk about a dedicated setup.</p></div>
+          <button class="faq__q" aria-expanded="false" aria-controls="faq-a4">What counts as a revision?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a" id="faq-a4">
+            <div class="faq__a-inner">
+              <p>A revision refines the direction set in the brief: copy tweaks, layout adjustments, swapping proof elements, tightening the offer. We run revision rounds until the page ships right. A new direction, like a different angle or a different audience, is a new request for the queue, and that is usually good news: it means you have a new hypothesis worth testing.</p>
+            </div>
+          </div>
         </div>
         <div class="faq__item">
-          <button class="faq__q">What platforms do you build on?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>We build fastest on Shopify and Vercel, and that is where most of our work ships. We can also build on Webflow or WordPress, though those pages may take a little longer. Either way, everything ships on your stack, in your accounts.</p></div>
+          <button class="faq__q" aria-expanded="false" aria-controls="faq-a5">How fast is the first page?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a" id="faq-a5">
+            <div class="faq__a-inner">
+              <p>Your first page is live within about a week. After that, iterations move in days, not quarters. The exact pace depends on how quickly you turn around feedback: fast reviewers keep the loop tight.</p>
+            </div>
+          </div>
         </div>
         <div class="faq__item">
-          <button class="faq__q">Do I own the pages?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>Yes. Every page we build is yours to keep. It lives in your accounts and on your domain. If we ever part ways, everything we made stays with you.</p></div>
+          <button class="faq__q" aria-expanded="false" aria-controls="faq-a6">Who owns the pages?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a" id="faq-a6">
+            <div class="faq__a-inner">
+              <p>You do. Every page is built on your stack, in your accounts, on your domain. If we ever part ways, everything we made stays with you, forever.</p>
+            </div>
+          </div>
         </div>
         <div class="faq__item">
-          <button class="faq__q">Can I cancel anytime?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>Yes. Page Lab is month to month with no long-term contract. Pause or cancel whenever you need to, and keep every page we have already built for you.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__q">How does the static creatives add-on work?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>For an extra $1,000 a month, we produce unlimited static creatives in ClickDose Creative HQ, our in-house AI creative studio. Use them for paid ads or organic social. In practice most clients see 30 to 40 a month, depending on complexity and revision rounds. It is the fastest way to feed your ad testing and your content calendar while your pages get built.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__q">How is this different from an agency or a freelancer?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-          <div class="faq__a"><p>An agency is slow and expensive. A freelancer is inconsistent and disappears. A design subscription hands you pretty pages with no conversion thinking. Page Lab is a flat fee, fast turnaround, real CRO judgment, and maintenance, from marketers who have spent over $200M on paid media. Every page is handled in-house by that team, never handed off to contractors overseas.</p></div>
+          <button class="faq__q" aria-expanded="false" aria-controls="faq-a7">What if I don't have traffic yet?<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <div class="faq__a" id="faq-a7">
+            <div class="faq__a-inner">
+              <p>Page Lab needs traffic to test against, so it is not the right first move. Start with <a href="../cold-email/" style="color:var(--color-accent-hover);font-weight:600;">Cold Email Lab</a> to build outbound pipeline, or <a href="../growth-lab/" style="color:var(--color-accent-hover);font-weight:600;">Growth Lab</a> to build paid traffic. Once visitors are flowing, come back and we will start testing what converts them.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -750,8 +1186,8 @@
   <!-- FINAL CTA -->
   <section class="final" id="book">
     <div class="container">
-      <h2 class="reveal">Stop waiting weeks<br>for one page.</h2>
-      <p class="reveal">Grab a quick call and we will map the first pages we would build for you. We only take on a handful of Page Lab clients at a time, since every build gets a senior operator's full attention.</p>
+      <h2 class="reveal">Your next winning message<br>is one test away.</h2>
+      <p class="reveal">We only take on a handful of Page Lab clients at a time. 8 seats total. Grab a call and we will map the first angles we would test for you.</p>
       <a href="#book" class="btn btn--primary btn--lg reveal">Book a Strategy Call</a>
       <p class="final__escape reveal">Or email us directly: <a href="mailto:info@clickdose.com">info@clickdose.com</a></p>
     </div>
@@ -808,6 +1244,36 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
       document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
 
+      // Hero gallery slice: clone the real pages marquee track so build-work.py
+      // regeneration stays the single source of truth for both strips.
+      var galleryTrack = document.querySelector('#work .marquee--pages .marquee__track');
+      var stripTrack = document.getElementById('heroStripTrack');
+      if (galleryTrack && stripTrack) {
+        var cloned = galleryTrack.cloneNode(true);
+        cloned.querySelectorAll('img').forEach(function(img) { img.setAttribute('alt', ''); });
+        while (cloned.firstChild) { stripTrack.appendChild(cloned.firstChild); }
+      }
+
+      // Strategy annotation chips, keyed by img src substring so they survive
+      // build-work.py rewriting the marquee markup.
+      var annotations = {
+        'changing-brain-health': 'Advertorial angle for cold traffic',
+        'am-pm-brain-supplement-package': 'Comparison page for high-intent buyers',
+        'craig-percoco-masterclass-live': 'Long-form lead gen'
+      };
+      document.querySelectorAll('#work .marquee--pages .mq-card img').forEach(function(img) {
+        var src = img.getAttribute('src') || '';
+        for (var key in annotations) {
+          if (src.indexOf(key) !== -1) {
+            var chip = document.createElement('span');
+            chip.className = 'mq-chip';
+            chip.textContent = annotations[key];
+            img.parentElement.appendChild(chip);
+            break;
+          }
+        }
+      });
+
       // FAQ accordion
       document.querySelectorAll('.faq__q').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -817,10 +1283,12 @@
           document.querySelectorAll('.faq__item.open').forEach(function(openItem) {
             openItem.classList.remove('open');
             openItem.querySelector('.faq__a').style.maxHeight = null;
+            openItem.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
           });
           if (!isOpen) {
             item.classList.add('open');
             answer.style.maxHeight = answer.scrollHeight + 'px';
+            btn.setAttribute('aria-expanded', 'true');
           }
         });
       });

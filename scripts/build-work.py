@@ -8,7 +8,8 @@ WHERE YOUR WORK LIVES (the source of truth — just drop files here):
   services/Page Examples/pages.txt   OR live page URLs, one per line ("url | Label"),
                              screenshotted automatically at mobile width.
   services/testimonials.json  the shared testimonials, injected into every page that
-                             has a testimonials section (homepage + all service pages),
+                             has a testimonials section (the service pages; the
+                             homepage no longer carries testimonials or the marquee),
                              so the work marquee and testimonials update together.
 
 WHAT IT GENERATES (safe to delete, always regenerated):
@@ -137,24 +138,25 @@ def track_html(items, w, h, prefix, indent="            "):
     return "\n".join(first + dupe)
 
 
-def inject(html, marker, inner):
+def inject(html, marker, inner, path=""):
     start, end = f"<!-- {marker}:START -->", f"<!-- {marker}:END -->"
     pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
     if not pattern.search(html):
-        sys.exit(f"Marker {marker} not found")
+        print(f"warning: marker {marker} not found in {path or 'page'}; skipped.")
+        return html
     replacement = f"{start}\n{inner}\n            {end}"
     return pattern.sub(lambda _m: replacement, html)
 
 
-# (path, src_prefix, marker_tag, page_dims, static_dims) — the marquee lives on both
-# the Page Lab page and the homepage, at slightly different card sizes.
+# (path, src_prefix, marker_tag, page_dims, static_dims)
+# 2026-07-13 GTM repositioning: the homepage no longer carries the work marquee
+# or testimonials; Page Lab is the only home of the gallery.
 TARGETS = [
     ("page-lab/index.html", "../", "PL",   (208, 300), (256, 320)),
-    ("index.html",          "",    "HOME", (200, 288), (240, 300)),
 ]
 
 # Pages carrying the shared testimonials block (single source: testimonials.json).
-TESTIMONIAL_PAGES = ["index.html", "page-lab/index.html", "growth-lab/index.html", "cold-email/index.html"]
+TESTIMONIAL_PAGES = ["page-lab/index.html", "growth-lab/index.html", "cold-email/index.html"]
 
 
 def build_testimonials_html(indent="            "):
@@ -190,9 +192,9 @@ def main():
         fp = os.path.join(SERVICES, path)
         html = open(fp, encoding="utf-8").read()
         for marker, inner in marquee.get(path, []):
-            html = inject(html, marker, inner)
+            html = inject(html, marker, inner, path)
         if path in TESTIMONIAL_PAGES:
-            html = inject(html, "TESTIMONIALS", testimonials)
+            html = inject(html, "TESTIMONIALS", testimonials, path)
         open(fp, "w", encoding="utf-8").write(html)
         print(f"{path} updated.")
 
