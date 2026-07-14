@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep, Unbroken Sleep. Without the Melatonin Hangover. | Sable</title>
+  <meta name="description" content="Sable is a nightly drink that helps you fall asleep, stay asleep, and wake clear. Feel it by night three. 30-night guarantee.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --midnight: #0d1526;
+      --abyss: #080e1b;
+      --dusk: #182742;
+      --dawn: #f0e2cf;
+      --morning: #faf6ed;
+      --surface: #ffffff;
+      --brass: #c9a45c;
+      --brass-bright: #dcb96f;
+      --cream: #f5efe3;
+      --ink: #221d15;
+      --ink-muted: #6f675a;
+      --night-text: rgba(245, 239, 227, .85);
+      --night-muted: rgba(245, 239, 227, .6);
+      --line-night: rgba(201, 164, 92, .25);
+      --line-day: #e6dcc8;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Mulish', -apple-system, sans-serif;
+      --container: 71rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--midnight);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+    /* Demo bar */
+    .demo-bar {
+      background: var(--abyss);
+      color: var(--night-muted);
+      font-size: .6875rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: .45rem 1rem;
+      border-bottom: 1px solid var(--line-night);
+    }
+    .demo-bar a { color: var(--brass); }
+
+    /* Header */
+    .site-head { background: var(--midnight); padding: 1rem 0; position: relative; z-index: 5; }
+    .site-head .container { display: flex; align-items: center; justify-content: space-between; }
+    .wordmark {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.6rem;
+      letter-spacing: .38em;
+      text-indent: .38em;
+      color: var(--cream);
+    }
+    .head-cta { display: flex; align-items: center; gap: 1.2rem; }
+    .head-cta .rating { font-size: .78rem; color: var(--night-muted); }
+    .head-cta .rating .st { color: var(--brass); letter-spacing: .08em; }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+      color: var(--abyss);
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: .975rem;
+      letter-spacing: .04em;
+      padding: .85rem 1.9rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(201,164,92,.35); filter: brightness(1.05); }
+    @media (max-width: 700px) { .head-cta .rating { display: none; } .head-cta .btn { font-size: .85rem; padding: .7rem 1.3rem; } }
+
+    /* Night sky texture */
+    .night {
+      background:
+        radial-gradient(1px 1px at 12% 22%, rgba(245,239,227,.5) 50%, transparent 51%),
+        radial-gradient(1px 1px at 78% 12%, rgba(245,239,227,.4) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 55% 8%, rgba(245,239,227,.35) 50%, transparent 51%),
+        radial-gradient(1px 1px at 32% 6%, rgba(245,239,227,.3) 50%, transparent 51%),
+        radial-gradient(1px 1px at 90% 40%, rgba(245,239,227,.25) 50%, transparent 51%),
+        radial-gradient(ellipse 90% 60% at 70% 0%, rgba(24,39,66,.9), transparent),
+        var(--midnight);
+    }
+
+    /* Hero */
+    .hero { padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem); color: var(--cream); }
+    .hero .container { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    .hero__eyebrow { display: flex; align-items: center; gap: .55rem; font-size: .875rem; color: var(--night-muted); margin-bottom: 1.2rem; }
+    .hero__eyebrow .st { color: var(--brass); letter-spacing: .1em; }
+    .hero__eyebrow strong { color: var(--cream); }
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.4rem, 5.6vw, 4rem);
+      line-height: 1.06;
+      letter-spacing: -.01em;
+      margin-bottom: 1.2rem;
+    }
+    h1 em { font-style: italic; color: var(--brass-bright); }
+    .hero__sub { font-size: clamp(1.02rem, 2vw, 1.15rem); color: var(--night-text); max-width: 33rem; margin-bottom: 1.8rem; }
+    .chips { display: flex; gap: 1.1rem; flex-wrap: wrap; font-size: .8125rem; color: var(--night-muted); margin-top: .9rem; }
+    .chips span::before { content: "✦ "; color: var(--brass); }
+    .hero__img { position: relative; }
+    .hero__img img { border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+    .hero__img .tag {
+      position: absolute; bottom: 1rem; left: 1rem;
+      background: rgba(8,14,27,.8);
+      backdrop-filter: blur(6px);
+      color: var(--cream);
+      font-size: .78rem;
+      padding: .5rem .9rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-night);
+    }
+    @media (max-width: 880px) { .hero .container { grid-template-columns: 1fr; } }
+
+    /* Badge marquee */
+    .badges {
+      border-block: 1px solid var(--line-night);
+      overflow: hidden;
+      padding: .8rem 0;
+      white-space: nowrap;
+      background: var(--abyss);
+    }
+    .badges__track { display: inline-block; animation: tick 26s linear infinite; }
+    .badges span {
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--night-muted);
+      margin-right: 1.1rem;
+    }
+    .badges .sep { color: var(--brass); }
+    @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .badges__track { animation: none; } }
+
+    /* Sections */
+    section.band { padding: clamp(3.2rem, 7vw, 5.5rem) 0; }
+    .band--night { color: var(--cream); }
+    .band--dusk { background: linear-gradient(180deg, var(--midnight), var(--dusk)); color: var(--cream); }
+    .band--dawn { background: linear-gradient(180deg, var(--dusk) 0%, #8d86a0 5%, var(--dawn) 14%); color: var(--ink); }
+    .band--dawn > .container { padding-top: 3rem; }
+    .band--morning { background: var(--morning); color: var(--ink); }
+    .kicker {
+      font-size: .75rem; font-weight: 800; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--brass); margin-bottom: .8rem; display: block;
+    }
+    .band h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.9rem, 4.4vw, 2.9rem);
+      line-height: 1.12;
+      max-width: 24ch;
+      margin-bottom: 1.1rem;
+    }
+    .band .lede { max-width: 40rem; margin-bottom: 2rem; }
+    .band--night .lede, .band--dusk .lede { color: var(--night-text); }
+    .band--morning .lede, .band--dawn .lede { color: var(--ink-muted); }
+    .band p { margin-bottom: 1.1rem; }
+
+    /* Problem */
+    .problem-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .big-stat {
+      text-align: center;
+      border: 1px solid var(--line-night);
+      border-radius: 18px;
+      padding: 2.4rem 1.5rem;
+      background: rgba(8,14,27,.5);
+    }
+    .big-stat .n {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(4rem, 9vw, 6rem);
+      line-height: 1;
+      color: var(--brass-bright);
+    }
+    .big-stat p { color: var(--night-muted); font-size: .9rem; margin: .6rem 0 0; }
+    .problem-copy p { color: var(--night-text); }
+    .problem-copy strong { color: var(--cream); }
+    .callout-night {
+      border-left: 3px solid var(--brass);
+      padding: .9rem 1.2rem;
+      background: rgba(201,164,92,.08);
+      border-radius: 0 12px 12px 0;
+      font-size: .95rem;
+      color: var(--night-text);
+      margin-top: 1.4rem;
+    }
+    @media (max-width: 820px) { .problem-grid { grid-template-columns: 1fr; } }
+
+    /* Mechanism */
+    .mech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
+    .mech {
+      background: rgba(8,14,27,.55);
+      border: 1px solid var(--line-night);
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+    }
+    .mech .phase {
+      font-size: .7rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--brass); display: block; margin-bottom: .5rem;
+    }
+    .mech h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; color: var(--cream); margin-bottom: .45rem; }
+    .mech .dose { font-size: .8rem; color: var(--brass-bright); margin-bottom: .6rem; }
+    .mech p { font-size: .9rem; color: var(--night-muted); margin: 0; }
+    @media (max-width: 820px) { .mech-grid { grid-template-columns: 1fr; } }
+    .mech-note { font-size: .78rem; color: var(--night-muted); margin-top: 1rem; }
+
+    .solution-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; margin-bottom: 1rem; }
+    .solution-grid img { border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+    @media (max-width: 820px) { .solution-grid { grid-template-columns: 1fr; } }
+
+    /* Ritual */
+    .ritual-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .ritual-grid img { border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+    .steps { display: grid; gap: 1.1rem; margin-top: 1.6rem; }
+    .step { display: flex; gap: 1.1rem; align-items: baseline; }
+    .step .n {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--brass);
+      flex-shrink: 0;
+      width: 2.2rem;
+    }
+    .step h4 { font-size: 1rem; font-weight: 800; color: var(--cream); margin-bottom: .2rem; }
+    .step p { font-size: .925rem; color: var(--night-muted); margin: 0; }
+    .taste { font-family: var(--font-display); font-style: italic; font-size: 1.25rem; color: var(--brass-bright); margin-top: 1.6rem; }
+    @media (max-width: 820px) { .ritual-grid { grid-template-columns: 1fr; } }
+
+    /* Survey dials */
+    .dials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
+    .dial { text-align: center; padding: 1.8rem 1rem; border: 1px solid var(--line-night); border-radius: 16px; background: rgba(8,14,27,.4); }
+    .dial .ring {
+      width: 8.5rem; height: 8.5rem;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      background: conic-gradient(var(--brass) calc(var(--pct) * 1%), rgba(245,239,227,.1) 0);
+      position: relative;
+    }
+    .dial .ring::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: var(--midnight); }
+    .dial .ring b {
+      position: relative;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--cream);
+    }
+    .dial p { font-size: .875rem; color: var(--night-muted); margin: 0; }
+    .dial-note { font-size: .78rem; color: var(--night-muted); margin-top: 1rem; }
+    @media (max-width: 820px) { .dials { grid-template-columns: 1fr; } }
+
+    /* Comparison table */
+    .vs-wrap { margin-top: 2rem; overflow-x: auto; }
+    .vs { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9rem; min-width: 34rem; }
+    .vs th, .vs td { padding: .8rem .9rem; text-align: center; border-bottom: 1px solid var(--line-day); }
+    .vs th:first-child, .vs td:first-child { text-align: left; font-weight: 600; }
+    .vs thead th { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); border-bottom: 2px solid var(--ink); }
+    .vs thead th.hero-col { color: var(--cream); background: var(--midnight); border-radius: 12px 12px 0 0; border-bottom: 2px solid var(--midnight); }
+    .vs td.hero-col { background: rgba(13,21,38,.06); font-weight: 700; }
+    .vs tbody tr:last-child td.hero-col { border-radius: 0 0 12px 12px; }
+    .vs .yes { color: #3f6b48; font-weight: 800; }
+    .vs .no { color: #a4553d; font-weight: 700; }
+
+    /* Voices */
+    .voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
+    .voice {
+      background: var(--surface);
+      border: 1px solid var(--line-day);
+      border-radius: 16px;
+      padding: 1.5rem 1.4rem;
+      display: flex; flex-direction: column; gap: .9rem;
+      box-shadow: 0 4px 24px rgba(34,29,21,.05);
+    }
+    .voice .night-label { font-size: .7rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--brass); }
+    .voice .q { font-size: .95rem; flex: 1; }
+    .voice .who { display: flex; align-items: center; gap: .7rem; }
+    .voice .who img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+    .voice .who strong { display: block; font-size: .875rem; }
+    .voice .who span { font-size: .78rem; color: var(--ink-muted); }
+    .voice .st { color: var(--brass); font-size: .85rem; letter-spacing: .1em; }
+    @media (max-width: 880px) { .voices { grid-template-columns: 1fr; } }
+    .voice-note { font-size: .78rem; color: var(--ink-muted); margin-top: 1rem; }
+
+    /* Guarantee band */
+    .guarantee { text-align: center; }
+    .guarantee h2 { margin-inline: auto; }
+    .guarantee .lede { margin-inline: auto; }
+    .guarantee .seal {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(3rem, 7vw, 4.6rem);
+      line-height: 1;
+      color: var(--midnight);
+      margin-bottom: .4rem;
+    }
+    .guarantee .seal small { display: block; font-family: var(--font-body); font-weight: 700; font-size: 1rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-muted); margin-top: .4rem; }
+    .guarantee .speed { font-size: .95rem; color: var(--ink-muted); max-width: 34rem; margin: 1.2rem auto 1.8rem; }
+    .guarantee .speed strong { color: var(--ink); }
+
+    /* Buy box */
+    .offer {
+      background: var(--surface);
+      border: 1px solid var(--line-day);
+      border-radius: 22px;
+      padding: clamp(1.6rem, 4vw, 2.8rem);
+      box-shadow: 0 20px 60px rgba(34,29,21,.08);
+    }
+    .offer__grid { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: clamp(1.8rem, 4vw, 3rem); align-items: start; }
+    .offer__img img { border-radius: 16px; }
+    .offer h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+    .offer__stars { font-size: .9rem; color: var(--ink-muted); margin-bottom: 1.2rem; }
+    .offer__stars .st { color: var(--brass); letter-spacing: .1em; }
+    .tier {
+      display: block; width: 100%; text-align: left;
+      background: var(--morning);
+      border: 2px solid var(--line-day);
+      border-radius: 14px;
+      padding: .95rem 1.15rem;
+      margin-bottom: .75rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      color: var(--ink);
+      transition: border-color .15s ease, background .15s ease;
+      position: relative;
+    }
+    .tier:hover { border-color: var(--brass); }
+    .tier.selected { border-color: var(--midnight); background: #f2ecdd; }
+    .tier .t-pop {
+      position: absolute; top: -0.75rem; right: .9rem;
+      background: var(--midnight); color: var(--brass-bright);
+      font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+      padding: .2rem .65rem; border-radius: 999px;
+    }
+    .tier .t-name { font-weight: 800; font-size: .975rem; }
+    .tier .t-save { display: inline-block; background: rgba(201,164,92,.2); color: #8a6a2e; font-size: .7rem; font-weight: 800; padding: .08rem .5rem; border-radius: 999px; margin-left: .4rem; }
+    .tier .t-price { float: right; text-align: right; }
+    .tier .t-price s { color: var(--ink-muted); margin-right: .4rem; font-size: .85rem; }
+    .tier .t-price strong { font-family: var(--font-display); font-size: 1.3rem; }
+    .tier .t-sub { display: block; font-size: .8rem; color: var(--ink-muted); clear: both; }
+    .valuestack { list-style: none; margin: 1rem 0 1.2rem; }
+    .valuestack li { display: flex; justify-content: space-between; gap: 1rem; font-size: .875rem; padding: .35rem 0; border-bottom: 1px dashed var(--line-day); }
+    .valuestack li .v { color: #8a6a2e; font-weight: 700; white-space: nowrap; }
+    .offer .btn { width: 100%; text-align: center; font-size: 1.05rem; padding: 1rem 2rem; }
+    .offer__micro { text-align: center; font-size: .8rem; color: var(--ink-muted); margin-top: .7rem; }
+    .offer .chips { justify-content: center; color: var(--ink-muted); }
+    .offer .chips span::before { color: var(--brass); }
+    .limit { text-align: center; font-size: .78rem; color: var(--ink-muted); margin-top: .8rem; }
+    @media (max-width: 820px) { .offer__grid { grid-template-columns: 1fr; } .offer__img { max-width: 20rem; margin: 0 auto; } }
+
+    /* FAQ */
+    .faq details { background: var(--surface); border: 1px solid var(--line-day); border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: .7rem; }
+    .faq summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq summary::after { content: "+"; font-family: var(--font-display); font-size: 1.4rem; color: var(--brass); flex-shrink: 0; }
+    .faq details[open] summary::after { content: "\2212"; }
+    .faq details p { margin-top: .7rem; font-size: .95rem; color: var(--ink-muted); }
+
+    /* Footer */
+    .foot { background: var(--abyss); color: var(--night-muted); font-size: .78rem; line-height: 1.7; padding: 2.4rem 0 7.5rem; }
+    .foot p { max-width: 60rem; margin-bottom: .85rem; }
+    .foot a { color: var(--brass); }
+
+    /* Sticky offer bar (all screens) */
+    .sticky-bar {
+      position: fixed; left: 0; right: 0; bottom: 0;
+      background: rgba(8, 14, 27, .92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line-night);
+      padding: .7rem clamp(1rem, 4vw, 2.5rem) calc(.7rem + env(safe-area-inset-bottom));
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      transform: translateY(110%);
+      transition: transform .35s ease;
+      z-index: 60;
+      color: var(--cream);
+    }
+    .sticky-bar.show { transform: translateY(0); }
+    .sticky-bar .info { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+    .sticky-bar .name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+    .sticky-bar .price { font-size: .9rem; font-weight: 700; }
+    .sticky-bar .price s { color: var(--night-muted); font-weight: 400; margin-right: .3rem; }
+    .sticky-bar .sub { font-size: .72rem; color: var(--night-muted); }
+    .sticky-bar .btn { white-space: nowrap; font-size: .9rem; padding: .75rem 1.5rem; }
+    @media (max-width: 640px) { .sticky-bar .name, .sticky-bar .sub { display: none; } }
+
+    /* Demo modal */
+    .demo-modal { position: fixed; inset: 0; background: rgba(8,14,27,.7); display: none; align-items: center; justify-content: center; padding: 1.5rem; z-index: 100; }
+    .demo-modal.open { display: flex; }
+    .demo-modal__card { background: var(--morning); border-radius: 20px; max-width: 460px; padding: 2.4rem 2.1rem; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+    .demo-modal__card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; line-height: 1.2; margin-bottom: .8rem; }
+    .demo-modal__card p { font-size: .95rem; color: var(--ink-muted); margin-bottom: 1.3rem; }
+    .demo-modal__card .btn { width: 100%; }
+    .demo-modal__close { background: none; border: none; font-family: var(--font-body); font-size: .85rem; color: var(--ink-muted); margin-top: .9rem; cursor: pointer; text-decoration: underline; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* Large-screen scaling */
+    @media (min-width: 1900px) { html { font-size: 19px; } }
+    @media (min-width: 2500px) { html { font-size: 24px; } }
+    @media (min-width: 3400px) { html { font-size: 30px; } }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">Fictional demo by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a> · All product claims illustrative</div>
+
+  <header class="site-head night">
+    <div class="container">
+      <div class="wordmark">SABLE</div>
+      <div class="head-cta">
+        <span class="rating"><span class="st">★★★★★</span> 4.8/5 · 4,187 verified reviews</span>
+        <a class="btn" href="#offer">Start My 30 Nights</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero night">
+    <div class="container">
+      <div>
+        <p class="hero__eyebrow"><span class="st">★★★★★</span> <span><strong>4.8/5</strong> from 4,187 verified reviews</span></p>
+        <h1>Deep, unbroken sleep. <em>Without the melatonin hangover.</em></h1>
+        <p class="hero__sub">Sable is a warm nightly drink built around three actives your body already understands. One scoop, thirty minutes before bed. Most people feel the difference by night three.</p>
+        <a class="btn" href="#offer">Start My 30 Nights</a>
+        <div class="chips">
+          <span>30-night guarantee</span>
+          <span>Free shipping</span>
+          <span>Melatonin-free</span>
+        </div>
+      </div>
+      <div class="hero__img">
+        <img src="assets/hero-canister.jpg" alt="Sable nightly sleep drink canister with brass scoop on a bedside table" width="1400" height="939">
+        <span class="tag">30 nights per canister</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BADGE MARQUEE -->
+  <div class="badges" aria-hidden="true">
+    <div class="badges__track">
+      <span>Melatonin-free</span><span class="sep">✦</span>
+      <span>Non-habit-forming</span><span class="sep">✦</span>
+      <span>Drug-free</span><span class="sep">✦</span>
+      <span>Sugar-free</span><span class="sep">✦</span>
+      <span>Third-party tested</span><span class="sep">✦</span>
+      <span>Tastes like honeyed chamomile</span><span class="sep">✦</span>
+      <span>Melatonin-free</span><span class="sep">✦</span>
+      <span>Non-habit-forming</span><span class="sep">✦</span>
+      <span>Drug-free</span><span class="sep">✦</span>
+      <span>Sugar-free</span><span class="sep">✦</span>
+      <span>Third-party tested</span><span class="sep">✦</span>
+      <span>Tastes like honeyed chamomile</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="band band--night night">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="big-stat reveal">
+          <div class="n"><span data-count="52">0</span>%</div>
+          <p>of adults say they regularly wake in the night and struggle to fall back asleep*</p>
+        </div>
+        <div class="problem-copy reveal">
+          <span class="kicker">The 3am Problem</span>
+          <h2>The wakeup isn't random. It's chemistry.</h2>
+          <p>You fall asleep fine. Then at 3:07am your eyes open like someone flipped a switch, and your brain hands you a highlight reel of everything you have ever said in a meeting.</p>
+          <p>That switch has a name: <strong>cortisol rising before your calming systems are ready for it</strong>. Modern life trains it well. Late screens, late emails, late everything keep your nervous system idling high, so the quietest hours become the loudest.</p>
+          <div class="callout-night">Melatonin does not fix this. Melatonin is a timing signal that tells your body when night starts. It was never designed to keep you asleep at 3am, which is why you wake up groggy AND you woke up anyway.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION + MECHANISM -->
+  <section class="band band--dusk">
+    <div class="container">
+      <div class="solution-grid">
+        <div class="reveal">
+          <span class="kicker">Meet Sable</span>
+          <h2>The Descent Blend: three actives, one quiet ritual.</h2>
+          <p class="lede" style="margin-bottom:0">Sable does not knock you out. It walks your nervous system down the stairs it already knows: unclench, descend, stay down. Each active is dosed at the level used in published research, printed on the canister.</p>
+        </div>
+        <img class="reveal" src="assets/night-scene.jpg" alt="A warm mug of Sable on a bed beside an open book at 10pm" loading="lazy" width="1400" height="939">
+      </div>
+      <div class="mech-grid">
+        <div class="mech reveal">
+          <span class="phase">Phase 1 · Unclench</span>
+          <h3>Magnesium glycinate</h3>
+          <p class="dose">300 mg</p>
+          <p>The relaxation mineral most adults run low on. Eases the physical tension that keeps your shoulders somewhere near your ears at 11pm.</p>
+        </div>
+        <div class="mech reveal">
+          <span class="phase">Phase 2 · Descend</span>
+          <h3>Glycine + chamomile</h3>
+          <p class="dose">3 g + 200 mg</p>
+          <p>Glycine gently lowers core body temperature, one of the strongest natural signals that it is time to sleep. Chamomile does what it has done for two thousand years.</p>
+        </div>
+        <div class="mech reveal">
+          <span class="phase">Phase 3 · Stay Down</span>
+          <h3>L-theanine</h3>
+          <p class="dose">200 mg</p>
+          <p>Smooths the cortisol spikes that cause the 3am switch-flip, without sedating you. This is the phase melatonin never had.</p>
+        </div>
+      </div>
+      <p class="mech-note reveal">*Formulation and research references are illustrative for this demonstration page.</p>
+    </div>
+  </section>
+
+  <!-- RITUAL -->
+  <section class="band band--night night">
+    <div class="container">
+      <div class="ritual-grid">
+        <img class="reveal" src="assets/ritual.jpg" alt="A brass scoop of Sable powder pouring into a steaming mug" loading="lazy" width="900" height="900">
+        <div class="reveal">
+          <span class="kicker">The Ritual</span>
+          <h2>Ninety seconds. Thirty minutes before bed.</h2>
+          <div class="steps">
+            <div class="step">
+              <span class="n">01</span>
+              <div>
+                <h4>One scoop into warm water or milk</h4>
+                <p>Stir for a few seconds. No whisk, no blender, no science project.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="n">02</span>
+              <div>
+                <h4>Sip it slow, screens down</h4>
+                <p>The ritual is half the mechanism. Your body learns that this cup means the day is over.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="n">03</span>
+              <div>
+                <h4>Lights out</h4>
+                <p>No grogginess ceiling to sleep off tomorrow. That is the point of skipping melatonin.</p>
+              </div>
+            </div>
+          </div>
+          <p class="taste">Tastes like honeyed chamomile. Not like a vitamin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURVEY DIALS -->
+  <section class="band band--night night" style="padding-top:0">
+    <div class="container">
+      <span class="kicker reveal">The First 30 Nights</span>
+      <h2 class="reveal">We surveyed 300 customers after their first canister.</h2>
+      <div class="dials">
+        <div class="dial reveal" style="--pct:92">
+          <div class="ring"><b><span data-count="92">0</span>%</b></div>
+          <p>said they fell asleep noticeably faster within the first week</p>
+        </div>
+        <div class="dial reveal" style="--pct:87">
+          <div class="ring"><b><span data-count="87">0</span>%</b></div>
+          <p>reported fewer middle-of-the-night wakeups by night 30</p>
+        </div>
+        <div class="dial reveal" style="--pct:94">
+          <div class="ring"><b><span data-count="94">0</span>%</b></div>
+          <p>said they wake clearer than they did on melatonin</p>
+        </div>
+      </div>
+      <p class="dial-note reveal">*Survey figures are illustrative for this demonstration page.</p>
+    </div>
+  </section>
+
+  <!-- DAWN: comparison + voices -->
+  <section class="band band--dawn">
+    <div class="container">
+      <span class="kicker reveal" style="color:#8a6a2e">The Honest Comparison</span>
+      <h2 class="reveal">You have three other options at 11pm. Here they are.</h2>
+      <div class="vs-wrap reveal">
+        <table class="vs">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="hero-col">Sable</th>
+              <th>Melatonin</th>
+              <th>Rx sleep aids</th>
+              <th>A nightcap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Helps you fall asleep</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>Built for staying asleep</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td><td><span class="no">✕</span></td></tr>
+            <tr><td>Wake up clear, not groggy</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+            <tr><td>Non-habit-forming</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+            <tr><td>No prescription needed</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td></tr>
+            <tr><td>Under $2 a night</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="kicker reveal" style="color:#8a6a2e; margin-top:3rem">Morning Reports</span>
+      <h2 class="reveal">What night 30 sounds like</h2>
+      <div class="voices">
+        <div class="voice reveal">
+          <span class="night-label">Night 4</span>
+          <span class="st">★★★★★</span>
+          <p class="q">"I didn't believe the 'feel it by night three' line. Night four, I slept through my husband's alarm for the first time in years. I make the cup at 9:30 like it's a religion now."</p>
+          <div class="who">
+            <img src="assets/voice-maya.jpg" alt="Photo of Maya" loading="lazy" width="92" height="92">
+            <div><strong>Maya R., 44</strong><span>Verified customer · 6 months in</span></div>
+          </div>
+        </div>
+        <div class="voice reveal">
+          <span class="night-label">Night 12</span>
+          <span class="st">★★★★★</span>
+          <p class="q">"Melatonin made mornings feel like wading through wet cement. With Sable I still woke at 3am the first week, but by night twelve those wakeups just stopped happening. Mornings are mine again."</p>
+          <div class="who">
+            <img src="assets/voice-paul.jpg" alt="Photo of Paul" loading="lazy" width="92" height="92">
+            <div><strong>Paul D., 52</strong><span>Verified customer · 4 months in</span></div>
+          </div>
+        </div>
+        <div class="voice reveal">
+          <span class="night-label">Night 30</span>
+          <span class="st">★★★★★</span>
+          <p class="q">"The ritual is the thing nobody tells you about. Warm cup, book, lights out. My sleep tracker says +52 minutes of deep sleep on average. My mood says more."</p>
+          <div class="who">
+            <img src="assets/voice-nia.jpg" alt="Photo of Nia" loading="lazy" width="92" height="92">
+            <div><strong>Nia T., 36</strong><span>Verified customer · 3 months in</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="voice-note reveal">Testimonials are illustrative for this demonstration page. Individual results vary.</p>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="band band--morning guarantee">
+    <div class="container">
+      <div class="seal reveal">30 Nights<small>Or every dollar back</small></div>
+      <h2 class="reveal">Sleep on it. Literally.</h2>
+      <p class="lede reveal">Drink Sable every night for 30 nights. If your sleep does not feel different, email us your order number and keep whatever is left of the canister.</p>
+      <p class="speed reveal">Refunds go out <strong>within 24 hours</strong> of your email. No forms, no phone tree, no "have you tried turning your circadian rhythm off and on again."</p>
+      <a class="btn reveal" href="#offer">Start My 30 Nights</a>
+      <div class="chips reveal" style="justify-content:center; color:var(--ink-muted)">
+        <span>30-night guarantee</span>
+        <span>Free shipping</span>
+        <span>Cancel nothing, subscribe to nothing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUY BOX -->
+  <section class="band band--morning" id="offer" style="padding-top:0">
+    <div class="container">
+      <div class="offer reveal">
+        <div class="offer__grid">
+          <div class="offer__img">
+            <img src="assets/offer-canister.jpg" alt="The Sable canister" loading="lazy" width="780" height="930">
+          </div>
+          <div>
+            <span class="kicker">The Offer</span>
+            <h2>Sable Nightly Drink</h2>
+            <p class="offer__stars"><span class="st">★★★★★</span> 4.8/5 · 4,187 verified reviews</p>
+
+            <button class="tier" data-tier="3" type="button">
+              <span class="t-pop">Most popular</span>
+              <span class="t-name">90-Night Reset <span class="t-save">Save $60</span></span>
+              <span class="t-price"><s>$207</s> <strong>$147</strong></span>
+              <span class="t-sub">3 canisters · $49 each · $1.63 a night</span>
+            </button>
+            <button class="tier" data-tier="1" type="button">
+              <span class="t-name">First 30 Nights</span>
+              <span class="t-price"><strong>$69</strong></span>
+              <span class="t-sub">1 canister · 30 servings · $2.30 a night</span>
+            </button>
+
+            <ul class="valuestack">
+              <li><span>Free brass measuring scoop</span><span class="v">$14 value</span></li>
+              <li><span>The Wind-Down Guide (PDF): 12 evenings, scripted</span><span class="v">$9 value</span></li>
+              <li><span>Free shipping, US &amp; Canada</span><span class="v">$9 value</span></li>
+              <li><span>30-night guarantee, keep the canister</span><span class="v">Full refund</span></li>
+            </ul>
+
+            <button class="btn" data-demo-cta id="atcBtn">Start My 30 Nights · $147</button>
+            <p class="offer__micro">One-time purchase. No subscription unless you ask for one.</p>
+            <div class="chips">
+              <span>30-night guarantee</span>
+              <span>Free shipping</span>
+              <span>Ships in 24 hours</span>
+            </div>
+            <p class="limit">New-customer pricing · Limit 3 per customer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band--morning faq" style="padding-top:0">
+    <div class="container">
+      <span class="kicker reveal" style="color:#8a6a2e">Before You Ask</span>
+      <h2 class="reveal">Fair questions about a big claim</h2>
+      <div style="max-width:48rem; margin-top:1.4rem">
+        <details class="reveal">
+          <summary>Will it knock me out like a sleeping pill?</summary>
+          <p>No, and that is deliberate. Sable lowers the volume instead of cutting the power. You drift off because your body is finally quiet, which is why you can still get up if the baby cries, and why there is no groggy tax in the morning.</p>
+        </details>
+        <details class="reveal">
+          <summary>Is it habit-forming?</summary>
+          <p>The ingredients are non-habit-forming. The warm-cup ritual, we admit, is habit-forming in the way brushing your teeth is. That is a feature.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can I take it with melatonin or my current routine?</summary>
+          <p>Most people use Sable to replace melatonin, not stack on it. If you take prescription sleep medication or any regular medication, talk to your doctor before adding anything, including this.</p>
+        </details>
+        <details class="reveal">
+          <summary>What if it does nothing for me?</summary>
+          <p>Then it costs you nothing. Thirty nights, every dollar back, refund out within 24 hours of your email, and you keep the canister. Sleep is too personal for us to argue with your experience.</p>
+        </details>
+        <details class="reveal">
+          <summary>Why 30 nights and not "tonight"?</summary>
+          <p>You will likely feel the first shift by night three. But sleep is a pattern, not an event, and patterns take weeks to rebuild. One canister is 30 servings on purpose: it is exactly one honest trial.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container">
+      <p><strong>Demo notice:</strong> Sable is a fictional brand and this page is a portfolio demonstration built by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a>. The product, formulation, survey figures, reviews, and testimonials shown are illustrative and do not describe a real product or real people.</p>
+      <p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. If you have a sleep disorder or take medication, consult your physician. Results described are illustrative; individual results vary.</p>
+      <p>© <span id="footYear">2026</span> Sable (fictional) · A demo property of ClickDose Labs</p>
+    </div>
+  </footer>
+
+  <!-- Sticky offer bar -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="info">
+      <span class="name">Sable · 90-Night Reset</span>
+      <span class="price" id="stickyPrice"><s>$207</s> $147</span>
+      <span class="sub">30-night guarantee · Free shipping</span>
+    </div>
+    <a class="btn" href="#offer">Start My 30 Nights</a>
+  </div>
+
+  <!-- Demo modal -->
+  <div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-label="Demo notice">
+    <div class="demo-modal__card">
+      <h3>You just reached the end of the funnel.</h3>
+      <p>Sable is a fictional brand. This page demonstrates the long-form sales format: enemy positioning, a named mechanism, a single-number spine, and an offer engineered around one honest trial. We build pages like this for real brands.</p>
+      <a class="btn" href="https://clickdoselabs.com/page-lab/">See how we build pages like this</a>
+      <button class="demo-modal__close" data-demo-close>Keep reading the demo</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('footYear').textContent = new Date().getFullYear();
+
+      // Reveal on scroll
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+      // Count-up stats on scroll
+      var counters = document.querySelectorAll('[data-count]');
+      var counted = new WeakSet();
+      var countObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting || counted.has(entry.target)) return;
+          counted.add(entry.target);
+          var el = entry.target;
+          var target = parseInt(el.getAttribute('data-count'), 10);
+          var start = null;
+          function tick(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / 1200, 1);
+            el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          countObs.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(function (el) { countObs.observe(el); });
+
+      // Tier selector
+      var tiers = {
+        '3': { label: 'Start My 30 Nights · $147', sticky: '<s>$207</s> $147', name: 'Sable · 90-Night Reset' },
+        '1': { label: 'Start My 30 Nights · $69', sticky: '$69', name: 'Sable · First 30 Nights' }
+      };
+      var atc = document.getElementById('atcBtn');
+      var stickyPrice = document.getElementById('stickyPrice');
+      var stickyName = document.querySelector('.sticky-bar .name');
+      var tierBtns = document.querySelectorAll('.tier');
+      function selectTier(key) {
+        tierBtns.forEach(function (b) { b.classList.toggle('selected', b.getAttribute('data-tier') === key); });
+        atc.textContent = tiers[key].label;
+        stickyPrice.innerHTML = tiers[key].sticky;
+        stickyName.textContent = tiers[key].name;
+      }
+      tierBtns.forEach(function (b) {
+        b.addEventListener('click', function () { selectTier(b.getAttribute('data-tier')); });
+      });
+      selectTier('3');
+
+      // Sticky bar: show after hero, hide over buy box
+      var bar = document.getElementById('stickyBar');
+      var hero = document.querySelector('.hero');
+      var offer = document.getElementById('offer');
+      var ticking = false;
+      function syncBar() {
+        var pastHero = hero.getBoundingClientRect().bottom < 0;
+        var o = offer.getBoundingClientRect();
+        var overOffer = o.top < window.innerHeight && o.bottom > 0;
+        bar.classList.toggle('show', pastHero && !overOffer);
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(syncBar); }
+      }, { passive: true });
+      syncBar();
+
+      // Demo modal
+      var modal = document.getElementById('demoModal');
+      document.querySelectorAll('[data-demo-cta]').forEach(function (b) {
+        b.addEventListener('click', function () { modal.classList.add('open'); });
+      });
+      document.querySelector('[data-demo-close]').addEventListener('click', function () { modal.classList.remove('open'); });
+      modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    });
+  </script>
+</body>
+</html>
