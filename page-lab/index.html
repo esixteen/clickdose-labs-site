@@ -745,7 +745,7 @@
         <a href="#pricing">Pricing</a>
       </div>
       <div class="nav__cta">
-        <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
+        <a href="#book" class="btn btn--dark">Get On The Waitlist</a>
       </div>
     </div>
   </nav>
@@ -758,7 +758,7 @@
         <h1>Stop guessing which message converts. Start <span class="page-hero__highlight">testing</span> it.</h1>
         <p class="page-hero__sub">Page Lab is a monthly conversion program. We build your landing pages, test messaging angles against real traffic, and iterate until the data picks a winner. Flat fee, senior operators, always shipping. Your first page is live within a week.</p>
         <div class="page-hero__ctas">
-          <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
+          <a href="#book" class="btn btn--primary btn--lg">Get On The Waitlist</a>
           <a href="#work" class="btn btn--outline btn--lg">See the work</a>
         </div>
         <p class="page-hero__proof">
@@ -1069,7 +1069,7 @@
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Always-on request queue, one active build at a time</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Revision rounds until the page ships right, active-page maintenance included</li>
           </ul>
-          <a href="#book" class="btn btn--primary tier__cta">Book a Strategy Call</a>
+          <a href="#book" class="btn btn--primary tier__cta">Get On The Waitlist</a>
           <p class="tier__note">Month to month · Cancel anytime</p>
         </div>
 
@@ -1082,7 +1082,7 @@
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Creative matched to the page angles being tested</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> One team across pages and ads, one message end to end</li>
           </ul>
-          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <a href="#book" class="btn btn--outline tier__cta">Get On The Waitlist</a>
           <p class="tier__note">Requires an active Page Lab seat</p>
         </div>
 
@@ -1095,7 +1095,7 @@
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Disciplined reads on every experiment</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> A monthly readout tied to CVR and CAC</li>
           </ul>
-          <a href="#book" class="btn btn--outline tier__cta">Book a Strategy Call</a>
+          <a href="#book" class="btn btn--outline tier__cta">Get On The Waitlist</a>
           <p class="tier__note">Requires an active Page Lab seat and live paid media spend</p>
         </div>
 
@@ -1192,7 +1192,7 @@
     <div class="container">
       <h2 class="reveal">Your next winning message<br>is one test away.</h2>
       <p class="reveal">We only take on a handful of Page Lab clients at a time. 8 seats total. Grab a call and we will map the first angles we would test for you.</p>
-      <a href="#book" class="btn btn--primary btn--lg reveal">Book a Strategy Call</a>
+      <a href="#book" class="btn btn--primary btn--lg reveal">Get On The Waitlist</a>
       <p class="final__escape reveal">Or email us directly: <a href="mailto:info@clickdose.com">info@clickdose.com</a></p>
     </div>
   </section>
@@ -1209,7 +1209,7 @@
           <a href="../growth-lab/">Growth Lab</a>
           <a href="../cold-email/">Cold Email Lab</a>
           <a href="../#team">Team</a>
-          <a href="#book">Book a Strategy Call</a>
+          <a href="#book">Get On The Waitlist</a>
           <a href="../privacy-policy/">Privacy Policy</a>
           <a href="../terms/">Terms</a>
         </div>
@@ -1299,35 +1299,33 @@
     })();
   </script>
 
-  <!-- Cal.com embed: popup on all Book/Get Started buttons + floating button -->
+  <!-- Cal.com embed: waitlist form popup on all CTA buttons + floating button -->
   <script type="text/javascript">
     (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 
     Cal("init", "intro", { origin: "https://cal.com" });
 
     // Prefetch the booking page so the popup opens instantly instead of loading on click
-    Cal.ns.intro("preload", { calLink: "team/clickdose-labs/intro", type: "modal" });
+    Cal.ns.intro("preload", { calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b", type: "modal" });
 
     // Tag every "Book / Get Started" button so Cal opens it as a popup
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll('a[href="#book"]').forEach(function (el) {
         el.setAttribute("data-cal-namespace", "intro");
-        el.setAttribute("data-cal-link", "team/clickdose-labs/intro");
-        el.setAttribute("data-cal-config", '{"layout":"month_view"}');
+        el.setAttribute("data-cal-link", "forms/001bbe15-3cde-47b6-a975-2804a541dd7b");
         el.addEventListener("click", function (e) { e.preventDefault(); });
       });
     });
 
-    // Floating "Book a Call" button (bottom-right, all pages)
+    // Floating waitlist button (bottom-right, all pages)
     Cal.ns.intro("floatingButton", {
-      calLink: "team/clickdose-labs/intro",
-      config: { layout: "month_view" },
-      buttonText: "Book a Call",
+      calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b",
+      buttonText: "Get On The Waitlist",
       buttonColor: "#00C9A7",
       buttonTextColor: "#FFFFFF"
     });
 
-    Cal.ns.intro("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    Cal.ns.intro("ui", { hideEventTypeDetails: false });
   </script>
 </body>
 </html>

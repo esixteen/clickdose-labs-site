@@ -146,7 +146,7 @@
         <a href="../#pricing">Pricing</a>
       </div>
       <div class="nav__cta">
-        <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
+        <a href="#book" class="btn btn--dark">Get On The Waitlist</a>
       </div>
     </div>
   </nav>
@@ -221,7 +221,7 @@
           <a href="../growth-lab/">Growth Lab</a>
           <a href="../cold-email/">Cold Email Lab</a>
           <a href="../#team">Team</a>
-          <a href="#book">Book a Strategy Call</a>
+          <a href="#book">Get On The Waitlist</a>
           <a href="../privacy-policy/">Privacy Policy</a>
           <a href="../terms/">Terms</a>
         </div>
@@ -239,35 +239,33 @@
       </div>
     </div>
   </footer>
-  <!-- Cal.com embed: popup on all Book/Get Started buttons + floating button -->
+  <!-- Cal.com embed: waitlist form popup on all CTA buttons + floating button -->
   <script type="text/javascript">
     (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 
     Cal("init", "intro", { origin: "https://cal.com" });
 
     // Prefetch the booking page so the popup opens instantly instead of loading on click
-    Cal.ns.intro("preload", { calLink: "team/clickdose-labs/intro", type: "modal" });
+    Cal.ns.intro("preload", { calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b", type: "modal" });
 
     // Tag every "Book / Get Started" button so Cal opens it as a popup
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll('a[href="#book"]').forEach(function (el) {
         el.setAttribute("data-cal-namespace", "intro");
-        el.setAttribute("data-cal-link", "team/clickdose-labs/intro");
-        el.setAttribute("data-cal-config", '{"layout":"month_view"}');
+        el.setAttribute("data-cal-link", "forms/001bbe15-3cde-47b6-a975-2804a541dd7b");
         el.addEventListener("click", function (e) { e.preventDefault(); });
       });
     });
 
-    // Floating "Book a Call" button (bottom-right, all pages)
+    // Floating waitlist button (bottom-right, all pages)
     Cal.ns.intro("floatingButton", {
-      calLink: "team/clickdose-labs/intro",
-      config: { layout: "month_view" },
-      buttonText: "Book a Call",
+      calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b",
+      buttonText: "Get On The Waitlist",
       buttonColor: "#00C9A7",
       buttonTextColor: "#FFFFFF"
     });
 
-    Cal.ns.intro("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    Cal.ns.intro("ui", { hideEventTypeDetails: false });
   </script>
 
 </body>

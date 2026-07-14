@@ -483,7 +483,7 @@
         <a href="#pricing">Pricing</a>
       </div>
       <div class="nav__cta">
-        <a href="#book" class="btn btn--dark">Book a Strategy Call</a>
+        <a href="#book" class="btn btn--dark">Get On The Waitlist</a>
       </div>
     </div>
   </nav>
@@ -496,7 +496,7 @@
         <h1>Turn cold email into your most <span class="page-hero__highlight">predictable</span> pipeline channel.</h1>
         <p class="page-hero__sub">We build the lists, warm the inboxes, and run AI-personalized campaigns that book qualified meetings on your calendar. Powered by Clay and Smartlead, fully managed by senior operators. You own every domain. You just take the calls.</p>
         <div class="page-hero__ctas">
-          <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
+          <a href="#book" class="btn btn--primary btn--lg">Get On The Waitlist</a>
           <a href="#how" class="btn btn--outline btn--lg">See How It Works</a>
         </div>
         <p class="page-hero__proof">
@@ -845,7 +845,7 @@
           <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Lead scoring &amp; qualification</li>
           <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Fully managed sending, start to finish</li>
         </ul>
-        <a href="#book" class="btn btn--primary btn--lg">Book a Strategy Call</a>
+        <a href="#book" class="btn btn--primary btn--lg">Get On The Waitlist</a>
         <p class="offerbox__note">Month-to-month &middot; Cancel anytime &middot; You own your domains &amp; data</p>
       </div>
     </div>
@@ -856,7 +856,7 @@
     <div class="container">
       <h2 class="reveal">Ready to make cold email<br>your most predictable channel?</h2>
       <p class="reveal">A 30-minute call with a senior operator. We'll map your ICP, your numbers, and exactly what we'd build to start booking meetings. No pitch deck, no pressure.</p>
-      <a href="#book" class="btn btn--primary btn--lg reveal">Book a Strategy Call</a>
+      <a href="#book" class="btn btn--primary btn--lg reveal">Get On The Waitlist</a>
       <p class="final__escape reveal">Or email us directly: <a href="mailto:info@clickdose.com">info@clickdose.com</a></p>
     </div>
   </section>
@@ -873,7 +873,7 @@
           <a href="../growth-lab/">Growth Lab</a>
           <a href="../cold-email/">Cold Email Lab</a>
           <a href="../#team">Team</a>
-          <a href="#book">Book a Strategy Call</a>
+          <a href="#book">Get On The Waitlist</a>
           <a href="../privacy-policy/">Privacy Policy</a>
           <a href="../terms/">Terms</a>
         </div>
@@ -931,35 +931,33 @@
     })();
   </script>
 
-  <!-- Cal.com embed: popup on all Book a Call buttons + floating button -->
+  <!-- Cal.com embed: waitlist form popup on all CTA buttons + floating button -->
   <script type="text/javascript">
     (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 
     Cal("init", "intro", { origin: "https://cal.com" });
 
     // Prefetch the booking page so the popup opens instantly instead of loading on click
-    Cal.ns.intro("preload", { calLink: "team/clickdose-labs/intro", type: "modal" });
+    Cal.ns.intro("preload", { calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b", type: "modal" });
 
-    // Tag every "Book a Call" button so Cal opens it as a popup
+    // Tag every CTA button so Cal opens the waitlist form as a popup
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll('a[href="#book"]').forEach(function (el) {
         el.setAttribute("data-cal-namespace", "intro");
-        el.setAttribute("data-cal-link", "team/clickdose-labs/intro");
-        el.setAttribute("data-cal-config", '{"layout":"month_view"}');
+        el.setAttribute("data-cal-link", "forms/001bbe15-3cde-47b6-a975-2804a541dd7b");
         el.addEventListener("click", function (e) { e.preventDefault(); });
       });
     });
 
-    // Floating "Book a Call" button (bottom-right, all pages)
+    // Floating waitlist button (bottom-right, all pages)
     Cal.ns.intro("floatingButton", {
-      calLink: "team/clickdose-labs/intro",
-      config: { layout: "month_view" },
-      buttonText: "Book a Call",
+      calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b",
+      buttonText: "Get On The Waitlist",
       buttonColor: "#00C9A7",
       buttonTextColor: "#FFFFFF"
     });
 
-    Cal.ns.intro("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    Cal.ns.intro("ui", { hideEventTypeDetails: false });
   </script>
 </body>
 </html>
