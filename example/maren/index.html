@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Skin Didn't Change at 45. Your Skincare Should Have. | Maren</title>
+  <meta name="description" content="An honest advertisement about skin after 45, written by the founder of Maren. No fake countdown timers. Six minutes.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bone: #f6f1ea;
+      --porcelain: #fdfbf7;
+      --espresso: #2a2320;
+      --espresso-soft: #4a403a;
+      --muted: #7d726a;
+      --garnet: #7a2e2e;
+      --garnet-deep: #632424;
+      --sand: #e9e0d2;
+      --line: #e2d9cc;
+      --sage: #5d6e5a;
+      --font-display: 'Bodoni Moda', 'Didot', Georgia, serif;
+      --font-body: 'Lora', Georgia, serif;
+      --measure: 720px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.75;
+      color: var(--espresso);
+      background: var(--bone);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    .measure { max-width: var(--measure); margin: 0 auto; padding: 0 1.4rem; }
+    .wide { max-width: 1060px; margin: 0 auto; padding: 0 1.4rem; }
+
+    /* The Honest Bar */
+    .honest-bar {
+      background: var(--espresso);
+      color: var(--bone);
+      text-align: center;
+      padding: .8rem 1.2rem;
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+    .honest-bar strong { font-weight: 700; }
+    .honest-bar .demo { display: block; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; opacity: .6; margin-top: .25rem; }
+    .honest-bar .demo a { color: inherit; }
+
+    /* Brand mark */
+    .brand {
+      text-align: center;
+      padding: 1.6rem 1rem 1.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand .mark {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.7rem;
+      letter-spacing: .32em;
+      text-indent: .32em;
+    }
+    .brand .sub { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-top: .2rem; }
+
+    /* Head */
+    .post-head { padding: clamp(2.5rem, 6vw, 4.5rem) 0 1rem; text-align: center; }
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(2.1rem, 6vw, 3.6rem);
+      line-height: 1.12;
+      letter-spacing: -.005em;
+      max-width: 18ch;
+      margin: 0 auto 1.2rem;
+    }
+    .deck {
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      color: var(--espresso-soft);
+      max-width: 42ch;
+      margin: 0 auto 1.6rem;
+      font-style: italic;
+    }
+    .byline {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      font-size: .9rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: .7rem 1.4rem;
+    }
+    .byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .byline strong { color: var(--espresso); }
+
+    .hero-img { margin: 2.2rem auto 0; max-width: 900px; padding: 0 1.4rem; }
+    .hero-img img { width: 100%; height: auto; }
+    .img-caption { font-size: .8125rem; color: var(--muted); margin-top: .6rem; text-align: center; font-style: italic; }
+
+    /* Prose */
+    .prose { padding: 2.4rem 0 .5rem; }
+    .prose p { margin-bottom: 1.35rem; }
+    .prose .opener::first-letter {
+      font-family: var(--font-display);
+      font-size: 3.4em;
+      float: left;
+      line-height: .82;
+      padding-right: .12em;
+      color: var(--garnet);
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.2;
+      margin: 2.6rem 0 1.1rem;
+    }
+    .kicker {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--garnet);
+      display: block;
+      margin: 2.8rem 0 .4rem;
+    }
+    .kicker + h2 { margin-top: 0; }
+
+    /* Founder aside */
+    .founder {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--porcelain);
+      border: 1px solid var(--line);
+      padding: 1.6rem;
+      margin: 2rem 0;
+    }
+    .founder img { width: 100%; border-radius: 2px; }
+    .founder p { font-size: .975rem; font-style: italic; color: var(--espresso-soft); }
+    .founder .sig { font-family: var(--font-display); font-size: 1.2rem; font-style: normal; margin-top: .6rem; }
+    @media (max-width: 560px) { .founder { grid-template-columns: 1fr; } .founder img { max-width: 150px; } }
+
+    /* Mirror test */
+    .mirror { margin: 2rem 0; }
+    .mirror li {
+      list-style: none;
+      background: var(--porcelain);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--garnet);
+      padding: 1rem 1.3rem;
+      margin-bottom: .7rem;
+      font-size: 1rem;
+    }
+    .mirror li strong { font-family: var(--font-display); font-size: 1.05rem; }
+
+    /* Alternatives */
+    .alt { border-top: 1px solid var(--line); padding: 1.5rem 0; }
+    .alt:last-of-type { border-bottom: 1px solid var(--line); }
+    .alt h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; margin-bottom: .5rem; }
+    .alt .credit { color: var(--sage); font-weight: 600; }
+    .alt .debit { color: var(--garnet); font-weight: 600; }
+    .alt p { font-size: 1rem; margin-bottom: .5rem; }
+
+    /* Mechanism trio */
+    .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.8rem 0; }
+    .trio__card { background: var(--porcelain); border: 1px solid var(--line); padding: 1.3rem 1.2rem; }
+    .trio__card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: .4rem; }
+    .trio__card .role { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--garnet); display: block; margin-bottom: .5rem; }
+    .trio__card p { font-size: .9rem; color: var(--espresso-soft); }
+    @media (max-width: 680px) { .trio { grid-template-columns: 1fr; } }
+
+    /* Honest interlude + price math (full-bleed espresso band) */
+    .band {
+      background: var(--espresso);
+      color: var(--bone);
+      padding: clamp(3rem, 7vw, 4.5rem) 0;
+      margin: 3rem 0;
+    }
+    .band .kicker { color: var(--sand); margin-top: 0; }
+    .band h2 { color: var(--bone); margin-top: 0; }
+    .band p { color: rgba(246,241,234,.85); margin-bottom: 1.2rem; }
+    .price-math {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      margin: 2rem 0 1rem;
+      text-align: center;
+    }
+    .price-math .vs { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--sand); }
+    .price-math .cell .big {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+    }
+    .price-math .cell.them .big { color: #c9a09a; text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--garnet); }
+    .price-math .cell.us .big { color: var(--bone); }
+    .price-math .cell .small { font-size: .85rem; color: rgba(246,241,234,.7); margin-top: .3rem; }
+    .permorning { text-align: center; font-family: var(--font-display); font-size: 1.35rem; font-style: italic; color: var(--sand); }
+    @media (max-width: 640px) { .price-math { grid-template-columns: 1fr; gap: .6rem; } }
+
+    /* Timeline */
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.8rem 0 .5rem; }
+    .tl { border-top: 3px solid var(--garnet); background: var(--porcelain); border-inline: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.2rem 1.15rem; }
+    .tl .when { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-bottom: .35rem; }
+    .tl p { font-size: .9rem; color: var(--espresso-soft); }
+    .fineprint { font-size: .8rem; color: var(--muted); margin: .8rem 0 1.4rem; }
+    @media (max-width: 680px) { .timeline { grid-template-columns: 1fr; } }
+
+    /* Won't do */
+    .wont {
+      background: var(--porcelain);
+      border: 1px solid var(--line);
+      padding: 1.6rem 1.7rem;
+      margin: 2rem 0;
+    }
+    .wont h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; margin-bottom: .9rem; }
+    .wont li { list-style: none; display: flex; gap: .7rem; align-items: baseline; font-size: 1rem; margin-bottom: .6rem; }
+    .wont li::before { content: "✕"; color: var(--garnet); font-weight: 700; }
+
+    /* Receipts */
+    .receipts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.8rem 0 .4rem; }
+    .receipt { text-align: center; background: var(--sand); padding: 1.4rem 1rem; }
+    .receipt .n { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; color: var(--garnet-deep); line-height: 1.1; }
+    .receipt p { font-size: .85rem; color: var(--espresso-soft); margin-top: .3rem; }
+    @media (max-width: 680px) { .receipts { grid-template-columns: 1fr; } }
+
+    /* Testimonials */
+    .voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.8rem 0; }
+    .voice { background: var(--porcelain); border: 1px solid var(--line); padding: 1.4rem 1.3rem; display: flex; flex-direction: column; gap: .9rem; }
+    .voice .q { font-size: .95rem; font-style: italic; flex: 1; }
+    .voice .who { display: flex; align-items: center; gap: .7rem; }
+    .voice .who img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+    .voice .who strong { display: block; font-size: .875rem; font-style: normal; }
+    .voice .who span { font-size: .78rem; color: var(--muted); }
+    @media (max-width: 760px) { .voices { grid-template-columns: 1fr; } }
+
+    /* Buy box */
+    .offer { background: var(--porcelain); border: 1px solid var(--line); padding: clamp(1.6rem, 4vw, 2.6rem); margin: 3rem 0; }
+    .offer__grid { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 2.2rem; align-items: start; }
+    .offer h2 { margin-top: .2rem; }
+    .offer__stars { font-size: .9rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .offer__stars .st { color: var(--garnet); letter-spacing: .1em; }
+    .tier {
+      display: block; width: 100%; text-align: left;
+      background: var(--bone);
+      border: 2px solid var(--line);
+      padding: .95rem 1.15rem;
+      margin-bottom: .7rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      color: var(--espresso);
+      transition: border-color .15s ease;
+      position: relative;
+    }
+    .tier:hover { border-color: var(--espresso-soft); }
+    .tier.selected { border-color: var(--garnet); }
+    .tier .t-pop {
+      position: absolute; top: -0.7rem; right: .9rem;
+      background: var(--garnet); color: var(--bone);
+      font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      padding: .18rem .6rem;
+    }
+    .tier .t-name { font-weight: 700; font-size: .975rem; }
+    .tier .t-price { float: right; font-size: .975rem; }
+    .tier .t-price s { color: var(--muted); margin-right: .4rem; font-size: .85rem; }
+    .tier .t-price strong { font-family: var(--font-display); font-size: 1.2rem; }
+    .tier .t-sub { display: block; font-size: .8rem; color: var(--muted); clear: both; }
+    .valuestack { list-style: none; margin: 1rem 0 1.2rem; }
+    .valuestack li { display: flex; justify-content: space-between; gap: 1rem; font-size: .875rem; padding: .35rem 0; border-bottom: 1px dashed var(--line); }
+    .valuestack li .v { color: var(--garnet); font-weight: 600; white-space: nowrap; }
+    .btn {
+      display: inline-block;
+      background: var(--garnet);
+      color: var(--bone);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 1rem 2.4rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: background .2s ease;
+      width: 100%;
+      text-align: center;
+    }
+    .btn:hover { background: var(--garnet-deep); }
+    .offer__micro { text-align: center; font-size: .8rem; color: var(--muted); margin-top: .7rem; }
+    .offer__points { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: .9rem; font-size: .8125rem; color: var(--espresso-soft); }
+    @media (max-width: 820px) {
+      .offer__grid { grid-template-columns: 1fr; }
+      .offer__img { max-width: 300px; margin: 0 auto; }
+    }
+
+    /* FAQ */
+    .faq { padding: .5rem 0 2.5rem; }
+    .faq details { background: var(--porcelain); border: 1px solid var(--line); padding: 1rem 1.25rem; margin-bottom: .7rem; }
+    .faq summary { font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq summary::after { content: "+"; font-family: var(--font-display); font-size: 1.3rem; color: var(--garnet); flex-shrink: 0; }
+    .faq details[open] summary::after { content: "\2212"; }
+    .faq details p { margin-top: .7rem; font-size: .95rem; color: var(--espresso-soft); }
+
+    /* Footer */
+    .foot { background: var(--espresso); color: rgba(246,241,234,.6); font-size: .78rem; line-height: 1.7; padding: 2.4rem 0 7rem; margin-top: 3rem; }
+    .foot p { max-width: var(--measure); margin: 0 auto .85rem; padding: 0 1.4rem; }
+    .foot a { color: rgba(246,241,234,.85); }
+
+    /* Sticky mobile CTA */
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0;
+      background: var(--porcelain);
+      border-top: 1px solid var(--line);
+      box-shadow: 0 -6px 24px rgba(42,35,32,.14);
+      padding: .7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      transform: translateY(110%);
+      transition: transform .35s ease;
+      z-index: 60;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta .price { font-size: .85rem; font-weight: 700; }
+    .sticky-cta .price s { color: var(--muted); font-weight: 400; margin-right: .3rem; }
+    .sticky-cta .sub { font-size: .72rem; color: var(--muted); }
+    .sticky-cta .btn { width: auto; font-size: .9rem; padding: .75rem 1.4rem; white-space: nowrap; }
+    @media (min-width: 900px) { .sticky-cta { display: none; } }
+
+    /* Demo modal */
+    .demo-modal { position: fixed; inset: 0; background: rgba(42,35,32,.6); display: none; align-items: center; justify-content: center; padding: 1.5rem; z-index: 100; }
+    .demo-modal.open { display: flex; }
+    .demo-modal__card { background: var(--porcelain); max-width: 460px; padding: 2.4rem 2.1rem; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
+    .demo-modal__card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; line-height: 1.25; margin-bottom: .8rem; }
+    .demo-modal__card p { font-size: .95rem; color: var(--espresso-soft); margin-bottom: 1.3rem; }
+    .demo-modal__close { background: none; border: none; font-family: var(--font-body); font-size: .85rem; color: var(--muted); margin-top: .9rem; cursor: pointer; text-decoration: underline; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body>
+
+  <div class="honest-bar">
+    <span><strong>This is an advertisement.</strong> We wrote it, and we think you should read it anyway. Six minutes. No fake countdown timers.</span>
+    <span class="demo">Fictional demo by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a></span>
+  </div>
+
+  <header class="brand">
+    <div class="mark">MAREN</div>
+    <div class="sub">Skincare for skin that has lived</div>
+  </header>
+
+  <main>
+    <div class="post-head measure">
+      <h1>Your Skin Didn't Change at 45. Your Skincare Should Have.</h1>
+      <p class="deck">An honest letter about what actually happens to your skin after 45, what we built for it, and exactly what it costs.</p>
+      <div class="byline">
+        <img src="assets/founder.jpg" alt="Elin Maren, founder" width="88" height="88">
+        <span>By <strong>Elin Maren</strong>, 52 · Founder · Yes, this is an ad for my own product</span>
+      </div>
+    </div>
+
+    <figure class="hero-img">
+      <img src="assets/hero-jar.jpg" alt="The Maren Barrier Cream jar on travertine stone" width="1200" height="800">
+      <figcaption class="img-caption">The Maren Barrier Cream. One jar, 90 mornings.</figcaption>
+    </figure>
+
+    <article class="measure prose">
+      <p class="opener">Two years ago I stood in a department store while a 26-year-old in a lab coat explained my own face to me. She was lovely. She was also reading from a script written for skin thirty years younger than mine, attached to a cream that cost $310. I bought it. It did nothing. That evening I did what I had done my whole career as a formulation chemist: I read the ingredient list. It was a fine cream. For her.</p>
+      <p>Here is what nobody at that counter says out loud: after 45, your skin is not "aging skin" in some vague, apologetic sense. It is skin whose barrier is thinning, whose ceramide production has dropped by roughly a third since your twenties, and whose moisture escapes faster than it can be replaced. Different problem. Different chemistry. Almost everything on that counter ignores it.</p>
+
+      <span class="kicker">The Mirror Test</span>
+      <h2>Four signs your skincare stopped keeping up</h2>
+      <ul class="mirror">
+        <li><strong>1. Tightness by 2 p.m.</strong> Your morning cream is gone by lunch. That is water loss your barrier can no longer hold back, not "dry skin."</li>
+        <li><strong>2. Makeup settles where it never used to.</strong> Product sits in lines instead of on skin, because the surface underneath is dehydrated.</li>
+        <li><strong>3. "Radiance" products read as shine, not glow.</strong> Illuminators sit on top of a dull surface instead of light coming from a hydrated one.</li>
+        <li><strong>4. You have used the same routine since your thirties.</strong> If it still worked, you would not have read this far.</li>
+      </ul>
+      <p>If even one of these is familiar, the problem is not discipline and it is not age. It is that your products were formulated for someone else.</p>
+
+      <span class="kicker">The Honest Comparison</span>
+      <h2>What we tell you the other options do well</h2>
+      <p>Most ads in this category invent an enemy. We would rather tell you the truth about your alternatives, because you already know it.</p>
+      <div class="alt">
+        <h3>Injectables</h3>
+        <p><span class="credit">What they do well:</span> they work. Filler and neurotoxin deliver visible results that no cream can match, and anyone who tells you otherwise is selling you a cream.</p>
+        <p><span class="debit">The honest catch:</span> $684 on average per syringe, appointments twice a year, needles, downtime, and results that live and die by your injector's skill.</p>
+      </div>
+      <div class="alt">
+        <h3>Department store creams ($200-$400)</h3>
+        <p><span class="credit">What they do well:</span> beautiful textures, beautiful packaging, and some genuinely good ingredients.</p>
+        <p><span class="debit">The honest catch:</span> you are paying mostly for the counter, the lab coat, and the jar. The actives inside rarely justify the number on the receipt.</p>
+      </div>
+      <div class="alt">
+        <h3>Drugstore moisturizers</h3>
+        <p><span class="credit">What they do well:</span> honest basic hydration at an honest price. For skin under 40, often all you need.</p>
+        <p><span class="debit">The honest catch:</span> they top up moisture without addressing why your skin stopped holding it. After 45, that is the whole game.</p>
+      </div>
+
+      <span class="kicker">What We Built</span>
+      <h2>One cream, formulated for the skin you actually have</h2>
+      <p>The Maren Barrier Cream does one job: it helps restore the look and feel of a healthy skin barrier, so your skin holds its own moisture again. Three actives, each present at the concentration the research used, not a sprinkle for the label.</p>
+      <figure class="hero-img" style="max-width:100%;padding:0">
+        <img src="assets/texture.jpg" alt="The Maren Barrier Cream texture" loading="lazy" width="900" height="900">
+      </figure>
+      <div class="trio">
+        <div class="trio__card">
+          <span class="role">Rebuild</span>
+          <h3>Ceramide complex, 5%</h3>
+          <p>The same lipids your skin makes less of every year. Replenishing them supports a smoother, more resilient looking surface.</p>
+        </div>
+        <div class="trio__card">
+          <span class="role">Firm</span>
+          <h3>Peptide blend, 3%</h3>
+          <p>Signal peptides that support the appearance of firmer, bouncier skin over weeks of consistent use.</p>
+        </div>
+        <div class="trio__card">
+          <span class="role">Renew</span>
+          <h3>Bakuchiol, 1%</h3>
+          <p>A plant-derived retinol alternative that visibly smooths without the flaking and irritation mature skin rarely tolerates.</p>
+        </div>
+      </div>
+      <p>No fragrance, no essential oils, no 40-ingredient decoy list. The full formula is printed on the carton and on our site, with percentages.</p>
+    </article>
+
+    <!-- HONEST INTERLUDE + PRICE MATH -->
+    <section class="band">
+      <div class="measure">
+        <span class="kicker">The Part Where We Don't Pretend</span>
+        <h2>This is where most ads show you a countdown timer.</h2>
+        <p>It resets when you refresh the page. Ours doesn't exist. There is no "sold out three times," no "only 7 jars left," and the price is not hidden behind a quiz. Here is the actual math instead:</p>
+        <div class="price-math">
+          <div class="cell them">
+            <div class="big">$684</div>
+            <div class="small">Average cost of one syringe of filler in the US, repeated about twice a year</div>
+          </div>
+          <div class="vs">against</div>
+          <div class="cell us">
+            <div class="big">$79</div>
+            <div class="small">One jar of Maren. 90 mornings. Every morning.</div>
+          </div>
+        </div>
+        <p class="permorning">That is 88 cents a morning.</p>
+      </div>
+    </section>
+
+    <article class="measure prose" style="padding-top:0">
+      <span class="kicker">The Honest Timeline</span>
+      <h2>What to expect, week by week</h2>
+      <div class="timeline">
+        <div class="tl">
+          <div class="when">Weeks 1-2</div>
+          <p>Comfort first. The 2 p.m. tightness eases. Nothing visible in the mirror yet, and anyone who promises otherwise is lying to you.</p>
+        </div>
+        <div class="tl">
+          <div class="when">Weeks 4-6</div>
+          <p>Makeup starts sitting on skin instead of settling into it. Texture looks smoother in daylight.</p>
+        </div>
+        <div class="tl">
+          <div class="when">Week 12</div>
+          <p>The full effect: skin that looks rested, firmer, and quietly healthy. This is the checkpoint our guarantee is built around.</p>
+        </div>
+      </div>
+      <p class="fineprint">*Timeline reflects commonly reported experiences and is illustrative for this demonstration page. Individual results vary.</p>
+
+      <div class="wont">
+        <h3>What Maren will not do</h3>
+        <ul>
+          <li>It will not replace filler. Nothing in a jar replaces filler, including the jars that claim to.</li>
+          <li>It will not change your face in a week. Skin renews on a 28-day-plus cycle and no cream skips the queue.</li>
+          <li>It will not work if it sits in the drawer. 88 cents a morning only pays off every morning.</li>
+        </ul>
+      </div>
+
+      <span class="kicker">The Receipts</span>
+      <h2>From an independent 12-week panel of 212 women aged 45 to 71</h2>
+      <div class="receipts">
+        <div class="receipt"><div class="n">89%</div><p>said skin felt comfortable through the full day by week two</p></div>
+        <div class="receipt"><div class="n">84%</div><p>saw visibly smoother texture by week six</p></div>
+        <div class="receipt"><div class="n">92%</div><p>said they would keep the jar over their previous cream</p></div>
+      </div>
+      <p class="fineprint">*Panel figures are illustrative for this demonstration page.</p>
+
+      <span class="kicker">In Their Words</span>
+      <h2>Women who switched</h2>
+      <div class="voices">
+        <div class="voice">
+          <p class="q">"I've spent more on creams that did less. By week five my foundation stopped creasing at the corners of my eyes. That was my proof."</p>
+          <div class="who">
+            <img src="assets/voice-dana.jpg" alt="Photo of Dana" loading="lazy" width="92" height="92">
+            <div><strong>Dana R., 48</strong><span>Using Maren for 5 months</span></div>
+          </div>
+        </div>
+        <div class="voice">
+          <p class="q">"The honest part is what sold me. An ad that told me what it wouldn't do. Then it did everything it said it would."</p>
+          <div class="who">
+            <img src="assets/voice-carol.jpg" alt="Photo of Carol" loading="lazy" width="92" height="92">
+            <div><strong>Carol M., 57</strong><span>Using Maren for 8 months</span></div>
+          </div>
+        </div>
+        <div class="voice">
+          <p class="q">"I am 67. I do not want to look 40 and I never said I did. I want to look like I slept and like my skin is mine. This does that."</p>
+          <div class="who">
+            <img src="assets/voice-ruth.jpg" alt="Photo of Ruth" loading="lazy" width="92" height="92">
+            <div><strong>Ruth E., 67</strong><span>Using Maren for 1 year</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="fineprint">Testimonials are illustrative for this demonstration page. Individual results vary.</p>
+
+      <!-- BUY BOX -->
+      <section class="offer reveal" id="offer">
+        <div class="offer__grid">
+          <div class="offer__img">
+            <img src="assets/hero-jar.jpg" alt="The Maren Barrier Cream" loading="lazy" width="760" height="507">
+          </div>
+          <div>
+            <span class="kicker" style="margin-top:0">The Offer, In Plain Numbers</span>
+            <h2>The Maren Barrier Cream</h2>
+            <p class="offer__stars"><span class="st">★★★★★</span> 4.8/5 · 3,412 verified reviews</p>
+
+            <button class="tier" data-tier="2" type="button">
+              <span class="t-pop">Best value</span>
+              <span class="t-name">Two jars · 180 mornings</span>
+              <span class="t-price"><s>$158</s> <strong>$134</strong></span>
+              <span class="t-sub">$67 per jar · 74 cents a morning</span>
+            </button>
+            <button class="tier" data-tier="1" type="button">
+              <span class="t-name">One jar · 90 mornings</span>
+              <span class="t-price"><strong>$79</strong></span>
+              <span class="t-sub">88 cents a morning · full price, honestly stated</span>
+            </button>
+
+            <ul class="valuestack">
+              <li><span>Free shipping, both directions</span><span class="v">Always</span></li>
+              <li><span>90-day guarantee, even on an empty jar</span><span class="v">Full refund</span></li>
+              <li><span>Full formula with percentages on the carton</span><span class="v">No secrets</span></li>
+            </ul>
+
+            <button class="btn" data-demo-cta id="atcBtn">Add To Cart · $134</button>
+            <p class="offer__micro">Use it for 90 days. If your skin does not look and feel better, send back the jar, empty is fine, for a full refund.</p>
+            <div class="offer__points">
+              <span>Fragrance-free</span>
+              <span>·</span>
+              <span>Ships in 24 hours</span>
+              <span>·</span>
+              <span>No subscription required</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq reveal">
+        <span class="kicker">Before You Ask</span>
+        <h2 style="margin-top:0">Fair questions</h2>
+        <details>
+          <summary>Why should I believe this ad over the others?</summary>
+          <p>You shouldn't believe any ad, including this one. That is why the guarantee accepts an empty jar: use all 90 mornings, judge it in your own mirror, and if we are wrong, it costs you nothing. We can only afford to offer that because most women keep the jar.</p>
+        </details>
+        <details>
+          <summary>Is this a subscription trap?</summary>
+          <p>No. Both options are one-time purchases. We will email you once when your 90 mornings are about up, and you can ignore it.</p>
+        </details>
+        <details>
+          <summary>Can I use it with retinol, or with my injectables?</summary>
+          <p>Yes to both. Bakuchiol plays well alongside retinol if your skin tolerates the pairing, and a stronger barrier is a good canvas if you also get injectables. Maren replaces your moisturizer, not your dermatologist.</p>
+        </details>
+        <details>
+          <summary>Sensitive skin?</summary>
+          <p>The formula is fragrance-free, essential-oil-free, and built for mature skin that has stopped tolerating irritation. Patch test on your inner arm for three days if your skin is reactive. The guarantee covers "my skin disagreed" too.</p>
+        </details>
+        <details>
+          <summary>Why is it only $79 if it works?</summary>
+          <p>Because a jar of cream costs a few dollars to make and everyone in this industry knows it. The $300 creams spend the difference on counters and celebrity retainers. We spent it on active concentrations and kept the rest off your receipt.</p>
+        </details>
+      </section>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <p><strong>Advertisement disclosure:</strong> this page is an advertisement written and paid for by Maren. It said so at the top, too.</p>
+    <p><strong>Demo notice:</strong> Maren is a fictional brand and this page is a portfolio demonstration built by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a>. The founder, product, panel figures, reviews, and testimonials shown are illustrative and do not describe a real product or real people.</p>
+    <p>Cosmetic claims describe the appearance of skin. This product is not intended to diagnose, treat, cure, or prevent any disease. Results shown or described are illustrative; individual results vary.</p>
+    <p>© <span id="foot-year">2026</span> Maren (fictional) · A demo property of ClickDose Labs</p>
+  </footer>
+
+  <!-- Sticky mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <div>
+      <div class="price" id="stickyPrice"><s>$158</s> $134</div>
+      <div class="sub">90-day guarantee, empty jar included</div>
+    </div>
+    <a class="btn" href="#offer">See The Offer</a>
+  </div>
+
+  <!-- Demo modal -->
+  <div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-label="Demo notice">
+    <div class="demo-modal__card">
+      <h3>The honest ad, all the way down.</h3>
+      <p>Maren is a fictional brand. This page demonstrates the advertorial format rebuilt on candor: disclosed framing, transparent pricing, and claims that hold. We build pages like this for real brands.</p>
+      <a class="btn" href="https://clickdoselabs.com/page-lab/">See how we build pages like this</a>
+      <button class="demo-modal__close" data-demo-close>Keep reading the demo</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('foot-year').textContent = new Date().getFullYear();
+
+      // Reveal on scroll
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+      // Tier selector
+      var tiers = {
+        '2': { label: 'Add To Cart · $134', sticky: '<s>$158</s> $134' },
+        '1': { label: 'Add To Cart · $79', sticky: '$79' }
+      };
+      var atc = document.getElementById('atcBtn');
+      var stickyPrice = document.getElementById('stickyPrice');
+      var tierBtns = document.querySelectorAll('.tier');
+      function selectTier(key) {
+        tierBtns.forEach(function (b) { b.classList.toggle('selected', b.getAttribute('data-tier') === key); });
+        atc.textContent = tiers[key].label;
+        stickyPrice.innerHTML = tiers[key].sticky;
+      }
+      tierBtns.forEach(function (b) {
+        b.addEventListener('click', function () { selectTier(b.getAttribute('data-tier')); });
+      });
+      selectTier('2');
+
+      // Sticky CTA: show after the mirror test, hide over the offer
+      var sticky = document.getElementById('stickyCta');
+      var mirror = document.querySelector('.mirror');
+      var offer = document.getElementById('offer');
+      var ticking = false;
+      function syncSticky() {
+        var pastMirror = mirror.getBoundingClientRect().top < 0;
+        var o = offer.getBoundingClientRect();
+        var overOffer = o.top < window.innerHeight && o.bottom > 0;
+        sticky.classList.toggle('show', pastMirror && !overOffer);
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(syncSticky); }
+      }, { passive: true });
+      syncSticky();
+
+      // Demo modal
+      var modal = document.getElementById('demoModal');
+      document.querySelectorAll('[data-demo-cta]').forEach(function (b) {
+        b.addEventListener('click', function () { modal.classList.add('open'); });
+      });
+      document.querySelector('[data-demo-close]').addEventListener('click', function () { modal.classList.remove('open'); });
+      modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    });
+  </script>
+</body>
+</html>
