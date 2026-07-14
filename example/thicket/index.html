@@ -22,6 +22,7 @@
       --amber-tint: #fdf3e2;
       --surface: #ffffff;
       --border: #e5e0d5;
+      --red-soft: #b3543e;
       --font-display: 'Fraunces', Georgia, serif;
       --font-body: 'Public Sans', -apple-system, sans-serif;
       --article-width: 680px;
@@ -142,9 +143,10 @@
       margin: 1.25rem 0 0;
       font-size: .9rem;
       font-weight: 600;
+      flex-wrap: wrap;
     }
     .stars { color: var(--amber); font-size: 1rem; letter-spacing: .1em; }
-    .rating-strip span:last-child { color: var(--ink-muted); font-weight: 500; }
+    .rating-strip .muted { color: var(--ink-muted); font-weight: 500; }
 
     /* Hero image */
     .hero-img { margin: 1.5rem 0 .4rem; }
@@ -203,6 +205,76 @@
     .duo__card p { font-size: .875rem; color: var(--ink-muted); margin: 0; }
     @media (max-width: 540px) { .duo { grid-template-columns: 1fr; } }
 
+    /* VS table */
+    .vs-wrap { margin: 1.4rem 0; overflow-x: auto; }
+    .vs {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: .875rem;
+      min-width: 480px;
+    }
+    .vs th, .vs td { padding: .7rem .8rem; text-align: center; border-bottom: 1px solid var(--border); }
+    .vs th:first-child, .vs td:first-child { text-align: left; font-weight: 600; }
+    .vs thead th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-muted); border-bottom: 2px solid var(--ink); }
+    .vs thead th.hero-col { color: #fff; background: var(--green); border-radius: 10px 10px 0 0; border-bottom: 2px solid var(--green); }
+    .vs td.hero-col { background: var(--green-tint); font-weight: 700; }
+    .vs tbody tr:last-child td.hero-col { border-radius: 0 0 10px 10px; }
+    .vs .yes { color: var(--green); font-weight: 800; }
+    .vs .no { color: var(--red-soft); font-weight: 700; }
+
+    /* Guarantee marquee ticker */
+    .ticker {
+      background: var(--green-dark);
+      color: var(--cream);
+      overflow: hidden;
+      padding: .85rem 0;
+      margin: 2.2rem calc(-1 * clamp(1.25rem, 11vw, 9.5rem));
+      white-space: nowrap;
+    }
+    .ticker__track { display: inline-block; animation: tick 22s linear infinite; }
+    .ticker span {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-right: 1.2rem;
+    }
+    .ticker .sep { color: var(--amber); }
+    @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .ticker__track { animation: none; } }
+
+    /* Expectation timeline */
+    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; margin: 1.4rem 0 .5rem; }
+    .tl-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.15rem;
+    }
+    .tl-card .when {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: .3rem;
+    }
+    .tl-card p { font-size: .85rem; color: var(--ink-muted); margin: 0; }
+    .tl-note { font-size: .78rem; color: var(--ink-muted); margin-bottom: 1rem; }
+    @media (max-width: 640px) { .timeline { grid-template-columns: 1fr; } }
+
+    /* Survey stats trio */
+    .stat-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; margin: 1.4rem 0 .4rem; }
+    .stat {
+      background: var(--green-tint);
+      border-radius: var(--radius);
+      padding: 1.2rem 1rem;
+      text-align: center;
+    }
+    .stat .n { font-family: var(--font-display); font-weight: 900; font-size: 2.1rem; color: var(--green-dark); line-height: 1.1; }
+    .stat p { font-size: .8125rem; color: var(--ink-muted); margin-top: .25rem; }
+    .stat-note { font-size: .78rem; color: var(--ink-muted); margin-bottom: 1.2rem; }
+    @media (max-width: 640px) { .stat-trio { grid-template-columns: 1fr; } }
+
     /* CTA blocks */
     .cta-block {
       background: var(--cream);
@@ -226,6 +298,7 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
+      font-family: var(--font-body);
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .btn:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(46,89,65,.28); }
@@ -239,6 +312,7 @@
       padding: 1.35rem 1.4rem;
       margin: 1.1rem 0;
     }
+    .quote-card .stars { font-size: .9rem; margin-bottom: .6rem; display: block; }
     .quote-card p.q { font-size: .995rem; margin-bottom: .9rem; }
     .quote-card .who { display: flex; align-items: center; gap: .7rem; }
     .quote-card .who img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
@@ -255,15 +329,56 @@
       margin: 1rem 0;
     }
 
-    /* Offer */
+    /* Community thread */
+    .thread {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.3rem;
+      margin: 1.3rem 0 .4rem;
+    }
+    .thread__head { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1rem; }
+    .comment { display: flex; gap: .75rem; margin-bottom: 1rem; }
+    .comment:last-child { margin-bottom: 0; }
+    .comment img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .comment .bubble {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px 16px 16px 16px;
+      padding: .6rem .9rem;
+      font-size: .9rem;
+    }
+    .comment .bubble strong { display: block; font-size: .8125rem; }
+    .comment .meta { font-size: .75rem; color: var(--ink-muted); margin-top: .25rem; padding-left: .3rem; }
+    .comment.reply { margin-left: 2.9rem; }
+    .thread-note { font-size: .78rem; color: var(--ink-muted); margin-bottom: 1rem; }
+
+    /* Fit check (for / not for) */
+    .fit { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; margin: 1.4rem 0; }
+    .fit__col {
+      border-radius: var(--radius);
+      padding: 1.2rem 1.25rem;
+      border: 1px solid var(--border);
+    }
+    .fit__col.for { background: var(--green-tint); }
+    .fit__col.notfor { background: #f7ece8; }
+    .fit__col h3 { font-size: .95rem; font-weight: 800; margin-bottom: .7rem; }
+    .fit__col ul { list-style: none; }
+    .fit__col li { display: flex; gap: .55rem; align-items: baseline; font-size: .875rem; margin-bottom: .5rem; }
+    .fit__col.for li::before { content: "✓"; color: var(--green); font-weight: 800; }
+    .fit__col.notfor li::before { content: "✕"; color: var(--red-soft); font-weight: 800; }
+    @media (max-width: 640px) { .fit { grid-template-columns: 1fr; } }
+
+    /* Buy box */
     .offer {
       background: var(--green-dark);
       color: #fff;
       border-radius: 20px;
-      padding: 2.2rem 1.6rem;
+      padding: 2rem 1.5rem;
       margin: 2.5rem 0;
-      text-align: center;
     }
+    .offer__grid { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 2.2rem; align-items: start; }
+    .offer__img img { border-radius: var(--radius); width: 100%; height: auto; }
     .offer__badge {
       display: inline-block;
       background: var(--amber);
@@ -274,34 +389,53 @@
       text-transform: uppercase;
       padding: .35rem .8rem;
       border-radius: 999px;
-      margin-bottom: 1rem;
+      margin-bottom: .8rem;
     }
-    .offer h2 { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 4.5vw, 2rem); line-height: 1.2; margin-bottom: .5rem; }
-    .offer__sub { color: rgba(255,255,255,.85); margin-bottom: 1.4rem; font-size: .975rem; }
-    .offer__img { max-width: 340px; margin: 0 auto 1.4rem; }
-    .offer__img img { border-radius: var(--radius); width: 100%; height: auto; }
-    .offer__price { font-size: 1.15rem; margin-bottom: 1.2rem; }
-    .offer__price s { opacity: .6; margin-right: .5rem; }
-    .offer__price strong { font-size: 1.6rem; font-family: var(--font-display); }
-    .offer .btn { background: var(--amber); color: var(--ink); }
+    .offer h2 { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 4.5vw, 1.9rem); line-height: 1.2; margin-bottom: .3rem; }
+    .offer__stars { font-size: .85rem; color: rgba(255,255,255,.85); margin-bottom: 1.1rem; }
+    .offer__stars .stars { font-size: .9rem; }
+    .tier {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: rgba(255,255,255,.07);
+      border: 2px solid rgba(255,255,255,.25);
+      border-radius: var(--radius);
+      padding: .9rem 1.1rem;
+      margin-bottom: .7rem;
+      cursor: pointer;
+      color: #fff;
+      font-family: var(--font-body);
+      transition: border-color .15s ease, background .15s ease;
+      position: relative;
+    }
+    .tier:hover { border-color: rgba(255,255,255,.6); }
+    .tier.selected { border-color: var(--amber); background: rgba(232,161,58,.14); }
+    .tier .t-pop {
+      position: absolute; top: -0.7rem; right: .9rem;
+      background: var(--amber); color: var(--ink);
+      font-size: .65rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      padding: .15rem .6rem; border-radius: 999px;
+    }
+    .tier .t-name { font-weight: 800; font-size: .975rem; }
+    .tier .t-price { float: right; text-align: right; font-size: .975rem; }
+    .tier .t-price s { opacity: .55; margin-right: .4rem; font-size: .85rem; }
+    .tier .t-price strong { font-family: var(--font-display); font-size: 1.15rem; }
+    .tier .t-sub { display: block; font-size: .78rem; color: rgba(255,255,255,.75); clear: both; }
+    .tier .t-save { display: inline-block; background: rgba(232,161,58,.25); color: var(--amber); font-size: .7rem; font-weight: 800; padding: .05rem .5rem; border-radius: 999px; margin-left: .4rem; }
+    .valuestack { list-style: none; margin: .9rem 0 1.1rem; }
+    .valuestack li { display: flex; justify-content: space-between; gap: 1rem; font-size: .85rem; color: rgba(255,255,255,.88); padding: .3rem 0; border-bottom: 1px dashed rgba(255,255,255,.18); }
+    .valuestack li .v { color: var(--amber); font-weight: 700; white-space: nowrap; }
+    .offer .btn { background: var(--amber); color: var(--ink); width: 100%; text-align: center; }
     .offer .btn:hover { background: #f0b356; box-shadow: 0 10px 24px rgba(0,0,0,.3); }
+    .offer__micro { text-align: center; font-size: .78rem; color: rgba(255,255,255,.75); margin-top: .7rem; }
     .offer__points {
-      display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap;
-      margin-top: 1.3rem; font-size: .8125rem; color: rgba(255,255,255,.85);
+      display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;
+      margin-top: 1rem; font-size: .8125rem; color: rgba(255,255,255,.85);
     }
-    /* Desktop: offer becomes image left / deal right */
-    @media (min-width: 820px) {
-      .offer {
-        display: grid;
-        grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
-        gap: 2.5rem;
-        align-items: center;
-        text-align: left;
-        padding: 2.6rem 3rem;
-      }
-      .offer__img { margin: 0; max-width: none; grid-row: 1 / 2; }
-      .offer__body { grid-column: 2; }
-      .offer__points { justify-content: flex-start; }
+    @media (max-width: 820px) {
+      .offer__grid { grid-template-columns: 1fr; }
+      .offer__img { max-width: 320px; margin: 0 auto; }
     }
 
     /* FAQ */
@@ -350,6 +484,7 @@
     .sticky-cta.show { transform: translateY(0); }
     .sticky-cta .price { font-size: .85rem; font-weight: 700; }
     .sticky-cta .price s { color: var(--ink-muted); font-weight: 500; margin-right: .3rem; }
+    .sticky-cta .sub { font-size: .72rem; color: var(--ink-muted); }
     .sticky-cta .btn { font-size: .9rem; padding: .7rem 1.4rem; white-space: nowrap; }
     @media (min-width: 900px) { .sticky-cta { display: none; } }
 
@@ -376,6 +511,7 @@
     .demo-modal__card .btn { width: 100%; }
     .demo-modal__close {
       background: none; border: none;
+      font-family: var(--font-body);
       font-size: .85rem; color: var(--ink-muted);
       margin-top: .9rem; cursor: pointer; text-decoration: underline;
     }
@@ -384,7 +520,7 @@
        Must stay after the component rules: their margin shorthands would
        otherwise win the cascade and reset margin-inline to 0. */
     @media (min-width: 1024px) {
-      .hero-img, .item-img, .offer, .rating-strip { margin-inline: -72px; }
+      .hero-img, .item-img, .offer, .rating-strip, .stat-trio, .timeline, .vs-wrap, .fit, .thread { margin-inline: -72px; }
     }
 
     /* Reveal */
@@ -422,7 +558,9 @@
         <div class="rating-strip">
           <span class="stars">★★★★★</span>
           <span>4.7/5</span>
-          <span>from 6,200+ verified customer reviews</span>
+          <span class="muted">from 6,214 verified reviews</span>
+          <span class="muted">·</span>
+          <span class="muted">Trusted by 50,000+ men</span>
         </div>
       </div>
 
@@ -445,7 +583,7 @@
           <img src="assets/follicle.jpg" alt="Illustration of a hair follicle beneath the scalp surface" loading="lazy" width="1200" height="900">
           <figcaption class="img-caption">Fuller looking hair starts below the surface, at the follicle.</figcaption>
         </figure>
-        <p>Thicket is built around one idea: treat both sides of the scalp line at once.</p>
+        <p>Thicket is built around one idea: treat both sides of the scalp line at once. The brand calls it the <strong>Two-Front Method</strong>, and it is the reason the rest of this list is even worth reading.</p>
         <div class="duo">
           <div class="duo__card">
             <div class="duo__when">AM · Scalp Serum</div>
@@ -458,13 +596,13 @@
             <p>Biotin, zinc, marine collagen, and ashwagandha support your hair's natural growth cycle from within, while you sleep.</p>
           </div>
         </div>
-        <p>Serum alone helps. Nutrition alone helps. The men posting their 90-day progress photos are doing both. That two-front approach is the whole reason Thicket exists, and it is the reason the rest of this list is even worth reading.</p>
+        <p>Serum alone helps. Nutrition alone helps. The men posting their 90-day progress photos are doing both.</p>
       </section>
 
       <div class="cta-block reveal">
         <div class="cta-block__kicker">Reader offer</div>
-        <p class="cta-line">Thicket is offering new customers 40% off their first system.</p>
-        <a class="btn" href="#offer">Check Availability</a>
+        <p class="cta-line">Thicket is offering new customers up to 52% off their first system.</p>
+        <a class="btn" href="#offer">See Today's Price</a>
         <p class="micro">90-day money-back guarantee · Free shipping in the US &amp; Canada</p>
       </div>
 
@@ -473,11 +611,41 @@
         <div class="item__num">2</div>
         <h2>No Prescription. No Side-Effect Roulette.</h2>
         <p>The most popular prescription pill for hair loss works for a lot of men. But the side-effect conversation around it is real enough that entire forums exist to talk about it. For many guys, that trade is a hard no.</p>
-        <p>Thicket is drug-free. No doctor visit, no pharmacy pickup, no monthly telehealth subscription, and no fine print you are afraid to read. The formulas lean on ingredients with long track records in scalp and hair care: rosemary, caffeine, biotin, zinc.</p>
+        <p>Thicket is drug-free. No doctor visit, no pharmacy pickup, no monthly telehealth subscription, and no fine print you are afraid to read. Here is how the three options actually stack up:</p>
+        <div class="vs-wrap">
+          <table class="vs">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="hero-col">Thicket</th>
+                <th>Prescription pills</th>
+                <th>Thickening shampoo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Drug-free</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td></tr>
+              <tr><td>No doctor visit or pharmacy</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td></tr>
+              <tr><td>Works above AND below the surface</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+              <tr><td>Targets the follicle, not just the strand</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✕</span></td></tr>
+              <tr><td>90-day money-back guarantee</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+              <tr><td>Under $2 a day</td><td class="hero-col"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="callout">
           <strong>Worth saying plainly:</strong> if you are already on a prescription that works for you, keep taking it (and talk to your doctor before changing anything). Thicket is for the millions of men who never wanted the prescription in the first place.
         </div>
       </section>
+
+      <!-- TICKER -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>Fuller looking hair in 90 days or your money back</span><span class="sep">✦</span>
+          <span>Fuller looking hair in 90 days or your money back</span><span class="sep">✦</span>
+          <span>Fuller looking hair in 90 days or your money back</span><span class="sep">✦</span>
+          <span>Fuller looking hair in 90 days or your money back</span><span class="sep">✦</span>
+        </div>
+      </div>
 
       <!-- REASON 3 -->
       <section class="item reveal">
@@ -493,15 +661,44 @@
           <li><strong>Morning:</strong> four drops on the crown and hairline, massage for 30 seconds, style as usual. It dries clear and does not feel greasy.</li>
           <li><strong>Night:</strong> two capsules with dinner. Done.</li>
         </ul>
-        <p>The best routine is not the most sophisticated one. It is the one you actually keep doing on day 60, when results start becoming visible in the mirror.</p>
+        <p>And because hair works on a slow clock, here is the honest timeline most men report:</p>
+        <div class="timeline">
+          <div class="tl-card">
+            <div class="when">Weeks 1-2</div>
+            <p>Nothing visible yet. The scalp settles into the routine. This is where quitters quit.</p>
+          </div>
+          <div class="tl-card">
+            <div class="when">Weeks 4-6</div>
+            <p>Most men notice less visible shedding on the pillow and in the drain.</p>
+          </div>
+          <div class="tl-card">
+            <div class="when">Day 90</div>
+            <p>Fuller looking hair typically shows in the mirror and in photos. This is the guarantee checkpoint.</p>
+          </div>
+        </div>
+        <p class="tl-note">*Timeline reflects commonly reported experiences and is illustrative for this demo. Individual results vary.</p>
       </section>
+
+      <div class="cta-block reveal">
+        <div class="cta-block__kicker">90-day checkpoint</div>
+        <p class="cta-line">Start your 90 days today. Take a photo first, you'll want it.</p>
+        <a class="btn" href="#offer">Start My 90 Days</a>
+        <p class="micro">90-day money-back guarantee · Cancel anytime</p>
+      </div>
 
       <!-- REASON 4 -->
       <section class="item reveal">
         <div class="item__num">4</div>
         <h2>50,000+ Men Are Already In, and the Reviews Read Like Group Chat Texts</h2>
-        <p>Thicket says more than 50,000 men use the system, with a 4.7 out of 5 average across 6,200+ verified reviews. What stands out is not the score. It is how specific the reviews are.</p>
+        <p>Thicket says more than 50,000 men use the system, with a 4.7 out of 5 average across 6,214 verified reviews. In a post-purchase survey of customers who used it daily for 90 days:</p>
+        <div class="stat-trio">
+          <div class="stat"><div class="n">91%</div><p>reported less visible shedding</p></div>
+          <div class="stat"><div class="n">87%</div><p>said their hair looks fuller in photos</p></div>
+          <div class="stat"><div class="n">94%</div><p>kept the two-minute routine past day 90</p></div>
+        </div>
+        <p class="stat-note">*Survey figures are illustrative for this demonstration page.</p>
         <div class="quote-card">
+          <span class="stars">★★★★★</span>
           <p class="q">"Month three and my barber asked what I changed. That was the moment for me. The crown area looks noticeably fuller in photos, and I stopped checking the drain every morning."</p>
           <div class="who">
             <img src="assets/avatar-mike.jpg" alt="Photo of Mike T." loading="lazy" width="88" height="88">
@@ -512,6 +709,7 @@
           </div>
         </div>
         <div class="quote-card">
+          <span class="stars">★★★★★</span>
           <p class="q">"I wanted the no-prescription option and figured I'd give it 90 days before judging. Shedding looked way down by week five. Hair feels thicker when I style it. Easiest habit I've ever kept."</p>
           <div class="who">
             <img src="assets/avatar-drew.jpg" alt="Photo of Drew K." loading="lazy" width="88" height="88">
@@ -521,6 +719,31 @@
             </div>
           </div>
         </div>
+        <div class="thread">
+          <div class="thread__head">From the Thicket community</div>
+          <div class="comment">
+            <img src="assets/avatar-andre.jpg" alt="Photo of Andre" loading="lazy" width="76" height="76">
+            <div>
+              <div class="bubble"><strong>Andre W.</strong>Week 7. Pillow check this morning: almost nothing. I was skeptical as hell about the "two-front" thing but I'm sticking with it.</div>
+              <div class="meta">2w · 41 likes</div>
+            </div>
+          </div>
+          <div class="comment reply">
+            <img src="assets/avatar-cole.jpg" alt="Photo of Cole" loading="lazy" width="76" height="76">
+            <div>
+              <div class="bubble"><strong>Cole B.</strong>Any change at the temples? That's my problem area.</div>
+              <div class="meta">2w · 6 likes</div>
+            </div>
+          </div>
+          <div class="comment reply">
+            <img src="assets/avatar-andre.jpg" alt="Photo of Andre" loading="lazy" width="76" height="76">
+            <div>
+              <div class="bubble"><strong>Andre W.</strong>Hairline looks tidier in photos but temples are slower. Their support told me temples typically take the full 90. At least they were straight about it.</div>
+              <div class="meta">1w · 18 likes</div>
+            </div>
+          </div>
+        </div>
+        <p class="thread-note">Community comments are illustrative for this demonstration page.</p>
         <p class="typical">What to expect: most men notice less visible shedding within the first 4 to 6 weeks, with fuller looking hair typically showing around the 90-day mark. Individual results vary, which is exactly why the guarantee below exists.</p>
       </section>
 
@@ -530,25 +753,64 @@
         <h2>You Get 90 Days to See It Yourself, or You Pay Nothing</h2>
         <p>This is the reason that removes the last excuse. Thicket's guarantee is simple: use the system daily for 90 days and take a photo on day one. If you do not see visibly fuller looking hair, email support and get a full refund. You do not even have to send the bottles back.</p>
         <p>A company cannot offer that unless most men who try it stay. The math would not work.</p>
-        <p>Combine that with the 40% new-customer discount below, and trying Thicket costs you nothing but two minutes a day and a before photo.</p>
+        <p>One more thing worth respecting: Thicket is honest about who it is for.</p>
+        <div class="fit">
+          <div class="fit__col for">
+            <h3>Thicket is for you if</h3>
+            <ul>
+              <li>You are seeing early thinning at the crown, temples, or part line</li>
+              <li>You want a drug-free option, or something alongside your current routine</li>
+              <li>You can commit two minutes a day for 90 days</li>
+              <li>You want fuller, thicker looking hair, not miracles</li>
+            </ul>
+          </div>
+          <div class="fit__col notfor">
+            <h3>It is NOT for you if</h3>
+            <ul>
+              <li>An area has been fully bald for years. Be skeptical of anyone who promises otherwise.</li>
+              <li>You want overnight results. Hair does not work that way.</li>
+              <li>You will not keep a daily routine. The system only works if you use it.</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <!-- OFFER -->
+      <!-- BUY BOX -->
       <section class="offer reveal" id="offer">
-        <div class="offer__img">
-          <img src="assets/offer-kit.jpg" alt="The Thicket System kit: AM scalp serum and PM density supplement" loading="lazy" width="760" height="760">
-        </div>
-        <div class="offer__body">
-          <span class="offer__badge">New customer offer · 40% off</span>
-          <h2>The Thicket System</h2>
-          <p class="offer__sub">AM Scalp Serum + PM Density Supplement · 30-day supply</p>
-          <p class="offer__price"><s>$89</s> <strong>$53</strong> today</p>
-          <button class="btn" data-demo-cta>Check Availability →</button>
-          <div class="offer__points">
-            <span>✓ 90-day money-back guarantee</span>
-            <span>✓ Free shipping</span>
-            <span>✓ Drug-free</span>
-            <span>✓ Cancel anytime</span>
+        <div class="offer__grid">
+          <div class="offer__img">
+            <img src="assets/offer-kit.jpg" alt="The Thicket System kit: AM scalp serum and PM density supplement" loading="lazy" width="760" height="760">
+          </div>
+          <div>
+            <span class="offer__badge">New customer offer</span>
+            <h2>The Thicket System</h2>
+            <p class="offer__stars"><span class="stars">★★★★★</span> 4.7/5 · 6,214 verified reviews</p>
+
+            <button class="tier" data-tier="3" type="button">
+              <span class="t-pop">Most popular</span>
+              <span class="t-name">90-Day System <span class="t-save">Save $138</span></span>
+              <span class="t-price"><s>$267</s> <strong>$129</strong></span>
+              <span class="t-sub">3-month supply · $43/month · the full guarantee window</span>
+            </button>
+            <button class="tier" data-tier="1" type="button">
+              <span class="t-name">Starter Month <span class="t-save">Save $36</span></span>
+              <span class="t-price"><s>$89</s> <strong>$53</strong></span>
+              <span class="t-sub">1-month supply · AM serum + PM supplement</span>
+            </button>
+
+            <ul class="valuestack" id="valueStack">
+              <li><span>Free scalp massager</span><span class="v">$19 value</span></li>
+              <li><span>Free shipping (US &amp; Canada)</span><span class="v">$9 value</span></li>
+              <li><span>90-day money-back guarantee</span><span class="v">Keep the bottles</span></li>
+            </ul>
+
+            <button class="btn" data-demo-cta id="atcBtn">Add To Cart · $129</button>
+            <p class="offer__micro">Try it for 90 days or your money back. No return shipping, no interrogation.</p>
+            <div class="offer__points">
+              <span>✓ Drug-free</span>
+              <span>✓ Ships in 24 hours</span>
+              <span>✓ Cancel anytime</span>
+            </div>
           </div>
         </div>
       </section>
@@ -572,6 +834,10 @@
           <summary>What if it does not work for me?</summary>
           <p>Then it costs you nothing. Email support within 90 days for a full refund, no return shipping, no interrogation. Take a day-one photo so you can judge honestly. That photo protects you either way.</p>
         </details>
+        <details>
+          <summary>Why the 90-Day System instead of one month?</summary>
+          <p>Because the honest timeline is 90 days, and one bottle runs out right when things start moving. The 90-Day System covers the entire guarantee window at $43 a month instead of $53, so you judge the system on the timeline it was built for.</p>
+        </details>
       </section>
 
     </div>
@@ -579,7 +845,7 @@
 
   <footer class="foot">
     <p><strong>Advertisement disclosure:</strong> this page is a sponsored advertorial presented in an editorial format. "The Grooming Report" is not an independent publication.</p>
-    <p><strong>Demo notice:</strong> Thicket is a fictional brand and this page is a portfolio demonstration built by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a>. The product, reviews, statistics, and testimonials shown are illustrative and do not describe a real product.</p>
+    <p><strong>Demo notice:</strong> Thicket is a fictional brand and this page is a portfolio demonstration built by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a>. The product, reviews, statistics, survey figures, community comments, and testimonials shown are illustrative and do not describe a real product.</p>
     <p>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Results shown or described are illustrative; individual results vary. This product is not a substitute for FDA-approved hair loss treatments.</p>
     <p>© <span id="foot-year">2026</span> The Grooming Report · A demo property of ClickDose Labs</p>
   </footer>
@@ -587,17 +853,17 @@
   <!-- Sticky mobile CTA -->
   <div class="sticky-cta" id="stickyCta">
     <div>
-      <div class="price"><s>$89</s> $53 today</div>
-      <div style="font-size:.72rem;color:var(--ink-muted)">90-day guarantee</div>
+      <div class="price" id="stickyPrice"><s>$267</s> $129 today</div>
+      <div class="sub">90-day guarantee · Free shipping</div>
     </div>
-    <a class="btn" href="#offer">Check Availability</a>
+    <a class="btn" href="#offer">See Today's Price</a>
   </div>
 
   <!-- Demo modal -->
   <div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-label="Demo notice">
     <div class="demo-modal__card">
       <h3>You just reached the end of the funnel.</h3>
-      <p>Thicket is a fictional brand. This page is a live demonstration of the listicle format we build for real brands: editorial framing, compliant claims, and a CTA path engineered for cold paid traffic.</p>
+      <p>Thicket is a fictional brand. This page is a live demonstration of the listicle format we build for real brands: editorial framing, compliant claims, tiered offer architecture, and a CTA path engineered for cold paid traffic.</p>
       <a class="btn" href="https://clickdoselabs.com/page-lab/">See how we build pages like this</a>
       <button class="demo-modal__close" data-demo-close>Keep reading the demo</button>
     </div>
@@ -618,6 +884,24 @@
         });
       }, { threshold: 0.08 });
       document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+      // Tier selector
+      var tiers = {
+        '3': { label: 'Add To Cart · $129', sticky: '<s>$267</s> $129 today' },
+        '1': { label: 'Add To Cart · $53', sticky: '<s>$89</s> $53 today' }
+      };
+      var atc = document.getElementById('atcBtn');
+      var stickyPrice = document.getElementById('stickyPrice');
+      var tierBtns = document.querySelectorAll('.tier');
+      function selectTier(key) {
+        tierBtns.forEach(function (b) { b.classList.toggle('selected', b.getAttribute('data-tier') === key); });
+        atc.textContent = tiers[key].label;
+        stickyPrice.innerHTML = tiers[key].sticky;
+      }
+      tierBtns.forEach(function (b) {
+        b.addEventListener('click', function () { selectTier(b.getAttribute('data-tier')); });
+      });
+      selectTier('3');
 
       // Sticky CTA appears after Reason 1, hides over the offer
       var sticky = document.getElementById('stickyCta');
