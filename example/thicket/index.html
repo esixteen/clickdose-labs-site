@@ -15,6 +15,7 @@
       --green-dark: #234733;
       --green-tint: #e9f0ea;
       --cream: #faf7f1;
+      --backdrop: #ece4d4;
       --ink: #22261f;
       --ink-muted: #6b7064;
       --amber: #e8a13a;
@@ -33,11 +34,19 @@
       font-size: 1.0625rem;
       line-height: 1.7;
       color: var(--ink);
-      background: var(--cream);
+      background: var(--backdrop);
       -webkit-font-smoothing: antialiased;
     }
     img { max-width: 100%; display: block; }
-    .article { max-width: var(--article-width); margin: 0 auto; padding: 0 1.25rem; }
+    /* The article sits on a white paper sheet over the backdrop */
+    .article {
+      max-width: 984px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 11vw, 9.5rem) 2.5rem;
+      background: var(--surface);
+      border-inline: 1px solid var(--border);
+      box-shadow: 0 0 70px rgba(34, 38, 31, .09);
+    }
 
     /* Disclosure bar */
     .disclosure-bar {
@@ -181,7 +190,7 @@
     /* Product duo mini-breakdown */
     .duo { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; margin: 1.25rem 0; }
     .duo__card {
-      background: var(--surface);
+      background: var(--cream);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.1rem 1.15rem;
@@ -196,7 +205,7 @@
 
     /* CTA blocks */
     .cta-block {
-      background: var(--surface);
+      background: var(--cream);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       text-align: center;
@@ -224,7 +233,7 @@
 
     /* Testimonials */
     .quote-card {
-      background: var(--surface);
+      background: var(--cream);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.35rem 1.4rem;
@@ -239,7 +248,7 @@
     .typical {
       font-size: .8125rem;
       color: var(--ink-muted);
-      background: var(--surface);
+      background: var(--cream);
       border: 1px dashed var(--border);
       border-radius: var(--radius);
       padding: .8rem 1rem;
@@ -269,8 +278,8 @@
     }
     .offer h2 { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 4.5vw, 2rem); line-height: 1.2; margin-bottom: .5rem; }
     .offer__sub { color: rgba(255,255,255,.85); margin-bottom: 1.4rem; font-size: .975rem; }
-    .offer__img { max-width: 380px; margin: 0 auto 1.4rem; }
-    .offer__img img { border-radius: var(--radius); }
+    .offer__img { max-width: 340px; margin: 0 auto 1.4rem; }
+    .offer__img img { border-radius: var(--radius); width: 100%; height: auto; }
     .offer__price { font-size: 1.15rem; margin-bottom: 1.2rem; }
     .offer__price s { opacity: .6; margin-right: .5rem; }
     .offer__price strong { font-size: 1.6rem; font-family: var(--font-display); }
@@ -280,12 +289,26 @@
       display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap;
       margin-top: 1.3rem; font-size: .8125rem; color: rgba(255,255,255,.85);
     }
+    /* Desktop: offer becomes image left / deal right */
+    @media (min-width: 820px) {
+      .offer {
+        display: grid;
+        grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+        gap: 2.5rem;
+        align-items: center;
+        text-align: left;
+        padding: 2.6rem 3rem;
+      }
+      .offer__img { margin: 0; max-width: none; grid-row: 1 / 2; }
+      .offer__body { grid-column: 2; }
+      .offer__points { justify-content: flex-start; }
+    }
 
     /* FAQ */
     .faq { padding: 1rem 0 2rem; }
     .faq h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; margin-bottom: 1.1rem; }
     .faq details {
-      background: var(--surface);
+      background: var(--cream);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1rem 1.2rem;
@@ -355,6 +378,13 @@
       background: none; border: none;
       font-size: .85rem; color: var(--ink-muted);
       margin-top: .9rem; cursor: pointer; text-decoration: underline;
+    }
+
+    /* Media and feature blocks break out wider than the text measure.
+       Must stay after the component rules: their margin shorthands would
+       otherwise win the cascade and reset margin-inline to 0. */
+    @media (min-width: 1024px) {
+      .hero-img, .item-img, .offer, .rating-strip { margin-inline: -72px; }
     }
 
     /* Reveal */
@@ -505,19 +535,21 @@
 
       <!-- OFFER -->
       <section class="offer reveal" id="offer">
-        <span class="offer__badge">New customer offer · 40% off</span>
-        <h2>The Thicket System</h2>
-        <p class="offer__sub">AM Scalp Serum + PM Density Supplement · 30-day supply</p>
         <div class="offer__img">
           <img src="assets/offer-kit.jpg" alt="The Thicket System kit: AM scalp serum and PM density supplement" loading="lazy" width="760" height="760">
         </div>
-        <p class="offer__price"><s>$89</s> <strong>$53</strong> today</p>
-        <button class="btn" data-demo-cta>Check Availability →</button>
-        <div class="offer__points">
-          <span>✓ 90-day money-back guarantee</span>
-          <span>✓ Free shipping</span>
-          <span>✓ Drug-free</span>
-          <span>✓ Cancel anytime</span>
+        <div class="offer__body">
+          <span class="offer__badge">New customer offer · 40% off</span>
+          <h2>The Thicket System</h2>
+          <p class="offer__sub">AM Scalp Serum + PM Density Supplement · 30-day supply</p>
+          <p class="offer__price"><s>$89</s> <strong>$53</strong> today</p>
+          <button class="btn" data-demo-cta>Check Availability →</button>
+          <div class="offer__points">
+            <span>✓ 90-day money-back guarantee</span>
+            <span>✓ Free shipping</span>
+            <span>✓ Drug-free</span>
+            <span>✓ Cancel anytime</span>
+          </div>
         </div>
       </section>
 
