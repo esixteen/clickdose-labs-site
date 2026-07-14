@@ -24,7 +24,7 @@
       --border: #dfe4ec;
       --font-display: 'Source Serif 4', Georgia, serif;
       --font-body: 'Archivo', -apple-system, sans-serif;
-      --container: 1140px;
+      --container: 71.25rem;
       --radius: 12px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -101,7 +101,7 @@
     .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color: #fff; padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(4rem, 7vw, 5.5rem); }
     .hero .container {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 400px;
+      grid-template-columns: minmax(0, 1fr) 25rem;
       gap: clamp(2rem, 5vw, 4.5rem);
       align-items: start;
     }
@@ -374,6 +374,11 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* Large-screen scaling: rem-based layout grows with the viewport */
+    @media (min-width: 1900px) { html { font-size: 19px; } }
+    @media (min-width: 2500px) { html { font-size: 24px; } }
+    @media (min-width: 3400px) { html { font-size: 30px; } }
   </style>
 </head>
 <body>

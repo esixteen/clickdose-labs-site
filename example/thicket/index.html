@@ -41,13 +41,50 @@
     img { max-width: 100%; display: block; }
     /* The article sits on a white paper sheet over the backdrop */
     .article {
-      max-width: 984px;
+      max-width: 61.5rem;
       margin: 0 auto;
-      padding: 0 clamp(1.25rem, 11vw, 9.5rem) 2.5rem;
+      padding: 0 clamp(1.25rem, 8vw, 8rem) 2.5rem;
       background: var(--surface);
       border-inline: 1px solid var(--border);
       box-shadow: 0 0 70px rgba(34, 38, 31, .09);
+      min-width: 0;
     }
+
+    /* Wide-screen layout: sheet + sticky offer rail */
+    .rail { display: none; }
+    @media (min-width: 1360px) {
+      main.layout {
+        display: grid;
+        grid-template-columns: minmax(0, 61.5rem) 21.5rem;
+        gap: 2.5rem;
+        justify-content: center;
+        align-items: start;
+        padding: 0 2rem;
+      }
+      main.layout .article { margin: 0; }
+      .rail { display: block; position: sticky; top: 1.5rem; margin-top: 2.5rem; }
+      .rail__card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.3rem;
+        box-shadow: 0 2px 20px rgba(34,38,31,.07);
+      }
+      .rail__card img { width: 100%; height: auto; border-radius: 10px; margin-bottom: .9rem; }
+      .rail__card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.2; margin-bottom: .3rem; }
+      .rail__stars { font-size: .8rem; color: var(--ink-muted); margin-bottom: .8rem; }
+      .rail__price { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .15rem; }
+      .rail__price strong { font-family: var(--font-display); font-size: 1.7rem; }
+      .rail__price s { color: var(--ink-muted); font-size: .95rem; }
+      .rail__sub { font-size: .8rem; color: var(--ink-muted); margin-bottom: .9rem; }
+      .rail__card .btn { width: 100%; text-align: center; font-size: .95rem; padding: .85rem 1.4rem; }
+      .rail__micro { font-size: .75rem; color: var(--ink-muted); text-align: center; margin-top: .65rem; line-height: 1.5; }
+    }
+
+    /* Large-screen scaling: rem-based layout grows with the viewport */
+    @media (min-width: 1900px) { html { font-size: 19px; } }
+    @media (min-width: 2500px) { html { font-size: 24px; } }
+    @media (min-width: 3400px) { html { font-size: 30px; } }
 
     /* Disclosure bar */
     .disclosure-bar {
@@ -229,7 +266,7 @@
       color: var(--cream);
       overflow: hidden;
       padding: .85rem 0;
-      margin: 2.2rem calc(-1 * clamp(1.25rem, 11vw, 9.5rem));
+      margin: 2.2rem calc(-1 * clamp(1.25rem, 8vw, 8rem));
       white-space: nowrap;
     }
     .ticker__track { display: inline-block; animation: tick 22s linear infinite; }
@@ -520,7 +557,7 @@
        Must stay after the component rules: their margin shorthands would
        otherwise win the cascade and reset margin-inline to 0. */
     @media (min-width: 1024px) {
-      .hero-img, .item-img, .offer, .rating-strip, .stat-trio, .timeline, .vs-wrap, .fit, .thread { margin-inline: -72px; }
+      .hero-img, .item-img, .offer, .rating-strip, .stat-trio, .timeline, .vs-wrap, .fit, .thread { margin-inline: -4rem; }
     }
 
     /* Reveal */
@@ -541,7 +578,7 @@
     <div class="masthead__tag">Independent reviews for men who pay attention</div>
   </header>
 
-  <main>
+  <main class="layout">
     <div class="article">
 
       <div class="post-head">
@@ -841,6 +878,18 @@
       </section>
 
     </div>
+
+    <aside class="rail" aria-label="Offer summary">
+      <div class="rail__card">
+        <img src="assets/offer-kit.jpg" alt="The Thicket System kit" loading="lazy" width="760" height="760">
+        <h3>The Thicket System</h3>
+        <p class="rail__stars"><span class="stars">★★★★★</span> 4.7/5 · 6,214 reviews</p>
+        <div class="rail__price"><strong id="railPrice">$129</strong><s id="railWas">$267</s></div>
+        <p class="rail__sub" id="railSub">90-Day System · $43/month · full guarantee window</p>
+        <button class="btn" data-demo-cta id="railBtn">Add To Cart</button>
+        <p class="rail__micro">90-day money-back guarantee. Keep the bottles.</p>
+      </div>
+    </aside>
   </main>
 
   <footer class="foot">
@@ -887,16 +936,26 @@
 
       // Tier selector
       var tiers = {
-        '3': { label: 'Add To Cart · $129', sticky: '<s>$267</s> $129 today' },
-        '1': { label: 'Add To Cart · $53', sticky: '<s>$89</s> $53 today' }
+        '3': { label: 'Add To Cart · $129', sticky: '<s>$267</s> $129 today', price: '$129', was: '$267', sub: '90-Day System · $43/month · full guarantee window' },
+        '1': { label: 'Add To Cart · $53', sticky: '<s>$89</s> $53 today', price: '$53', was: '$89', sub: 'Starter Month · AM serum + PM supplement' }
       };
       var atc = document.getElementById('atcBtn');
       var stickyPrice = document.getElementById('stickyPrice');
+      var railPrice = document.getElementById('railPrice');
+      var railWas = document.getElementById('railWas');
+      var railSub = document.getElementById('railSub');
+      var railBtn = document.getElementById('railBtn');
       var tierBtns = document.querySelectorAll('.tier');
       function selectTier(key) {
         tierBtns.forEach(function (b) { b.classList.toggle('selected', b.getAttribute('data-tier') === key); });
         atc.textContent = tiers[key].label;
         stickyPrice.innerHTML = tiers[key].sticky;
+        if (railPrice) {
+          railPrice.textContent = tiers[key].price;
+          railWas.textContent = tiers[key].was;
+          railSub.textContent = tiers[key].sub;
+          railBtn.textContent = tiers[key].label;
+        }
       }
       tierBtns.forEach(function (b) {
         b.addEventListener('click', function () { selectTier(b.getAttribute('data-tier')); });

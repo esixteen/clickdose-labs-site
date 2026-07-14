@@ -37,7 +37,42 @@
     }
     img { max-width: 100%; height: auto; display: block; }
     .measure { max-width: var(--measure); margin: 0 auto; padding: 0 1.4rem; }
-    .wide { max-width: 1060px; margin: 0 auto; padding: 0 1.4rem; }
+    .wide { max-width: 66rem; margin: 0 auto; padding: 0 1.4rem; }
+
+    /* Wide-screen layout: article + sticky offer rail (Plantmade pattern) */
+    .rail { display: none; }
+    @media (min-width: 1240px) {
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 50rem) 23rem;
+        gap: 3.5rem;
+        justify-content: center;
+        align-items: start;
+        padding: 0 2rem;
+      }
+      .col-main { min-width: 0; }
+      .rail { display: block; position: sticky; top: 1.5rem; margin-top: 2.5rem; }
+      .rail__card {
+        background: var(--porcelain);
+        border: 1px solid var(--line);
+        padding: 1.4rem;
+      }
+      .rail__card img { width: 100%; height: auto; margin-bottom: 1rem; }
+      .rail__card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; line-height: 1.2; margin-bottom: .35rem; }
+      .rail__stars { font-size: .8rem; color: var(--muted); margin-bottom: .9rem; }
+      .rail__stars .st { color: var(--garnet); letter-spacing: .08em; }
+      .rail__price { display: flex; align-items: baseline; gap: .6rem; margin-bottom: .2rem; }
+      .rail__price strong { font-family: var(--font-display); font-size: 1.8rem; }
+      .rail__price s { color: var(--muted); font-size: .95rem; }
+      .rail__sub { font-size: .8rem; color: var(--muted); margin-bottom: 1rem; }
+      .rail__card .btn { font-size: .975rem; padding: .9rem 1.5rem; }
+      .rail__micro { font-size: .75rem; color: var(--muted); text-align: center; margin-top: .7rem; line-height: 1.5; }
+    }
+
+    /* Large-screen scaling: the whole rem-based layout grows with the viewport */
+    @media (min-width: 1900px) { html { font-size: 19px; } }
+    @media (min-width: 2500px) { html { font-size: 24px; } }
+    @media (min-width: 3400px) { html { font-size: 30px; } }
 
     /* The Honest Bar */
     .honest-bar {
@@ -360,7 +395,8 @@
     <div class="sub">Skincare for skin that has lived</div>
   </header>
 
-  <main>
+  <main class="layout">
+    <div class="col-main">
     <div class="post-head measure">
       <h1>Your Skin Didn't Change at 45. Your Skincare Should Have.</h1>
       <p class="deck">An honest letter about what actually happens to your skin after 45, what we built for it, and exactly what it costs.</p>
@@ -587,6 +623,19 @@
         </details>
       </section>
     </article>
+    </div>
+
+    <aside class="rail" aria-label="Offer summary">
+      <div class="rail__card">
+        <img src="assets/offer-jar.jpg" alt="The Maren Barrier Cream" loading="lazy" width="780" height="930">
+        <h3>The Maren Barrier Cream</h3>
+        <p class="rail__stars"><span class="st">★★★★★</span> 4.8/5 · 3,412 verified reviews</p>
+        <div class="rail__price"><strong id="railPrice">$134</strong><s id="railWas">$158</s></div>
+        <p class="rail__sub" id="railSub">Two jars · 180 mornings · 74 cents a morning</p>
+        <button class="btn" data-demo-cta id="railBtn">Add To Cart</button>
+        <p class="rail__micro">90-day guarantee, empty jar included. Free shipping both directions.</p>
+      </div>
+    </aside>
   </main>
 
   <footer class="foot">
@@ -629,16 +678,26 @@
 
       // Tier selector
       var tiers = {
-        '2': { label: 'Add To Cart · $134', sticky: '<s>$158</s> $134' },
-        '1': { label: 'Add To Cart · $79', sticky: '$79' }
+        '2': { label: 'Add To Cart · $134', sticky: '<s>$158</s> $134', price: '$134', was: '$158', sub: 'Two jars · 180 mornings · 74 cents a morning' },
+        '1': { label: 'Add To Cart · $79', sticky: '$79', price: '$79', was: '', sub: 'One jar · 90 mornings · 88 cents a morning' }
       };
       var atc = document.getElementById('atcBtn');
       var stickyPrice = document.getElementById('stickyPrice');
+      var railPrice = document.getElementById('railPrice');
+      var railWas = document.getElementById('railWas');
+      var railSub = document.getElementById('railSub');
+      var railBtn = document.getElementById('railBtn');
       var tierBtns = document.querySelectorAll('.tier');
       function selectTier(key) {
         tierBtns.forEach(function (b) { b.classList.toggle('selected', b.getAttribute('data-tier') === key); });
         atc.textContent = tiers[key].label;
         stickyPrice.innerHTML = tiers[key].sticky;
+        if (railPrice) {
+          railPrice.textContent = tiers[key].price;
+          railWas.textContent = tiers[key].was;
+          railSub.textContent = tiers[key].sub;
+          railBtn.textContent = tiers[key].label;
+        }
       }
       tierBtns.forEach(function (b) {
         b.addEventListener('click', function () { selectTier(b.getAttribute('data-tier')); });
