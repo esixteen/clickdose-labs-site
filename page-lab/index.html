@@ -768,11 +768,6 @@
         </p>
       </div>
     </div>
-    <div class="page-hero__strip" aria-hidden="true">
-      <div class="marquee marquee--pages">
-        <div class="marquee__track" id="heroStripTrack" style="--mq-duration:96s"></div>
-      </div>
-    </div>
   </header>
 
   <!-- THE COST -->
@@ -847,9 +842,9 @@
       color: var(--color-accent);
       white-space: nowrap;
     }
-    .built__viewport { height: 620px; overflow: hidden; position: relative; }
-    .built__viewport img { width: 100%; height: auto; display: block; transition: transform 6s ease; }
-    .built__frame:hover .built__viewport img { transform: translateY(calc(-1 * max(0px, var(--overpan, 800px)))); }
+    .built__viewport { display: block; height: 620px; overflow: hidden; position: relative; }
+    .built__viewport img { width: 100%; height: auto; display: block; transition: transform 9s linear; }
+    .built__frame:hover .built__viewport img { transform: translateY(calc(-1px * var(--overpan, 0))); }
     .built__hint { text-align: center; font-size: .8125rem; color: var(--color-text-soft, #6d675f); margin-top: 1rem; }
     @media (max-width: 700px) { .built__viewport { height: 420px; } .built__tab { font-size: .85rem; padding: .55rem 1rem; } }
     @media (prefers-reduced-motion: reduce) { .built__frame:hover .built__viewport img { transform: none; } }
@@ -869,6 +864,7 @@
         <button class="built__tab" data-built="keel" role="tab" aria-selected="false">Compare Pages</button>
         <button class="built__tab" data-built="kiln" role="tab" aria-selected="false">Brand Sites</button>
         <button class="built__tab" data-built="torus" role="tab" aria-selected="false">Product Launches</button>
+        <button class="built__tab" data-built="ampm" role="tab" aria-selected="false">Product Pages</button>
         <button class="built__tab" data-built="rhythm" role="tab" aria-selected="false">Landing Pages</button>
       </div>
       <a class="built__frame reveal" id="builtFrame" href="https://clickdoselabs.com/example/thicket/" target="_blank" rel="noopener" aria-label="Open the live page in a new tab">
@@ -877,7 +873,7 @@
           <span class="built__url" id="builtUrl">clickdoselabs.com/example/thicket</span>
           <span class="built__open">Open live page ↗</span>
         </span>
-        <span class="built__viewport"><img id="builtImg" src="../assets/page-lab/built/thicket.jpg" alt="Screenshot of the Thicket listicle demo page" width="1240" height="3000" style="--overpan:2380px"></span>
+        <span class="built__viewport"><img id="builtImg" src="../assets/page-lab/built/thicket.jpg" alt="Screenshot of the Thicket listicle demo page" width="1240" height="3000"></span>
       </a>
       <p class="built__hint reveal">Hover to preview the scroll. Click anywhere on the page to open the real thing.</p>
     </div>
@@ -892,12 +888,23 @@
         'keel':         { url: 'https://clickdoselabs.com/example/keel/',         label: 'clickdoselabs.com/example/keel',         alt: 'Screenshot of the Keel comparison page demo' },
         'kiln':         { url: 'https://clickdoselabs.com/example/kiln/',         label: 'clickdoselabs.com/example/kiln',         alt: 'Screenshot of the Kiln brand site demo' },
         'torus':        { url: 'https://clickdoselabs.com/example/torus/',        label: 'clickdoselabs.com/example/torus',        alt: 'Screenshot of the Torus product launch demo' },
+        'ampm':         { url: 'https://cereflexlabs.com/products/am-pm-brain-supplement-package', label: 'cereflexlabs.com/products/am-pm…', alt: 'Screenshot of the CereFlex AM/PM product page' },
         'rhythm':       { url: 'https://cereflexlabs.com/pages/rhythm',           label: 'cereflexlabs.com/pages/rhythm',          alt: 'Screenshot of the CereFlex Rhythm landing page' }
       };
       var frame = document.getElementById('builtFrame');
       var img = document.getElementById('builtImg');
       var urlEl = document.getElementById('builtUrl');
       var tabs = document.querySelectorAll('.built__tab');
+      // Hover pan distance = rendered image height minus the viewport, measured
+      // live so the pan always ends exactly at the bottom of the capture.
+      function setOverpan() {
+        var viewport = img.parentElement;
+        var pan = Math.max(0, img.clientHeight - viewport.clientHeight);
+        img.style.setProperty('--overpan', pan);
+      }
+      img.addEventListener('load', setOverpan);
+      window.addEventListener('resize', setOverpan);
+      setOverpan();
       tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
           var key = tab.getAttribute('data-built');
@@ -931,17 +938,6 @@
         <div class="marquee marquee--pages">
           <div class="marquee__track" style="--mq-duration:72s">
             <!-- PL:PAGES:START -->
-            <div class="mq-card"><img src="../assets/page-lab/pages/changing-brain-health.jpg" alt="Advertorial landing page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/6-things.jpg" alt="Listicle landing page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/sleep.jpg" alt="Sleep landing page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/rhythm.jpg" alt="Rhythm landing page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/am.jpg" alt="Product page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/pm.jpg" alt="Product page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="Bundle page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/science.jpg" alt="Science page" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/mrlandlordloan.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/bdcapital.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card"><img src="../assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
             <div class="mq-card"><img src="../assets/page-lab/pages/thicket.jpg" alt="Listicle demo" loading="lazy" width="208" height="300"></div>
             <div class="mq-card"><img src="../assets/page-lab/pages/harlan-reyes.jpg" alt="Lead gen demo" loading="lazy" width="208" height="300"></div>
             <div class="mq-card"><img src="../assets/page-lab/pages/maren.jpg" alt="Advertorial demo" loading="lazy" width="208" height="300"></div>
@@ -949,17 +945,14 @@
             <div class="mq-card"><img src="../assets/page-lab/pages/keel.jpg" alt="Comparison page demo" loading="lazy" width="208" height="300"></div>
             <div class="mq-card"><img src="../assets/page-lab/pages/kiln.jpg" alt="Brand site demo" loading="lazy" width="208" height="300"></div>
             <div class="mq-card"><img src="../assets/page-lab/pages/torus.jpg" alt="Product launch demo" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/changing-brain-health.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/sleep.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/rhythm.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/am.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/pm.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/science.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/mrlandlordloan.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/bdcapital.jpg" alt="" loading="lazy" width="208" height="300"></div>
-            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/rhythm.jpg" alt="Rhythm landing page" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/changing-brain-health.jpg" alt="Advertorial landing page" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/6-things.jpg" alt="Listicle landing page" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="Bundle page" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/science.jpg" alt="Science page" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/mrlandlordloan.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/bdcapital.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/thicket.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/harlan-reyes.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/maren.jpg" alt="" loading="lazy" width="208" height="300"></div>
@@ -967,6 +960,14 @@
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/keel.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/kiln.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/torus.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/rhythm.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/changing-brain-health.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/science.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/mrlandlordloan.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/bdcapital.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <!-- PL:PAGES:END -->
           </div>
         </div>
@@ -1373,16 +1374,6 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
       document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
-
-      // Hero gallery slice: clone the real pages marquee track so build-work.py
-      // regeneration stays the single source of truth for both strips.
-      var galleryTrack = document.querySelector('#work .marquee--pages .marquee__track');
-      var stripTrack = document.getElementById('heroStripTrack');
-      if (galleryTrack && stripTrack) {
-        var cloned = galleryTrack.cloneNode(true);
-        cloned.querySelectorAll('img').forEach(function(img) { img.setAttribute('alt', ''); });
-        while (cloned.firstChild) { stripTrack.appendChild(cloned.firstChild); }
-      }
 
       // Strategy annotation chips, keyed by img src substring so they survive
       // build-work.py rewriting the marquee markup.

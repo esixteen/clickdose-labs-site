@@ -1,6 +1,7 @@
 # Page Lab — live pages to feature in the "The Work" marquee.
 # One page per line.  Format:   https://your-page-url  |  Label (optional)
 # Lines starting with # are ignored. Blank lines are fine.
+# Order in this file = order in the marquee.
 #
 # Two ways to add a page:
 #   1) Paste its live URL below (it gets screenshotted automatically at mobile width), OR
@@ -8,19 +9,7 @@
 #
 # After editing, run:  python3 services/scripts/build-work.py
 
-https://cereflexlabs.com/pages/changing-brain-health | Advertorial landing page
-https://cereflexlabs.com/pages/6-things/ | Listicle landing page
-https://cereflexlabs.com/pages/sleep | Sleep landing page
-https://cereflexlabs.com/pages/rhythm | Rhythm landing page
-https://cereflexlabs.com/products/am | Product page
-https://cereflexlabs.com/products/pm | Product page
-https://cereflexlabs.com/products/am-pm-brain-supplement-package | Bundle page
-https://cereflexlabs.com/pages/science | Science page
-https://mrlandlordloan.com/
-https://bdcapital.com/
-https://inevitrade.com/craig-percoco-masterclass-live/
-
-# Demo pages built by ClickDose Labs (2026-07-14)
+# --- Demo pages built by ClickDose Labs (newest first) ---
 https://clickdoselabs.com/example/thicket/ | Listicle demo
 https://clickdoselabs.com/example/harlan-reyes/ | Lead gen demo
 https://clickdoselabs.com/example/maren/ | Advertorial demo
@@ -28,3 +17,13 @@ https://clickdoselabs.com/example/sable/ | Sales page demo
 https://clickdoselabs.com/example/keel/ | Comparison page demo
 https://clickdoselabs.com/example/kiln/ | Brand site demo
 https://clickdoselabs.com/example/torus/ | Product launch demo
+
+# --- Client work ---
+https://cereflexlabs.com/pages/rhythm | Rhythm landing page
+https://cereflexlabs.com/pages/changing-brain-health | Advertorial landing page
+https://cereflexlabs.com/pages/6-things/ | Listicle landing page
+https://cereflexlabs.com/products/am-pm-brain-supplement-package | Bundle page
+https://cereflexlabs.com/pages/science | Science page
+https://mrlandlordloan.com/
+https://bdcapital.com/
+https://inevitrade.com/craig-percoco-masterclass-live/
