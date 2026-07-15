@@ -786,7 +786,7 @@
         <p class="page-hero__proof">
           <span><span class="dot"></span> Senior operators on every build</span>
           <span><span class="dot"></span> You own every page, forever</span>
-          <span><span class="dot"></span> Capped at 8 clients</span>
+          <span><span class="dot"></span> Select clients only</span>
         </p>
       </div>
     </div>
@@ -864,11 +864,13 @@
       color: var(--color-accent);
       white-space: nowrap;
     }
-    .built__viewport { display: block; height: 620px; overflow: hidden; position: relative; }
+    /* Height follows the capture's aspect ratio so narrow screens never
+       show empty space below the image; desktop caps and hover-pans. */
+    .built__viewport { display: block; height: auto; aspect-ratio: 2100 / 1524; max-height: 620px; overflow: hidden; position: relative; }
     .built__viewport img { width: 100%; height: auto; display: block; transition: transform 9s linear; }
     .built__frame:hover .built__viewport img { transform: translateY(calc(-1px * var(--overpan, 0))); }
     .built__hint { text-align: center; font-size: .8125rem; color: var(--color-text-soft, #6d675f); margin-top: 1rem; }
-    @media (max-width: 700px) { .built__viewport { height: 420px; } .built__tab { font-size: .85rem; padding: .55rem 1rem; } }
+    @media (max-width: 700px) { .built__tab { font-size: .85rem; padding: .55rem 1rem; } }
     @media (prefers-reduced-motion: reduce) { .built__frame:hover .built__viewport img { transform: none; } }
   </style>
   <section class="section section--alt" id="built">
@@ -895,7 +897,7 @@
           <span class="built__url" id="builtUrl">clickdoselabs.com/example/thicket</span>
           <span class="built__open">Open live page ↗</span>
         </span>
-        <span class="built__viewport"><img id="builtImg" src="../assets/page-lab/built/thicket.jpg" alt="Screenshot of the Thicket listicle demo page" width="1240" height="3000"></span>
+        <span class="built__viewport"><img id="builtImg" src="../assets/page-lab/built/thicket.jpg" alt="Screenshot of the Thicket listicle demo page" width="2100" height="1524"></span>
       </a>
       <p class="built__hint reveal">Hover to preview the scroll. Click anywhere on the page to open the real thing.</p>
     </div>
@@ -1255,7 +1257,7 @@
       <p class="pricing__notes reveal">
         <strong>Month to month. Cancel anytime. No long-term contracts.</strong><br>
         We don't do brand identity, SEO, or social media management.<br>
-        Page Lab is capped at 8 clients.
+        Select clients only.
       </p>
     </div>
   </section>
@@ -1340,7 +1342,7 @@
   <section class="final" id="book">
     <div class="container">
       <h2 class="reveal">Your next winning message<br>is one <span class="hl-em">test</span> away.</h2>
-      <p class="reveal">We only take on a handful of Page Lab clients at a time. 8 seats total. Grab a call and we will map the first angles we would test for you.</p>
+      <p class="reveal">We only take on a select group of Page Lab clients at a time. Grab a call and we will map the first angles we would test for you.</p>
       <a href="#book" class="btn btn--primary btn--lg reveal">Get On The Waitlist</a>
       <p class="final__escape reveal">Or email us directly: <a href="mailto:info@clickdose.com">info@clickdose.com</a></p>
     </div>

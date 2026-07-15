@@ -524,15 +524,13 @@
       opacity: 0;
       will-change: transform, opacity;
     }
-    .work-logo .chip {
-      display: inline-flex;
-      background: var(--cream);
-      border-radius: 20px;
-      padding: 1.2rem 1.8rem;
-      box-shadow: 0 30px 90px rgba(0,0,0,.6), 0 0 60px var(--teal-glow);
+    .work-logo .chip { display: inline-flex; }
+    .work-logo .chip img {
+      height: clamp(100px, 16vw, 210px);
+      width: auto;
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,.6)) drop-shadow(0 0 60px var(--teal-glow));
     }
-    .work-logo .chip img { height: clamp(44px, 6vw, 72px); width: auto; }
-    .work-logo p { margin-top: 1.3rem; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.1rem, 2.2vw, 1.5rem); color: var(--cream-70); }
+    .work-logo p { margin-top: 1.6rem; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.25rem, 2.6vw, 1.8rem); color: var(--cream-70); }
     /* Reduced-motion fallback: static collage + logo */
     .work-pin.static { height: auto; padding: var(--section-y) 0; }
     .work-pin.static .work-stage { position: static; height: auto; flex-direction: column; gap: 2rem; padding: 0 var(--gutter); }
@@ -803,7 +801,7 @@
       <span class="work-label">// The Work</span>
       <div class="work-frame" id="workFrame">
         <span class="work-frame__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/kiln</span></span>
-        <span class="work-frame__viewport"><img id="workImg" src="assets/page-lab/built/kiln.jpg" alt="A brand site built by ClickDose Labs" loading="lazy" width="868" height="2100"></span>
+        <span class="work-frame__viewport"><img id="workImg" src="assets/home/kiln-scroll.jpg" alt="A brand site built by ClickDose Labs" loading="lazy" width="868" height="2100"></span>
       </div>
       <img class="wcard" src="assets/page-lab/pages/thicket.jpg" alt="" loading="lazy" data-x="-38" data-y="-26" data-r="-6">
       <img class="wcard" src="assets/page-lab/pages/harlan-reyes.jpg" alt="" loading="lazy" data-x="-14" data-y="-32" data-r="4">
@@ -816,7 +814,7 @@
       <img class="wcard" src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" loading="lazy" data-x="20" data-y="29" data-r="3">
       <img class="wcard" src="assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" data-x="44" data-y="-4" data-r="2">
       <div class="work-logo" id="workLogo">
-        <span class="chip"><img src="assets/clickdose-labs.png" alt="ClickDose Labs" width="136" height="72"></span>
+        <span class="chip"><img src="assets/clickdose-labs-light.png" alt="ClickDose Labs" width="394" height="210"></span>
         <p>Growth in every dose</p>
       </div>
     </div>
