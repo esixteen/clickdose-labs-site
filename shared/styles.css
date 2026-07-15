@@ -353,3 +353,14 @@ h1, h2, h3, h4 {
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Fraunces italic gradient accent — matches the homepage .em treatment */
+.hl-em {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 340;
+  background: linear-gradient(90deg, #12b895, var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

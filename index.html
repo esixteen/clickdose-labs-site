@@ -387,6 +387,75 @@
     .lab-card__link { font-size: .85rem; font-weight: 600; color: var(--teal); }
     @media (max-width: 860px) { .labs__grid { grid-template-columns: 1fr; } }
 
+    /* The Work: pinned showcase — one page scrubs, explodes into the portfolio, ends on the logo */
+    .work-pin { height: 480vh; position: relative; }
+    .work-stage {
+      position: sticky; top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .work-label {
+      position: absolute; top: 6rem; left: var(--gutter);
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .work-frame {
+      width: min(46rem, 82vw);
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--char-2);
+      box-shadow: 0 40px 120px rgba(0,0,0,.55);
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .work-frame__chrome {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .55rem .9rem;
+      border-bottom: 1px solid var(--line);
+      background: rgba(242,244,243,.04);
+    }
+    .work-frame__chrome i { width: 9px; height: 9px; border-radius: 50%; background: rgba(242,244,243,.18); }
+    .work-frame__chrome span { font-family: var(--font-mono); font-size: .68rem; color: var(--cream-35); }
+    .work-frame__viewport { display: block; height: min(58vh, 34rem); overflow: hidden; }
+    .work-frame__viewport img { width: 100%; height: auto; display: block; will-change: transform; }
+    .wcard {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: clamp(84px, 11vw, 150px);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 50px rgba(0,0,0,.5);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .work-logo {
+      position: absolute;
+      text-align: center;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .work-logo .chip {
+      display: inline-flex;
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 1.2rem 1.8rem;
+      box-shadow: 0 30px 90px rgba(0,0,0,.6), 0 0 60px var(--teal-glow);
+    }
+    .work-logo .chip img { height: clamp(44px, 6vw, 72px); width: auto; }
+    .work-logo p { margin-top: 1.3rem; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.1rem, 2.2vw, 1.5rem); color: var(--cream-70); }
+    /* Reduced-motion fallback: static collage + logo */
+    .work-pin.static { height: auto; padding: var(--section-y) 0; }
+    .work-pin.static .work-stage { position: static; height: auto; flex-direction: column; gap: 2rem; padding: 0 var(--gutter); }
+    .work-pin.static .work-label { position: static; }
+    .work-pin.static .work-frame, .work-pin.static .wcard { display: none; }
+    .work-pin.static .work-logo { position: static; opacity: 1; }
+
     /* Partners (light) */
     .partners__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.2rem; max-width: 60rem; }
     .partner { background: #fff; border: 1px solid var(--line-l); border-radius: 18px; padding: 1.9rem 1.8rem; box-shadow: 0 10px 40px rgba(28,33,31,.06); }
@@ -493,7 +562,6 @@
         <div class="hero__chips">
           <span>Pages built &amp; tested</span>
           <span>Winners scaled with paid media</span>
-          <span>Capped at 8 clients</span>
         </div>
       </div>
     </div>
@@ -625,6 +693,31 @@
           <span class="lab-card__link">Explore Cold Email Lab &rarr;</span>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK: pinned showcase -->
+  <section class="work-pin" id="workpin" aria-label="A showcase of pages built by ClickDose Labs">
+    <div class="work-stage">
+      <span class="work-label">// The Work</span>
+      <div class="work-frame" id="workFrame">
+        <span class="work-frame__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/kiln</span></span>
+        <span class="work-frame__viewport"><img id="workImg" src="assets/page-lab/built/kiln.jpg" alt="A brand site built by ClickDose Labs" loading="lazy" width="868" height="2100"></span>
+      </div>
+      <img class="wcard" src="assets/page-lab/pages/thicket.jpg" alt="" loading="lazy" data-x="-38" data-y="-26" data-r="-6">
+      <img class="wcard" src="assets/page-lab/pages/harlan-reyes.jpg" alt="" loading="lazy" data-x="-14" data-y="-32" data-r="4">
+      <img class="wcard" src="assets/page-lab/pages/maren.jpg" alt="" loading="lazy" data-x="12" data-y="-30" data-r="-3">
+      <img class="wcard" src="assets/page-lab/pages/sable.jpg" alt="" loading="lazy" data-x="36" data-y="-22" data-r="5">
+      <img class="wcard" src="assets/page-lab/pages/keel.jpg" alt="" loading="lazy" data-x="-42" data-y="6" data-r="3">
+      <img class="wcard" src="assets/page-lab/pages/torus.jpg" alt="" loading="lazy" data-x="41" data-y="8" data-r="-5">
+      <img class="wcard" src="assets/page-lab/pages/rhythm.jpg" alt="" loading="lazy" data-x="-29" data-y="28" data-r="5">
+      <img class="wcard" src="assets/page-lab/pages/changing-brain-health.jpg" alt="" loading="lazy" data-x="-5" data-y="33" data-r="-4">
+      <img class="wcard" src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" loading="lazy" data-x="20" data-y="29" data-r="3">
+      <img class="wcard" src="assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" data-x="44" data-y="-4" data-r="2">
+      <div class="work-logo" id="workLogo">
+        <span class="chip"><img src="assets/clickdose-labs.png" alt="ClickDose Labs" width="136" height="72"></span>
+        <p>Eighteen pages built. Yours is next.</p>
       </div>
     </div>
   </section>
@@ -775,6 +868,57 @@
             if (!ticking) { ticking = true; requestAnimationFrame(syncLeak); }
           }, { passive: true });
           syncLeak();
+        }
+      }
+
+      // The Work: pinned showcase choreography
+      var workPin = document.getElementById('workpin');
+      if (workPin) {
+        if (reduced) {
+          workPin.classList.add('static');
+        } else {
+          var wFrame = document.getElementById('workFrame');
+          var wImg = document.getElementById('workImg');
+          var wCards = workPin.querySelectorAll('.wcard');
+          var wLogo = document.getElementById('workLogo');
+          function clamp01(v) { return Math.min(1, Math.max(0, v)); }
+          function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+          var wTicking = false;
+          function syncWork() {
+            var r = workPin.getBoundingClientRect();
+            var total = workPin.offsetHeight - window.innerHeight;
+            var p = clamp01(-r.top / total);
+            // Phase A: scrub the page inside the frame
+            var a = easeOut(clamp01(p / 0.3));
+            var vp = wImg.parentElement;
+            var overpan = Math.max(0, wImg.clientHeight - vp.clientHeight);
+            wImg.style.transform = 'translateY(' + (-a * overpan) + 'px)';
+            // Frame hands off to the cards
+            var fade = clamp01((p - 0.32) / 0.12);
+            wFrame.style.opacity = (1 - fade).toFixed(3);
+            wFrame.style.transform = 'scale(' + (1 - 0.1 * fade).toFixed(4) + ')';
+            wFrame.style.visibility = fade >= 1 ? 'hidden' : 'visible';
+            // Phase B: cards fly out from center to their scattered spots
+            var out = clamp01((p - 0.82) / 0.14);
+            wCards.forEach(function (card, i) {
+              var local = easeOut(clamp01(((p - 0.36) / 0.34) - i * 0.018));
+              var tx = parseFloat(card.getAttribute('data-x')) * local;
+              var ty = parseFloat(card.getAttribute('data-y')) * local;
+              var rot = parseFloat(card.getAttribute('data-r')) * local;
+              var drift = 1 + 0.22 * out;
+              card.style.transform = 'translate(-50%, -50%) translate(' + (tx * drift) + 'vw, ' + (ty * drift) + 'vh) rotate(' + rot + 'deg)';
+              card.style.opacity = (local * (1 - out)).toFixed(3);
+            });
+            // Phase C: logo resolves
+            var c = easeOut(clamp01((p - 0.84) / 0.14));
+            wLogo.style.opacity = c.toFixed(3);
+            wLogo.style.transform = 'scale(' + (0.85 + 0.15 * c).toFixed(4) + ')';
+            wTicking = false;
+          }
+          window.addEventListener('scroll', function () {
+            if (!wTicking) { wTicking = true; requestAnimationFrame(syncWork); }
+          }, { passive: true });
+          if (wImg.complete) { syncWork(); } else { wImg.addEventListener('load', syncWork); }
         }
       }
 
