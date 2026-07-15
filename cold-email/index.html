@@ -959,5 +959,21 @@
 
     Cal.ns.intro("ui", { hideEventTypeDetails: false });
   </script>
+
+  <script>
+    // Match Cal's floating waitlist button to the site's button typography
+    (function () {
+      var tries = 0;
+      var timer = setInterval(function () {
+        var el = document.querySelector('cal-floating-button');
+        if (el && el.shadowRoot) {
+          var s = document.createElement('style');
+          s.textContent = "button{font-family:'Space Grotesk',sans-serif!important;font-weight:600!important;letter-spacing:0!important;border-radius:999px!important;}";
+          el.shadowRoot.appendChild(s);
+          clearInterval(timer);
+        } else if (++tries > 80) { clearInterval(timer); }
+      }, 400);
+    })();
+  </script>
 </body>
 </html>
