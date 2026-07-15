@@ -137,14 +137,8 @@
       backdrop-filter: blur(20px) saturate(150%);
       border-bottom-color: var(--line);
     }
-    .nav__logo {
-      display: inline-flex;
-      background: var(--cream);
-      border-radius: 12px;
-      padding: 7px 12px;
-      line-height: 0;
-    }
-    .nav__logo img { height: 34px; width: auto; }
+    .nav__logo { display: inline-flex; line-height: 0; }
+    .nav__logo img { height: 38px; width: auto; }
     .nav__links { display: flex; align-items: center; gap: 1.6rem; font-size: .875rem; font-weight: 500; }
     .nav__links > a { color: var(--cream-70); text-decoration: none; transition: color .2s ease; }
     .nav__links > a:hover { color: #fff; }
@@ -188,7 +182,97 @@
     }
     .btn:hover { transform: translateY(-1px); box-shadow: 0 0 28px var(--teal-glow); background: #12d8b6; }
     .btn--lg { font-size: 1rem; padding: .95rem 2.1rem; }
-    @media (max-width: 800px) { .nav__links { display: none; } }
+
+    /* Mobile nav: burger + full menu panel + sticky bottom CTA dock */
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px; height: 44px;
+      padding: 0 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .nav__burger span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 2px;
+      background: var(--cream);
+      transition: transform .3s var(--ease), opacity .2s ease;
+    }
+    .nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 19;
+      background: rgba(11, 15, 18, .96);
+      backdrop-filter: blur(24px) saturate(150%);
+      -webkit-backdrop-filter: blur(24px) saturate(150%);
+      border-bottom: 1px solid var(--line);
+      padding: 4.4rem var(--gutter) 1.4rem;
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity .28s var(--ease), transform .28s var(--ease);
+    }
+    .nav__mobile.open { opacity: 1; transform: none; }
+    .nav__mobile-logo { display: inline-flex; margin-bottom: 1.1rem; }
+    .nav__mobile-logo img { height: 40px; width: auto; }
+    .nav__mobile-group {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 1.1rem 0 .3rem;
+    }
+    .nav__mobile a.nav__mobile-link {
+      display: block;
+      padding: .65rem 0;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav__mobile a.nav__mobile-link:last-of-type { border-bottom: none; }
+    .nav__mobile a.nav__mobile-link small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: .8rem;
+      font-weight: 400;
+      color: var(--cream-50);
+      margin-top: .1rem;
+    }
+    .nav__mobile .btn { display: block; text-align: center; margin-top: 1.2rem; }
+    .mobile-dock {
+      display: none;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 18;
+      padding: .7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom, 0px));
+      background: rgba(11, 15, 18, .85);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      border-top: 1px solid var(--line);
+    }
+    .mobile-dock .btn { display: block; text-align: center; }
+    @media (max-width: 800px) {
+      .nav__links { display: none; }
+      .nav__logo { display: none; }
+      .nav__burger { display: flex; }
+      .mobile-dock { display: block; }
+      body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+      cal-floating-button { display: none !important; }
+    }
+    @media (min-width: 801px) { .nav__mobile { display: none !important; } }
 
     /* Hero */
     .hero {
@@ -488,8 +572,8 @@
     /* Footer */
     .footer { background: #07090b; border-top: 1px solid var(--line); padding: 2.4rem 0; }
     .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.6rem; flex-wrap: wrap; }
-    .footer__logo { display: inline-flex; background: var(--cream); border-radius: 12px; padding: 8px 13px; line-height: 0; }
-    .footer__logo img { height: 30px; width: auto; }
+    .footer__logo { display: inline-flex; line-height: 0; }
+    .footer__logo img { height: 34px; width: auto; }
     .footer__links { display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: .8125rem; }
     .footer__links a { color: var(--cream-50); text-decoration: none; }
     .footer__links a:hover { color: var(--cream); }
@@ -517,8 +601,11 @@
   <div class="grain-wrap" aria-hidden="true"><div class="grain"></div></div>
 
   <nav class="nav" id="nav">
+    <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
     <a href="/" class="nav__logo">
-      <img src="assets/clickdose-labs.png" alt="ClickDose Labs" width="83" height="44">
+      <img src="assets/clickdose-labs-light.png" alt="ClickDose Labs" width="83" height="44">
     </a>
     <div class="nav__links">
       <div class="nav__dropdown" tabindex="0">
@@ -545,6 +632,19 @@
     </div>
     <a href="#book" class="btn">Get On The Waitlist</a>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile" id="navMobile">
+    <a href="/" class="nav__mobile-logo"><img src="assets/clickdose-labs-light.png" alt="ClickDose Labs"></a>
+    <p class="nav__mobile-group">Services</p>
+    <a class="nav__mobile-link" href="page-lab/">Page Lab <small>Landing pages built, tested, and iterated until the messaging wins.</small></a>
+    <a class="nav__mobile-link" href="growth-lab/">Growth Lab <small>Paid media that fills your pages with traffic.</small></a>
+    <a class="nav__mobile-link" href="cold-email/">Cold Email Lab <small>Outbound that books qualified meetings.</small></a>
+    <p class="nav__mobile-group">Explore</p>
+    <a class="nav__mobile-link" href="#proof">Results</a>
+    <a class="nav__mobile-link" href="#partners">Team</a>
+    <a href="#book" class="btn">Get On The Waitlist</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="hero">
@@ -768,12 +868,17 @@
     <p class="final__escape reveal">Or email us directly: <a href="mailto:info@clickdose.com">info@clickdose.com</a></p>
   </section>
 
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-dock">
+    <a href="#book" class="btn btn--lg">Get On The Waitlist</a>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
         <a href="/" class="footer__logo">
-          <img src="assets/clickdose-labs.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
+          <img src="assets/clickdose-labs-light.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
         </a>
         <div class="footer__links">
           <a href="page-lab/">Page Lab</a>
@@ -808,6 +913,25 @@
       function handleNavScroll() { nav.classList.toggle('scrolled', window.scrollY > 40); }
       window.addEventListener('scroll', handleNavScroll, { passive: true });
       handleNavScroll();
+
+      // Mobile menu
+      var burger = document.querySelector('.nav__burger');
+      var mobilePanel = document.getElementById('navMobile');
+      if (burger && mobilePanel) {
+        function closeMenu() {
+          burger.setAttribute('aria-expanded', 'false');
+          mobilePanel.classList.remove('open');
+          setTimeout(function () { mobilePanel.style.display = 'none'; }, 280);
+        }
+        burger.addEventListener('click', function () {
+          if (burger.getAttribute('aria-expanded') === 'true') { closeMenu(); return; }
+          burger.setAttribute('aria-expanded', 'true');
+          mobilePanel.style.display = 'block';
+          nav.classList.add('scrolled');
+          requestAnimationFrame(function () { mobilePanel.classList.add('open'); });
+        });
+        mobilePanel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+      }
 
       // Word-stagger blur-in (hero fires on load)
       document.querySelectorAll('[data-words]').forEach(function (el) {
@@ -950,12 +1074,13 @@
       });
     });
 
-    // Floating waitlist button (bottom-right, all pages)
+    // Floating waitlist button (desktop; the mobile dock replaces it on small screens)
     Cal.ns.intro("floatingButton", {
       calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b",
       buttonText: "Get On The Waitlist",
       buttonColor: "#00C9A7",
-      buttonTextColor: "#FFFFFF"
+      buttonTextColor: "#FFFFFF",
+      hideButtonOnMobile: true
     });
 
     Cal.ns.intro("ui", { hideEventTypeDetails: false });

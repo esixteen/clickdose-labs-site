@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
-  <meta name="theme-color" content="#00C9A7">
+  <meta name="theme-color" content="#0b0f12">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ClickDose Labs">
@@ -49,7 +49,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../shared/styles.css">
   <style>
     /* ============ Page-specific sections ============ */
@@ -84,7 +84,7 @@
       font-family: 'Fraunces', Georgia, serif;
       font-style: italic;
       font-weight: 300;
-      background: linear-gradient(90deg, #12b895, var(--color-accent));
+      background: linear-gradient(90deg, #46e3c4, var(--color-accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -298,14 +298,14 @@
       border: 1px solid var(--color-border);
     }
     .compare__col--bad { background: var(--color-surface); }
-    .compare__col--good { background: var(--color-dark); border-color: var(--color-dark); }
+    .compare__col--good { background: rgba(0, 201, 167, 0.06); border-color: rgba(0, 201, 167, 0.4); }
     .compare__col h3 {
       font-size: 1.125rem;
       margin-bottom: 1.25rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--color-border-soft);
     }
-    .compare__col--good h3 { color: #fff; border-bottom-color: rgba(255,255,255,0.1); }
+    .compare__col--good h3 { color: #fff; border-bottom-color: rgba(0,201,167,0.25); }
     .compare__row {
       display: flex; gap: 0.75rem; align-items: flex-start;
       padding: 0.7rem 0;
@@ -332,7 +332,7 @@
     }
     .included__check {
       flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px;
-      background: var(--color-accent); color: #fff;
+      background: var(--color-accent); color: var(--char);
       display: flex; align-items: center; justify-content: center;
     }
     .included__check svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 3.5; fill: none; }
@@ -407,7 +407,9 @@
 
     /* ---- FINAL CTA ---- */
     .final {
-      background: var(--color-dark);
+      position: relative;
+      background: radial-gradient(ellipse 70% 90% at 50% 110%, rgba(0, 201, 167, .14), transparent 65%), #07090b;
+      border-top: 1px solid var(--line);
       text-align: center;
       padding: clamp(5rem, 9vw, 7rem) 0;
     }
@@ -453,11 +455,16 @@
 </head>
 <body>
 
+  <div class="grain-wrap" aria-hidden="true"><div class="grain"></div></div>
+
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="container nav__inner">
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
       <a href="../" class="nav__logo">
-        <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" width="83" height="44">
+        <img src="../assets/clickdose-labs-light.png" alt="ClickDose Labs" width="83" height="44">
       </a>
       <div class="nav__links">
         <div class="nav__dropdown" tabindex="0">
@@ -488,13 +495,26 @@
     </div>
   </nav>
 
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile" id="navMobile">
+    <a href="../" class="nav__mobile-logo"><img src="../assets/clickdose-labs-light.png" alt="ClickDose Labs"></a>
+    <p class="nav__mobile-group">Services</p>
+    <a class="nav__mobile-link" href="../page-lab/">Page Lab <small>Landing pages built, tested, and iterated until the messaging wins.</small></a>
+    <a class="nav__mobile-link" href="../growth-lab/">Growth Lab <small>Paid media that fills your pages with traffic.</small></a>
+    <a class="nav__mobile-link" href="../cold-email/">Cold Email Lab <small>Outbound that books qualified meetings.</small></a>
+    <p class="nav__mobile-group">Explore</p>
+    <a class="nav__mobile-link" href="#testimonials">Results</a>
+    <a class="nav__mobile-link" href="#pricing">Pricing</a>
+    <a href="#book" class="btn">Get On The Waitlist</a>
+  </div>
+
   <!-- HERO -->
   <header class="page-hero" id="hero">
     <div class="container">
       <div class="page-hero__content">
-        <p class="section-label">Outbound Customer Acquisition · Cold Email Lab</p>
-        <h1>Turn cold email into your most <span class="page-hero__highlight">predictable</span> pipeline channel.</h1>
-        <p class="page-hero__sub">We build the lists, warm the inboxes, and run AI-personalized campaigns that book qualified meetings on your calendar. Powered by Clay and Smartlead, fully managed by senior operators. You own every domain. You just take the calls.</p>
+        <p class="section-label" data-words data-delay="300">Outbound Customer Acquisition · Cold Email Lab</p>
+        <h1 data-words data-delay="500">Turn cold email into your most <span class="page-hero__highlight">predictable</span> pipeline channel.</h1>
+        <p class="page-hero__sub" data-words data-delay="1100">We build the lists, warm the inboxes, and run AI-personalized campaigns that book qualified meetings on your calendar. Powered by Clay and Smartlead, fully managed by senior operators. You own every domain. You just take the calls.</p>
         <div class="page-hero__ctas">
           <a href="#book" class="btn btn--primary btn--lg">Get On The Waitlist</a>
           <a href="#how" class="btn btn--outline btn--lg">See How It Works</a>
@@ -861,12 +881,17 @@
     </div>
   </section>
 
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-dock">
+    <a href="#book" class="btn btn--lg">Get On The Waitlist</a>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <a href="../" class="footer__logo" style="display:inline-flex; background:var(--color-bg); padding:10px 16px; border-radius:12px;">
-          <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
+        <a href="../" class="footer__logo">
+          <img src="../assets/clickdose-labs-light.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
         </a>
         <div class="footer__links">
           <a href="../page-lab/">Page Lab</a>
@@ -892,44 +917,7 @@
     </div>
   </footer>
 
-  <script>
-    (function() {
-      var nav = document.getElementById('nav');
-      function handleNavScroll() {
-        if (window.scrollY > 40) { nav.classList.add('scrolled'); }
-        else { nav.classList.remove('scrolled'); }
-      }
-      window.addEventListener('scroll', handleNavScroll, { passive: true });
-      handleNavScroll();
-
-      var revealObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-      document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
-
-      // FAQ accordion
-      document.querySelectorAll('.faq__q').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var item = btn.parentElement;
-          var answer = btn.nextElementSibling;
-          var isOpen = item.classList.contains('open');
-          document.querySelectorAll('.faq__item.open').forEach(function(openItem) {
-            openItem.classList.remove('open');
-            openItem.querySelector('.faq__a').style.maxHeight = null;
-          });
-          if (!isOpen) {
-            item.classList.add('open');
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-          }
-        });
-      });
-    })();
-  </script>
+  <script src="../shared/site.js" defer></script>
 
   <!-- Cal.com embed: waitlist form popup on all CTA buttons + floating button -->
   <script type="text/javascript">
@@ -949,31 +937,16 @@
       });
     });
 
-    // Floating waitlist button (bottom-right, all pages)
+    // Floating waitlist button (desktop; the mobile dock replaces it on small screens)
     Cal.ns.intro("floatingButton", {
       calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b",
       buttonText: "Get On The Waitlist",
       buttonColor: "#00C9A7",
-      buttonTextColor: "#FFFFFF"
+      buttonTextColor: "#FFFFFF",
+      hideButtonOnMobile: true
     });
 
     Cal.ns.intro("ui", { hideEventTypeDetails: false });
-  </script>
-
-  <script>
-    // Match Cal's floating waitlist button to the site's button typography
-    (function () {
-      var tries = 0;
-      var timer = setInterval(function () {
-        var el = document.querySelector('cal-floating-button');
-        if (el && el.shadowRoot) {
-          var s = document.createElement('style');
-          s.textContent = "button{font-family:'Space Grotesk',sans-serif!important;font-weight:600!important;letter-spacing:0!important;border-radius:999px!important;}";
-          el.shadowRoot.appendChild(s);
-          clearInterval(timer);
-        } else if (++tries > 80) { clearInterval(timer); }
-      }, 400);
-    })();
   </script>
 </body>
 </html>

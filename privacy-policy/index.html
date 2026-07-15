@@ -12,11 +12,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
-  <meta name="theme-color" content="#00C9A7">
+  <meta name="theme-color" content="#0b0f12">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-bg: #FDF8F4;
@@ -68,7 +68,7 @@
     }
     .nav__back:hover { color: var(--color-accent); }
 
-    .doc { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 7rem); }
+    .doc { padding: calc(var(--nav-height) + clamp(2.5rem, 5vw, 4rem)) 0 clamp(4rem, 8vw, 7rem); }
     .doc__eyebrow {
       font-family: var(--font-display); font-size: 0.8125rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent);
@@ -117,10 +117,15 @@
   <link rel="stylesheet" href="../shared/styles.css">
 </head>
 <body>
+  <div class="grain-wrap" aria-hidden="true"><div class="grain"></div></div>
+
   <nav class="nav" id="nav">
     <div class="container nav__inner">
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
       <a href="../" class="nav__logo">
-        <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" width="83" height="44">
+        <img src="../assets/clickdose-labs-light.png" alt="ClickDose Labs" width="83" height="44">
       </a>
       <div class="nav__links">
         <div class="nav__dropdown" tabindex="0">
@@ -150,6 +155,19 @@
       </div>
     </div>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile" id="navMobile">
+    <a href="../" class="nav__mobile-logo"><img src="../assets/clickdose-labs-light.png" alt="ClickDose Labs"></a>
+    <p class="nav__mobile-group">Services</p>
+    <a class="nav__mobile-link" href="../page-lab/">Page Lab <small>Landing pages built, tested, and iterated until the messaging wins.</small></a>
+    <a class="nav__mobile-link" href="../growth-lab/">Growth Lab <small>Paid media that fills your pages with traffic.</small></a>
+    <a class="nav__mobile-link" href="../cold-email/">Cold Email Lab <small>Outbound that books qualified meetings.</small></a>
+    <p class="nav__mobile-group">Explore</p>
+    <a class="nav__mobile-link" href="../#proof">Results</a>
+    <a class="nav__mobile-link" href="../#partners">Team</a>
+    <a href="#book" class="btn">Get On The Waitlist</a>
+  </div>
 
   <main class="doc">
     <div class="container">
@@ -210,11 +228,16 @@
     </div>
   </main>
 
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-dock">
+    <a href="#book" class="btn btn--lg">Get On The Waitlist</a>
+  </div>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <a href="../" class="footer__logo" style="display:inline-flex; background:var(--color-bg); padding:10px 16px; border-radius:12px;">
-          <img src="../assets/clickdose-labs.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
+        <a href="../" class="footer__logo">
+          <img src="../assets/clickdose-labs-light.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
         </a>
         <div class="footer__links">
           <a href="../page-lab/">Page Lab</a>
@@ -239,6 +262,7 @@
       </div>
     </div>
   </footer>
+  <script src="../shared/site.js" defer></script>
   <!-- Cal.com embed: waitlist form popup on all CTA buttons + floating button -->
   <script type="text/javascript">
     (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
@@ -262,27 +286,12 @@
       calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b",
       buttonText: "Get On The Waitlist",
       buttonColor: "#00C9A7",
-      buttonTextColor: "#FFFFFF"
+      buttonTextColor: "#FFFFFF",
+      hideButtonOnMobile: true
     });
 
     Cal.ns.intro("ui", { hideEventTypeDetails: false });
   </script>
 
-
-  <script>
-    // Match Cal's floating waitlist button to the site's button typography
-    (function () {
-      var tries = 0;
-      var timer = setInterval(function () {
-        var el = document.querySelector('cal-floating-button');
-        if (el && el.shadowRoot) {
-          var s = document.createElement('style');
-          s.textContent = "button{font-family:'Space Grotesk',sans-serif!important;font-weight:600!important;letter-spacing:0!important;border-radius:999px!important;}";
-          el.shadowRoot.appendChild(s);
-          clearInterval(timer);
-        } else if (++tries > 80) { clearInterval(timer); }
-      }, 400);
-    })();
-  </script>
 </body>
 </html>
