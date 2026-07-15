@@ -49,7 +49,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../shared/styles.css">
   <style>
     /* ============ Page-specific sections ============ */
@@ -80,14 +80,14 @@
     .page-hero .container { position: relative; z-index: 1; }
     .page-hero__content { max-width: 860px; margin: 0 auto; }
     .page-hero h1 { font-size: var(--h1-size); letter-spacing: -0.02em; }
-    .page-hero__highlight { position: relative; color: var(--color-accent); white-space: nowrap; }
-    .page-hero__highlight::after {
-      content: '';
-      position: absolute; left: 0; right: 0; bottom: 0.08em;
-      height: 0.16em;
-      background: var(--color-accent-tint);
-      z-index: -1;
-      border-radius: 2px;
+    .page-hero__highlight {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      background: linear-gradient(90deg, #12b895, var(--color-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     .page-hero__sub {
       font-size: var(--body-lg);

@@ -301,36 +301,61 @@
     .logos__group img { height: 34px; width: auto; opacity: .75; filter: grayscale(1); }
     @media (prefers-reduced-motion: reduce) { .logos__track { animation: none; } }
 
-    /* Leak (dark) */
-    .leak__list { list-style: none; max-width: 46rem; margin: 1.8rem 0; }
-    .leak__list li {
-      display: flex; gap: 1.1rem; align-items: baseline;
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--line);
-      color: var(--cream-70);
-      font-size: 1.02rem;
-      counter-increment: leak;
+    /* Leak: pinned scroll scene — the stage stays still, the content changes */
+    .leak-pin { height: 380vh; position: relative; }
+    .leak-stage {
+      position: sticky; top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
     }
-    .leak__list li::before {
-      content: "// 0" counter(leak);
+    .leak-scenes { position: relative; max-width: 46rem; min-height: clamp(13rem, 34vw, 15rem); margin-top: 1.8rem; }
+    .leak-scene {
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .55s var(--ease), transform .55s var(--ease);
+      pointer-events: none;
+    }
+    .leak-scene.on { opacity: 1; transform: none; pointer-events: auto; }
+    .leak-scene .ln {
       font-family: var(--font-mono);
       font-size: .72rem;
-      letter-spacing: .14em;
+      letter-spacing: .18em;
       color: var(--teal);
-      flex-shrink: 0;
+      display: block;
+      margin-bottom: .8rem;
+    }
+    .leak-scene p.big {
+      font-size: clamp(1.25rem, 2.8vw, 1.9rem);
+      line-height: 1.45;
+      color: var(--cream);
+      font-weight: 500;
+      letter-spacing: -.01em;
     }
     .leak__math {
-      max-width: 44rem;
       font-family: var(--font-serif);
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+      font-size: clamp(1.25rem, 2.8vw, 1.9rem);
       line-height: 1.5;
       color: var(--cream);
-      margin: 1.8rem 0 1.4rem;
+      margin-bottom: 1.2rem;
     }
     .leak__link { color: var(--teal); font-weight: 600; text-decoration: none; font-size: .95rem; }
     .leak__link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .leak-progress { display: flex; gap: .5rem; margin-top: 2.2rem; }
+    .leak-progress i { width: 2.6rem; height: 2px; background: var(--line); transition: background .4s ease; }
+    .leak-progress i.on { background: var(--teal); }
+    /* Reduced motion / no-JS fallback: static stacked scenes */
+    .leak-pin.static { height: auto; padding: var(--section-y) 0; }
+    .leak-pin.static .leak-stage { position: static; height: auto; }
+    .leak-pin.static .leak-scenes { min-height: 0; }
+    .leak-pin.static .leak-scene { position: static; opacity: 1; transform: none; margin-bottom: 1.6rem; pointer-events: auto; }
+    .leak-pin.static .leak-progress { display: none; }
 
     /* Labs (dark glass cards) */
     .labs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
@@ -533,20 +558,33 @@
     </div>
   </section>
 
-  <!-- THE LEAK (dark) -->
-  <section class="band" id="leak">
-    <div class="container">
-      <div class="reveal">
+  <!-- THE LEAK: pinned scroll scene -->
+  <section class="leak-pin" id="leak">
+    <div class="leak-stage">
+      <div class="container">
         <span class="section-label">The Leak</span>
-        <h2 data-scrub-scale>What your current pages are <span class="em">costing</span> you.</h2>
+        <h2>What your current pages are <span class="em">costing</span> you.</h2>
+        <div class="leak-scenes">
+          <div class="leak-scene on">
+            <span class="ln">// 01 — The conversion tax</span>
+            <p class="big">Every visitor hitting an untested page is ad spend converting at a fraction of what it could.</p>
+          </div>
+          <div class="leak-scene">
+            <span class="ln">// 02 — The starving algorithm</span>
+            <p class="big">One page and one angle means the ad platform can only find one kind of customer.</p>
+          </div>
+          <div class="leak-scene">
+            <span class="ln">// 03 — The testing gap</span>
+            <p class="big">A six-week page turnaround means eight tests a year. Your competitors run eighty.</p>
+          </div>
+          <div class="leak-scene">
+            <span class="ln">// 04 — The math</span>
+            <p class="leak__math">At $20k/mo in spend, the gap between a 1.5% and a 2% page is thousands of dollars a month. Every month, compounding.</p>
+            <a href="page-lab/" class="leak__link">See how Page Lab fixes this &rarr;</a>
+          </div>
+        </div>
+        <div class="leak-progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
       </div>
-      <ul class="leak__list stagger" style="counter-reset: leak">
-        <li class="reveal">Every visitor hitting an untested page is ad spend converting at a fraction of what it could.</li>
-        <li class="reveal">One page and one angle means the ad platform can only find one kind of customer.</li>
-        <li class="reveal">A six-week page turnaround means eight tests a year. Your competitors run eighty.</li>
-      </ul>
-      <p class="leak__math reveal">At $20k/mo in spend, the gap between a 1.5% and a 2% page is thousands of dollars a month. Every month, compounding.</p>
-      <a href="page-lab/" class="leak__link reveal">See how Page Lab fixes this &rarr;</a>
     </div>
   </section>
 
@@ -711,22 +749,33 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
       document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
 
-      // Scroll-scrubbed heading scale
-      var scrubs = document.querySelectorAll('[data-scrub-scale]');
-      if (scrubs.length && !reduced) {
-        function ease(t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
-        (function frame() {
-          var vh = window.innerHeight;
-          scrubs.forEach(function (el) {
-            var r = el.getBoundingClientRect();
-            var i = Math.min(1, Math.max(0, (vh - (r.top + r.height / 2)) / (0.35 * vh) + 1));
-            var e = ease(i);
-            el.style.opacity = (.25 + .75 * e).toFixed(3);
-            el.style.transform = 'scale(' + (.9 + .1 * e).toFixed(4) + ')';
-            el.style.transformOrigin = 'left center';
-          });
-          requestAnimationFrame(frame);
-        })();
+      // Pinned Leak scene: the stage stays still, scenes swap with scroll progress
+      var leakPin = document.getElementById('leak');
+      if (leakPin) {
+        if (reduced) {
+          leakPin.classList.add('static');
+        } else {
+          var scenes = leakPin.querySelectorAll('.leak-scene');
+          var dots = leakPin.querySelectorAll('.leak-progress i');
+          var lastIdx = 0;
+          var ticking = false;
+          function syncLeak() {
+            var r = leakPin.getBoundingClientRect();
+            var total = leakPin.offsetHeight - window.innerHeight;
+            var p = Math.min(0.999, Math.max(0, -r.top / total));
+            var idx = Math.min(scenes.length - 1, Math.floor(p * scenes.length));
+            if (idx !== lastIdx) {
+              lastIdx = idx;
+              scenes.forEach(function (s, i) { s.classList.toggle('on', i === idx); });
+              dots.forEach(function (d, i) { d.classList.toggle('on', i <= idx); });
+            }
+            ticking = false;
+          }
+          window.addEventListener('scroll', function () {
+            if (!ticking) { ticking = true; requestAnimationFrame(syncLeak); }
+          }, { passive: true });
+          syncLeak();
+        }
       }
 
       // Videos pause offscreen
