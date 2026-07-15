@@ -19,3 +19,12 @@ https://cereflexlabs.com/pages/science | Science page
 https://mrlandlordloan.com/
 https://bdcapital.com/
 https://inevitrade.com/craig-percoco-masterclass-live/
+
+# Demo pages built by ClickDose Labs (2026-07-14)
+https://clickdoselabs.com/example/thicket/ | Listicle demo
+https://clickdoselabs.com/example/harlan-reyes/ | Lead gen demo
+https://clickdoselabs.com/example/maren/ | Advertorial demo
+https://clickdoselabs.com/example/sable/ | Sales page demo
+https://clickdoselabs.com/example/keel/ | Comparison page demo
+https://clickdoselabs.com/example/kiln/ | Brand site demo
+https://clickdoselabs.com/example/torus/ | Product launch demo

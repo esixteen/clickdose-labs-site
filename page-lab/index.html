@@ -805,6 +805,117 @@
     </div>
   </section>
 
+  <!-- PAGES WE'VE BUILT (interactive selector) -->
+  <style>
+    .built__tabs { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; max-width: 820px; margin: 0 auto 1.8rem; }
+    .built__tab {
+      font-family: var(--font-display);
+      font-size: .95rem; font-weight: 600;
+      padding: .65rem 1.3rem;
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border, #e7e0d8);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+      color: var(--color-text, #1a1a1a);
+    }
+    .built__tab:hover { border-color: var(--color-accent); transform: translateY(-1px); }
+    .built__tab.active { background: var(--color-accent-tint, #e0f7f1); border-color: var(--color-accent); color: var(--color-text); }
+    .built__frame {
+      max-width: 980px;
+      margin: 0 auto;
+      border-radius: 18px;
+      border: 1px solid var(--color-border, #e7e0d8);
+      background: var(--color-surface, #fff);
+      box-shadow: 0 24px 60px rgba(26,26,26,.12);
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+    }
+    .built__chrome {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .65rem 1rem;
+      border-bottom: 1px solid var(--color-border, #e7e0d8);
+      background: var(--color-bg-alt, #f7f2ee);
+    }
+    .built__dots { display: flex; gap: .35rem; }
+    .built__dots i { width: 10px; height: 10px; border-radius: 50%; background: #dcd4ca; }
+    .built__url { font-size: .78rem; color: var(--color-text-soft, #6d675f); font-family: monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .built__open {
+      margin-left: auto;
+      font-size: .78rem; font-weight: 700;
+      color: var(--color-accent);
+      white-space: nowrap;
+    }
+    .built__viewport { height: 620px; overflow: hidden; position: relative; }
+    .built__viewport img { width: 100%; height: auto; display: block; transition: transform 6s ease; }
+    .built__frame:hover .built__viewport img { transform: translateY(calc(-1 * max(0px, var(--overpan, 800px)))); }
+    .built__hint { text-align: center; font-size: .8125rem; color: var(--color-text-soft, #6d675f); margin-top: 1rem; }
+    @media (max-width: 700px) { .built__viewport { height: 420px; } .built__tab { font-size: .85rem; padding: .55rem 1rem; } }
+    @media (prefers-reduced-motion: reduce) { .built__frame:hover .built__viewport img { transform: none; } }
+  </style>
+  <section class="section section--alt" id="built">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">Pages We've Built</p>
+        <h2>Pick a format. See a real build.</h2>
+        <p>Every format below is a live page we built end to end: strategy, copy, design, and code. Click through and judge the craft on the page itself.</p>
+      </div>
+      <div class="built__tabs reveal" role="tablist" aria-label="Page formats">
+        <button class="built__tab active" data-built="thicket" role="tab" aria-selected="true">Listicles</button>
+        <button class="built__tab" data-built="harlan-reyes" role="tab" aria-selected="false">Lead Gen</button>
+        <button class="built__tab" data-built="maren" role="tab" aria-selected="false">Advertorials</button>
+        <button class="built__tab" data-built="sable" role="tab" aria-selected="false">Sales Pages</button>
+        <button class="built__tab" data-built="keel" role="tab" aria-selected="false">Compare Pages</button>
+        <button class="built__tab" data-built="kiln" role="tab" aria-selected="false">Brand Sites</button>
+        <button class="built__tab" data-built="torus" role="tab" aria-selected="false">Product Launches</button>
+        <button class="built__tab" data-built="rhythm" role="tab" aria-selected="false">Landing Pages</button>
+      </div>
+      <a class="built__frame reveal" id="builtFrame" href="https://clickdoselabs.com/example/thicket/" target="_blank" rel="noopener" aria-label="Open the live page in a new tab">
+        <span class="built__chrome">
+          <span class="built__dots"><i></i><i></i><i></i></span>
+          <span class="built__url" id="builtUrl">clickdoselabs.com/example/thicket</span>
+          <span class="built__open">Open live page ↗</span>
+        </span>
+        <span class="built__viewport"><img id="builtImg" src="../assets/page-lab/built/thicket.jpg" alt="Screenshot of the Thicket listicle demo page" width="1240" height="3000" style="--overpan:2380px"></span>
+      </a>
+      <p class="built__hint reveal">Hover to preview the scroll. Click anywhere on the page to open the real thing.</p>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var builtPages = {
+        'thicket':      { url: 'https://clickdoselabs.com/example/thicket/',      label: 'clickdoselabs.com/example/thicket',      alt: 'Screenshot of the Thicket listicle demo page' },
+        'harlan-reyes': { url: 'https://clickdoselabs.com/example/harlan-reyes/', label: 'clickdoselabs.com/example/harlan-reyes', alt: 'Screenshot of the Harlan and Reyes lead gen demo page' },
+        'maren':        { url: 'https://clickdoselabs.com/example/maren/',        label: 'clickdoselabs.com/example/maren',        alt: 'Screenshot of the Maren advertorial demo page' },
+        'sable':        { url: 'https://clickdoselabs.com/example/sable/',        label: 'clickdoselabs.com/example/sable',        alt: 'Screenshot of the Sable sales page demo' },
+        'keel':         { url: 'https://clickdoselabs.com/example/keel/',         label: 'clickdoselabs.com/example/keel',         alt: 'Screenshot of the Keel comparison page demo' },
+        'kiln':         { url: 'https://clickdoselabs.com/example/kiln/',         label: 'clickdoselabs.com/example/kiln',         alt: 'Screenshot of the Kiln brand site demo' },
+        'torus':        { url: 'https://clickdoselabs.com/example/torus/',        label: 'clickdoselabs.com/example/torus',        alt: 'Screenshot of the Torus product launch demo' },
+        'rhythm':       { url: 'https://cereflexlabs.com/pages/rhythm',           label: 'cereflexlabs.com/pages/rhythm',          alt: 'Screenshot of the CereFlex Rhythm landing page' }
+      };
+      var frame = document.getElementById('builtFrame');
+      var img = document.getElementById('builtImg');
+      var urlEl = document.getElementById('builtUrl');
+      var tabs = document.querySelectorAll('.built__tab');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var key = tab.getAttribute('data-built');
+          var page = builtPages[key];
+          tabs.forEach(function (t) { t.classList.toggle('active', t === tab); t.setAttribute('aria-selected', t === tab ? 'true' : 'false'); });
+          img.src = '../assets/page-lab/built/' + key + '.jpg';
+          img.alt = page.alt;
+          frame.href = page.url;
+          urlEl.textContent = page.label;
+        });
+      });
+      // Preload the other captures after idle so tab switches are instant
+      setTimeout(function () {
+        Object.keys(builtPages).forEach(function (k) { var i = new Image(); i.src = '../assets/page-lab/built/' + k + '.jpg'; });
+      }, 2500);
+    });
+  </script>
+
   <!-- THE WORK / GALLERY -->
   <section class="section" id="work">
     <div class="container">
@@ -831,6 +942,13 @@
             <div class="mq-card"><img src="../assets/page-lab/pages/mrlandlordloan.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
             <div class="mq-card"><img src="../assets/page-lab/pages/bdcapital.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
             <div class="mq-card"><img src="../assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="Landing page by ClickDose Labs" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/thicket.jpg" alt="Listicle demo" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/harlan-reyes.jpg" alt="Lead gen demo" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/maren.jpg" alt="Advertorial demo" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/sable.jpg" alt="Sales page demo" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/keel.jpg" alt="Comparison page demo" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/kiln.jpg" alt="Brand site demo" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card"><img src="../assets/page-lab/pages/torus.jpg" alt="Product launch demo" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/changing-brain-health.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/sleep.jpg" alt="" loading="lazy" width="208" height="300"></div>
@@ -842,6 +960,13 @@
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/mrlandlordloan.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/bdcapital.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/craig-percoco-masterclass-live.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/thicket.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/harlan-reyes.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/maren.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/sable.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/keel.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/kiln.jpg" alt="" loading="lazy" width="208" height="300"></div>
+            <div class="mq-card" aria-hidden="true"><img src="../assets/page-lab/pages/torus.jpg" alt="" loading="lazy" width="208" height="300"></div>
             <!-- PL:PAGES:END -->
           </div>
         </div>
@@ -1091,6 +1216,7 @@
           <div class="tier__price"><span class="tier__price-amount">+$1,000</span><span class="tier__price-period">/mo</span></div>
           <p class="tier__pitch">A structured A/B testing program on your traffic. This is where the data picks the winner.</p>
           <ul class="tier__features">
+            <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Page and creative variants for every customer pain point, at the testing velocity Meta's Andromeda rewards</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Hypotheses and test setup on your pages</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Disciplined reads on every experiment</li>
             <li><svg class="tier__check" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> A monthly readout tied to CVR and CAC</li>
