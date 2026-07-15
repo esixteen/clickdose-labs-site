@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiln — Coffee still warm from the roast</title>
+  <meta name="description" content="Kiln roasts single-origin coffee to order every Monday and ships it within 48 hours. Coffee peaks days after roast. Ours arrives inside the window.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2213%22%20fill%3D%22%230c0a08%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2238%22%20font-weight%3D%22700%22%20fill%3D%22%23ff7a4a%22%20text-anchor%3D%22middle%22%3EK%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0c0a08">
+  <link rel="canonical" href="https://clickdoselabs.com/example/kiln/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kiln · ClickDose Labs demo">
+  <meta property="og:title" content="Kiln — Coffee still warm from the roast">
+  <meta property="og:description" content="Single-origin coffee roasted to order every Monday, shipped within 48 hours of the drop.">
+  <meta property="og:url" content="https://clickdoselabs.com/example/kiln/">
+  <meta property="og:image" content="https://clickdoselabs.com/example/kiln/assets/bag.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --char: #0c0a08;
+      --char-2: #16120e;
+      --cream: #f4ede2;
+      --cream-70: rgba(244, 237, 226, .7);
+      --cream-50: rgba(244, 237, 226, .5);
+      --cream-35: rgba(244, 237, 226, .35);
+      --line: rgba(244, 237, 226, .09);
+      --glass: rgba(244, 237, 226, .05);
+      --ember-a: #ff9d5c;
+      --ember-b: #ff5f3c;
+      --ember-glow: rgba(255, 122, 74, .35);
+      --font-sans: 'Instrument Sans', -apple-system, sans-serif;
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --gutter: clamp(1.25rem, 6vw, 6rem);
+      --section-y: clamp(5rem, 12vw, 10rem);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--char);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img, video { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 82rem; margin: 0 auto; padding: 0 var(--gutter); }
+    .em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      background: linear-gradient(90deg, var(--ember-a), var(--ember-b));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--cream-50);
+      display: block;
+      margin-bottom: 1.1rem;
+    }
+
+    /* Grain overlay */
+    .grain-wrap { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 3; }
+    .grain {
+      position: absolute; inset: -100px;
+      pointer-events: none;
+      opacity: .5;
+      mix-blend-mode: overlay;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/%3E%3C/filter%3E%3Crect width="300" height="300" filter="url(%23n)" opacity="0.35"/%3E%3C/svg%3E');
+      animation: grain 1.2s steps(6) infinite;
+    }
+    @keyframes grain {
+      0%, 100% { transform: translate(0,0); }
+      20% { transform: translate(-30px, 20px); }
+      40% { transform: translate(20px, -30px); }
+      60% { transform: translate(-20px, -20px); }
+      80% { transform: translate(30px, 30px); }
+    }
+    @media (prefers-reduced-motion: reduce) { .grain { animation: none; } }
+
+    /* Demo bar + nav */
+    .demo-bar {
+      position: relative; z-index: 20;
+      background: #000;
+      color: var(--cream-50);
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: .45rem 1rem;
+    }
+    .demo-bar a { color: var(--ember-a); }
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 15;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem var(--gutter);
+      transition: background .28s ease, backdrop-filter .28s ease, border-color .28s ease;
+      border-bottom: 1px solid transparent;
+      margin-top: 1.75rem;
+    }
+    .nav.scrolled {
+      background: rgba(12, 10, 8, .55);
+      backdrop-filter: blur(20px) saturate(140%);
+      border-bottom-color: var(--line);
+      margin-top: 0;
+    }
+    .nav .mark { font-family: var(--font-sans); font-weight: 600; font-size: 1.15rem; letter-spacing: .28em; text-indent: .28em; }
+    .nav .mark .flame { color: var(--ember-b); }
+    .btn {
+      display: inline-block;
+      background: var(--cream);
+      color: var(--char);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .75rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+    .btn:hover { box-shadow: 0 0 28px var(--ember-glow); transform: translateY(-1px); }
+    .btn--ghost { background: transparent; color: var(--cream); border: 1px solid rgba(244,237,226,.3); }
+    .btn--ghost:hover { border-color: rgba(244,237,226,.6); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 720px;
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(12,10,8,.55) 0%, rgba(12,10,8,.25) 40%, rgba(12,10,8,.78) 100%);
+      z-index: -1;
+    }
+    .hero__inner {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 0 var(--gutter) clamp(2.5rem, 6vh, 4.5rem);
+    }
+    .hero__mark {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: clamp(5rem, 17vw, 16rem);
+      line-height: .8;
+      letter-spacing: -.04em;
+      color: var(--cream);
+      user-select: none;
+    }
+    .hero__mark .flame { color: var(--ember-b); }
+    .hero__mark small { display: block; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-50); margin-top: 1rem; }
+    .hero__copy { max-width: 26rem; text-align: right; }
+    .hero__copy h1 {
+      font-weight: 500;
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin-bottom: .9rem;
+    }
+    .hero__copy p { font-size: .975rem; color: var(--cream-70); margin-bottom: 1.4rem; }
+    .hero__ctas { display: flex; gap: .8rem; justify-content: flex-end; flex-wrap: wrap; }
+    @media (max-width: 880px) {
+      .hero__inner { flex-direction: column; align-items: flex-start; }
+      .hero__copy { text-align: left; max-width: 30rem; }
+      .hero__ctas { justify-content: flex-start; }
+    }
+    /* word-stagger blur-in */
+    .w { display: inline-block; opacity: 0; filter: blur(12px); transform: translateY(8px); transition: opacity .6s ease-out, filter .6s ease-out, transform .6s ease-out; }
+    .words-in .w { opacity: 1; filter: blur(0); transform: none; }
+
+    /* Marquee */
+    .marquee {
+      border-block: 1px solid var(--line);
+      overflow: hidden;
+      padding: 1rem 0;
+      white-space: nowrap;
+      mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent);
+    }
+    .marquee__track { display: inline-block; width: max-content; animation: marquee 60s linear infinite; }
+    .marquee span {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--cream-35);
+      margin-right: 2.4rem;
+    }
+    .marquee .dot { color: var(--ember-b); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+
+    /* Statement (scroll-scrubbed scale) */
+    .statement { padding: var(--section-y) 0; text-align: center; }
+    .statement h2 {
+      font-weight: 500;
+      font-size: clamp(1.9rem, 4.6vw, 3.6rem);
+      line-height: 1.14;
+      letter-spacing: -.025em;
+      max-width: 22ch;
+      margin: 0 auto;
+      will-change: transform, opacity;
+    }
+
+    /* ROAST SCRUB set piece */
+    .roast { position: relative; height: 400vh; }
+    .roast__stage {
+      position: sticky; top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+    }
+    .roast__bg {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: none;
+      z-index: -2;
+    }
+    .roast__stage::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: rgba(12,10,8,.62);
+      z-index: -1;
+    }
+    .roast__label {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--cream-50);
+      height: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .roast__temp {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: clamp(4.5rem, 14vw, 11rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+      background: linear-gradient(90deg, var(--ember-a), var(--ember-b));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .roast__phase {
+      font-weight: 500;
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      color: var(--cream-70);
+      height: 2rem;
+      margin-top: 1.2rem;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+    .roast__bar {
+      position: absolute; bottom: 3rem;
+      width: min(28rem, 70vw);
+      height: 2px;
+      background: var(--line);
+    }
+    .roast__bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--ember-a), var(--ember-b)); }
+    .roast__hint { position: absolute; bottom: 4rem; font-family: var(--font-mono); font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-35); }
+
+    /* Quiet inline CTA */
+    .pulse { padding: 3.5rem 0; text-align: center; border-bottom: 1px solid var(--line); }
+    .pulse p { font-size: 1.05rem; color: var(--cream-70); margin-bottom: 1.1rem; }
+
+    /* Feature rows */
+    .rows { padding: var(--section-y) 0; }
+    .row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+    }
+    .row:nth-child(even) .row__media { order: -1; }
+    .row__media img { width: 100%; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+    .row h3 { font-weight: 500; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -.02em; line-height: 1.18; margin-bottom: .9rem; }
+    .row p { color: var(--cream-70); font-size: .975rem; margin-bottom: .8rem; }
+    .row .fact { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .08em; color: var(--ember-a); }
+    @media (max-width: 820px) {
+      .row { grid-template-columns: 1fr; }
+      .row:nth-child(even) .row__media { order: 0; }
+    }
+
+    /* Section blur-up entrance */
+    .rise { opacity: 0; transform: translateY(60px); filter: blur(14px); transition: opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1), filter .9s cubic-bezier(.22,.61,.36,1); }
+    .rise.in { opacity: 1; transform: none; filter: blur(0); }
+    @media (prefers-reduced-motion: reduce) { .rise { opacity: 1; transform: none; filter: none; transition: none; } .w { opacity: 1; filter: none; transform: none; } }
+
+    /* Stakes typewriter */
+    .stakes {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--section-y) var(--gutter);
+      background: #000;
+    }
+    .stakes p {
+      font-weight: 500;
+      font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      max-width: 30ch;
+    }
+    .stakes .ch { opacity: 0; }
+    .stakes .caret {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--ember-b);
+      vertical-align: -0.1em;
+      margin-left: 2px;
+      animation: caret .9s steps(1) infinite;
+    }
+    @keyframes caret { 50% { opacity: 0; } }
+
+    /* Pinned stack */
+    .stack { display: grid; }
+    .stack__title, .stack__cards { grid-area: 1 / 1; }
+    .stack__title {
+      position: sticky; top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 24rem;
+      margin-left: var(--gutter);
+      pointer-events: none;
+    }
+    .stack__title h2 { font-weight: 500; font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.16; letter-spacing: -.02em; }
+    .stack__cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 22vh 0 22vh;
+      margin-left: auto;
+      width: min(30rem, 46%);
+      margin-right: var(--gutter);
+    }
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+      padding: 1.6rem 1.6rem 1.5rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .card.in { opacity: 1; transform: none; }
+    .card .n { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .18em; color: var(--ember-a); display: block; margin-bottom: .6rem; }
+    .card h4 { font-weight: 600; font-size: 1.05rem; margin-bottom: .35rem; }
+    .card p { font-size: .875rem; color: var(--cream-70); margin: 0; }
+    @media (max-width: 880px) {
+      .stack { display: block; }
+      .stack__title { position: static; height: auto; padding: var(--section-y) var(--gutter) 0; margin: 0; max-width: 32rem; }
+      .stack__cards { width: auto; margin: 0; padding: 2.5rem var(--gutter) var(--section-y); }
+    }
+
+    /* Testimonials */
+    .voices { padding: var(--section-y) 0; overflow: hidden; }
+    .voices__track {
+      display: flex;
+      gap: 1.5rem;
+      padding-left: calc(50vw - 11rem);
+      transition: transform 1.1s cubic-bezier(.32,.72,0,1);
+      will-change: transform;
+    }
+    .voice {
+      flex: 0 0 22rem;
+      max-width: 80vw;
+      background: var(--glass);
+      border: 1px solid var(--line);
+      padding: 1.8rem 1.7rem;
+      transition: opacity .6s ease;
+    }
+    .voice .q { font-size: 1rem; line-height: 1.6; margin-bottom: 1.1rem; }
+    .voice .who { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-50); }
+    .voices__nav { display: flex; gap: .7rem; justify-content: center; margin-top: 2rem; }
+    .voices__nav button {
+      width: 44px; height: 44px;
+      background: transparent;
+      border: 1px solid rgba(244,237,226,.3);
+      color: var(--cream);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: border-color .2s ease;
+    }
+    .voices__nav button:hover { border-color: var(--cream); }
+
+    /* Offer */
+    .offer-band { padding: var(--section-y) 0; }
+    .offer {
+      max-width: 60rem;
+      margin: 0 auto;
+      background: var(--glass);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      overflow: hidden;
+    }
+    .offer__img { min-height: 100%; }
+    .offer__img img { width: 100%; height: 100%; object-fit: cover; }
+    .offer__body { padding: clamp(1.8rem, 4vw, 3rem); }
+    .offer__body h2 { font-weight: 500; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -.02em; line-height: 1.15; margin-bottom: 1rem; }
+    .offer__body .price { font-family: var(--font-mono); font-size: .95rem; color: var(--ember-a); margin-bottom: 1.2rem; }
+    .offer__body li { list-style: none; display: flex; gap: .6rem; align-items: baseline; font-size: .925rem; color: var(--cream-70); margin-bottom: .55rem; }
+    .offer__body li::before { content: "✦"; color: var(--ember-b); font-size: .7rem; }
+    .offer__body .btn { margin-top: 1.3rem; }
+    .offer__micro { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; color: var(--cream-35); margin-top: .9rem; text-transform: uppercase; }
+    @media (max-width: 780px) { .offer { grid-template-columns: 1fr; } .offer__img { max-height: 320px; } }
+
+    /* Final CTA */
+    .final {
+      position: relative;
+      min-height: 92vh;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: var(--section-y) var(--gutter);
+    }
+    .final video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+    .final::after { content: ""; position: absolute; inset: 0; background: rgba(12,10,8,.72); z-index: -1; }
+    .final h2 { font-weight: 500; font-size: clamp(2rem, 5vw, 3.6rem); letter-spacing: -.025em; line-height: 1.12; max-width: 20ch; margin-bottom: 1rem; }
+    .final p { color: var(--cream-70); margin-bottom: 1.8rem; }
+    .final .ctas { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Footer */
+    .foot { border-top: 1px solid var(--line); padding: 2.5rem var(--gutter) 3rem; font-size: .78rem; color: var(--cream-35); line-height: 1.7; }
+    .foot p { max-width: 62rem; margin-bottom: .8rem; }
+    .foot a { color: var(--ember-a); }
+
+    /* Demo modal */
+    .demo-modal { position: fixed; inset: 0; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; padding: 1.5rem; z-index: 100; }
+    .demo-modal.open { display: flex; }
+    .demo-modal__card { background: var(--char-2); border: 1px solid var(--line); max-width: 460px; padding: 2.4rem 2.1rem; text-align: center; }
+    .demo-modal__card h3 { font-weight: 500; font-size: 1.4rem; line-height: 1.25; margin-bottom: .8rem; letter-spacing: -.02em; }
+    .demo-modal__card p { font-size: .95rem; color: var(--cream-70); margin-bottom: 1.3rem; }
+    .demo-modal__card .btn { width: 100%; text-align: center; }
+    .demo-modal__close { background: none; border: none; font-family: var(--font-sans); font-size: .85rem; color: var(--cream-50); margin-top: .9rem; cursor: pointer; text-decoration: underline; }
+
+    /* Large-screen scaling */
+    @media (min-width: 1900px) { html { font-size: 19px; } }
+    @media (min-width: 2500px) { html { font-size: 24px; } }
+    @media (min-width: 3400px) { html { font-size: 30px; } }
+  </style>
+</head>
+<body>
+
+  <div class="grain-wrap" aria-hidden="true"><div class="grain"></div></div>
+  <div class="demo-bar">Fictional demo by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a> · Kiln is not a real brand</div>
+
+  <nav class="nav" id="nav">
+    <span class="mark">KIL<span class="flame">N</span></span>
+    <button class="btn" data-demo-cta>Get the First Bag</button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg" id="heroVideo">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero__inner">
+      <div class="hero__mark" aria-label="Kiln">
+        KIL<span class="flame">N</span>
+        <small>Roasted Mondays · Shipped within 48h</small>
+      </div>
+      <div class="hero__copy">
+        <h1 data-words data-delay="900">Coffee, still warm from the roast.</h1>
+        <p data-words data-delay="1500">Single origins roasted to order every Monday and at your door inside the freshness window. You will taste the difference by the first cup.</p>
+        <div class="hero__ctas">
+          <button class="btn" data-demo-cta>Get the First Bag</button>
+          <a class="btn btn--ghost" href="#roast">Watch the roast</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ORIGIN MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Yirgacheffe</span><span class="dot">✦</span>
+      <span>Huila</span><span class="dot">✦</span>
+      <span>Sidama</span><span class="dot">✦</span>
+      <span>Gedeb</span><span class="dot">✦</span>
+      <span>Antigua</span><span class="dot">✦</span>
+      <span>Kirinyaga</span><span class="dot">✦</span>
+      <span>Chiapas</span><span class="dot">✦</span>
+      <span>Yirgacheffe</span><span class="dot">✦</span>
+      <span>Huila</span><span class="dot">✦</span>
+      <span>Sidama</span><span class="dot">✦</span>
+      <span>Gedeb</span><span class="dot">✦</span>
+      <span>Antigua</span><span class="dot">✦</span>
+      <span>Kirinyaga</span><span class="dot">✦</span>
+      <span>Chiapas</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- STATEMENT -->
+  <section class="statement wrap">
+    <h2 data-scrub-scale>Most coffee is stale before it's sold. Ours is still <span class="em">warm</span> from the kiln.</h2>
+  </section>
+
+  <!-- ROAST SCRUB -->
+  <section class="roast" id="roast">
+    <div class="roast__stage">
+      <div class="roast__bg" data-stage="0" style="background-image:url('assets/green.jpg')"></div>
+      <div class="roast__bg" data-stage="1" style="background-image:url('assets/roaster.jpg')"></div>
+      <div class="roast__bg" data-stage="2" style="background-image:url('assets/beans.jpg')"></div>
+      <div class="roast__label" id="roastLabel">// CHARGE</div>
+      <div class="roast__temp"><span id="roastTemp">0</span>°C</div>
+      <div class="roast__phase" id="roastPhase">Green, grassy, dense. Every roast starts cold.</div>
+      <div class="roast__bar"><i id="roastBar"></i></div>
+    </div>
+  </section>
+
+  <!-- QUIET PULSE -->
+  <div class="pulse rise">
+    <p>That was 11 minutes of fire, compressed. The taste takes one sip.</p>
+    <button class="btn" data-demo-cta>Get the First Bag</button>
+  </div>
+
+  <!-- FEATURE ROWS -->
+  <section class="rows wrap">
+    <div class="row rise">
+      <div>
+        <span class="eyebrow">// 01 — Source</span>
+        <h3>Seven farms. Zero brokers. One <span class="em">obsession</span>.</h3>
+        <p>We buy from the same seven family farms every harvest, cup every lot twice, and pay 2.4x the commodity rate for the privilege of being picky.</p>
+        <span class="fact">Current rotation: Gedeb, Ethiopia · washed heirloom</span>
+      </div>
+      <div class="row__media"><img src="assets/pour.jpg" alt="Pour-over brewing with a copper kettle" loading="lazy" width="2000" height="1333"></div>
+    </div>
+    <div class="row rise">
+      <div>
+        <span class="eyebrow">// 02 — Roast</span>
+        <h3>Roasted Monday. Not "roasted <span class="em">recently</span>."</h3>
+        <p>Every bag is roasted to order on our 1962 drum roaster the Monday after you order. The roast date isn't a stamp on the bag. It's the reason the company exists.</p>
+        <span class="fact">Batch size: 24kg · roast log published weekly</span>
+      </div>
+      <div class="row__media"><img src="assets/roaster.jpg" alt="The Kiln drum roaster mid-roast" loading="lazy" width="2000" height="1333"></div>
+    </div>
+    <div class="row rise">
+      <div>
+        <span class="eyebrow">// 03 — Ship</span>
+        <h3>At your door inside the <span class="em">window</span>.</h3>
+        <p>Coffee peaks 4 to 18 days after roast. We ship within 48 hours of the drop, so your bag lands at the start of its peak, not at the end of a warehouse shelf.</p>
+        <span class="fact">Average roast-to-door: 3.1 days</span>
+      </div>
+      <div class="row__media"><img src="assets/bag.jpg" alt="The Kiln coffee bag" loading="lazy" width="1600" height="2000"></div>
+    </div>
+  </section>
+
+  <!-- STAKES -->
+  <section class="stakes">
+    <p id="stakesLine" data-type="Coffee peaks 4 to 18 days after roast. The average grocery bag is 168 days old."></p>
+  </section>
+
+  <!-- PINNED STACK -->
+  <section class="stack">
+    <div class="stack__title">
+      <span class="eyebrow">// The Subscription</span>
+      <h2>Everything decided by the <span class="em">roast date</span>, including the price.</h2>
+    </div>
+    <div class="stack__cards">
+      <div class="card"><span class="n">// 01</span><h4>Roast-date stamped, roast-log public</h4><p>Every bag carries its Monday. Every Monday's roast curve is published. Nothing to hide, nothing to fudge.</p></div>
+      <div class="card"><span class="n">// 02</span><h4>Ships within 48 hours of the drop</h4><p>Your bag leaves the roastery while the beans are still degassing. It arrives at the start of the peak window.</p></div>
+      <div class="card"><span class="n">// 03</span><h4>Single origins in rotation</h4><p>One farm at a time, four to six weeks each. You taste places, not blends built to hide age.</p></div>
+      <div class="card"><span class="n">// 04</span><h4>Whole bean, always</h4><p>Grinding starts the clock. We won't pre-grind away the freshness we just overnighted to you.</p></div>
+      <div class="card"><span class="n">// 05</span><h4>$24 flat. Skip or pause by text.</h4><p>No tiers, no sneaky annual lock-in. One price, one text to pause, zero guilt.</p></div>
+      <div class="card"><span class="n">// 06</span><h4>First bag $18, no strings</h4><p>Try one Monday. If it isn't the best coffee that has entered your kitchen, stop. Most people don't.</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="voices">
+    <div class="voices__track" id="voicesTrack">
+      <div class="voice"><p class="q">"I did the dumb thing and made a cup from my old grocery bag and a cup of Kiln side by side. It genuinely isn't the same drink."</p><span class="who">Sam K · Subscriber, 14 months</span></div>
+      <div class="voice"><p class="q">"The roast date thing sounded like marketing until the third bag. Now I check dates on everything and I can't unsee it. 168 days. Criminal."</p><span class="who">Renee A · Subscriber, 8 months</span></div>
+      <div class="voice"><p class="q">"Paused it by text while I traveled. It just... paused. Then it came back. Whoever built this understands subscriptions are borrowed trust."</p><span class="who">Dev P · Subscriber, 2 years</span></div>
+      <div class="voice"><p class="q">"The Gedeb rotation ruined hotel coffee for me forever. Worth it."</p><span class="who">Mara J · Subscriber, 11 months</span></div>
+      <div class="voice"><p class="q">"I bought my dad the first bag for $18. He now texts me the roast log on Mondays. I have created a monster."</p><span class="who">Theo W · Subscriber, 6 months</span></div>
+    </div>
+    <div class="voices__nav">
+      <button id="vPrev" aria-label="Previous">←</button>
+      <button id="vNext" aria-label="Next">→</button>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="offer-band wrap">
+    <div class="offer rise">
+      <div class="offer__img"><img src="assets/bag.jpg" alt="The Kiln bag" loading="lazy" width="1600" height="2000"></div>
+      <div class="offer__body">
+        <span class="eyebrow">// Start Here</span>
+        <h2>The Kiln Subscription</h2>
+        <p class="price">$24/bag monthly · first bag $18 · free shipping</p>
+        <ul>
+          <li>Roasted the Monday after you order, shipped within 48 hours</li>
+          <li>Single origin in rotation, whole bean, 340g</li>
+          <li>Roast log with every bag</li>
+          <li>Skip, pause, or cancel by text</li>
+        </ul>
+        <button class="btn" data-demo-cta>Get the First Bag</button>
+        <p class="offer__micro">No commitment · Ships US &amp; Canada · Roasts drop Mondays 6am</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <video muted loop playsinline preload="metadata" poster="assets/poster.jpg" id="finalVideo">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <h2 data-words data-delay="0">You can't taste a webpage. <span class="em">Unfortunately.</span></h2>
+    <p data-words data-delay="500">The first bag is $18 and it arrives still degassing. Judge us on the cup.</p>
+    <div class="ctas">
+      <button class="btn" data-demo-cta>Get the First Bag</button>
+      <a class="btn btn--ghost" href="#roast">Watch the roast again</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p><strong>Demo notice:</strong> Kiln is a fictional brand and this page is a portfolio demonstration built by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a>, modeled on modern scroll-choreographed brand sites. Farms, statistics, reviews, and prices shown are illustrative.</p>
+    <p>© <span id="footYear">2026</span> Kiln Coffee (fictional) · A demo property of ClickDose Labs</p>
+  </footer>
+
+  <!-- Demo modal -->
+  <div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-label="Demo notice">
+    <div class="demo-modal__card">
+      <h3>You just reached the end of the funnel.</h3>
+      <p>Kiln is a fictional brand. This page demonstrates a scroll-choreographed brand experience: cinematic hero video, a scroll-scrubbed roast, and reveal grammar that makes one page feel like one continuous shot. We build experiences like this for real brands.</p>
+      <a class="btn" href="https://clickdoselabs.com/page-lab/">See how we build pages like this</a>
+      <button class="demo-modal__close" data-demo-close>Keep exploring the demo</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('footYear').textContent = new Date().getFullYear();
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // --- Word-stagger blur-in ---
+      document.querySelectorAll('[data-words]').forEach(function (el) {
+        var base = parseInt(el.getAttribute('data-delay') || '0', 10);
+        Array.prototype.forEach.call(el.childNodes.length ? [] : [], function(){});
+        // Wrap words, preserving .em spans
+        function wrapWords(node) {
+          Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+            if (child.nodeType === 3) {
+              var frag = document.createDocumentFragment();
+              child.textContent.split(/(\s+)/).forEach(function (part) {
+                if (/^\s+$/.test(part) || part === '') { frag.appendChild(document.createTextNode(part)); return; }
+                var s = document.createElement('span');
+                s.className = 'w';
+                s.textContent = part;
+                frag.appendChild(s);
+              });
+              node.replaceChild(frag, child);
+            } else if (child.nodeType === 1) {
+              child.classList.add('w');
+            }
+          });
+        }
+        wrapWords(el);
+        var words = el.querySelectorAll('.w');
+        words.forEach(function (w, i) { w.style.transitionDelay = (base + i * 30) + 'ms'; });
+      });
+      // Hero words fire on load; below-fold word blocks fire on intersect
+      function fireWords(el) { el.classList.add('words-in'); }
+      document.querySelectorAll('.hero [data-words]').forEach(fireWords);
+      var wordObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { fireWords(e.target); wordObs.unobserve(e.target); } });
+      }, { threshold: .4 });
+      document.querySelectorAll('[data-words]').forEach(function (el) {
+        if (!el.closest('.hero')) wordObs.observe(el);
+      });
+
+      // --- Nav glass on scroll ---
+      var nav = document.getElementById('nav');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      // --- Section blur-up ---
+      var riseObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); riseObs.unobserve(e.target); } });
+      }, { threshold: .15 });
+      document.querySelectorAll('.rise').forEach(function (el) { riseObs.observe(el); });
+
+      // --- Card stack reveals ---
+      var cardObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); cardObs.unobserve(e.target); } });
+      }, { threshold: .25 });
+      document.querySelectorAll('.card').forEach(function (el) { cardObs.observe(el); });
+
+      // --- Scroll-scrubbed statement scale + roast scrub (single rAF loop) ---
+      var statements = document.querySelectorAll('[data-scrub-scale]');
+      var roast = document.getElementById('roast');
+      var roastTemp = document.getElementById('roastTemp');
+      var roastLabel = document.getElementById('roastLabel');
+      var roastPhase = document.getElementById('roastPhase');
+      var roastBar = document.getElementById('roastBar');
+      var stages = document.querySelectorAll('.roast__bg');
+      var phases = [
+        { until: .2, label: '// CHARGE', text: 'Green, grassy, dense. Every roast starts cold.' },
+        { until: .5, label: '// MAILLARD', text: 'Sugars browning. The room starts to smell like bread.' },
+        { until: .78, label: '// FIRST CRACK · 196°C', text: 'The bean splits and speaks. Seconds matter now.' },
+        { until: 1.01, label: '// DROP · 204°C', text: 'Out of the drum, into the cooling tray. Rested 48 hours, then shipped.' }
+      ];
+      function ease(t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+      var lastPhase = -1;
+      function frame() {
+        var vh = window.innerHeight;
+        statements.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          var i = Math.min(1, Math.max(0, (vh - (r.top + r.height / 2)) / (0.35 * vh) + 1));
+          var e = ease(Math.min(1, Math.max(0, i)));
+          if (!reduced) {
+            el.style.opacity = (.12 + .88 * e).toFixed(3);
+            el.style.transform = 'scale(' + (.85 + .15 * e).toFixed(4) + ')';
+          }
+        });
+        if (roast) {
+          var r = roast.getBoundingClientRect();
+          var total = roast.offsetHeight - vh;
+          var p = Math.min(1, Math.max(0, -r.top / total));
+          var temp = Math.round(p * 204);
+          roastTemp.textContent = temp;
+          roastBar.style.width = (p * 100).toFixed(1) + '%';
+          for (var k = 0; k < phases.length; k++) {
+            if (p <= phases[k].until) {
+              if (lastPhase !== k) {
+                lastPhase = k;
+                roastLabel.textContent = phases[k].label;
+                roastPhase.textContent = phases[k].text;
+              }
+              break;
+            }
+          }
+          // Crossfade stages: 0 → 1 → 2
+          var o0 = Math.max(0, 1 - p / .38);
+          var o1 = Math.max(0, 1 - Math.abs(p - .5) / .3);
+          var o2 = Math.max(0, (p - .62) / .38);
+          stages[0].style.opacity = o0.toFixed(3);
+          stages[1].style.opacity = o1.toFixed(3);
+          stages[2].style.opacity = o2.toFixed(3);
+        }
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+
+      // --- Stakes typewriter ---
+      var stakes = document.getElementById('stakesLine');
+      var text = stakes.getAttribute('data-type');
+      stakes.innerHTML = text.split('').map(function (c) {
+        if (c === ' ') return ' ';
+        return '<span class="ch">' + c.replace('<', '&lt;') + '</span>';
+      }).join('') + '<span class="caret"></span>';
+      var chars = stakes.querySelectorAll('.ch');
+      var typeObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          typeObs.unobserve(stakes);
+          if (reduced) { chars.forEach(function (c) { c.style.opacity = 1; }); return; }
+          chars.forEach(function (c, i) {
+            setTimeout(function () { c.style.opacity = 1; }, i * 28);
+          });
+        });
+      }, { threshold: .6 });
+      typeObs.observe(stakes);
+
+      // --- Video play/pause by visibility (performance) ---
+      [document.getElementById('heroVideo'), document.getElementById('finalVideo')].forEach(function (v) {
+        if (!v) return;
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { v.play().catch(function(){}); } else { v.pause(); }
+          });
+        }, { threshold: .1 }).observe(v);
+      });
+
+      // --- Testimonial carousel ---
+      var track = document.getElementById('voicesTrack');
+      var cards = track.children;
+      var idx = 0;
+      function setCarousel() {
+        var cardW = cards[0].getBoundingClientRect().width + 24;
+        track.style.transform = 'translateX(' + (-idx * cardW) + 'px)';
+        Array.prototype.forEach.call(cards, function (c, i) {
+          var d = Math.abs(i - idx);
+          c.style.opacity = d === 0 ? 1 : d === 1 ? .55 : .25;
+        });
+      }
+      document.getElementById('vNext').addEventListener('click', function () { idx = Math.min(cards.length - 1, idx + 1); setCarousel(); });
+      document.getElementById('vPrev').addEventListener('click', function () { idx = Math.max(0, idx - 1); setCarousel(); });
+      setCarousel();
+      window.addEventListener('resize', setCarousel);
+
+      // --- Demo modal ---
+      var modal = document.getElementById('demoModal');
+      document.querySelectorAll('[data-demo-cta]').forEach(function (b) {
+        b.addEventListener('click', function () { modal.classList.add('open'); });
+      });
+      document.querySelector('[data-demo-close]').addEventListener('click', function () { modal.classList.remove('open'); });
+      modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    });
+  </script>
+</body>
+</html>
