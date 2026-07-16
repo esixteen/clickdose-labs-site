@@ -1086,6 +1086,7 @@
             go();
           }, { passive: true });
           cf.addEventListener('touchend', function () { tX = null; target = Math.round(target); go(); });
+          window.addEventListener('resize', render);
           render();
         }
       }
@@ -1094,7 +1095,7 @@
       var heroSection = document.getElementById('hero');
       if (heroSection && 'IntersectionObserver' in window) {
         new IntersectionObserver(function (entries) {
-          var heroVisible = entries[0].isIntersecting;
+          var heroVisible = entries[entries.length - 1].intersectionRatio >= 0.05;
           document.querySelectorAll('cal-floating-button').forEach(function (b) {
             b.classList.toggle('past-hero', !heroVisible);
           });
