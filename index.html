@@ -340,29 +340,25 @@
     }
     .band--light .section-label { color: var(--teal-deep); }
 
-    /* Proof (light) */
-    .proof__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 56rem; margin: 0 auto 2.6rem; }
-    .proof-stat {
-      background: #fff;
-      border: 1px solid var(--line-l);
-      border-radius: 18px;
-      padding: 2rem 2rem 1.8rem;
-      text-align: center;
-      box-shadow: 0 10px 40px rgba(28,33,31,.06);
-    }
-    .proof-stat__number {
+    /* Trusted-by + statement (light) */
+    .trusted__label { text-align: center; margin-bottom: 0; color: var(--slate) !important; }
+    .statement {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
       letter-spacing: -.03em;
-      line-height: 1;
-      color: var(--teal-deep);
-      margin-bottom: .5rem;
+      text-align: center;
+      max-width: none;
+      margin: 14vh auto 0;
     }
-    .proof-stat__label { font-weight: 600; color: var(--ink); margin-bottom: .4rem; }
-    .proof-stat__source { font-size: .8125rem; color: var(--slate); }
-    @media (max-width: 720px) { .proof__stats { grid-template-columns: 1fr; } }
-    .proof__eyebrow { text-align: center; margin-top: 2.5rem; }
+    .statement .sl { display: block; }
+    .statement .sw { color: #d5d1c6; }
+    .statement .sw .em { background: none; -webkit-background-clip: initial; background-clip: initial; color: inherit; }
+    @media (prefers-reduced-motion: reduce) { .statement .sw { color: var(--ink) !important; } .statement .sw--teal { color: var(--teal-deep) !important; } }
+    .statement__support { text-align: center; color: var(--slate); margin-top: 1.4rem; opacity: 0; transition: opacity .7s var(--ease); }
+    .statement__support.visible { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) { .statement__support { opacity: 1; } }
     .logos__marquee {
       overflow: hidden;
       white-space: nowrap;
@@ -657,22 +653,10 @@
     </div>
   </section>
 
-  <!-- PROOF STRIP (light) -->
-  <section class="band band--light" id="proof">
+  <!-- TRUSTED BY + STATEMENT (light) -->
+  <section class="band band--light" id="proof" style="padding-top:12vh; padding-bottom:14vh">
     <div class="container">
-      <div class="proof__stats stagger">
-        <div class="proof-stat reveal">
-          <div class="proof-stat__number">+32%</div>
-          <div class="proof-stat__label">Qualified applications, net-new demand</div>
-          <div class="proof-stat__source">Michael Schoenfeld · Managing Director of Originations, BD Capital</div>
-        </div>
-        <div class="proof-stat reveal">
-          <div class="proof-stat__number">$5M/yr</div>
-          <div class="proof-stat__label">From zero in digital revenue</div>
-          <div class="proof-stat__source">Craig Percoco · CEO, Inevitrade</div>
-        </div>
-      </div>
-      <p class="section-label proof__eyebrow reveal" style="color:var(--slate)">Selected Clients</p>
+      <p class="section-label trusted__label reveal">Trusted By Teams At</p>
     </div>
     <div class="logos__marquee reveal" aria-label="Selected ClickDose Labs clients">
       <div class="logos__track">
@@ -699,6 +683,13 @@
           <img src="assets/Client Logos/Banner/teamz.svg" alt="" loading="lazy">
         </div>
       </div>
+    </div>
+    <div class="container">
+      <h2 class="statement" id="statement" aria-label="Pages built. Messages tested. Winners scaled.">
+        <span class="sl"><span class="sw">Pages</span> <span class="sw">built.</span> <span class="sw">Messages</span> <span class="sw">tested.</span></span>
+        <span class="sl"><span class="sw">Winners</span> <span class="sw sw--teal"><span class="em">scaled</span>.</span></span>
+      </h2>
+      <p class="statement__support" id="statementSupport">A conversion system, not a redesign project.</p>
     </div>
   </section>
 
@@ -942,6 +933,39 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
       document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+
+      // Statement scrub: words brighten one at a time with scroll progress (both directions)
+      var statement = document.getElementById('statement');
+      var statementSupport = document.getElementById('statementSupport');
+      if (statement && !reduced) {
+        var sws = statement.querySelectorAll('.sw');
+        var DIM = [213, 209, 198];      // #d5d1c6
+        var LIT = [28, 33, 31];         // #1c211f ink
+        var TEAL = [0, 169, 140];       // #00a98c teal-deep
+        function mix(a, b, t) {
+          return 'rgb(' + Math.round(a[0] + (b[0] - a[0]) * t) + ',' + Math.round(a[1] + (b[1] - a[1]) * t) + ',' + Math.round(a[2] + (b[2] - a[2]) * t) + ')';
+        }
+        var sTicking = false;
+        function syncStatement() {
+          var r = statement.getBoundingClientRect();
+          var vh = window.innerHeight;
+          var p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (vh * 0.28)));
+          var lit = p * sws.length;
+          sws.forEach(function (w, i) {
+            var t = Math.min(1, Math.max(0, lit - i));
+            var target = w.classList.contains('sw--teal') ? TEAL : LIT;
+            w.style.color = mix(DIM, target, t);
+          });
+          if (statementSupport) { statementSupport.classList.toggle('visible', p >= 0.999); }
+          sTicking = false;
+        }
+        window.addEventListener('scroll', function () {
+          if (!sTicking) { sTicking = true; requestAnimationFrame(syncStatement); }
+        }, { passive: true });
+        syncStatement();
+      } else if (statementSupport) {
+        statementSupport.classList.add('visible');
+      }
 
       // Pinned Leak scene: the stage stays still, scenes swap with scroll progress
       var leakPin = document.getElementById('leak');
