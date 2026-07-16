@@ -427,34 +427,35 @@
     .leak-pin.static .leak-scene { position: static; opacity: 1; transform: none; margin-bottom: 1.6rem; pointer-events: auto; }
     .leak-pin.static .leak-progress { display: none; }
 
-    /* Labs (dark glass cards) */
-    .labs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
+    /* Labs (white cards on dark) */
+    .section-intro { font-size: clamp(1.05rem, 2vw, 1.2rem); line-height: 1.55; color: #c8ccca; max-width: 44rem; margin-top: 1.5rem; }
+    .labs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
     .lab-card {
       position: relative;
       display: block;
-      background: var(--glass);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      backdrop-filter: blur(18px);
-      padding: 1.9rem 1.7rem 1.7rem;
+      background: #ffffff;
+      border: 1px solid #e0ddd2;
+      border-radius: 16px;
+      padding: 2rem;
       text-decoration: none;
-      color: var(--cream);
+      color: #0b0f12;
       transition: transform .3s var(--ease), border-color .3s ease, box-shadow .3s ease;
     }
-    .lab-card:hover { transform: translateY(-4px); border-color: rgba(0,201,167,.55); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
-    .lab-card--lead { border-color: var(--teal); }
+    .lab-card:hover { transform: translateY(-4px); border-color: rgba(15,110,86,.55); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+    .lab-card--lead { border-color: #00c9a7; }
     .lab-card__badge {
-      position: absolute; top: -0.75rem; left: 1.5rem;
-      background: var(--teal); color: var(--char);
+      position: absolute; top: -0.8rem; left: 1.5rem;
+      background: #00c9a7; color: #04342c;
       font-family: var(--font-mono);
-      font-size: .62rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
-      padding: .22rem .7rem; border-radius: 999px;
+      font-size: .7rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+      padding: .3rem .7rem; border-radius: 999px;
     }
-    .lab-card__icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(0,201,167,.12); color: var(--teal); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; }
+    .lab-card__icon { width: 44px; height: 44px; border-radius: 12px; background: #dff0ea; color: #00c9a7; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
     .lab-card__icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .lab-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: .45rem; }
-    .lab-card__desc { font-size: .9rem; color: var(--cream-70); margin-bottom: 1rem; }
-    .lab-card__link { font-size: .85rem; font-weight: 600; color: var(--teal); }
+    .lab-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; color: #0b0f12; margin-bottom: .6rem; }
+    .lab-card__desc { font-size: .95rem; color: #5f625d; line-height: 1.5; margin-bottom: 1.25rem; }
+    .lab-card__link { font-size: .95rem; font-weight: 500; color: #00c9a7; transition: color .2s ease; }
+    .lab-card:hover .lab-card__link { color: #0f6e56; text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 860px) { .labs__grid { grid-template-columns: 1fr; } }
 
     /* The Work: pinned showcase — one page scrubs, explodes into the portfolio, ends on the logo */
@@ -724,11 +725,12 @@
   </section>
 
   <!-- THE LABS (dark) -->
-  <section class="band" id="labs" style="padding-top:0">
+  <section class="band" id="labs">
     <div class="container">
       <div class="reveal">
         <span class="section-label">The Labs</span>
         <h2>One system. Three labs.</h2>
+        <p class="section-intro">Most teams start with Page Lab, once your pages convert, Growth Lab scales what wins and Cold Email Lab fills the top of the funnel.</p>
       </div>
       <div class="labs__grid stagger">
 
