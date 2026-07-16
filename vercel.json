@@ -14,6 +14,16 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/stop-sending-cold-traffic-to-your-product-page/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog/stop-sending-cold-traffic-to-your-product-page/",
+      "permanent": false
     }
   ]
 }

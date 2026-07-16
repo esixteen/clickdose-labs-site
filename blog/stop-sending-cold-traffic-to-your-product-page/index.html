@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study: CereFlex Labs was sending paid prospecting traffic straight to a product page. We tested an advertorial, a listicle, and a quiz against it. The best new page converted at nearly 4x the product page.">
+  <title>Case Study: Stop Sending Cold Traffic to Your Product Page · ClickDose Labs</title>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://clickdoselabs.com/blog/stop-sending-cold-traffic-to-your-product-page/">
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicons/apple-touch-icon.png">
+  <meta name="theme-color" content="#0b0f12">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ClickDose Labs">
+  <meta property="og:url" content="https://clickdoselabs.com/blog/stop-sending-cold-traffic-to-your-product-page/">
+  <meta property="og:title" content="Case Study: Same Ads, Same Product, Nearly 4x the Conversion Rate">
+  <meta property="og:description" content="CereFlex Labs was sending paid prospecting traffic straight to a product page. Three new page formats beat it, the best by 279%. Here's the full breakdown.">
+  <meta property="og:image" content="https://clickdoselabs.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ClickDose Labs case study">
+  <meta property="article:published_time" content="2026-07-15">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: Same Ads, Same Product, Nearly 4x the Conversion Rate">
+  <meta name="twitter:description" content="Sending cold traffic to a product page wastes ad spend. We tested three page formats against one and proved it. Full breakdown inside.">
+  <meta name="twitter:image" content="https://clickdoselabs.com/assets/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Case Study: Stop Sending Cold Traffic to Your Product Page",
+    "description": "CereFlex Labs was sending paid prospecting traffic straight to a product page. We tested an advertorial, a listicle, and a quiz against it. The best new page converted at nearly 4x the product page.",
+    "url": "https://clickdoselabs.com/blog/stop-sending-cold-traffic-to-your-product-page/",
+    "datePublished": "2026-07-15",
+    "dateModified": "2026-07-15",
+    "image": "https://clickdoselabs.com/assets/og-image.png",
+    "author": { "@type": "Organization", "name": "ClickDose Labs", "url": "https://clickdoselabs.com/" },
+    "publisher": { "@type": "Organization", "name": "ClickDose Labs", "url": "https://clickdoselabs.com/" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/styles.css">
+  <style>
+    .section { padding: var(--section-padding) 0; }
+    .section--alt { background: var(--color-bg); }
+    .section__head { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
+    .section__head h2 { font-size: var(--h2-size); }
+    .section__head p { color: var(--color-text-soft); font-size: var(--body-lg); margin-top: 1rem; line-height: 1.6; }
+
+    /* ---- HERO ---- */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      padding: calc(var(--nav-height) + clamp(4rem, 10vw, 6.5rem)) 0 clamp(3.5rem, 7vw, 5.5rem);
+      text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(0, 201, 167, 0.16), transparent 60%);
+      filter: blur(20px);
+      z-index: 0;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+    .page-hero__content { max-width: 880px; margin: 0 auto; }
+    .page-hero h1 { font-size: var(--h1-size); letter-spacing: -0.02em; }
+    .page-hero__highlight {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      background: linear-gradient(90deg, #46e3c4, var(--color-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .page-hero__sub {
+      font-size: var(--body-lg);
+      color: var(--color-text-soft);
+      max-width: 700px;
+      margin: 1.5rem auto 0;
+      line-height: 1.65;
+    }
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 2.25rem;
+    }
+    .case-meta span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      color: var(--color-muted);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+    }
+    .case-meta strong { color: var(--color-text-soft); font-weight: 500; }
+
+    /* ---- STAT STRIP ---- */
+    .statstrip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(2.25rem, 5vw, 3.25rem) 0;
+    }
+    .statstrip__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .statstrip__num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.1rem, 4.5vw, 3rem);
+      letter-spacing: -0.02em;
+      color: var(--color-accent);
+      line-height: 1.05;
+    }
+    .statstrip__label {
+      margin-top: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    /* ---- ARTICLE PROSE ---- */
+    .prose { max-width: 720px; margin: 0 auto; }
+    .prose .section-label { margin-bottom: 1.25rem; }
+    .prose h2 { font-size: var(--h2-size); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .prose p { color: var(--color-text-soft); font-size: var(--body-lg); line-height: 1.75; margin-bottom: 1.4rem; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose strong { color: var(--color-text); font-weight: 600; }
+    .pullquote {
+      margin: 2.5rem 0;
+      padding: 0 0 0 1.75rem;
+      border-left: 3px solid var(--color-accent);
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+      line-height: 1.45;
+      color: var(--color-text);
+    }
+
+    /* ---- BELIEFS LIST ---- */
+    .beliefs {
+      margin: 2.25rem 0;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .beliefs h3 { font-size: 1.0625rem; margin-bottom: 1rem; }
+    .beliefs ol { margin: 0; padding-left: 1.25rem; display: grid; gap: 0.55rem; }
+    .beliefs li { color: var(--color-text-soft); font-size: var(--body-size); line-height: 1.55; }
+    .beliefs li::marker { font-family: var(--font-mono); color: var(--color-accent); font-size: 0.85em; }
+
+    /* ---- PHONES / THE TEST ---- */
+    .phones {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .phonecard { text-align: center; }
+    .phonecard__frame {
+      display: block;
+      border-radius: 30px;
+      border: 1px solid var(--color-border);
+      background: rgba(242, 244, 243, .04);
+      padding: 9px;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    a.phonecard__frame:hover { transform: translateY(-5px); border-color: var(--color-accent); box-shadow: var(--shadow-lg); }
+    .phonecard__frame img { display: block; width: 100%; height: auto; border-radius: 22px; }
+    .phonecard__result {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 1.15rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      border-radius: 999px;
+      padding: 0.4rem 0.95rem;
+    }
+    .phonecard__result--control { border: 1px solid var(--color-border); color: var(--color-muted); }
+    .phonecard__result--win { border: 1px solid rgba(0, 201, 167, 0.45); background: var(--color-accent-tint); color: var(--color-accent-light); }
+    .phonecard h3 { font-size: 1.0625rem; margin-top: 0.85rem; }
+    .phonecard p { color: var(--color-muted); font-size: var(--body-sm); line-height: 1.55; margin-top: 0.4rem; }
+    @media (max-width: 1020px) { .phones { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .phones { gap: 1.1rem; } .phonecard__frame { padding: 6px; border-radius: 22px; } .phonecard__frame img { border-radius: 16px; } }
+
+    /* ---- CHART ---- */
+    .chart {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: clamp(1.75rem, 4vw, 2.75rem);
+    }
+    .chart__title { font-family: var(--font-display); font-weight: 600; font-size: 1.0625rem; margin-bottom: 0.35rem; }
+    .chart__subtitle { font-size: var(--body-sm); color: var(--color-muted); margin-bottom: 2rem; }
+    .chart__rows { display: grid; gap: 1.15rem; }
+    .chart__row { display: grid; grid-template-columns: 150px 1fr 118px; align-items: center; gap: 1.1rem; }
+    .chart__name { font-family: var(--font-display); font-weight: 600; font-size: 0.9375rem; color: var(--color-text); }
+    .chart__name small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.7rem; color: var(--color-muted); margin-top: 0.2rem; letter-spacing: 0.03em; }
+    .chart__track { position: relative; height: 30px; background: rgba(28, 33, 31, 0.045); border-radius: 0 4px 4px 0; }
+    .chart__bar {
+      position: absolute; inset: 0 auto 0 0;
+      width: 0;
+      border-radius: 0 4px 4px 0;
+      background: var(--color-accent);
+      border: 1px solid var(--teal-deep);
+      transition: width 1.1s var(--ease-out-expo);
+    }
+    .chart__bar--control { background: var(--slate); border-color: #565e5a; }
+    .chart__val {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text);
+      white-space: nowrap;
+      text-align: right;
+    }
+    .chart.in .chart__bar { width: var(--w); }
+    .chart__row:hover .chart__bar { filter: brightness(1.08); }
+    .chart__note { margin: 1.9rem auto 0; max-width: 860px; text-align: center; font-size: var(--body-sm); color: var(--color-muted); line-height: 1.6; }
+    @media (max-width: 640px) {
+      .chart__row { grid-template-columns: 1fr auto; gap: 0.45rem 1rem; }
+      .chart__name { grid-column: 1; grid-row: 1; }
+      .chart__val { grid-column: 2; grid-row: 1; align-self: end; }
+      .chart__track { grid-column: 1 / -1; grid-row: 2; height: 26px; }
+    }
+
+    /* ---- CAC MATH ---- */
+    .cacmath {
+      max-width: 860px;
+      margin: 2.5rem auto 0;
+      background: var(--color-accent-tint);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.85rem 2rem;
+    }
+    .cacmath h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
+    .cacmath p { color: var(--color-text-soft); font-size: var(--body-size); line-height: 1.65; }
+
+    /* ---- WHY CARDS ---- */
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .why__card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.85rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    .why__card:hover { transform: translateY(-3px); border-color: var(--color-accent); box-shadow: var(--shadow-md); }
+    .why__lift { font-family: var(--font-display); font-weight: 700; font-size: 1.875rem; letter-spacing: -0.02em; color: var(--color-accent); }
+    .why__format { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); margin: 0.25rem 0 1.1rem; }
+    .why__card h3 { font-size: 1.0625rem; margin-bottom: 0.5rem; }
+    .why__card p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.62; }
+    @media (max-width: 900px) { .why__grid { grid-template-columns: 1fr; } }
+
+    /* ---- TAKEAWAYS ---- */
+    .take__list { max-width: 760px; margin: 0 auto; display: grid; gap: 1rem; }
+    .take__item {
+      display: flex; gap: 1.1rem; align-items: flex-start;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.7rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .take__num { flex-shrink: 0; font-family: var(--font-mono); font-weight: 500; color: var(--color-accent-light); font-size: 0.9rem; margin-top: 0.2rem; }
+    .take__item h3 { font-size: 1.0625rem; margin-bottom: 0.35rem; }
+    .take__item p { color: var(--color-text-soft); font-size: var(--body-sm); line-height: 1.62; }
+
+    /* ---- FINAL CTA ---- */
+    .final {
+      position: relative;
+      background: radial-gradient(ellipse 70% 90% at 50% 110%, rgba(0, 201, 167, .14), transparent 65%), #07090b;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: clamp(5rem, 9vw, 7rem) 0;
+    }
+    .final h2 { color: #fff; font-size: var(--h2-size); }
+    .final p { color: rgba(255,255,255,0.7); font-size: var(--body-lg); max-width: 640px; margin: 1.25rem auto 2.25rem; line-height: 1.6; }
+    .final__escape { font-size: var(--body-sm); color: rgba(255,255,255,0.5); margin-top: 1.5rem; }
+    .final__escape a { color: var(--color-accent-light); }
+
+    @media (max-width: 768px) {
+      .statstrip__grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .section__head { margin-bottom: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain-wrap" aria-hidden="true"><div class="grain"></div></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="../../" class="nav__logo">
+        <img src="../../assets/clickdose-labs-light.png" alt="ClickDose Labs" width="83" height="44">
+      </a>
+      <div class="nav__links">
+        <div class="nav__dropdown" tabindex="0">
+          <span class="nav__dropdown-trigger">Services
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+          <div class="nav__menu">
+            <a class="nav__menu-item" href="../../page-lab/">
+              <h4>Page Lab</h4>
+              <p>Landing pages built, tested, and iterated until the messaging wins.</p>
+            </a>
+            <a class="nav__menu-item" href="../../growth-lab/">
+              <h4>Growth Lab</h4>
+              <p>Paid media that fills your pages with traffic.</p>
+            </a>
+            <a class="nav__menu-item" href="../../cold-email/">
+              <h4>Cold Email Lab</h4>
+              <p>Outbound that books qualified meetings.</p>
+            </a>
+          </div>
+        </div>
+        <a href="../../#testimonials">Results</a>
+        <a href="../../page-lab/#pricing">Pricing</a>
+      </div>
+      <div class="nav__cta">
+        <a href="#book" class="btn btn--dark">Get On The Waitlist</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile" id="navMobile">
+    <a href="../../" class="nav__mobile-logo"><img src="../../assets/clickdose-labs-light.png" alt="ClickDose Labs"></a>
+    <p class="nav__mobile-group">Services</p>
+    <a class="nav__mobile-link" href="../../page-lab/">Page Lab <small>Landing pages built, tested, and iterated until the messaging wins.</small></a>
+    <a class="nav__mobile-link" href="../../growth-lab/">Growth Lab <small>Paid media that fills your pages with traffic.</small></a>
+    <a class="nav__mobile-link" href="../../cold-email/">Cold Email Lab <small>Outbound that books qualified meetings.</small></a>
+    <p class="nav__mobile-group">Explore</p>
+    <a class="nav__mobile-link" href="../../#testimonials">Results</a>
+    <a class="nav__mobile-link" href="../../page-lab/#pricing">Pricing</a>
+    <a href="#book" class="btn">Get On The Waitlist</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero__content">
+        <p class="section-label" data-words data-delay="300">Case Study · CereFlex Labs</p>
+        <h1 data-words data-delay="500">Same ads. Same product. <span class="page-hero__highlight">Nearly 4x</span> the conversions.</h1>
+        <p class="page-hero__sub" data-words data-delay="1100">CereFlex Labs was doing what almost every DTC brand does: sending paid prospecting traffic straight to the product page. We built three new page formats for the same traffic and tested them against it. Every one of them won. The best won by 279%.</p>
+        <div class="case-meta">
+          <span>Client: <strong>CereFlex Labs</strong></span>
+          <span>Industry: <strong>DTC supplements</strong></span>
+          <span>Traffic: <strong>Paid social, prospecting</strong></span>
+          <span>Work: <strong>Landing page testing</strong></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STAT STRIP -->
+  <section class="statstrip">
+    <div class="container">
+      <div class="statstrip__grid stagger">
+        <div class="reveal">
+          <div class="statstrip__num">+279%</div>
+          <div class="statstrip__label">Advertorial vs product page</div>
+        </div>
+        <div class="reveal">
+          <div class="statstrip__num">+76%</div>
+          <div class="statstrip__label">Listicle vs product page</div>
+        </div>
+        <div class="reveal">
+          <div class="statstrip__num">+21%</div>
+          <div class="statstrip__label">Quiz funnel vs product page</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SETUP -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="prose">
+        <p class="section-label reveal">The Setup</p>
+        <h2 class="reveal">A good product page, pointed at the wrong people.</h2>
+        <p class="reveal">CereFlex Labs sells an AM/PM brain supplement system. Like most DTC brands, they were running paid social to cold prospecting audiences, and every ad pointed at the same destination: the product page.</p>
+        <p class="reveal">The product page wasn't bad. It had strong photography, social proof, a clear offer, all the things a product page is supposed to have. The problem wasn't the page. It was who the page was being asked to convince.</p>
+        <p class="reveal">A product page is built for someone who already wants the product. It assumes the visitor knows they have a problem, believes a supplement can solve it, and trusts the brand enough to pull out a card. A cold click from a prospecting ad has none of those beliefs yet. Asking a product page to create them is asking it to do a job it was never designed for.</p>
+        <blockquote class="pullquote reveal">A product page is a closer, not an opener. Send it cold traffic and you pay full price for clicks it was never built to convert.</blockquote>
+        <div class="beliefs reveal">
+          <h3>The five beliefs a buyer needs before they purchase</h3>
+          <ol>
+            <li>I actually have this problem.</li>
+            <li>This type of product can solve it.</li>
+            <li>It's made for someone like me.</li>
+            <li>It will work for me specifically.</li>
+            <li>There's no real risk in trying it.</li>
+          </ol>
+        </div>
+        <p class="reveal">A warm visitor arrives with most of those beliefs already in place. A cold one arrives with none. The pages that win with cold traffic are the ones that build those beliefs in order, before the pitch. So that's what we built.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TEST -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">The Test</p>
+        <h2>Three new front doors. <span class="hl-em">Nothing else</span> changed.</h2>
+        <p>Same product, same offer, same audiences, same campaign structure. The only variable was the page the click landed on. We built an advertorial, a listicle, and a quiz, and ran each against the product page as the control.</p>
+      </div>
+      <div class="phones stagger">
+        <div class="phonecard reveal">
+          <a class="phonecard__frame" href="https://cereflexlabs.com/products/am-pm-brain-supplement-package" target="_blank" rel="noopener">
+            <img src="../../assets/blog/cereflex/product.jpg" alt="CereFlex product page on mobile" width="720" height="1560" loading="lazy">
+          </a>
+          <span class="phonecard__result phonecard__result--control">Control · baseline</span>
+          <h3>Product page</h3>
+          <p>The default destination. Built to close buyers, not to create them.</p>
+        </div>
+        <div class="phonecard reveal">
+          <a class="phonecard__frame" href="https://cereflexlabs.com/pages/changing-brain-health" target="_blank" rel="noopener">
+            <img src="../../assets/blog/cereflex/advertorial.jpg" alt="CereFlex advertorial page on mobile" width="720" height="1560" loading="lazy">
+          </a>
+          <span class="phonecard__result phonecard__result--win">+279% CVR</span>
+          <h3>Advertorial</h3>
+          <p>An editorial story that builds the problem, the mechanism, and trust before any pitch.</p>
+        </div>
+        <div class="phonecard reveal">
+          <a class="phonecard__frame" href="https://cereflexlabs.com/pages/6-things/" target="_blank" rel="noopener">
+            <img src="../../assets/blog/cereflex/listicle.jpg" alt="CereFlex listicle page on mobile" width="720" height="1560" loading="lazy">
+          </a>
+          <span class="phonecard__result phonecard__result--win">+76% CVR</span>
+          <h3>Listicle</h3>
+          <p>Six reasons the visitor's current supplement falls short, each one teaching the mechanism.</p>
+        </div>
+        <div class="phonecard reveal">
+          <a class="phonecard__frame" href="https://cereflexlabs.com/#ttquiz-4592" target="_blank" rel="noopener">
+            <img src="../../assets/blog/cereflex/quiz.jpg" alt="CereFlex quiz funnel on mobile" width="720" height="1560" loading="lazy">
+          </a>
+          <span class="phonecard__result phonecard__result--win">+21% CVR</span>
+          <h3>Quiz funnel</h3>
+          <p>A 60-second assessment that personalizes the recommendation before the offer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">The Results</p>
+        <h2>Every format beat the product page.</h2>
+        <p>Identical traffic, identical product, identical offer. The only thing that changed was the page, and the page changed everything.</p>
+      </div>
+      <div class="chart reveal" id="cvrChart">
+        <div class="chart__title">Conversion rate by landing experience</div>
+        <div class="chart__subtitle">Paid prospecting traffic, indexed to the product page baseline (1.0x)</div>
+        <div class="chart__rows">
+          <div class="chart__row">
+            <div class="chart__name">Product page <small>CONTROL</small></div>
+            <div class="chart__track"><div class="chart__bar chart__bar--control" style="--w:26.4%"></div></div>
+            <span class="chart__val">1.0x</span>
+          </div>
+          <div class="chart__row">
+            <div class="chart__name">Quiz funnel</div>
+            <div class="chart__track"><div class="chart__bar" style="--w:32%"></div></div>
+            <span class="chart__val">1.2x &middot; +21%</span>
+          </div>
+          <div class="chart__row">
+            <div class="chart__name">Listicle</div>
+            <div class="chart__track"><div class="chart__bar" style="--w:46.5%"></div></div>
+            <span class="chart__val">1.8x &middot; +76%</span>
+          </div>
+          <div class="chart__row">
+            <div class="chart__name">Advertorial</div>
+            <div class="chart__track"><div class="chart__bar" style="--w:100%"></div></div>
+            <span class="chart__val">3.8x &middot; +279%</span>
+          </div>
+        </div>
+      </div>
+      <p class="chart__note reveal">We keep clients' raw conversion rates private, so the chart shows relative performance. The relationships are exact: each bar is that page's measured conversion rate on the same prospecting traffic, indexed to the product page.</p>
+      <div class="cacmath reveal">
+        <h3>What this does to acquisition cost</h3>
+        <p>Conversion rate and cost per acquisition are two sides of the same number. If clicks cost the same and the page converts 3.8x more of them, each customer costs roughly 74% less. Nothing about the ads improved. Nothing about the product changed. The same media budget simply started buying almost four times as many customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY EACH FORMAT WORKED -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">The Breakdown</p>
+        <h2>Why each format performed the way it did.</h2>
+        <p>The ranking isn't random. The more belief-building a format does before the pitch, the better it converts cold traffic.</p>
+      </div>
+      <div class="why__grid stagger">
+        <div class="why__card reveal">
+          <div class="why__lift">+279%</div>
+          <div class="why__format">Advertorial</div>
+          <h3>Story does the selling before the pitch arrives.</h3>
+          <p>The advertorial reads like an article, not an ad. By the time the product appears, the visitor has absorbed the problem, met the founder's story, and understood the mechanism behind the formula. It builds all five beliefs in sequence, which is why it nearly quadrupled the baseline. For cold traffic, this is the format to beat.</p>
+        </div>
+        <div class="why__card reveal">
+          <div class="why__lift">+76%</div>
+          <div class="why__format">Listicle</div>
+          <h3>Education reframes the problem in the brand's favor.</h3>
+          <p>"6 Things Your Brain Supplement Isn't Doing" meets the visitor where they are: already spending money on something that isn't working. Each item teaches one piece of the mechanism and quietly disqualifies the alternatives. Less immersive than the advertorial, but a fast, skimmable belief-builder that nearly doubled the baseline.</p>
+        </div>
+        <div class="why__card reveal">
+          <div class="why__lift">+21%</div>
+          <div class="why__format">Quiz funnel</div>
+          <h3>Personalization earns a lift, with a ceiling.</h3>
+          <p>The quiz gets the visitor participating instead of reading, and a personalized result feels less like a pitch. It still beat the product page, but quizzes shine brightest when they route people across a wide catalog. With one hero system to recommend, the extra steps add friction that caps the gain. Useful signal: even the weakest new format beat the default.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAKEAWAYS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section-label">Takeaways</p>
+        <h2>What this means for your paid traffic.</h2>
+      </div>
+      <div class="take__list stagger">
+        <div class="take__item reveal">
+          <span class="take__num">01</span>
+          <div>
+            <h3>Stop sending cold traffic to your product page.</h3>
+            <p>It's the single most common leak in DTC ad accounts. The product page is where warm traffic closes. Cold traffic needs a page that builds belief first: an advertorial, a listicle, a quiz, a bridge page.</p>
+          </div>
+        </div>
+        <div class="take__item reveal">
+          <span class="take__num">02</span>
+          <div>
+            <h3>Test page formats, not just ad creative.</h3>
+            <p>Most brands iterate endlessly on ads while every click lands on the same page. In this test the page alone moved conversion by up to 279%. No creative refresh comes close to that lever.</p>
+          </div>
+        </div>
+        <div class="take__item reveal">
+          <span class="take__num">03</span>
+          <div>
+            <h3>You can't predict the winner, so test several.</h3>
+            <p>The three formats landed anywhere from +21% to +279%. If CereFlex had only tested the quiz, the conclusion would have been "pages barely matter." The spread is the argument for testing more than one.</p>
+          </div>
+        </div>
+        <div class="take__item reveal">
+          <span class="take__num">04</span>
+          <div>
+            <h3>The cheapest growth is often already in your funnel.</h3>
+            <p>Nothing here required a new product, a bigger budget, or better ads. The traffic was already bought and paid for. The pages just stopped wasting it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="book">
+    <div class="container">
+      <p class="section-label reveal" style="text-align:center;">Page Lab</p>
+      <h2 class="reveal">This is exactly what Page Lab does.</h2>
+      <p class="reveal">We build and test landing page formats against your funnel, month after month, until the messaging wins. The CereFlex pages in this case study came out of that exact process. If you're spending on paid traffic and everything lands on one page, there's a version of this result sitting in your account.</p>
+      <a href="#book" class="btn btn--primary btn--lg reveal">Get On The Waitlist</a>
+      <p class="final__escape reveal">Or email us directly: <a href="mailto:info@clickdose.com">info@clickdose.com</a></p>
+    </div>
+  </section>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="mobile-dock">
+    <a href="#book" class="btn btn--lg">Get On The Waitlist</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="../../" class="footer__logo">
+          <img src="../../assets/clickdose-labs-light.png" alt="ClickDose Labs" loading="lazy" width="68" height="36">
+        </a>
+        <div class="footer__links">
+          <a href="../../page-lab/">Page Lab</a>
+          <a href="../../growth-lab/">Growth Lab</a>
+          <a href="../../cold-email/">Cold Email Lab</a>
+          <a href="../../#team">Team</a>
+          <a href="#book">Get On The Waitlist</a>
+          <a href="../../privacy-policy/">Privacy Policy</a>
+          <a href="../../terms/">Terms</a>
+        </div>
+        <div class="footer__right footer__social">
+          <a href="https://www.linkedin.com/company/clickdose-labs/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://x.com/clickdoselabs" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        &copy; 2026 ClickDose Labs. Growth with every dose.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../shared/site.js" defer></script>
+  <script>
+    // Animate the chart bars when the chart scrolls into view
+    document.addEventListener('DOMContentLoaded', function () {
+      var chart = document.getElementById('cvrChart');
+      if (!chart) return;
+      if (!('IntersectionObserver' in window)) { chart.classList.add('in'); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { chart.classList.add('in'); io.disconnect(); }
+        });
+      }, { threshold: 0.35 });
+      io.observe(chart);
+    });
+  </script>
+
+  <!-- Cal.com embed: waitlist form popup on all CTA buttons + floating button -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "intro", { origin: "https://cal.com" });
+
+    // Prefetch the booking page so the popup opens instantly instead of loading on click
+    Cal.ns.intro("preload", { calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b", type: "modal" });
+
+    // Tag every CTA button so Cal opens the waitlist form as a popup
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('a[href="#book"]').forEach(function (el) {
+        el.setAttribute("data-cal-namespace", "intro");
+        el.setAttribute("data-cal-link", "forms/001bbe15-3cde-47b6-a975-2804a541dd7b");
+        el.addEventListener("click", function (e) { e.preventDefault(); });
+      });
+    });
+
+    // Floating waitlist button (desktop; the mobile dock replaces it on small screens)
+    Cal.ns.intro("floatingButton", {
+      calLink: "forms/001bbe15-3cde-47b6-a975-2804a541dd7b",
+      buttonText: "Get On The Waitlist",
+      buttonColor: "#00C9A7",
+      buttonTextColor: "#FFFFFF",
+      hideButtonOnMobile: true
+    });
+
+    Cal.ns.intro("ui", { hideEventTypeDetails: false });
+  </script>
+</body>
+</html>
