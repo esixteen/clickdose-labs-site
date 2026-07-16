@@ -380,6 +380,7 @@
       align-items: center;
       overflow: hidden;
     }
+    .leak-stage .container { width: 100%; }
     .leak-scenes { position: relative; max-width: 46rem; min-height: clamp(13rem, 34vw, 15rem); margin-top: 1.8rem; }
     .leak-scene {
       position: absolute;
@@ -496,7 +497,7 @@
     .cf-card__chrome i:nth-child(3) { background: #28c840; }
     .cf-card__chrome span { font-family: var(--font-mono); font-size: .68rem; color: var(--cream-35); margin-left: .3rem; }
     .cf-card__viewport { flex: 1; overflow: hidden; background: #141a1d; position: relative; display: block; }
-    .cf-card__viewport img { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; }
+    .cf-card__viewport img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
     /* Reduced motion / no-JS fallback: simple scrollable row */
     .coverflow.static { height: auto; overflow-x: auto; display: flex; gap: 1.5rem; padding: 0 var(--gutter); cursor: default; }
     .coverflow.static .cf-card { position: static; transform: none; height: clamp(260px, 34vh, 400px); flex: 0 0 auto; }
@@ -716,7 +717,7 @@
           </div>
           <div class="leak-scene">
             <span class="ln">// 04 — The math</span>
-            <p class="leak__math">At $20k/mo in spend, the gap between a 1.5% and a 2% page is thousands of dollars a month. Every month, compounding.</p>
+            <p class="leak__math">At $200k/mo in spend, the gap between a 1.5% and a 2% page is thousands of dollars a month. Every month, compounding.</p>
             <a href="page-lab/" class="leak__link">See how Page Lab fixes this &rarr;</a>
           </div>
         </div>
@@ -776,31 +777,31 @@
     <div class="coverflow" id="coverflow">
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/thicket</span></span>
-        <span class="cf-card__viewport"><img src="assets/page-lab/pages/thicket.jpg" alt="Thicket listicle page built by ClickDose Labs" loading="lazy"></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/built/thicket.jpg" alt="Thicket listicle page built by ClickDose Labs" loading="lazy"></span>
       </div>
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/harlan-reyes</span></span>
-        <span class="cf-card__viewport"><img src="assets/page-lab/pages/harlan-reyes.jpg" alt="Harlan Reyes lead gen page built by ClickDose Labs" loading="lazy"></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/built/harlan-reyes.jpg" alt="Harlan Reyes lead gen page built by ClickDose Labs" loading="lazy"></span>
       </div>
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/maren</span></span>
-        <span class="cf-card__viewport"><img src="assets/page-lab/pages/maren.jpg" alt="Maren advertorial page built by ClickDose Labs" loading="lazy"></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/built/maren.jpg" alt="Maren advertorial page built by ClickDose Labs" loading="lazy"></span>
       </div>
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/sable</span></span>
-        <span class="cf-card__viewport"><img src="assets/page-lab/pages/sable.jpg" alt="Sable sales page built by ClickDose Labs" loading="lazy"></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/built/sable.jpg" alt="Sable sales page built by ClickDose Labs" loading="lazy"></span>
       </div>
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/keel</span></span>
-        <span class="cf-card__viewport"><img src="assets/page-lab/pages/keel.jpg" alt="Keel comparison page built by ClickDose Labs" loading="lazy"></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/built/keel.jpg" alt="Keel comparison page built by ClickDose Labs" loading="lazy"></span>
       </div>
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/kiln</span></span>
-        <span class="cf-card__viewport"><img src="assets/page-lab/pages/kiln.jpg" alt="Kiln brand site built by ClickDose Labs" loading="lazy"></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/built/kiln.jpg" alt="Kiln brand site built by ClickDose Labs" loading="lazy"></span>
       </div>
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/torus</span></span>
-        <span class="cf-card__viewport"><img src="assets/page-lab/pages/torus.jpg" alt="Torus product launch page built by ClickDose Labs" loading="lazy"></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/built/torus.jpg" alt="Torus product launch page built by ClickDose Labs" loading="lazy"></span>
       </div>
     </div>
   </section>
