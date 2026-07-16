@@ -282,7 +282,6 @@
       display: flex;
       align-items: flex-end;
       overflow: hidden;
-      padding-bottom: clamp(3rem, 8vh, 5.5rem);
     }
     .hero video {
       position: absolute; inset: 0;
@@ -293,22 +292,34 @@
     .hero::after {
       content: "";
       position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(11,15,18,.6) 0%, rgba(11,15,18,.28) 45%, rgba(11,15,18,.86) 100%);
+      background: linear-gradient(180deg, rgba(11,15,18,.6) 0%, rgba(11,15,18,.38) 45%, rgba(11,15,18,.92) 100%);
       z-index: -1;
     }
-    .hero__content { max-width: 46rem; }
+    .hero__content {
+      position: absolute;
+      bottom: 3vh;
+      left: var(--gutter);
+      right: var(--gutter);
+    }
+    .hero .section-label { display: inline-block; font-size: .8rem; letter-spacing: .18em; color: var(--teal); text-shadow: 0 1px 8px rgba(0,0,0,.6); margin-bottom: .9rem; background: rgba(11,15,18,.55); border: 1px solid rgba(0,201,167,.35); padding: .45rem .9rem; border-radius: 999px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
     .hero h1 {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(2.4rem, 6.4vw, 4.6rem);
-      line-height: 1.04;
+      font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+      line-height: 1.06;
       letter-spacing: -.03em;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
     }
-    .hero__sub { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--cream-70); max-width: 36rem; margin-bottom: 1.8rem; }
+    .hero h1 .hl { display: block; white-space: nowrap; }
+    .hero__sub { font-size: clamp(1.1rem, 2.1vw, 1.35rem); color: rgba(242, 244, 243, .85); max-width: 36rem; margin-bottom: 1.5rem; }
     .hero__ctas { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
     .hero__chips { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: .8125rem; color: var(--cream-50); margin-top: 1.1rem; }
     .hero__chips span::before { content: "✦ "; color: var(--teal); }
+    @media (max-width: 760px) {
+      .hero__content { bottom: 3vh; }
+      .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+      .hero h1 .hl { white-space: normal; }
+    }
     /* word-stagger */
     .w { display: inline-block; opacity: 0; filter: blur(12px); transform: translateY(8px); transition: opacity .6s ease-out, filter .6s ease-out, transform .6s ease-out; }
     .words-in .w { opacity: 1; filter: blur(0); transform: none; }
@@ -632,8 +643,8 @@
     </video>
     <div class="container">
       <div class="hero__content">
-        <span class="section-label" data-words data-delay="500">Conversion-Led Growth · ClickDose Labs</span>
-        <h1 data-words data-delay="800">Turn more of your traffic into <span class="em">customers</span>.</h1>
+        <span class="section-label">Conversion-Led Growth</span>
+        <h1 data-words data-delay="800"><span class="hl">Turn more of your traffic</span><span class="hl">into <span class="em">customers</span>.</span></h1>
         <p class="hero__sub" data-words data-delay="1500">We build your landing pages, test the messaging against real traffic, and put paid media behind what wins. Run by operators who've managed $200M+ in spend.</p>
         <div class="hero__ctas">
           <a href="#book" class="btn btn--lg">Apply To Work With Us</a>
