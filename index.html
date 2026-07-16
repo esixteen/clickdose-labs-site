@@ -501,6 +501,27 @@
     .coverflow.static { height: auto; overflow-x: auto; display: flex; gap: 1.5rem; padding: 0 var(--gutter); cursor: default; }
     .coverflow.static .cf-card { position: static; transform: none; height: clamp(260px, 34vh, 400px); flex: 0 0 auto; }
 
+    /* Results (dark stat cards) */
+    .proof__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .proof-stat {
+      background: #141a1d;
+      border: 1px solid #262b2e;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: left;
+    }
+    .proof-stat__number {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      letter-spacing: -.03em;
+      line-height: 1;
+      color: #00c9a7;
+      margin-bottom: .75rem;
+    }
+    .proof-stat__label { font-size: .95rem; font-weight: 400; color: #9aa19e; line-height: 1.4; }
+    @media (max-width: 720px) { .proof__stats { grid-template-columns: 1fr; } }
+
     /* Partners (light) */
     .partners__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.2rem; max-width: 60rem; }
     .partner { background: #fff; border: 1px solid var(--line-l); border-radius: 18px; padding: 1.9rem 1.8rem; box-shadow: 0 10px 40px rgba(28,33,31,.06); }
@@ -776,6 +797,30 @@
       <div class="cf-card">
         <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/torus</span></span>
         <span class="cf-card__viewport"><img src="assets/page-lab/pages/torus.jpg" alt="Torus product launch page built by ClickDose Labs" loading="lazy"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RESULTS (dark) -->
+  <section class="band" id="results">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">The Results</span>
+        <h2>Proof over <span class="em">promises</span>.</h2>
+      </div>
+      <div class="proof__stats stagger">
+        <div class="proof-stat reveal">
+          <div class="proof-stat__number">279%</div>
+          <div class="proof-stat__label">Conversion rate lift</div>
+        </div>
+        <div class="proof-stat reveal">
+          <div class="proof-stat__number">$200M+</div>
+          <div class="proof-stat__label">Ad spend managed by the operators behind ClickDose</div>
+        </div>
+        <div class="proof-stat reveal">
+          <div class="proof-stat__number">$5M/yr</div>
+          <div class="proof-stat__label">From zero in digital revenue</div>
+        </div>
       </div>
     </div>
   </section>
