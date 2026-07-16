@@ -313,28 +313,7 @@
     .w { display: inline-block; opacity: 0; filter: blur(12px); transform: translateY(8px); transition: opacity .6s ease-out, filter .6s ease-out, transform .6s ease-out; }
     .words-in .w { opacity: 1; filter: blur(0); transform: none; }
 
-    /* Strip marquee */
-    .strip {
-      border-block: 1px solid var(--line);
-      overflow: hidden;
-      padding: .9rem 0;
-      white-space: nowrap;
-      background: var(--char-2);
-      mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent);
-    }
-    .strip__track { display: inline-block; width: max-content; animation: strip 40s linear infinite; }
-    .strip span {
-      font-family: var(--font-mono);
-      font-size: .78rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--cream-35);
-      margin-right: 2rem;
-    }
-    .strip .dot { color: var(--teal); }
     @keyframes strip { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @media (prefers-reduced-motion: reduce) { .strip__track { animation: none; } }
 
     /* Sections */
     section.band { padding: var(--section-y) 0; }
@@ -666,20 +645,6 @@
       </div>
     </div>
   </section>
-
-  <!-- MARQUEE STRIP -->
-  <div class="strip" aria-label="More revenue from the traffic you already bought.">
-    <div class="strip__track">
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-      <span>More revenue from the traffic you already bought.</span><span class="dot">✦</span>
-    </div>
-  </div>
 
   <!-- PROOF STRIP (light) -->
   <section class="band band--light" id="proof">
