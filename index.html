@@ -572,6 +572,10 @@
     .stagger .reveal:nth-child(3) { transition-delay: .16s; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; filter: none; transition: none; } .w { opacity: 1; filter: none; transform: none; } }
 
+    /* Cal floating button: hidden while hero is in view */
+    cal-floating-button { opacity: 0; pointer-events: none; transition: opacity .45s ease; }
+    cal-floating-button.past-hero { opacity: 1; pointer-events: auto; }
+
     /* Large-screen scaling */
     @media (min-width: 1900px) { html { font-size: 19px; } }
     @media (min-width: 2500px) { html { font-size: 24px; } }
@@ -1086,6 +1090,17 @@
         }
       }
 
+      // Cal floating button: fade in only after the hero scrolls out of view
+      var heroSection = document.getElementById('hero');
+      if (heroSection && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          var heroVisible = entries[0].isIntersecting;
+          document.querySelectorAll('cal-floating-button').forEach(function (b) {
+            b.classList.toggle('past-hero', !heroVisible);
+          });
+        }, { threshold: 0.05 }).observe(heroSection);
+      }
+
       // Videos pause offscreen
       [document.getElementById('heroVideo'), document.getElementById('finalVideo')].forEach(function (v) {
         if (!v) return;
@@ -1133,6 +1148,8 @@
       var timer = setInterval(function () {
         var el = document.querySelector('cal-floating-button');
         if (el && el.shadowRoot) {
+          var heroRect = document.getElementById('hero').getBoundingClientRect();
+          el.classList.toggle('past-hero', heroRect.bottom <= 0);
           var s = document.createElement('style');
           s.textContent = "button{font-family:'Space Grotesk',sans-serif!important;font-weight:600!important;letter-spacing:0!important;border-radius:999px!important;}";
           el.shadowRoot.appendChild(s);
