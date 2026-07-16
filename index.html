@@ -458,72 +458,48 @@
     .lab-card:hover .lab-card__link { color: #0f6e56; text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 860px) { .labs__grid { grid-template-columns: 1fr; } }
 
-    /* The Work: pinned showcase — one page scrubs, explodes into the portfolio, ends on the logo */
-    .work-pin { height: 480vh; position: relative; }
-    .work-stage {
-      position: sticky; top: 0;
-      height: 100vh;
+    /* The Work: coverflow carousel */
+    .work-head { margin-bottom: 3rem; }
+    .coverflow {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      height: clamp(320px, 34vw, 450px);
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      cursor: ew-resize;
     }
-    .work-label {
-      position: absolute; top: 6rem; left: var(--gutter);
-      font-family: var(--font-mono);
-      font-size: .72rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--teal);
-    }
-    .work-frame {
-      width: min(46rem, 82vw);
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--char-2);
-      box-shadow: 0 40px 120px rgba(0,0,0,.55);
-      overflow: hidden;
-      will-change: transform, opacity;
-    }
-    .work-frame__chrome {
-      display: flex; align-items: center; gap: .5rem;
-      padding: .55rem .9rem;
-      border-bottom: 1px solid var(--line);
-      background: rgba(242,244,243,.04);
-    }
-    .work-frame__chrome i { width: 9px; height: 9px; border-radius: 50%; background: rgba(242,244,243,.18); }
-    .work-frame__chrome span { font-family: var(--font-mono); font-size: .68rem; color: var(--cream-35); }
-    .work-frame__viewport { display: block; height: min(58vh, 34rem); overflow: hidden; }
-    .work-frame__viewport img { width: 100%; height: auto; display: block; will-change: transform; }
-    .wcard {
+    .cf-card {
       position: absolute;
       top: 50%; left: 50%;
-      width: clamp(84px, 11vw, 150px);
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      box-shadow: 0 20px 50px rgba(0,0,0,.5);
-      opacity: 0;
+      height: 100%;
+      aspect-ratio: 10 / 7;
+      border-radius: 12px;
+      border: 1px solid #262b2e;
+      overflow: hidden;
+      background: #141a1d;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
       will-change: transform, opacity;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
     }
-    .work-logo {
-      position: absolute;
-      text-align: center;
-      opacity: 0;
-      will-change: transform, opacity;
+    .cf-card__chrome {
+      display: flex; align-items: center; gap: .5rem;
+      flex: 0 0 auto;
+      padding: .55rem .9rem;
+      border-bottom: 1px solid #262b2e;
+      background: rgba(242,244,243,.04);
     }
-    .work-logo .chip { display: inline-flex; }
-    .work-logo .chip img {
-      height: clamp(100px, 16vw, 210px);
-      width: auto;
-      filter: drop-shadow(0 20px 60px rgba(0,0,0,.6)) drop-shadow(0 0 60px var(--teal-glow));
-    }
-    .work-logo p { margin-top: 1.6rem; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(1.25rem, 2.6vw, 1.8rem); color: var(--cream-70); }
-    /* Reduced-motion fallback: static collage + logo */
-    .work-pin.static { height: auto; padding: var(--section-y) 0; }
-    .work-pin.static .work-stage { position: static; height: auto; flex-direction: column; gap: 2rem; padding: 0 var(--gutter); }
-    .work-pin.static .work-label { position: static; }
-    .work-pin.static .work-frame, .work-pin.static .wcard { display: none; }
-    .work-pin.static .work-logo { position: static; opacity: 1; }
+    .cf-card__chrome i { width: 9px; height: 9px; border-radius: 50%; }
+    .cf-card__chrome i:nth-child(1) { background: #ff5f57; }
+    .cf-card__chrome i:nth-child(2) { background: #febc2e; }
+    .cf-card__chrome i:nth-child(3) { background: #28c840; }
+    .cf-card__chrome span { font-family: var(--font-mono); font-size: .68rem; color: var(--cream-35); margin-left: .3rem; }
+    .cf-card__viewport { flex: 1; overflow: hidden; background: #141a1d; position: relative; display: block; }
+    .cf-card__viewport img { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; }
+    /* Reduced motion / no-JS fallback: simple scrollable row */
+    .coverflow.static { height: auto; overflow-x: auto; display: flex; gap: 1.5rem; padding: 0 var(--gutter); cursor: default; }
+    .coverflow.static .cf-card { position: static; transform: none; height: clamp(260px, 34vh, 400px); flex: 0 0 auto; }
 
     /* Partners (light) */
     .partners__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.2rem; max-width: 60rem; }
@@ -766,27 +742,40 @@
     </div>
   </section>
 
-  <!-- THE WORK: pinned showcase -->
-  <section class="work-pin" id="workpin" aria-label="A showcase of pages built by ClickDose Labs">
-    <div class="work-stage">
-      <span class="work-label">The Work</span>
-      <div class="work-frame" id="workFrame">
-        <span class="work-frame__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/kiln</span></span>
-        <span class="work-frame__viewport"><img id="workImg" src="assets/home/kiln-scroll.jpg" alt="A brand site built by ClickDose Labs" loading="lazy" width="868" height="2100"></span>
+  <!-- THE WORK: coverflow carousel -->
+  <section class="band" id="work" aria-label="A showcase of pages built by ClickDose Labs">
+    <div class="container work-head reveal">
+      <span class="section-label">The Work</span>
+      <h2>Pages we've <span class="em">built</span>.</h2>
+    </div>
+    <div class="coverflow" id="coverflow">
+      <div class="cf-card">
+        <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/thicket</span></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/pages/thicket.jpg" alt="Thicket listicle page built by ClickDose Labs" loading="lazy"></span>
       </div>
-      <img class="wcard" src="assets/page-lab/pages/thicket.jpg" alt="" loading="lazy" data-x="-38" data-y="-26" data-r="-6">
-      <img class="wcard" src="assets/page-lab/pages/harlan-reyes.jpg" alt="" loading="lazy" data-x="-14" data-y="-32" data-r="4">
-      <img class="wcard" src="assets/page-lab/pages/maren.jpg" alt="" loading="lazy" data-x="12" data-y="-30" data-r="-3">
-      <img class="wcard" src="assets/page-lab/pages/sable.jpg" alt="" loading="lazy" data-x="36" data-y="-22" data-r="5">
-      <img class="wcard" src="assets/page-lab/pages/keel.jpg" alt="" loading="lazy" data-x="-42" data-y="6" data-r="3">
-      <img class="wcard" src="assets/page-lab/pages/torus.jpg" alt="" loading="lazy" data-x="41" data-y="8" data-r="-5">
-      <img class="wcard" src="assets/page-lab/pages/rhythm.jpg" alt="" loading="lazy" data-x="-29" data-y="28" data-r="5">
-      <img class="wcard" src="assets/page-lab/pages/changing-brain-health.jpg" alt="" loading="lazy" data-x="-5" data-y="33" data-r="-4">
-      <img class="wcard" src="assets/page-lab/pages/am-pm-brain-supplement-package.jpg" alt="" loading="lazy" data-x="20" data-y="29" data-r="3">
-      <img class="wcard" src="assets/page-lab/pages/6-things.jpg" alt="" loading="lazy" data-x="44" data-y="-4" data-r="2">
-      <div class="work-logo" id="workLogo">
-        <span class="chip"><img src="assets/clickdose-labs-light.png" alt="ClickDose Labs" width="394" height="210"></span>
-        <p>Growth in every dose</p>
+      <div class="cf-card">
+        <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/harlan-reyes</span></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/pages/harlan-reyes.jpg" alt="Harlan Reyes lead gen page built by ClickDose Labs" loading="lazy"></span>
+      </div>
+      <div class="cf-card">
+        <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/maren</span></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/pages/maren.jpg" alt="Maren advertorial page built by ClickDose Labs" loading="lazy"></span>
+      </div>
+      <div class="cf-card">
+        <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/sable</span></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/pages/sable.jpg" alt="Sable sales page built by ClickDose Labs" loading="lazy"></span>
+      </div>
+      <div class="cf-card">
+        <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/keel</span></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/pages/keel.jpg" alt="Keel comparison page built by ClickDose Labs" loading="lazy"></span>
+      </div>
+      <div class="cf-card">
+        <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/kiln</span></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/pages/kiln.jpg" alt="Kiln brand site built by ClickDose Labs" loading="lazy"></span>
+      </div>
+      <div class="cf-card">
+        <span class="cf-card__chrome"><i></i><i></i><i></i><span>clickdoselabs.com/example/torus</span></span>
+        <span class="cf-card__viewport"><img src="assets/page-lab/pages/torus.jpg" alt="Torus product launch page built by ClickDose Labs" loading="lazy"></span>
       </div>
     </div>
   </section>
@@ -998,54 +987,57 @@
         }
       }
 
-      // The Work: pinned showcase choreography
-      var workPin = document.getElementById('workpin');
-      if (workPin) {
+      // The Work: coverflow carousel: mouse-position scrub, touch drag, eased follow
+      var cf = document.getElementById('coverflow');
+      if (cf) {
+        var cards = Array.prototype.slice.call(cf.querySelectorAll('.cf-card'));
+        var n = cards.length;
         if (reduced) {
-          workPin.classList.add('static');
+          cf.classList.add('static');
         } else {
-          var wFrame = document.getElementById('workFrame');
-          var wImg = document.getElementById('workImg');
-          var wCards = workPin.querySelectorAll('.wcard');
-          var wLogo = document.getElementById('workLogo');
-          function clamp01(v) { return Math.min(1, Math.max(0, v)); }
-          function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-          var wTicking = false;
-          function syncWork() {
-            var r = workPin.getBoundingClientRect();
-            var total = workPin.offsetHeight - window.innerHeight;
-            var p = clamp01(-r.top / total);
-            // Phase A: scrub the page inside the frame
-            var a = easeOut(clamp01(p / 0.3));
-            var vp = wImg.parentElement;
-            var overpan = Math.max(0, wImg.clientHeight - vp.clientHeight);
-            wImg.style.transform = 'translateY(' + (-a * overpan) + 'px)';
-            // Frame hands off to the cards
-            var fade = clamp01((p - 0.32) / 0.12);
-            wFrame.style.opacity = (1 - fade).toFixed(3);
-            wFrame.style.transform = 'scale(' + (1 - 0.1 * fade).toFixed(4) + ')';
-            wFrame.style.visibility = fade >= 1 ? 'hidden' : 'visible';
-            // Phase B: cards fly out from center to their scattered spots
-            var out = clamp01((p - 0.82) / 0.14);
-            wCards.forEach(function (card, i) {
-              var local = easeOut(clamp01(((p - 0.36) / 0.34) - i * 0.018));
-              var tx = parseFloat(card.getAttribute('data-x')) * local;
-              var ty = parseFloat(card.getAttribute('data-y')) * local;
-              var rot = parseFloat(card.getAttribute('data-r')) * local;
-              var drift = 1 + 0.22 * out;
-              card.style.transform = 'translate(-50%, -50%) translate(' + (tx * drift) + 'vw, ' + (ty * drift) + 'vh) rotate(' + rot + 'deg)';
-              card.style.opacity = (local * (1 - out)).toFixed(3);
+          var current = Math.floor(n / 2);
+          var target = current;
+          var raf = null;
+          function render() {
+            var cardW = cards[0].offsetWidth || 300;
+            var spread = cardW * 0.42;
+            cards.forEach(function (card, i) {
+              var off = i - current;
+              var a = Math.abs(off);
+              var scale = Math.max(0.55, 1 - 0.13 * a);
+              var rot = Math.max(-1, Math.min(1, off)) * -10;
+              var op = a <= 2.2 ? 1 : Math.max(0, 1 - (a - 2.2));
+              var dim = Math.max(0.45, 1 - 0.28 * a);
+              card.style.transform = 'translate(-50%, -50%) translateX(' + (off * spread) + 'px) perspective(1200px) rotateY(' + rot + 'deg) scale(' + scale + ')';
+              card.style.opacity = op.toFixed(3);
+              card.style.filter = 'brightness(' + dim.toFixed(3) + ')';
+              card.style.zIndex = String(100 - Math.round(a * 10));
             });
-            // Phase C: logo resolves
-            var c = easeOut(clamp01((p - 0.84) / 0.14));
-            wLogo.style.opacity = c.toFixed(3);
-            wLogo.style.transform = 'scale(' + (0.85 + 0.15 * c).toFixed(4) + ')';
-            wTicking = false;
           }
-          window.addEventListener('scroll', function () {
-            if (!wTicking) { wTicking = true; requestAnimationFrame(syncWork); }
+          function tick() {
+            current += (target - current) * 0.09;
+            if (Math.abs(target - current) < 0.001) { current = target; }
+            render();
+            if (current !== target) { raf = requestAnimationFrame(tick); } else { raf = null; }
+          }
+          function go() { if (!raf) { raf = requestAnimationFrame(tick); } }
+          cf.addEventListener('mousemove', function (e) {
+            var r = cf.getBoundingClientRect();
+            var x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+            target = x * (n - 1);
+            go();
+          });
+          cf.addEventListener('mouseleave', function () { target = Math.round(current); go(); });
+          var tX = null, tStart = 0;
+          cf.addEventListener('touchstart', function (e) { tX = e.touches[0].clientX; tStart = target; }, { passive: true });
+          cf.addEventListener('touchmove', function (e) {
+            if (tX === null) return;
+            var dx = e.touches[0].clientX - tX;
+            target = Math.min(n - 1, Math.max(0, tStart - dx / 130));
+            go();
           }, { passive: true });
-          if (wImg.complete) { syncWork(); } else { wImg.addEventListener('load', syncWork); }
+          cf.addEventListener('touchend', function () { tX = null; target = Math.round(target); go(); });
+          render();
         }
       }
 
