@@ -366,7 +366,7 @@
       mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent);
       -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent);
     }
-    .logos__track { display: inline-flex; width: max-content; animation: strip 55s linear infinite; }
+    .logos__track { display: inline-flex; width: max-content; animation: strip 55s linear infinite; will-change: transform; }
     .logos__group { display: inline-flex; align-items: center; gap: clamp(2.2rem, 5vw, 4rem); padding-right: clamp(2.2rem, 5vw, 4rem); }
     .logos__group img { height: 34px; width: auto; opacity: .75; filter: grayscale(1); }
     @media (prefers-reduced-motion: reduce) { .logos__track { animation: none; } }
@@ -711,29 +711,29 @@
     <div class="container">
       <p class="section-label trusted__label reveal">Trusted By Teams At</p>
     </div>
-    <div class="logos__marquee reveal" aria-label="Selected ClickDose Labs clients">
+    <div class="logos__marquee" aria-label="Selected ClickDose Labs clients">
       <div class="logos__track">
         <div class="logos__group">
-          <img src="assets/Client Logos/Banner/renovo-financial-logo.png" alt="Renovo Financial" loading="lazy">
-          <img src="assets/Client Logos/Banner/Fundcanna-logo-alone.webp" alt="FundCanna" loading="lazy">
-          <img src="assets/Client Logos/Banner/BD capital.png" alt="BD Capital" loading="lazy">
-          <img src="assets/Client Logos/Banner/LADIESINLAW-Logo.webp" alt="Ladies in Law" loading="lazy">
-          <img src="assets/Client Logos/Banner/packard lapray.webp" alt="Packard LaPray" loading="lazy">
-          <img src="assets/Client Logos/Banner/the accounting doctor.png" alt="The Accounting Doctor" loading="lazy">
-          <img src="assets/Client Logos/Banner/inevitrade.png" alt="Inevitrade" loading="lazy">
-          <img src="assets/Client Logos/Banner/cereflex.svg" alt="CereFlex" loading="lazy">
-          <img src="assets/Client Logos/Banner/teamz.svg" alt="Teamz" loading="lazy">
+          <img src="assets/Client Logos/Banner/renovo-financial-logo.png" alt="Renovo Financial">
+          <img src="assets/Client Logos/Banner/Fundcanna-logo-alone.webp" alt="FundCanna">
+          <img src="assets/Client Logos/Banner/BD capital.png" alt="BD Capital">
+          <img src="assets/Client Logos/Banner/LADIESINLAW-Logo.webp" alt="Ladies in Law">
+          <img src="assets/Client Logos/Banner/packard lapray.webp" alt="Packard LaPray">
+          <img src="assets/Client Logos/Banner/the accounting doctor.png" alt="The Accounting Doctor">
+          <img src="assets/Client Logos/Banner/inevitrade.png" alt="Inevitrade">
+          <img src="assets/Client Logos/Banner/cereflex.svg" alt="CereFlex">
+          <img src="assets/Client Logos/Banner/teamz.svg" alt="Teamz">
         </div>
         <div class="logos__group" aria-hidden="true">
-          <img src="assets/Client Logos/Banner/renovo-financial-logo.png" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/Fundcanna-logo-alone.webp" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/BD capital.png" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/LADIESINLAW-Logo.webp" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/packard lapray.webp" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/the accounting doctor.png" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/inevitrade.png" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/cereflex.svg" alt="" loading="lazy">
-          <img src="assets/Client Logos/Banner/teamz.svg" alt="" loading="lazy">
+          <img src="assets/Client Logos/Banner/renovo-financial-logo.png" alt="">
+          <img src="assets/Client Logos/Banner/Fundcanna-logo-alone.webp" alt="">
+          <img src="assets/Client Logos/Banner/BD capital.png" alt="">
+          <img src="assets/Client Logos/Banner/LADIESINLAW-Logo.webp" alt="">
+          <img src="assets/Client Logos/Banner/packard lapray.webp" alt="">
+          <img src="assets/Client Logos/Banner/the accounting doctor.png" alt="">
+          <img src="assets/Client Logos/Banner/inevitrade.png" alt="">
+          <img src="assets/Client Logos/Banner/cereflex.svg" alt="">
+          <img src="assets/Client Logos/Banner/teamz.svg" alt="">
         </div>
       </div>
     </div>
