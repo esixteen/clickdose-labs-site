@@ -505,7 +505,7 @@
     /* Bridge: ASCII scene + cursor reveal window (HQ-style) */
     .bridge {
       position: relative;
-      min-height: 88vh;
+      min-height: 62vh;
       overflow: hidden;
       background: #07090b;
       isolation: isolate;
@@ -543,7 +543,7 @@
       text-shadow: 0 2px 24px rgba(0,0,0,.85);
     }
     @media (max-width: 760px) {
-      .bridge { min-height: 72vh; }
+      .bridge { min-height: 54vh; }
       .bridge__window { width: min(74vw, 420px); }
     }
     /* Reduced motion / no-JS: calm centered window, no ascii churn */
@@ -855,7 +855,7 @@
   </section>
 
   <!-- BRIDGE: ascii scene + cursor reveal (work -> results) -->
-  <section class="bridge" id="bridge" aria-label="Every page you just saw was built to move one number. Yours is next.">
+  <section class="bridge" id="bridge" aria-label="Stop wasting money. Find your messaging that scales.">
     <canvas class="bridge__ascii" aria-hidden="true"></canvas>
     <div class="bridge__window" id="bridgeWindow" aria-hidden="true">
       <video id="bridgeVideo" muted loop playsinline preload="metadata" poster="assets/home/dose-poster.jpg" crossorigin="anonymous">
@@ -863,7 +863,7 @@
       </video>
     </div>
     <div class="bridge__head">
-      <h2>Every page you just saw was built to move one number. <span class="em">Yours</span> is next.</h2>
+      <h2>Stop wasting money. Find your messaging that <span class="em">scales</span>.</h2>
     </div>
   </section>
 
@@ -1164,20 +1164,16 @@
         } else {
           var bCtx = bCanvas.getContext('2d', { alpha: false });
           var off = document.createElement('canvas');
-          var offCtx = off.getContext('2d', { willReadFrequently: true });
-          var RAMP = ' .,:/#CD';
-          var BRIGHT_AT = 5; // ramp index where teal pass takes over
-          var FONT = 13, LINE = 14;
-          var bw = 0, bh = 0, cols = 0, rows = 0, cw = 8;
+          var offCtx = off.getContext('2d');
+          var CELL = 16; // pixel-mosaic block size
+          var bw = 0, bh = 0, cols = 0, rows = 0;
           var cover = { x: 0, y: 0, w: 0, h: 0 };
           function bridgeSize() {
             bw = bridge.clientWidth; bh = bridge.clientHeight;
             bCanvas.width = bw; bCanvas.height = bh;
-            bCtx.font = FONT + 'px "JetBrains Mono", monospace';
-            bCtx.textBaseline = 'top';
-            cw = bCtx.measureText('M').width || 8;
-            cols = Math.ceil(bw / cw); rows = Math.ceil(bh / LINE);
+            cols = Math.ceil(bw / CELL); rows = Math.ceil(bh / CELL);
             off.width = cols; off.height = rows;
+            bCtx.imageSmoothingEnabled = false;
             var vw = bVideo.videoWidth || 16, vh = bVideo.videoHeight || 9;
             var s = Math.max(bw / vw, bh / vh);
             cover = { w: vw * s, h: vh * s, x: (bw - vw * s) / 2, y: (bh - vh * s) / 2 };
@@ -1198,28 +1194,14 @@
           });
           bridge.addEventListener('pointerleave', function () { hasPointer = false; });
           var bRaf = null, frame = 0, t0 = performance.now();
-          function drawAscii() {
-            offCtx.fillStyle = '#000';
+          function drawMosaic() {
+            offCtx.fillStyle = '#07090b';
             offCtx.fillRect(0, 0, cols, rows);
             offCtx.drawImage(bVideo, cover.x * cols / bw, cover.y * rows / bh, cover.w * cols / bw, cover.h * rows / bh);
-            var px = offCtx.getImageData(0, 0, cols, rows).data;
-            bCtx.fillStyle = '#07090b';
+            bCtx.imageSmoothingEnabled = false;
+            bCtx.drawImage(off, 0, 0, cols, rows, 0, 0, bw, bh);
+            bCtx.fillStyle = 'rgba(7,9,11,.58)';
             bCtx.fillRect(0, 0, bw, bh);
-            for (var r2 = 0; r2 < rows; r2++) {
-              var dim = '', lit = '';
-              for (var c2 = 0; c2 < cols; c2++) {
-                var i2 = (r2 * cols + c2) * 4;
-                var lum = (px[i2] + px[i2 + 1] + px[i2 + 2]) / 765;
-                var idx = Math.min(RAMP.length - 1, Math.floor(lum * RAMP.length * 1.35));
-                if (idx >= BRIGHT_AT) { lit += RAMP[idx]; dim += ' '; }
-                else { dim += RAMP[idx]; lit += ' '; }
-              }
-              var y2 = r2 * LINE;
-              bCtx.fillStyle = 'rgba(242,244,243,.42)';
-              bCtx.fillText(dim, 0, y2);
-              bCtx.fillStyle = 'rgba(0,201,167,.75)';
-              bCtx.fillText(lit, 0, y2);
-            }
           }
           function bridgeTick(now) {
             frame++;
@@ -1232,7 +1214,7 @@
             wy += (ty - wy) * .07;
             bWindow.style.transform = 'translate3d(' + wx + 'px,' + wy + 'px,0)';
             bVideo.style.transform = 'translate3d(' + (cover.x - wx) + 'px,' + (cover.y - wy) + 'px,0)';
-            if (frame % 2 === 0 && bVideo.readyState >= 2) { drawAscii(); }
+            if (frame % 2 === 0 && bVideo.readyState >= 2) { drawMosaic(); }
             bRaf = requestAnimationFrame(bridgeTick);
           }
           bridgeSize(); center(); wx = tx; wy = ty;
