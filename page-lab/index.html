@@ -868,7 +868,7 @@
     }
     /* Height follows the capture's aspect ratio so narrow screens never
        show empty space below the image; desktop caps and hover-pans. */
-    .built__viewport { display: block; height: auto; aspect-ratio: 2100 / 1524; max-height: 620px; overflow: hidden; position: relative; }
+    .built__viewport { display: block; width: 100%; height: auto; aspect-ratio: 2100 / 1524; max-height: 620px; overflow: hidden; position: relative; }
     .built__viewport img { width: 100%; height: auto; display: block; transition: transform 9s linear; }
     .built__frame:hover .built__viewport img { transform: translateY(calc(-1px * var(--overpan, 0))); }
     .built__hint { text-align: center; font-size: .8125rem; color: var(--color-text-soft, #6d675f); margin-top: 1rem; }
