@@ -501,6 +501,8 @@
     /* Reduced motion / no-JS fallback: simple scrollable row */
     .coverflow.static { height: auto; overflow-x: auto; display: flex; gap: 1.5rem; padding: 0 var(--gutter); cursor: default; }
     .coverflow.static .cf-card { position: static; transform: none; height: clamp(260px, 34vh, 400px); flex: 0 0 auto; }
+    /* Small screens: height follows viewport width so the 16:10 card always fits */
+    @media (max-width: 760px) { .coverflow { height: clamp(180px, 54vw, 340px); } }
 
     /* Bridge: ASCII scene + cursor reveal window (HQ-style) */
     .bridge {
