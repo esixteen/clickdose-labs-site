@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hip, Joint &amp; Calm. One Chew. | GOOD BOY</title>
+  <meta name="description" content="Daily wellness chews for dogs at full clinical doses. His happy hour, every day. A closer-page demo by ClickDose Labs.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2213%22%20fill%3D%22%23162340%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2246%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2234%22%20font-weight%3D%22900%22%20fill%3D%22%23FFD400%22%20text-anchor%3D%22middle%22%3EGB%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#162340">
+  <link rel="canonical" href="https://clickdoselabs.com/example/goodboy/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GOOD BOY · ClickDose Labs demo">
+  <meta property="og:title" content="Hip, Joint &amp; Calm. One Chew.">
+  <meta property="og:description" content="Daily wellness chews for dogs at full clinical doses. His happy hour, every day.">
+  <meta property="og:url" content="https://clickdoselabs.com/example/goodboy/">
+  <meta property="og:image" content="https://clickdoselabs.com/example/goodboy/assets/pouch.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #162340;
+      --navy-deep: #101a30;
+      --blue: #2563EB;
+      --gold: #FFD400;
+      --paper: #f7f8fa;
+      --white: #ffffff;
+      --ink: #101a30;
+      --muted: #5b667d;
+      --line: #e3e7ef;
+      --font-display: 'Anton', 'Arial Narrow', sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.4rem; }
+    h1, h2 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: .01em; line-height: 1.04; }
+
+    .deal-bar { background: var(--gold); color: var(--navy); text-align: center; font-weight: 800; font-size: .95rem; letter-spacing: .04em; padding: .65rem 1rem; text-transform: uppercase; }
+    .demo-bar { background: var(--navy-deep); color: rgba(255,255,255,.75); text-align: center; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: .45rem 1rem; }
+    .demo-bar a { color: var(--gold); }
+
+    .brandbar { background: var(--navy); padding: 1.2rem 0 .2rem; text-align: center; }
+    .brandbar .mark { font-family: var(--font-display); color: var(--gold); font-size: 1.9rem; letter-spacing: .14em; text-indent: .14em; text-transform: uppercase; }
+    .brandbar .sub { display: block; font-size: .66rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(255,255,255,.55); font-family: var(--font-body); font-weight: 700; margin-top: .1rem; }
+
+    /* Hero */
+    .hero { background: var(--navy); color: var(--white); padding: clamp(2.4rem, 6vw, 4.5rem) 0 clamp(2.6rem, 6vw, 4.5rem); }
+    .hero__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 3rem; align-items: center; }
+    .hero h1 { font-size: clamp(2.6rem, 6.4vw, 4.6rem); color: var(--white); max-width: 14ch; }
+    .hero h1 .gold { color: var(--gold); }
+    .hero__sub { font-size: clamp(1.05rem, 2vw, 1.2rem); color: rgba(255,255,255,.85); margin: 1.1rem 0 1.4rem; max-width: 40ch; }
+    .checks { list-style: none; margin-bottom: 1.7rem; }
+    .checks li { display: flex; gap: .65rem; align-items: baseline; margin-bottom: .55rem; font-weight: 600; font-size: 1rem; }
+    .checks li::before { content: "✓"; color: var(--gold); font-weight: 800; }
+    .btn {
+      display: inline-block; background: var(--gold); color: var(--navy);
+      font-family: var(--font-display); font-size: 1.35rem; letter-spacing: .04em; text-transform: uppercase;
+      padding: .95rem 2.6rem; text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 6px 0 rgba(0,0,0,.25); transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover { transform: translateY(2px); box-shadow: 0 4px 0 rgba(0,0,0,.25); }
+    .hero__proof { margin-top: .9rem; font-size: .9rem; color: rgba(255,255,255,.8); }
+    .hero__proof .st { color: var(--gold); letter-spacing: .12em; }
+    .hero__img { position: relative; }
+    .hero__img img { width: 100%; max-width: 400px; margin: 0 auto; border-radius: 6px; }
+    .hero__badge {
+      position: absolute; top: -14px; right: 4px; background: var(--blue); color: #fff;
+      font-family: var(--font-display); font-size: .95rem; letter-spacing: .05em;
+      padding: .5rem .9rem; transform: rotate(3deg); text-transform: uppercase;
+    }
+    @media (max-width: 840px) { .hero__grid { grid-template-columns: 1fr; gap: 2rem; } .hero__img { order: -1; } .hero__img img { max-width: 280px; } }
+
+    /* Review strip */
+    .reviewcard { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; max-width: 46rem; margin: -1.8rem auto 0; position: relative; padding: 1.3rem 1.6rem; display: flex; gap: 1rem; align-items: center; box-shadow: 0 14px 34px rgba(16,26,48,.12); }
+    .reviewcard .st { color: #e8a013; font-size: .95rem; letter-spacing: .1em; white-space: nowrap; }
+    .reviewcard p { font-size: .95rem; }
+    .reviewcard strong { display: block; font-size: .85rem; margin-top: .25rem; color: var(--muted); font-weight: 600; }
+    @media (max-width: 640px) { .reviewcard { flex-direction: column; align-items: flex-start; margin-inline: 1.4rem; } }
+
+    /* Sections */
+    section { padding: clamp(2.6rem, 6vw, 4.2rem) 0; }
+    .kicker { font-size: .75rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: .5rem; }
+    h2 { font-size: clamp(1.9rem, 4.4vw, 2.9rem); margin-bottom: 1rem; }
+
+    /* Replaces */
+    .replaces { background: var(--white); text-align: center; }
+    .replaces h2 { max-width: 22ch; margin-inline: auto; }
+    .replaces__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0 1rem; }
+    .rep { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 1.2rem 1rem; }
+    .rep .x { font-family: var(--font-display); color: var(--blue); font-size: 1.3rem; display: block; margin-bottom: .3rem; }
+    .rep p { font-size: .9rem; font-weight: 600; }
+    .rep span { font-size: .78rem; color: var(--muted); font-weight: 400; display: block; margin-top: .2rem; }
+    .replaces__punch { font-weight: 800; font-size: 1.1rem; margin-top: 1rem; }
+    @media (max-width: 760px) { .replaces__grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* Doses */
+    .doses { background: var(--navy); color: var(--white); }
+    .doses h2 { color: var(--white); }
+    .doses .kicker { color: var(--gold); }
+    .doses__intro { color: rgba(255,255,255,.8); max-width: 46rem; margin-bottom: 2rem; }
+    .dose__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .dose { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 1.2rem 1.1rem; }
+    .dose .amt { font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); }
+    .dose .nm { font-weight: 700; font-size: .95rem; margin: .2rem 0 .35rem; }
+    .dose p { font-size: .85rem; color: rgba(255,255,255,.75); }
+    .doses__note { font-size: .8rem; color: rgba(255,255,255,.55); margin-top: 1.2rem; }
+    @media (max-width: 760px) { .dose__grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* Receipts */
+    .receipts { background: var(--paper); text-align: center; }
+    .receipts__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0 .6rem; }
+    .receipt { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 1.6rem 1.2rem; }
+    .receipt .n { font-family: var(--font-display); font-size: 2.6rem; color: var(--blue); line-height: 1; }
+    .receipt p { font-size: .9rem; color: var(--muted); margin-top: .5rem; }
+    .fineprint { font-size: .78rem; color: var(--muted); }
+    @media (max-width: 700px) { .receipts__grid { grid-template-columns: 1fr; } }
+
+    /* Offer */
+    .offer { background: var(--white); }
+    .offer__box { border: 2px solid var(--navy); border-radius: 12px; padding: clamp(1.6rem, 4vw, 2.6rem); display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 2.4rem; align-items: center; }
+    .offer__box img { border-radius: 6px; }
+    .offer h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    .offer__stars { font-size: .9rem; color: var(--muted); margin-bottom: 1.1rem; }
+    .offer__stars .st { color: #e8a013; letter-spacing: .1em; }
+    .tier { display: block; width: 100%; text-align: left; background: var(--paper); border: 2px solid var(--line); border-radius: 8px; padding: .95rem 1.15rem; margin-bottom: .7rem; cursor: pointer; font-family: var(--font-body); color: var(--ink); position: relative; transition: border-color .15s ease; }
+    .tier:hover { border-color: var(--muted); }
+    .tier.selected { border-color: var(--blue); background: #eef3fe; }
+    .tier .t-pop { position: absolute; top: -0.75rem; right: .9rem; background: var(--blue); color: #fff; font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 999px; }
+    .tier .t-name { font-weight: 800; font-size: .975rem; }
+    .tier .t-price { float: right; font-size: .975rem; }
+    .tier .t-price s { color: var(--muted); margin-right: .4rem; font-size: .85rem; }
+    .tier .t-price strong { font-size: 1.15rem; }
+    .tier .t-sub { display: block; font-size: .8rem; color: var(--muted); clear: both; }
+    .offer .btn { width: 100%; text-align: center; }
+    .offer__micro { text-align: center; font-size: .8rem; color: var(--muted); margin-top: .7rem; }
+    .offer__points { display: flex; justify-content: center; gap: 1.1rem; flex-wrap: wrap; margin-top: .8rem; font-size: .8rem; color: var(--muted); }
+    @media (max-width: 820px) { .offer__box { grid-template-columns: 1fr; } .offer__box img { max-width: 260px; margin: 0 auto; } }
+
+    /* FAQ */
+    .faq { background: var(--paper); }
+    .faq details { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: .7rem; max-width: 46rem; }
+    .faq summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    .faq summary::after { content: "+"; color: var(--blue); font-weight: 800; }
+    .faq details[open] summary::after { content: "\2212"; }
+    .faq details p { margin-top: .6rem; font-size: .95rem; color: var(--muted); }
+
+    .foot { background: var(--navy-deep); color: rgba(255,255,255,.55); font-size: .78rem; line-height: 1.7; padding: 2.4rem 0 7rem; }
+    .foot p { max-width: 60rem; margin: 0 auto .85rem; padding: 0 1.4rem; }
+    .foot a { color: rgba(255,255,255,.85); }
+
+    .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; background: var(--white); border-top: 1px solid var(--line); box-shadow: 0 -6px 24px rgba(16,26,48,.16); padding: .7rem 1rem calc(.7rem + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 1rem; transform: translateY(110%); transition: transform .35s ease; z-index: 60; }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta .price { font-size: .85rem; font-weight: 800; }
+    .sticky-cta .price s { color: var(--muted); font-weight: 400; margin-right: .3rem; }
+    .sticky-cta .sub { font-size: .72rem; color: var(--muted); }
+    .sticky-cta .btn { font-size: 1rem; padding: .7rem 1.4rem; white-space: nowrap; box-shadow: none; }
+    @media (min-width: 900px) { .sticky-cta { display: none; } }
+
+    .demo-modal { position: fixed; inset: 0; background: rgba(16,26,48,.66); display: none; align-items: center; justify-content: center; padding: 1.5rem; z-index: 100; }
+    .demo-modal.open { display: flex; }
+    .demo-modal__card { background: var(--white); max-width: 470px; padding: 2.4rem 2.1rem; text-align: center; border-radius: 12px; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .demo-modal__card h3 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.5rem; line-height: 1.2; margin-bottom: .8rem; }
+    .demo-modal__card p { font-size: .95rem; color: var(--muted); margin-bottom: 1.3rem; }
+    .demo-modal__card .btn { width: 100%; font-size: 1.1rem; }
+    .demo-modal__close { background: none; border: none; font-family: var(--font-body); font-size: .85rem; color: var(--muted); margin-top: .9rem; cursor: pointer; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="deal-bar">Happy Hour Pricing &middot; Up to 30% off today</div>
+  <div class="demo-bar">Fictional demo by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a> &middot; GOOD BOY is not a real brand</div>
+
+  <div class="brandbar"><div class="wrap"><span class="mark">Good Boy</span><span class="sub">Daily wellness chews</span></div></div>
+
+  <header class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <h1>Hip, joint &amp; calm. <span class="gold">One chew.</span></h1>
+        <p class="hero__sub">Daily wellness chews at full clinical doses, not label sprinkles. His happy hour, every day.</p>
+        <ul class="checks">
+          <li>Supports stiff hips and easier stairs</li>
+          <li>Joint comfort for the post-walk flop</li>
+          <li>Steady calm without the zombie nap</li>
+          <li>One chew replaces the supplement shelf</li>
+        </ul>
+        <button class="btn" data-demo-cta>Get Good Boy &rarr;</button>
+        <p class="hero__proof"><span class="st">★★★★★</span> 4.9/5 &middot; 12,483 happy dogs (and their humans)</p>
+      </div>
+      <div class="hero__img">
+        <span class="hero__badge">30 days per bag</span>
+        <img src="assets/pouch.jpg" alt="GOOD BOY Hip + Joint + Calm daily wellness chews pouch" width="800" height="800">
+      </div>
+    </div>
+  </header>
+
+  <div class="reviewcard">
+    <div>
+      <span class="st">★★★★★</span>
+      <p>"Week five, my 9-year-old golden took the stairs two at a time for the first time since 2023. I cried in the hallway."<strong>Melissa &amp; Baxter &middot; Verified buyer</strong></p>
+    </div>
+  </div>
+
+  <section class="replaces">
+    <div class="wrap">
+      <span class="kicker">The Shelf Problem</span>
+      <h2>One chew can replace the whole supplement shelf</h2>
+      <div class="replaces__grid">
+        <div class="rep"><span class="x">✕</span><p>Joint powder</p><span>the one he eats around</span></div>
+        <div class="rep"><span class="x">✕</span><p>Fish oil pump</p><span>the one that ruins the carpet</span></div>
+        <div class="rep"><span class="x">✕</span><p>Calming treats</p><span>the ones that barely work</span></div>
+        <div class="rep"><span class="x">✕</span><p>Senior topper</p><span>the expensive sawdust</span></div>
+      </div>
+      <p class="replaces__punch">One chew. He thinks it's a treat. You know it's not.</p>
+    </div>
+  </section>
+
+  <section class="doses">
+    <div class="wrap">
+      <span class="kicker">What's Inside</span>
+      <h2>Full clinical doses, printed on the bag</h2>
+      <p class="doses__intro">Most pet chews list impressive ingredients at doses that do nothing. GOOD BOY uses the amounts the research used, and prints them where you can check.</p>
+      <div class="dose__grid">
+        <div class="dose"><div class="amt">500mg</div><div class="nm">Glucosamine HCl</div><p>The joint-support workhorse, at working strength.</p></div>
+        <div class="dose"><div class="amt">250mg</div><div class="nm">Chondroitin</div><p>Pairs with glucosamine to support cartilage.</p></div>
+        <div class="dose"><div class="amt">150mg</div><div class="nm">Green-lipped mussel</div><p>Omega-rich support for comfortable movement.</p></div>
+        <div class="dose"><div class="amt">100mg</div><div class="nm">L-theanine</div><p>Settled, steady calm. No sedation, no zombie dog.</p></div>
+      </div>
+      <p class="doses__note">*Formula and doses are illustrative for this demonstration page.</p>
+    </div>
+  </section>
+
+  <section class="receipts">
+    <div class="wrap">
+      <span class="kicker">The Receipts</span>
+      <h2>From a 6-week home panel of 214 dogs</h2>
+      <div class="receipts__grid">
+        <div class="receipt"><div class="n">87%</div><p>of owners reported easier stairs or car hops by week six</p></div>
+        <div class="receipt"><div class="n">9/10</div><p>dogs took the chew straight from the hand, no cheese disguise</p></div>
+        <div class="receipt"><div class="n">92%</div><p>of owners kept GOOD BOY over their previous supplement stack</p></div>
+      </div>
+      <p class="fineprint">*Panel figures are illustrative for this demonstration page.</p>
+    </div>
+  </section>
+
+  <section class="offer" id="offer">
+    <div class="wrap">
+      <div class="offer__box">
+        <img src="assets/pouch.jpg" alt="GOOD BOY chews pouch" width="640" height="640">
+        <div>
+          <span class="kicker">Happy Hour Pricing</span>
+          <h2>Good Boy Daily Chews</h2>
+          <p class="offer__stars"><span class="st">★★★★★</span> 4.9/5 &middot; 12,483 reviews</p>
+          <button class="tier selected" data-tier>
+            <span class="t-pop">Best value</span>
+            <span class="t-name">3 bags &middot; 90 days</span>
+            <span class="t-price"><s>$117</s> <strong>$84</strong></span>
+            <span class="t-sub">$28 per bag &middot; 93 cents a day</span>
+          </button>
+          <button class="tier" data-tier>
+            <span class="t-name">1 bag &middot; 30 days</span>
+            <span class="t-price"><strong>$39</strong></span>
+            <span class="t-sub">$1.30 a day &middot; try it on the skeptic</span>
+          </button>
+          <button class="btn" data-demo-cta>Add To Cart &middot; <span data-price>$84</span></button>
+          <p class="offer__micro">90-day guarantee, even on an empty bag. If his stairs don't get easier, it's free.</p>
+          <div class="offer__points"><span>Made in the USA</span>&middot;<span>Vet-formulated</span>&middot;<span>No subscription required</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <span class="kicker">Before You Ask</span>
+      <h2>Fair questions</h2>
+      <details>
+        <summary>How fast will I see a difference?</summary>
+        <p>Joints don't do overnight. Most owners in our panel noticed changes between weeks four and six. Anyone promising day-two miracles is selling you the sawdust topper.</p>
+      </details>
+      <details>
+        <summary>Is the calm ingredient a sedative?</summary>
+        <p>No. L-theanine supports settled behavior without drowsiness. He'll still lose his mind when the doorbell rings. Slightly less, though.</p>
+      </details>
+      <details>
+        <summary>What if my dog refuses it?</summary>
+        <p>The 90-day guarantee covers picky eaters, empty bags included. Though 9 in 10 panel dogs took it straight from the hand, so the odds are in your favor.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p><strong>Advertisement disclosure:</strong> this page is an advertisement written and paid for by GOOD BOY.</p>
+    <p><strong>Demo notice:</strong> GOOD BOY is a fictional brand and this page is a portfolio demonstration built by <a href="https://clickdoselabs.com/page-lab/">ClickDose Labs</a>. The product, formula, panel figures, reviews, and testimonials shown are illustrative and do not describe a real product or real people or dogs.</p>
+    <p>This fictional product is presented as a supplement for healthy dogs and is not intended to diagnose, treat, cure, or prevent any disease. A real page would carry the appropriate regulatory language for pet supplements.</p>
+    <p>© 2026 GOOD BOY (fictional) · A demo property of ClickDose Labs</p>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <div>
+      <div class="price"><s>$117</s> $84</div>
+      <div class="sub">90-day guarantee, empty bag included</div>
+    </div>
+    <button class="btn" data-demo-cta>Get Good Boy</button>
+  </div>
+
+  <div class="demo-modal" id="demoModal" role="dialog" aria-modal="true" aria-label="Demo notice">
+    <div class="demo-modal__card">
+      <h3>You just reached the end of the funnel.</h3>
+      <p>GOOD BOY is a fictional brand. This is the closer page in an ad-to-page demo: the ad's caption does the advertorial work, so this page only has to close. Ad and page built as one machine. That's what Page Lab does for real brands.</p>
+      <a class="btn" href="https://clickdoselabs.com/page-lab/">See how we build pages like this</a>
+      <button class="demo-modal__close" data-demo-close>Keep reading the demo</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var priceEl = document.querySelector('[data-price]');
+      var tiers = document.querySelectorAll('[data-tier]');
+      tiers.forEach(function (t) {
+        t.addEventListener('click', function () {
+          tiers.forEach(function (x) { x.classList.remove('selected'); });
+          t.classList.add('selected');
+          var strong = t.querySelector('.t-price strong');
+          if (priceEl && strong) priceEl.textContent = strong.textContent;
+        });
+      });
+
+      var sticky = document.getElementById('stickyCta');
+      var trigger = document.querySelector('.doses');
+      if (sticky && trigger) {
+        var so = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { sticky.classList.toggle('show', e.isIntersecting || e.boundingClientRect.top < 0); });
+        }, { threshold: 0 });
+        so.observe(trigger);
+      }
+
+      var modal = document.getElementById('demoModal');
+      document.querySelectorAll('[data-demo-cta]').forEach(function (b) {
+        b.addEventListener('click', function () { modal.classList.add('open'); });
+      });
+      document.querySelector('[data-demo-close]').addEventListener('click', function () { modal.classList.remove('open'); });
+      modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('open'); });
+    });
+  </script>
+</body>
+</html>
