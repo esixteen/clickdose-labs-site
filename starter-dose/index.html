@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Starter Dose | 7 Page Blueprints, 12 AI Prompts, and the Pre-Spend Audit</title>
+  <meta name="description" content="The system behind Ad Dose: 7 landing page blueprints with live examples, 12 copy-paste AI prompts, and the audit we run before a dollar of ad spend.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="https://clickdoselabs.com/assets/favicons/favicon-32.png">
+  <meta name="theme-color" content="#0b0f12">
+  <link rel="canonical" href="https://clickdoselabs.com/starter-dose/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ClickDose">
+  <meta property="og:title" content="The Starter Dose">
+  <meta property="og:description" content="7 page blueprints, 12 AI prompts, and the audit we run before a dollar of ad spend.">
+  <meta property="og:url" content="https://clickdoselabs.com/starter-dose/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700&family=Fraunces:ital,opsz,wght@1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --char: #0b0f12;
+      --char-2: #12181d;
+      --cream: #f2f4f3;
+      --cream-70: rgba(242, 244, 243, .72);
+      --teal: #00C9A7;
+      --teal-deep: #00a98c;
+      --porcelain: #f6f4ef;
+      --ink: #1c211f;
+      --slate: #626b67;
+      --line-l: #e4e0d6;
+      --line-d: rgba(242, 244, 243, .1);
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+    body { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; color: var(--ink); background: var(--porcelain); -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: 50rem; margin: 0 auto; padding: 0 1.4rem; }
+    .wide { max-width: 68rem; margin: 0 auto; padding: 0 1.4rem; }
+    a { color: var(--teal-deep); }
+    h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4.2vw, 2.6rem); line-height: 1.15; letter-spacing: -.01em; margin-bottom: 1rem; }
+    h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; }
+    .kicker { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--teal-deep); display: block; margin-bottom: .6rem; }
+    .em { font-family: var(--font-serif); font-style: italic; font-weight: 500; }
+
+    /* Hero */
+    .hero { background: var(--char); background-image: radial-gradient(ellipse 1000px 600px at 85% -10%, rgba(0,201,167,.14), transparent 60%); color: var(--cream); padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3rem, 7vw, 5rem); }
+    .hero .kicker { color: var(--teal); }
+    .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1.05; letter-spacing: -.02em; margin-bottom: 1.1rem; }
+    .hero h1 .em { color: var(--teal); }
+    .hero__sub { font-size: clamp(1.05rem, 2.1vw, 1.25rem); color: var(--cream-70); max-width: 44rem; margin-bottom: 2rem; }
+    .hero__nav { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .hero__nav a { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .04em; color: var(--cream); text-decoration: none; border: 1px solid var(--line-d); border-radius: 999px; padding: .5rem 1rem; transition: border-color .2s ease, color .2s ease; }
+    .hero__nav a:hover { border-color: var(--teal); color: var(--teal); }
+    .hero__note { margin-top: 2.2rem; font-size: .85rem; color: var(--cream-70); border-left: 2px solid var(--teal); padding-left: 1rem; max-width: 40rem; }
+
+    section { padding: clamp(3rem, 7vw, 5rem) 0; }
+    .section__head { max-width: 50rem; margin: 0 auto 2.2rem; padding: 0 1.4rem; }
+    .section__head p { color: var(--slate); }
+
+    /* Blueprint cards */
+    .bp { background: #fff; border: 1px solid var(--line-l); border-radius: 14px; padding: clamp(1.4rem, 3vw, 2rem); margin-bottom: 1.2rem; }
+    .bp__top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: .4rem; }
+    .bp__when { font-size: .8rem; font-weight: 600; color: var(--teal-deep); background: rgba(0,201,167,.1); border-radius: 999px; padding: .25rem .8rem; white-space: nowrap; }
+    .bp__desc { color: var(--slate); font-size: .97rem; margin-bottom: 1rem; }
+    .bp__cols { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.6rem; }
+    .bp h4 { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--slate); margin-bottom: .6rem; }
+    .bp ol { padding-left: 1.2rem; font-size: .92rem; }
+    .bp ol li { margin-bottom: .3rem; }
+    .bp__mistake { background: var(--porcelain); border-left: 3px solid #c2492f; border-radius: 6px; padding: .9rem 1.1rem; font-size: .9rem; margin-bottom: 1rem; }
+    .bp__mistake strong { color: #a83e28; }
+    .bp__live { display: inline-block; font-family: var(--font-mono); font-size: .8rem; color: var(--char); background: var(--teal); border-radius: 999px; padding: .5rem 1.1rem; text-decoration: none; font-weight: 500; }
+    .bp__live:hover { background: var(--teal-deep); color: #fff; }
+    @media (max-width: 720px) { .bp__cols { grid-template-columns: 1fr; } }
+
+    /* Prompts */
+    .prompts-band { background: var(--char); color: var(--cream); }
+    .prompts-band .section__head h2 { color: var(--cream); }
+    .prompts-band .section__head p { color: var(--cream-70); }
+    .prompt { background: var(--char-2); border: 1px solid var(--line-d); border-radius: 12px; margin-bottom: .9rem; overflow: hidden; }
+    .prompt summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: .9rem; padding: 1.1rem 1.3rem; }
+    .prompt summary::-webkit-details-marker { display: none; }
+    .prompt summary::after { content: "+"; font-family: var(--font-display); color: var(--teal); font-size: 1.3rem; margin-left: auto; flex-shrink: 0; }
+    .prompt[open] summary::after { content: "\2212"; }
+    .prompt__num { font-family: var(--font-mono); font-size: .75rem; color: var(--teal); }
+    .prompt summary strong { font-family: var(--font-display); font-size: 1.02rem; font-weight: 700; }
+    .prompt__when { padding: 0 1.3rem; font-size: .88rem; color: var(--cream-70); margin-bottom: .9rem; }
+    .prompt__box { position: relative; margin: 0 1.3rem 1.3rem; }
+    .prompt pre { font-family: var(--font-mono); font-size: .8rem; line-height: 1.65; color: var(--cream); background: rgba(0,0,0,.35); border: 1px solid var(--line-d); border-radius: 8px; padding: 1.1rem 1.2rem; white-space: pre-wrap; word-break: break-word; }
+    .copybtn { position: absolute; top: .6rem; right: .6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; background: var(--teal); color: var(--char); border: none; border-radius: 6px; padding: .35rem .7rem; cursor: pointer; font-weight: 500; }
+    .copybtn:hover { background: var(--teal-deep); color: #fff; }
+
+    /* Audit */
+    .audit ol { counter-reset: audit; list-style: none; max-width: 50rem; margin: 0 auto; padding: 0 1.4rem; }
+    .audit li { counter-increment: audit; background: #fff; border: 1px solid var(--line-l); border-radius: 12px; padding: 1.1rem 1.3rem 1.1rem 3.6rem; margin-bottom: .8rem; position: relative; }
+    .audit li::before { content: counter(audit, decimal-leading-zero); position: absolute; left: 1.1rem; top: 1.15rem; font-family: var(--font-mono); font-size: .8rem; color: var(--teal-deep); }
+    .audit li strong { display: block; font-family: var(--font-display); font-size: 1rem; }
+    .audit li span { font-size: .92rem; color: var(--slate); }
+
+    /* Split */
+    .split__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 60rem; margin: 0 auto 1.8rem; padding: 0 1.4rem; }
+    .split__card { background: #fff; border: 1px solid var(--line-l); border-radius: 14px; padding: 1.6rem 1.5rem; }
+    .split__card h3 { margin-bottom: .6rem; }
+    .split__card .tag { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-deep); display: block; margin-bottom: .5rem; }
+    .split__card p { font-size: .95rem; color: var(--slate); margin-bottom: .7rem; }
+    .split__rule { max-width: 50rem; margin: 0 auto; padding: 0 1.4rem; }
+    .split__rule .rulebox { background: var(--char); color: var(--cream); border-radius: 14px; padding: 1.6rem 1.8rem; font-size: 1.02rem; }
+    .split__rule .rulebox strong { color: var(--teal); }
+    @media (max-width: 720px) { .split__grid { grid-template-columns: 1fr; } }
+
+    /* CTA */
+    .cta { background: var(--char); background-image: radial-gradient(ellipse 900px 500px at 15% 110%, rgba(0,201,167,.14), transparent 60%); color: var(--cream); text-align: center; }
+    .cta h2 { color: var(--cream); max-width: 22ch; margin: 0 auto 1rem; }
+    .cta p { color: var(--cream-70); max-width: 40rem; margin: 0 auto 1.8rem; }
+    .cta__btn { display: inline-block; background: var(--teal); color: var(--char); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; padding: 1rem 2.4rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 42px rgba(0,201,167,.3); }
+    .cta__btn:hover { background: var(--teal-deep); color: #fff; }
+    .cta__sub { margin-top: 1.4rem; font-size: .85rem; }
+    .cta__sub a { color: var(--cream); }
+
+    .foot { background: var(--char); color: rgba(242,244,243,.5); font-size: .8rem; text-align: center; padding: 0 1.4rem 2.6rem; }
+    .foot a { color: rgba(242,244,243,.8); }
+
+    /* Print */
+    @media print {
+      .hero__nav, .copybtn, .cta { display: none; }
+      .prompt { break-inside: avoid; }
+      .prompt[open] summary::after, .prompt summary::after { content: ""; }
+      details { display: block; }
+      details > *:not(summary) { display: block !important; }
+      .prompts-band, .hero { background: #fff !important; color: #000 !important; }
+      .prompt pre { color: #000; background: #f4f4f4; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wide">
+      <span class="kicker">ClickDose · Subscriber Exclusive</span>
+      <h1>The Starter <span class="em">Dose</span></h1>
+      <p class="hero__sub">The system behind Ad Dose, handed over: 7 page blueprints with live builds you can click, 12 copy-paste AI prompts, and the audit we run before a dollar of ad spend. Steal all of it.</p>
+      <nav class="hero__nav" aria-label="Kit contents">
+        <a href="#blueprints">01 · The 7 Page Blueprints</a>
+        <a href="#prompts">02 · The AI Prompt Suite</a>
+        <a href="#audit">03 · The Where It Lands Audit</a>
+        <a href="#split">04 · The Belief Split</a>
+      </nav>
+      <p class="hero__note">One rule before you start: the ad gets the click, the page gets the sale. Everything in this kit exists to make those two do their halves of one job.</p>
+    </div>
+  </header>
+
+  <section id="blueprints">
+    <div class="section__head">
+      <span class="kicker">Part 01</span>
+      <h2>The 7 Page Blueprints</h2>
+      <p>Every format below is a live page we built end to end. The anatomy is the order that works; the mistake is the one we see most. Click the live build and scroll it next to the blueprint.</p>
+    </div>
+    <div class="wide">
+
+      <article class="bp">
+        <div class="bp__top"><h3>1. The Story Advertorial</h3><span class="bp__when">Cold traffic · problem-aware</span></div>
+        <p class="bp__desc">An editorial story that sells before the reader knows they're being sold. The heaviest belief-builder there is: in our client testing, the advertorial format beat a product page by 279% on cold traffic.</p>
+        <div class="bp__cols">
+          <div>
+            <h4>Anatomy, in order</h4>
+            <ol>
+              <li>Label it an ad (trust up, legal happy)</li>
+              <li>Editorial headline + deck + byline</li>
+              <li>Story hook: a moment, not a pitch</li>
+              <li>Dialogue with an authority figure</li>
+              <li>Failed solutions, named honestly</li>
+              <li>Root cause, renamed in kitchen-table words</li>
+              <li>Mechanism: why this fixes the root cause</li>
+              <li>Product reveal, from the authority's hands</li>
+              <li>Honest week-by-week diary</li>
+              <li>Emotional payoff (not about the product)</li>
+              <li>Proof stats + testimonials</li>
+              <li>Offer + guarantee + FAQ</li>
+            </ol>
+          </div>
+          <div>
+            <h4>The killer mistake</h4>
+            <p class="bp__mistake"><strong>Pitching in paragraph one.</strong> The moment it reads like an ad, the story stops working. The product should not appear until the reader has diagnosed themselves.</p>
+            <a class="bp__live" href="https://clickdoselabs.com/example/maren-story/" target="_blank" rel="noopener">See the live build ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="bp">
+        <div class="bp__top"><h3>2. The Founder-Letter Advertorial</h3><span class="bp__when">Skeptical audiences · burned buyers</span></div>
+        <p class="bp__desc">A first-person letter built on radical candor: what the alternatives do well, what this product won't do, the real math. For audiences who have been burned by hype, honesty is the pattern interrupt.</p>
+        <div class="bp__cols">
+          <div>
+            <h4>Anatomy, in order</h4>
+            <ol>
+              <li>"This is an advertisement" bar, said proudly</li>
+              <li>Letter headline + founder byline</li>
+              <li>The founder's origin moment</li>
+              <li>Self-diagnosis checklist ("the mirror test")</li>
+              <li>Honest comparison: what rivals do WELL</li>
+              <li>Mechanism, with doses printed</li>
+              <li>The anti-hype interlude (no countdown timers)</li>
+              <li>Honest timeline: what happens when</li>
+              <li>What this product will NOT do</li>
+              <li>Proof stats + testimonials</li>
+              <li>Plain-numbers offer + guarantee + FAQ</li>
+            </ol>
+          </div>
+          <div>
+            <h4>The killer mistake</h4>
+            <p class="bp__mistake"><strong>Fake candor.</strong> "Our biggest flaw is we care too much" is not honesty. Admit something real (price, speed, who it's wrong for) or skip this format.</p>
+            <a class="bp__live" href="https://clickdoselabs.com/example/maren/" target="_blank" rel="noopener">See the live build ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="bp">
+        <div class="bp__top"><h3>3. The Listicle</h3><span class="bp__when">Cold traffic · skimmers</span></div>
+        <p class="bp__desc">"N Things Your ___ Isn't Doing." Each item teaches one piece of your mechanism and quietly disqualifies an alternative. The fast, skimmable belief-builder for people who will not read a story.</p>
+        <div class="bp__cols">
+          <div>
+            <h4>Anatomy, in order</h4>
+            <ol>
+              <li>Editorial masthead (publication feel)</li>
+              <li>Numbered headline aimed at what they already use</li>
+              <li>Items 1-3: teach mechanism, disqualify rivals</li>
+              <li>Item 4-5: introduce the product as the fix</li>
+              <li>Proof block</li>
+              <li>Offer stack + CTA</li>
+            </ol>
+          </div>
+          <div>
+            <h4>The killer mistake</h4>
+            <p class="bp__mistake"><strong>Listing features instead of teaching.</strong> Every item must make the reader smarter about their problem. Features go on the product page.</p>
+            <a class="bp__live" href="https://clickdoselabs.com/example/thicket/" target="_blank" rel="noopener">See the live build ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="bp">
+        <div class="bp__top"><h3>4. The Offer Page</h3><span class="bp__when">Pre-sold traffic · post-presell</span></div>
+        <p class="bp__desc">The closer. When your ad caption or presell already did the convincing, this page has one job: take the order. No story, maximum conversion mechanics. Never send cold traffic here.</p>
+        <div class="bp__cols">
+          <div>
+            <h4>Anatomy, in order</h4>
+            <ol>
+              <li>Deal bar</li>
+              <li>Promise hero + benefit checklist + CTA + stars</li>
+              <li>One hero review</li>
+              <li>"Replaces your ___" stack</li>
+              <li>Mechanism strip, doses printed</li>
+              <li>Before / after</li>
+              <li>Comparison table</li>
+              <li>Panel stats + review wall</li>
+              <li>Guarantee, oversized</li>
+              <li>The two-options close</li>
+              <li>Tiered offer + FAQ</li>
+            </ol>
+          </div>
+          <div>
+            <h4>The killer mistake</h4>
+            <p class="bp__mistake"><strong>Making pre-sold visitors re-read the pitch.</strong> They arrived convinced. Every paragraph of storytelling here is friction between them and the buy button.</p>
+            <a class="bp__live" href="https://clickdoselabs.com/example/goodboy/" target="_blank" rel="noopener">See the live build ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="bp">
+        <div class="bp__top"><h3>5. The Lead Gen Page</h3><span class="bp__when">High-intent services · urgent problems</span></div>
+        <p class="bp__desc">For offers where the conversion is a form or a call. Speed and certainty beat cleverness: the visitor has a problem on fire and is deciding who to trust in the next ninety seconds.</p>
+        <div class="bp__cols">
+          <div>
+            <h4>Anatomy, in order</h4>
+            <ol>
+              <li>Loss-framed headline (what inaction costs)</li>
+              <li>Credibility strip (results, credentials)</li>
+              <li>Form or call CTA above the fold</li>
+              <li>Pain agitation: they know how this goes wrong</li>
+              <li>The 3-step process (certainty)</li>
+              <li>Proof: cases, numbers, faces</li>
+              <li>FAQ that kills the "should I wait" objection</li>
+              <li>Repeat CTA</li>
+            </ol>
+          </div>
+          <div>
+            <h4>The killer mistake</h4>
+            <p class="bp__mistake"><strong>Asking for the form before naming the pain.</strong> A form with no empathy above it is a wall. Name their exact situation first, then ask.</p>
+            <a class="bp__live" href="https://clickdoselabs.com/example/harlan-reyes/" target="_blank" rel="noopener">See the live build ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="bp">
+        <div class="bp__top"><h3>6. The Sales Page</h3><span class="bp__when">Warm traffic · considered purchases</span></div>
+        <p class="bp__desc">The full argument, in one scroll. For visitors who know you but haven't bought: build the case top to bottom and let the page do the whole job a salesperson would.</p>
+        <div class="bp__cols">
+          <div>
+            <h4>Anatomy, in order</h4>
+            <ol>
+              <li>Outcome-promise hero</li>
+              <li>The problem, told better than they'd tell it</li>
+              <li>Mechanism: the reason this works differently</li>
+              <li>Product reveal + benefit stack</li>
+              <li>Proof at every claim (not one proof section)</li>
+              <li>Offer + value framing</li>
+              <li>Guarantee + FAQ</li>
+            </ol>
+          </div>
+          <div>
+            <h4>The killer mistake</h4>
+            <p class="bp__mistake"><strong>Burying the mechanism.</strong> Benefits without a "because" read as hype. The mechanism is what lets a skeptic believe the promise.</p>
+            <a class="bp__live" href="https://clickdoselabs.com/example/sable/" target="_blank" rel="noopener">See the live build ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="bp">
+        <div class="bp__top"><h3>7. The Comparison Page</h3><span class="bp__when">Solution-aware · "X vs Y" searchers</span></div>
+        <p class="bp__desc">For the buyer deciding between you and a named alternative. The page wins by being the fairest referee in the room, then winning on the criteria that actually matter.</p>
+        <div class="bp__cols">
+          <div>
+            <h4>Anatomy, in order</h4>
+            <ol>
+              <li>Honest framing ("both are good, here's the real difference")</li>
+              <li>Criteria table, checkable claims only</li>
+              <li>When THEY win (yes, really)</li>
+              <li>When you win, with receipts</li>
+              <li>Switching: how easy, how fast</li>
+              <li>CTA matched to intent (trial, demo, migrate)</li>
+            </ol>
+          </div>
+          <div>
+            <h4>The killer mistake</h4>
+            <p class="bp__mistake"><strong>Pretending the competitor has no strengths.</strong> The reader has both tabs open. One dishonest row poisons every honest one.</p>
+            <a class="bp__live" href="https://clickdoselabs.com/example/keel/" target="_blank" rel="noopener">See the live build ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="prompts-band" id="prompts">
+    <div class="section__head">
+      <span class="kicker">Part 02</span>
+      <h2>The AI Prompt Suite</h2>
+      <p>Twelve prompts, in the order we actually use them. Paste into Claude, ChatGPT, or whatever you run. Fill the [BRACKETS], and be generous with the inputs: the model is only as good as what you feed it.</p>
+    </div>
+    <div class="container">
+
+      <details class="prompt">
+        <summary><span class="prompt__num">01</span><strong>The Ad Teardown</strong></summary>
+        <p class="prompt__when">When to use: you found a competitor ad that's clearly working (running 60+ days) and want the machine, not the words.</p>
+        <div class="prompt__box"><pre>You are a direct response strategist. Below is a Facebook ad (primary text + description of the creative) that has been running for [X] days, which means it's profitable.
+
+Tear it down:
+1. THE HOOK: what opens the loop in the first 2 lines, and what psychological trigger it uses.
+2. THE STRUCTURE: name each beat of the caption in order (e.g. hook, failed solutions, mechanism, reveal, proof, CTA).
+3. THE VISUAL: why this creative stops the scroll in THIS niche's feed, and who it filters for.
+4. THE BELIEF SPLIT: does the caption do the selling (advertorial-in-caption) or does it hand off to the page? What does that tell you about the landing page's job?
+5. THE STEALABLE MECHANIC: the one transferable move, stated in a single sentence that contains no words from this ad.
+
+Ad caption:
+[PASTE FULL CAPTION]
+
+Creative description:
+[DESCRIBE THE IMAGE/VIDEO]</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">02</span><strong>The Kitchen-Table Nickname</strong></summary>
+        <p class="prompt__when">When to use: your category describes the problem in clinical or technical language, and you want the phrase customers will see in the mirror.</p>
+        <div class="prompt__box"><pre>My product solves this problem: [DESCRIBE THE PROBLEM IN YOUR INDUSTRY'S OFFICIAL LANGUAGE].
+
+Customers experience it like this: [DESCRIBE WHAT IT ACTUALLY LOOKS/FEELS LIKE IN DAILY LIFE].
+
+Generate 15 "kitchen-table nicknames" for this problem: the phrase a customer would use complaining to a friend, not the term an expert would use. Rules:
+- Concrete and visual (something you could point at)
+- Zero jargon, zero Latin
+- Sticky: once heard, they see it everywhere
+- Not cute for cuteness' sake; it must DIAGNOSE
+
+For reference quality: a skincare brand renamed "nasolabial folds" to "parentheses around my mouth." A dog brand renamed "canine hip dysplasia signs" to "the bunny hop."
+
+Then rank your top 3 and explain what makes each one spread.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">03</span><strong>The Review Miner</strong></summary>
+        <p class="prompt__when">When to use: before writing anything. Your customers have already written your copy; this extracts it.</p>
+        <div class="prompt__box"><pre>Below are real customer reviews for [PRODUCT / a competitor product in my category].
+
+Mine them:
+1. PAIN LANGUAGE: exact phrases (verbatim) describing the problem before the product. Rank by frequency and emotional charge.
+2. TRANSFORMATION LANGUAGE: verbatim phrases describing life after. Note which are SPECIFIC MOMENTS ("smiled in a photo") vs generic ("love it").
+3. OBJECTION FOSSILS: phrases revealing what almost stopped the purchase ("I was skeptical because...").
+4. THE MONEY QUOTE: the single review that could be a headline, and the rewrite of it into one.
+5. NICKNAMES: any kitchen-table language customers invented for the problem or result.
+
+Output as a swipe table I can pull from while writing.
+
+Reviews:
+[PASTE 20-50 REVIEWS]</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">04</span><strong>The Dialogue Caption Writer</strong></summary>
+        <p class="prompt__when">When to use: writing an advertorial-in-caption ad where an authority figure does the selling.</p>
+        <div class="prompt__box"><pre>Write a Facebook ad caption as a dialogue between a skeptical customer (first person) and a trusted authority: [PICK: doctor / vet / mechanic / accountant / trainer / makeup artist / other expert who sees hundreds of cases].
+
+Product: [PRODUCT + WHAT IT DOES]
+The problem, in the customer's words: [USE YOUR KITCHEN-TABLE NICKNAME]
+The mechanism (why it works): [1-2 SENTENCES]
+Guarantee: [YOUR GUARANTEE]
+
+Structure, in one-line beats (mostly dialogue):
+1. Customer asks the authority about the nickname-problem
+2. Authority takes it seriously; customer realizes it's not a quirk
+3. Failed solutions: authority explains why what they've tried can't work
+4. Root cause reframe, in plain words
+5. Mechanism + product reveal FROM THE AUTHORITY (never the narrator)
+6. Objection ("another [product category]?") answered with math or guarantee
+7. Honest progress diary: week markers, modest early results, one emotional payoff moment that isn't about the product
+8. Benefit recap + guarantee + soft CTA
+
+Rules: one-line paragraphs. No em dashes. No hype adjectives. The authority is blunt, not salesy. The narrator is skeptical until evidence, never gushing.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">05</span><strong>The Framework Transplant</strong></summary>
+        <p class="prompt__when">When to use: you tore down a winning ad (prompt 01) and want its machine rebuilt for your brand, in your category.</p>
+        <div class="prompt__box"><pre>Here is the framework of a proven ad from a DIFFERENT industry:
+[PASTE THE BEAT-BY-BEAT STRUCTURE FROM PROMPT 01]
+
+Transplant it to my brand. Steal the beats, not the sentences: not one phrase from the original may survive.
+
+My brand: [NAME + PRODUCT]
+My customer: [WHO, AND WHAT THEY'VE ALREADY TRIED]
+The problem nickname: [FROM PROMPT 02]
+My mechanism: [WHY IT WORKS]
+My proof: [STATS, REVIEWS, GUARANTEE]
+
+Deliver:
+1. The transplant map: their beat → my beat (one line each)
+2. The full ad caption
+3. The creative brief: one paragraph describing the image, including why it stops MY customer's scroll
+4. The landing page this ad has earned: does the caption pre-sell (send to an offer page) or tease (send to an advertorial)? One sentence of reasoning.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">06</span><strong>The Page Drafter</strong></summary>
+        <p class="prompt__when">When to use: drafting any of the 7 page formats. Paste the blueprint anatomy from Part 01 of this kit; the model fills the skeleton.</p>
+        <div class="prompt__box"><pre>You are a direct response copywriter. Draft a [FORMAT NAME] landing page following this exact section anatomy, in this order:
+
+[PASTE THE NUMBERED ANATOMY FROM THE BLUEPRINT IN THIS KIT]
+
+Brand: [NAME]
+Product + price: [DETAILS]
+Customer + traffic temperature: [WHO IS LANDING HERE AND WHAT THEY KNEW BEFORE CLICKING]
+Problem nickname: [FROM PROMPT 02]
+Mechanism: [WHY IT WORKS]
+Proof assets: [REVIEWS, STATS, GUARANTEES I ACTUALLY HAVE]
+Voice: [3 ADJECTIVES + ONE BRAND YOU SOUND LIKE]
+
+Rules:
+- Every claim sits next to its proof; if I gave you no proof for a claim, flag it instead of inventing it.
+- Write section headers AND body copy, labeled by section.
+- No em dashes, no "game-changer", no "unlock".
+- End with a list of the 3 weakest sections and what input from me would fix them.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">07</span><strong>The Headline Stack</strong></summary>
+        <p class="prompt__when">When to use: you have a drafted page and a placeholder headline. Never test one headline.</p>
+        <div class="prompt__box"><pre>Here is my landing page draft:
+[PASTE PAGE OR ITS FIRST THREE SECTIONS]
+
+Write 20 headlines for it, in 4 stacks of 5:
+A. OUTCOME: the after-state, specific and time-bound where honest
+B. PROBLEM-NICKNAME: leads with the kitchen-table phrase
+C. MECHANISM: leads with the "because" that makes it believable
+D. PATTERN-INTERRUPT: says what the reader doesn't expect from this category (honesty, anti-hype, naming the competitor)
+
+For each stack, note which traffic temperature it fits. Then pick your champion + one challenger from DIFFERENT stacks and explain the test.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">08</span><strong>The Objection Autopsy</strong></summary>
+        <p class="prompt__when">When to use: turning real objections into FAQ, guarantee copy, and mid-page interruptions, instead of an FAQ that answers questions nobody asked.</p>
+        <div class="prompt__box"><pre>My product: [PRODUCT + PRICE]
+My customer: [WHO]
+What they've been burned by before: [PRIOR BAD PURCHASES IN THIS CATEGORY]
+
+List the 10 real objections in the order they occur during a visit (not alphabetically). For each:
+1. The objection as the customer would text it to a friend (not as a polite FAQ question)
+2. WHERE it should be answered: headline, mid-page interruption, guarantee, FAQ, or price section
+3. The answer, in my voice, admitting whatever is true
+4. Whether the answer needs proof I may not have (flag it)
+
+Then write the 4 strongest as an actual FAQ section, questions phrased the blunt way ("Why should I believe this ad?", "Is this a subscription trap?").</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">09</span><strong>The Offer Stack Builder</strong></summary>
+        <p class="prompt__when">When to use: structuring tiers, guarantee, and price framing for the offer section of any page.</p>
+        <div class="prompt__box"><pre>Product: [PRODUCT], cost to me: [COGS], sells for: [PRICE], typical customer buys for [DURATION/QUANTITY].
+
+Build my offer section:
+1. TIERS: 2-3 options with anchor math (per-day or per-use cost). Mark the intended winner and say why the OTHER tiers exist (anchor, entry).
+2. GUARANTEE: the strongest guarantee I can afford, named memorably (reference: "empty-bag guarantee", "bottom-of-the-bottle refund"). Include the sentence explaining WHY we can afford it.
+3. PRICE FRAMING: one comparison that makes the price feel obvious (vs the expensive alternative, vs the daily habit, vs the cost of not solving it).
+4. THE HONEST CLOSE: a "you have two options" section that states walking away fairly, then makes staying feel like the smart default. No fake countdown timers.
+5. RISK FLAGS: anything in 1-4 that could feel scammy to a burned buyer, and the fix.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">10</span><strong>The Message-Match Rewrite</strong></summary>
+        <p class="prompt__when">When to use: your ad and your page were written on different days by different moods, and the click can feel it.</p>
+        <div class="prompt__box"><pre>Here is my ad:
+[PASTE CAPTION + HEADLINE + CREATIVE DESCRIPTION]
+
+Here is my landing page's first screen:
+[PASTE HERO HEADLINE, SUBHEAD, CTA, AND ANY BADGES/STATS]
+
+1. Score the message match 1-10: promise, language, emotional temperature, offer.
+2. List every promise or phrase in the ad that the page never picks up.
+3. List everything on the page's first screen that the clicker has no context for.
+4. Rewrite the page's first screen so the click feels like the same conversation continuing: same nickname, same promise, same voice.
+5. Tell me what belief-building the ad did NOT do, so I know what the rest of the page still owes the visitor.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">11</span><strong>The Before/After Story</strong></summary>
+        <p class="prompt__when">When to use: writing proof sections (before/after, testimonials, case blurbs) that read like humans instead of stock photos with captions.</p>
+        <div class="prompt__box"><pre>Product: [PRODUCT]. Honest timeline to results: [WHAT HAPPENS BY WHEN].
+Real customer material: [PASTE REVIEWS/QUOTES/DATA, OR WRITE "ILLUSTRATIVE" IF DRAFTING PLACEHOLDERS]
+
+Write my proof layer:
+1. BEFORE/AFTER FRAMES: 2-3 paired moments, shot on a phone, of the SAME situation weeks apart. Describe each photo in one line + a one-sentence caption in the customer's voice. Specific moments, not poses ("hesitating at the bottom of the stairs" beats "sad dog").
+2. SIX REVIEWS: named, located, dated. Each anchored to one concrete moment. Include exactly one 4-star review with a harmless complaint; a perfect wall of five stars reads fake.
+3. ONE STAT PANEL: 3 numbers with honest labels and the disclaimer line they need.
+Rules: every proof element admits the timeline honestly. If material is illustrative, add the disclosure line.</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+      <details class="prompt">
+        <summary><span class="prompt__num">12</span><strong>The Page Grader</strong></summary>
+        <p class="prompt__when">When to use: the draft is "done" and you want it attacked before traffic does.</p>
+        <div class="prompt__box"><pre>You are three different visitors landing on this page from a paid ad. For EACH persona, scroll the page and narrate where you got bored, confused, or suspicious, and where (be honest) you left:
+
+1. THE SKEPTIC: burned twice by this category, reads fine print, hates hype.
+2. THE SKIMMER: reads headlines, bolds, and captions only. Never body copy.
+3. THE COMPARISON SHOPPER: has a competitor tab open right now.
+
+Then output:
+- The 5 highest-impact fixes, ranked by expected conversion effect
+- The one section to DELETE entirely
+- The claim most likely to trigger disbelief, and the proof that would save it
+
+The page:
+[PASTE FULL PAGE COPY]</pre><button class="copybtn" type="button">Copy</button></div>
+      </details>
+
+    </div>
+  </section>
+
+  <section class="audit" id="audit">
+    <div class="section__head">
+      <span class="kicker">Part 03</span>
+      <h2>The Where It Lands Audit</h2>
+      <p>Ten checks we run on any ad + page pair before a dollar of spend touches it. Score pass or fail; two or more fails means fix the page before you fix the ad.</p>
+    </div>
+    <ol>
+      <li><strong>The promise survives the click.</strong><span>The exact promise (and nickname) from the ad appears on the page's first screen, in the same words.</span></li>
+      <li><strong>The belief split is deliberate.</strong><span>You can say in one sentence which half (ad or page) does the convincing. If both do it, the visitor reads the pitch twice. If neither does, nobody buys.</span></li>
+      <li><strong>Traffic temperature matches format.</strong><span>Cold traffic lands on a belief-builder (advertorial, listicle). Pre-sold traffic lands on a closer. Check the blueprint chart.</span></li>
+      <li><strong>Five-second test.</strong><span>A stranger can answer "what is this, who's it for, what do I get" from one screen without scrolling.</span></li>
+      <li><strong>Every claim has proof within one scroll.</strong><span>A stat, review, guarantee, or mechanism sits next to each promise. Orphan claims read as hype.</span></li>
+      <li><strong>The mechanism is stated.</strong><span>The page says WHY the product works, in plain words. Benefits without a because don't survive skeptics.</span></li>
+      <li><strong>One conversion goal.</strong><span>One primary action, repeated. Nav links, social icons, and second offers are exits wearing costumes.</span></li>
+      <li><strong>The guarantee kills the biggest fear.</strong><span>The refund terms answer the actual objection ("what if it doesn't work for ME"), and there's a reason you can afford it.</span></li>
+      <li><strong>Mobile is the page.</strong><span>You checked the page on a phone, where the traffic actually is, not just on the designer's monitor.</span></li>
+      <li><strong>You can name the test.</strong><span>You know what challenger this page will be tested against and what number decides. A page without a planned test is a guess with a URL.</span></li>
+    </ol>
+  </section>
+
+  <section class="split" id="split">
+    <div class="section__head">
+      <span class="kicker">Part 04</span>
+      <h2>The Belief Split</h2>
+      <p>Your ad and your page are one pitch, split in two. There are only two good ways to split it, and the best brands test both.</p>
+    </div>
+    <div class="split__grid">
+      <div class="split__card">
+        <span class="tag">Split A</span>
+        <h3>Long ad → short page</h3>
+        <p>The caption is the advertorial: story, mechanism, proof, all before the click. The page is a pure closer (Blueprint 4): offer, guarantee, buy button.</p>
+        <p><strong>Best when:</strong> your story is strong, your product needs explaining, and your audience reads (older demos, considered purchases).</p>
+        <p><strong>Watch for:</strong> expensive clicks. Everyone who clicks is nearly sold, but fewer click.</p>
+      </div>
+      <div class="split__card">
+        <span class="tag">Split B</span>
+        <h3>Short ad → long page</h3>
+        <p>The ad opens a loop (hook, nickname, curiosity) and hands off fast. The page does the convincing: advertorial or listicle first, offer second.</p>
+        <p><strong>Best when:</strong> you want cheap clicks at volume and your page can carry the argument.</p>
+        <p><strong>Watch for:</strong> cheap clicks that bounce. The page inherits ALL the belief-building debt.</p>
+      </div>
+    </div>
+    <div class="split__rule">
+      <div class="rulebox">
+        <strong>The rule:</strong> pick one split on purpose, write both halves in the same sitting, then test the other split against it. The brand we tore down in Ad Dose #7 hadn't touched their ad in 102 days but was on version five of the page underneath it. That's the job: the ad finds the customer, the page gets tested until it stops leaking money.
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Want this run <span class="em">for</span> you?</h2>
+      <p>Everything in this kit is the manual version of what Page Lab does on subscription: pages built in days, tested against your control, winners scaled. You bring the traffic, we bring the machine.</p>
+      <a class="cta__btn" href="https://clickdoselabs.com/page-lab/">See Page Lab →</a>
+      <p class="cta__sub">Not ready? Keep the kit, stay on <a href="https://www.clickdose.com/">Ad Dose</a>, and steal an ad from us every week.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>© 2026 ClickDose · Built by <a href="https://clickdoselabs.com/">ClickDose Labs</a> · The Starter Dose is free for Ad Dose subscribers. Share the signup link, not this page, so your friends get the whole dose.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copybtn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var pre = btn.parentElement.querySelector('pre');
+        navigator.clipboard.writeText(pre.textContent).then(function () {
+          var old = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          setTimeout(function () { btn.textContent = old; }, 1600);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
