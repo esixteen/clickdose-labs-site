@@ -111,6 +111,77 @@
     .doses__note { font-size: .8rem; color: rgba(255,255,255,.55); margin-top: 1.2rem; }
     @media (max-width: 760px) { .dose__grid { grid-template-columns: repeat(2, 1fr); } }
 
+    /* Before / After */
+    .beforeafter { background: var(--paper); text-align: center; }
+    .ba__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 52rem; margin: 2rem auto .8rem; }
+    .ba__card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; text-align: left; }
+    .ba__card img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .ba__tag { display: inline-block; font-family: var(--font-display); text-transform: uppercase; letter-spacing: .05em; font-size: .95rem; padding: .35rem .8rem; margin: 1rem 1.2rem .4rem; }
+    .ba__card--before .ba__tag { background: var(--line); color: var(--muted); }
+    .ba__card--after .ba__tag { background: var(--gold); color: var(--navy); }
+    .ba__card p { font-size: .92rem; color: var(--muted); padding: 0 1.2rem 1.2rem; }
+    @media (max-width: 700px) { .ba__grid { grid-template-columns: 1fr; } }
+
+    /* Comparison table */
+    .compare { background: var(--white); text-align: center; }
+    .compare__scroll { overflow-x: auto; margin-top: 2rem; }
+    .compare table { border-collapse: collapse; width: 100%; max-width: 52rem; margin: 0 auto; font-size: .95rem; }
+    .compare th, .compare td { padding: .85rem 1rem; border-bottom: 1px solid var(--line); text-align: center; }
+    .compare th { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: .04em; font-size: 1rem; }
+    .compare td:first-child, .compare th:first-child { text-align: left; font-weight: 600; }
+    .compare th.gb { background: var(--navy); color: var(--gold); border-radius: 8px 8px 0 0; }
+    .compare td.gb { background: #eef3fe; font-weight: 800; color: var(--blue); }
+    .compare .yes { color: var(--blue); font-weight: 800; }
+    .compare .no { color: #c2492f; font-weight: 700; }
+    .compare .meh { color: var(--muted); }
+    .compare__note { font-size: .78rem; color: var(--muted); margin-top: .9rem; }
+
+    /* Reviews */
+    .reviews { background: var(--paper); }
+    .reviews__head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+    .reviews__score { font-family: var(--font-display); font-size: 2.4rem; color: var(--navy); }
+    .reviews__meta { font-size: .9rem; color: var(--muted); }
+    .reviews__meta .st { color: #e8a013; letter-spacing: .1em; }
+    .rv__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .rv { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 1.3rem 1.3rem 1.1rem; display: flex; flex-direction: column; gap: .5rem; }
+    .rv .st { color: #e8a013; font-size: .85rem; letter-spacing: .1em; }
+    .rv h3 { font-family: var(--font-body); font-weight: 800; font-size: 1rem; text-transform: none; letter-spacing: 0; }
+    .rv p { font-size: .92rem; color: var(--muted); flex: 1; }
+    .rv .who { font-size: .8rem; color: var(--muted); border-top: 1px dashed var(--line); padding-top: .6rem; }
+    .rv .who strong { color: var(--ink); }
+    .rv .vb { color: var(--blue); font-weight: 700; }
+    @media (max-width: 860px) { .rv__grid { grid-template-columns: 1fr; } }
+
+    /* Guarantee */
+    .guarantee { background: var(--navy); color: var(--white); text-align: center; }
+    .guarantee .kicker { color: var(--gold); }
+    .guarantee h2 { color: var(--white); }
+    .g__badge {
+      width: 150px; height: 150px; border-radius: 50%;
+      background: var(--gold); color: var(--navy);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      margin: 0 auto 1.6rem; transform: rotate(-4deg);
+      box-shadow: 0 10px 0 rgba(0,0,0,.25);
+      font-family: var(--font-display);
+    }
+    .g__badge .n { font-size: 3rem; line-height: 1; }
+    .g__badge .l { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
+    .guarantee p { max-width: 44rem; margin: 0 auto 1rem; color: rgba(255,255,255,.85); }
+
+    /* Two options */
+    .twooptions { background: var(--paper); }
+    .opt__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+    .opt { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 1.6rem 1.5rem; }
+    .opt--2 { border: 2px solid var(--blue); position: relative; }
+    .opt__label { font-family: var(--font-display); text-transform: uppercase; font-size: 1.2rem; letter-spacing: .04em; margin-bottom: .6rem; display: block; }
+    .opt--1 .opt__label { color: var(--muted); }
+    .opt--2 .opt__label { color: var(--blue); }
+    .opt p { font-size: .97rem; color: var(--muted); margin-bottom: .8rem; }
+    .opt--2 p strong { color: var(--ink); }
+    .opt__pick { position: absolute; top: -0.8rem; right: 1rem; background: var(--blue); color: #fff; font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: .22rem .7rem; border-radius: 999px; }
+    .twooptions__close { text-align: center; font-weight: 700; margin-top: 1.6rem; }
+    @media (max-width: 760px) { .opt__grid { grid-template-columns: 1fr; } }
+
     /* Receipts */
     .receipts { background: var(--paper); text-align: center; }
     .receipts__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0 .6rem; }
@@ -234,6 +305,48 @@
     </div>
   </section>
 
+  <section class="beforeafter">
+    <div class="wrap">
+      <span class="kicker">The Bunny Hop Test</span>
+      <h2>Same stairs. Six weeks apart.</h2>
+      <div class="ba__grid">
+        <div class="ba__card ba__card--before">
+          <img src="assets/before.jpg" alt="Senior golden retriever hesitating at the bottom of the stairs" width="800" height="800" loading="lazy">
+          <span class="ba__tag">Week 0</span>
+          <p>The negotiation phase. Front paw up, hind legs voting no, a long look that says "we could also just live down here."</p>
+        </div>
+        <div class="ba__card ba__card--after">
+          <img src="assets/after.jpg" alt="Senior golden retriever bounding up the stairs" width="800" height="800" loading="lazy">
+          <span class="ba__tag">Week 6</span>
+          <p>No speech, no running start. Up the stairs like they owe him money, tail carrying on like it's 2019.</p>
+        </div>
+      </div>
+      <p class="fineprint">*Photos are illustrative for this demonstration page. Real dogs, real timelines, and real results vary.</p>
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="wrap">
+      <span class="kicker">The Honest Comparison</span>
+      <h2>GOOD BOY vs the supplement aisle</h2>
+      <div class="compare__scroll">
+        <table>
+          <thead>
+            <tr><th></th><th class="gb">GOOD BOY</th><th>Typical chews</th><th>Powder toppers</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Full clinical doses, printed on the bag</td><td class="gb">✓</td><td class="no">✕ <span class="meh">label sprinkles</span></td><td class="meh">sometimes</td></tr>
+            <tr><td>Hip + joint + calm in one</td><td class="gb">✓</td><td class="no">✕ <span class="meh">buy three bags</span></td><td class="no">✕</td></tr>
+            <tr><td>Dogs actually want it</td><td class="gb">✓</td><td class="meh">usually</td><td class="no">✕ <span class="meh">he eats around it</span></td></tr>
+            <tr><td>No subscription required</td><td class="gb">✓</td><td class="no">✕ <span class="meh">good luck cancelling</span></td><td class="meh">varies</td></tr>
+            <tr><td>Refund on an empty bag</td><td class="gb">✓</td><td class="no">✕</td><td class="no">✕</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare__note">*Category comparison is illustrative for this demonstration page. Competitors exist, we just decline to name them.</p>
+    </div>
+  </section>
+
   <section class="receipts">
     <div class="wrap">
       <span class="kicker">The Receipts</span>
@@ -244,6 +357,87 @@
         <div class="receipt"><div class="n">92%</div><p>of owners kept GOOD BOY over their previous supplement stack</p></div>
       </div>
       <p class="fineprint">*Panel figures are illustrative for this demonstration page.</p>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <span class="kicker">From The Humans</span>
+      <h2>12,483 reviews, zero written by the dogs</h2>
+      <div class="reviews__head">
+        <span class="reviews__score">4.9</span>
+        <span class="reviews__meta"><span class="st">★★★★★</span> · Based on 12,483 verified reviews</span>
+      </div>
+      <div class="rv__grid">
+        <div class="rv">
+          <span class="st">★★★★★</span>
+          <h3>The stairs stopped being a negotiation</h3>
+          <p>Week five, he went up ahead of me instead of after his usual pep talk. I stood at the bottom like a proud idiot.</p>
+          <span class="who"><strong>Karen D.</strong> · Columbus, OH · <span class="vb">Verified buyer</span></span>
+        </div>
+        <div class="rv">
+          <span class="st">★★★★★</span>
+          <h3>My skeptic ate it out of my hand</h3>
+          <p>This dog audits every treat like the IRS. Took the chew on day one. Six weeks in, our morning loop got longer because he stopped shortening it.</p>
+          <span class="who"><strong>Mark T.</strong> · Tucson, AZ · <span class="vb">Verified buyer</span></span>
+        </div>
+        <div class="rv">
+          <span class="st">★★★★★</span>
+          <h3>Vet asked what changed</h3>
+          <p>Six-month checkup. She noticed his gait before I said a word. I showed her the bag and she took a photo of the label. I'll be dining out on that forever.</p>
+          <span class="who"><strong>Ellen R.</strong> · Madison, WI · <span class="vb">Verified buyer</span></span>
+        </div>
+        <div class="rv">
+          <span class="st">★★★★★</span>
+          <h3>Bought for the hips, stayed for the flop</h3>
+          <p>The post-walk flop used to sound like furniture tipping over. Now he just... lies down. Like a dog. Revolutionary stuff.</p>
+          <span class="who"><strong>Dana W.</strong> · Portland, OR · <span class="vb">Verified buyer</span></span>
+        </div>
+        <div class="rv">
+          <span class="st">★★★★☆</span>
+          <h3>Doorbell bark is now a doorbell glance</h3>
+          <p>He still announces the mailman, he's not a monk. But the 45-minute grudge afterward is gone. One star withheld until he stops eating socks, which I accept is not the chew's department.</p>
+          <span class="who"><strong>Priya S.</strong> · Austin, TX · <span class="vb">Verified buyer</span></span>
+        </div>
+        <div class="rv">
+          <span class="st">★★★★★</span>
+          <h3>Two dogs, one bag, zero fights</h3>
+          <p>The 11-year-old moves like the 4-year-old now, which the 4-year-old resents. Buying the 3-pack because they've unionized.</p>
+          <span class="who"><strong>Sam &amp; Jo L.</strong> · Denver, CO · <span class="vb">Verified buyer</span></span>
+        </div>
+      </div>
+      <p class="fineprint" style="margin-top:1rem">Reviews are illustrative for this demonstration page. The dogs, tragically, are fictional.</p>
+    </div>
+  </section>
+
+  <section class="guarantee">
+    <div class="wrap">
+      <div class="g__badge"><span class="n">90</span><span class="l">Day guarantee</span></div>
+      <span class="kicker">Zero-Risk Department</span>
+      <h2>The Empty-Bag Guarantee</h2>
+      <p>Use every last chew. If the stairs, the flop, or the doorbell manners don't improve in 90 days, send back the bag, empty is fine, for every dollar back.</p>
+      <p>We can only afford to offer this because most bags never come back.</p>
+    </div>
+  </section>
+
+  <section class="twooptions">
+    <div class="wrap">
+      <span class="kicker">Decision Time</span>
+      <h2>The way we see it, you've got two options</h2>
+      <div class="opt__grid">
+        <div class="opt opt--1">
+          <span class="opt__label">Option 1</span>
+          <p>Close this tab. Keep the shelf: the powder he eats around, the fish oil that ruined a rug, the calming treats that calm nobody.</p>
+          <p>Keep watching the bunny hop and calling it a personality trait.</p>
+        </div>
+        <div class="opt opt--2">
+          <span class="opt__pick">The obvious one</span>
+          <span class="opt__label">Option 2</span>
+          <p>Do what 12,483 owners did: try GOOD BOY on the empty-bag guarantee. <strong>If it works, the stairs stop being a negotiation. If it doesn't, you get your money back and he got 90 days of what he assumed were treats.</strong></p>
+          <p>Worst case: free treats. He's fine with either outcome.</p>
+        </div>
+      </div>
+      <p class="twooptions__close">That's the whole decision. No countdown timer. The button's right below.</p>
     </div>
   </section>
 
