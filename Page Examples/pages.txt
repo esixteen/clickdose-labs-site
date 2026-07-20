@@ -10,6 +10,8 @@
 # After editing, run:  python3 services/scripts/build-work.py
 
 # --- Demo pages built by ClickDose Labs (newest first) ---
+https://clickdoselabs.com/example/goodboy/ | Offer page demo
+https://clickdoselabs.com/example/maren-story/ | Story advertorial demo
 https://clickdoselabs.com/example/thicket/ | Listicle demo
 https://clickdoselabs.com/example/harlan-reyes/ | Lead gen demo
 https://clickdoselabs.com/example/maren/ | Advertorial demo
