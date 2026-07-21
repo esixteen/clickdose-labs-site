@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Machine Prompt | The Ad Dose Engine In One Prompt</title>
+  <meta name="description" content="The Ad Dose workflow compressed into one prompt: paste any winning ad into your AI and get the teardown, the rebuild for your brand, the creative brief, and the page verdict.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="https://clickdoselabs.com/assets/favicons/favicon-32.png">
+  <meta name="theme-color" content="#0b0f12">
+  <link rel="canonical" href="https://clickdoselabs.com/machine-prompt/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ClickDose">
+  <meta property="og:title" content="The Machine Prompt">
+  <meta property="og:description" content="The Ad Dose engine, compressed into one prompt. A referral reward for Ad Dose subscribers.">
+  <meta property="og:url" content="https://clickdoselabs.com/machine-prompt/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700&family=Fraunces:ital,opsz,wght@1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --char: #0b0f12; --char-2: #12181d; --cream: #f2f4f3; --cream-70: rgba(242,244,243,.72);
+      --teal: #00C9A7; --teal-deep: #00a98c; --porcelain: #f6f4ef; --ink: #1c211f; --slate: #626b67;
+      --line-l: #e4e0d6; --line-d: rgba(242,244,243,.1);
+      --font-display: 'Space Grotesk', sans-serif; --font-body: 'Inter', sans-serif;
+      --font-serif: 'Fraunces', Georgia, serif; --font-mono: 'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; color: var(--ink); background: var(--porcelain); -webkit-font-smoothing: antialiased; }
+    .container { max-width: 50rem; margin: 0 auto; padding: 0 1.4rem; }
+    a { color: var(--teal-deep); }
+    h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.15; margin-bottom: 1rem; }
+    .kicker { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--teal-deep); display: block; margin-bottom: .6rem; }
+    .em { font-family: var(--font-serif); font-style: italic; font-weight: 500; }
+
+    .hero { background: var(--char); background-image: radial-gradient(ellipse 1000px 600px at 85% -10%, rgba(0,201,167,.14), transparent 60%); color: var(--cream); padding: clamp(3.5rem, 9vw, 6rem) 0 clamp(2.8rem, 6vw, 4.5rem); }
+    .hero .kicker { color: var(--teal); }
+    .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.05; letter-spacing: -.02em; margin-bottom: 1.1rem; }
+    .hero h1 .em { color: var(--teal); }
+    .hero__sub { font-size: clamp(1.05rem, 2.1vw, 1.25rem); color: var(--cream-70); max-width: 44rem; }
+
+    section { padding: clamp(2.6rem, 6vw, 4.2rem) 0; }
+    .steps { counter-reset: st; list-style: none; }
+    .steps li { counter-increment: st; background: #fff; border: 1px solid var(--line-l); border-radius: 12px; padding: 1.2rem 1.4rem 1.2rem 3.8rem; margin-bottom: .9rem; position: relative; }
+    .steps li::before { content: counter(st); position: absolute; left: 1.15rem; top: 1.05rem; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--teal-deep); }
+    .steps li strong { font-family: var(--font-display); }
+
+    .prompt-band { background: var(--char); color: var(--cream); }
+    .prompt-band h2 { color: var(--cream); }
+    .prompt-band p.lead { color: var(--cream-70); margin-bottom: 1.6rem; }
+    .prompt__box { position: relative; }
+    .prompt__box pre { font-family: var(--font-mono); font-size: .78rem; line-height: 1.65; color: var(--cream); background: var(--char-2); border: 1px solid var(--line-d); border-radius: 12px; padding: 1.4rem 1.4rem; white-space: pre-wrap; word-break: break-word; max-height: 34rem; overflow-y: auto; }
+    .copybtn { position: sticky; float: right; top: .8rem; margin: .8rem .8rem 0 0; transform: translateY(.8rem); font-family: var(--font-mono); font-size: .72rem; letter-spacing: .05em; background: var(--teal); color: var(--char); border: none; border-radius: 8px; padding: .5rem 1rem; cursor: pointer; font-weight: 500; z-index: 2; }
+    .copybtn:hover { background: var(--teal-deep); color: #fff; }
+
+    .out { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .out__card { background: #fff; border: 1px solid var(--line-l); border-radius: 12px; padding: 1.3rem 1.4rem; }
+    .out__card h3 { font-family: var(--font-display); font-size: 1.05rem; margin-bottom: .35rem; }
+    .out__card p { font-size: .92rem; color: var(--slate); }
+    @media (max-width: 700px) { .out { grid-template-columns: 1fr; } }
+
+    .cta { background: var(--char); background-image: radial-gradient(ellipse 900px 500px at 15% 110%, rgba(0,201,167,.14), transparent 60%); color: var(--cream); text-align: center; }
+    .cta h2 { color: var(--cream); max-width: 24ch; margin: 0 auto 1rem; }
+    .cta p { color: var(--cream-70); max-width: 40rem; margin: 0 auto 1.8rem; }
+    .cta__btn { display: inline-block; background: var(--teal); color: var(--char); font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; padding: 1rem 2.4rem; border-radius: 999px; text-decoration: none; box-shadow: 0 0 42px rgba(0,201,167,.3); }
+    .cta__btn:hover { background: var(--teal-deep); color: #fff; }
+    .foot { background: var(--char); color: rgba(242,244,243,.5); font-size: .8rem; text-align: center; padding: 0 1.4rem 2.6rem; }
+    .foot a { color: rgba(242,244,243,.8); }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <span class="kicker">Ad Dose · Referral Reward · Unlocked</span>
+      <h1>The Machine <span class="em">Prompt</span></h1>
+      <p class="hero__sub">The entire Ad Dose engine, compressed into one prompt. Paste a winning ad into your AI and get the teardown, the rebuild for your brand, the creative brief, and the page verdict. You referred a friend for this. Smart trade.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <span class="kicker">How To Run It</span>
+      <h2>Three steps, two minutes</h2>
+      <ol class="steps">
+        <li><strong>Find a winning ad.</strong> Open the <a href="https://www.facebook.com/ads/library/" target="_blank" rel="noopener">Meta Ad Library</a> (free, no login), search a competitor or your niche, and pick a static ad that's been running 60+ days. Longevity is the profit signal: nobody funds a losing ad for two months.</li>
+        <li><strong>Grab the ad.</strong> Copy the full caption text and screenshot the creative. If the ad shows a destination link, note that too.</li>
+        <li><strong>Feed the machine.</strong> Paste the prompt below into Claude, ChatGPT, or whatever you run. Then paste the caption, attach the screenshot, and tell it about your product. It handles the rest and asks for anything it's missing.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="prompt-band">
+    <div class="container">
+      <span class="kicker">The Machine</span>
+      <h2>Copy everything in the box</h2>
+      <p class="lead">Works in any frontier chat AI. Attaching the ad's image is optional but makes Stage 1 sharper, since both Claude and ChatGPT can read images.</p>
+      <div class="prompt__box">
+        <button class="copybtn" type="button">Copy the machine</button>
+        <pre>You are THE MACHINE: a direct response strategist built from the workflow of Ad Dose, a newsletter that tears down winning ads and rebuilds them for other brands. You run a fixed pipeline. You are blunt, specific, and allergic to hype. You never use em dashes.
+
+INPUTS YOU NEED
+1. THE AD: the full primary text (caption) of a Meta ad, plus the creative (attached image or a written description). Bonus inputs if available: how long the ad has been running, and the URL it clicks through to.
+2. THE BRAND (optional): the user's product, price, customer, proof assets (reviews, stats, guarantee), and what genuinely makes the product work.
+
+If you have the ad but no brand, run Stage 1 only, then ask if they want the transplant and what you need for it. If anything essential is missing, ask before running. Never invent facts about the user's product: if a claim needs proof they did not give you, write [NEEDS PROOF] next to it.
+
+THE PIPELINE
+
+STAGE 1: TEARDOWN
+- THE HOOK: quote the ad's first two lines. Name the psychological trigger (curiosity gap, false close, identity call-out, pattern interrupt, borrowed authority, other) and what loop it opens.
+- THE BEATS: map the caption's structure as a numbered list of beats, using whatever is actually there (hook, failed solutions, root cause, mechanism, reveal, proof diary, guarantee, CTA).
+- THE VISUAL: why this creative stops the scroll in this niche's feed, and who it filters FOR. A stop sign is also a filter.
+- THE BELIEF SPLIT: does the caption do the selling (advertorial-in-caption, so the landing page only has to close) or does it open a loop and hand the selling to the page? One sentence on what that means the landing page must do.
+- THE MECHANIC: the single transferable move, stated in one sentence that contains zero words from the ad. This is the part worth keeping.
+- LONGEVITY READ: if told how long the ad has run, interpret it. 60+ days of continuous spend means it is profitable. Less means unproven, treat with suspicion.
+
+STAGE 2: THE NICKNAME
+For the user's brand, generate 10 kitchen-table nicknames for the problem their product solves: the words a customer would use complaining to a friend, never the industry term. Concrete, visual, zero jargon, diagnostic rather than cute. Rank the top 3 and explain why each would spread. Quality bar: "nasolabial folds" became "parentheses around my mouth". "Early hip issues in dogs" became "the bunny hop".
+
+STAGE 3: THE TRANSPLANT
+Rebuild the ad for the user's brand. Steal the beats, not the sentences: not one phrase from the original may survive.
+- THE MAP: their beat to your beat, one line per beat.
+- THE CAPTION: full primary text following the Stage 1 structure, using the winning Stage 2 nickname, written in one-line paragraphs. If the original used an authority figure, cast the right authority for this category (the expert who sees hundreds of cases). Rules: no em dashes, no hype adjectives, every claim sits next to its proof or gets [NEEDS PROOF].
+- THE HEADLINE AND LINK CARD: the on-image headline text and the link-card title, both carrying the nickname or the promise.
+
+STAGE 4: THE CREATIVE BRIEF
+One paragraph a designer or an image model can execute: the scene, the deliberate imperfections to keep (phone-photo realism beats polish in most feeds), where the headline text sits, and why this exact image stops THIS customer's scroll. Then rewrite it as a paste-ready image generation prompt.
+
+STAGE 5: WHERE IT LANDS
+- Name the page format this ad has earned: story advertorial, founder-letter advertorial, listicle, offer page, lead gen page, sales page, comparison page, or quiz. One sentence of reasoning from the belief split: a caption that already sold earns a closer; a caption that teased owes the page the whole argument.
+- Write the first screen of that page: headline, subhead, CTA label. The exact promise and nickname from the ad must survive the click.
+- Name the top 3 risks for this specific funnel from this checklist: promise survives the click; belief split is deliberate; traffic temperature matches format; five-second clarity; claims have proof within one scroll; mechanism stated in plain words; one conversion goal; guarantee kills the real fear; mobile checked; a named test planned.
+
+OUTPUT
+Run the stages in order under clear headers. Keep every line earning its place. End with THE SHORTLIST: the three things the user should do today, ranked by expected impact, each one sentence.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="kicker">What Comes Out</span>
+      <h2>One paste in, five deliverables out</h2>
+      <div class="out">
+        <div class="out__card"><h3>The Teardown</h3><p>Hook, beats, visual logic, and the one transferable mechanic, separated from this week's costume.</p></div>
+        <div class="out__card"><h3>The Nickname</h3><p>Your problem renamed in the words customers actually say, ranked by spread potential.</p></div>
+        <div class="out__card"><h3>The Transplant</h3><p>A full ad caption for your brand running the proven structure, with zero stolen sentences.</p></div>
+        <div class="out__card"><h3>The Creative Brief</h3><p>A scene a designer or image model can execute, plus the paste-ready generation prompt.</p></div>
+        <div class="out__card"><h3>The Page Verdict</h3><p>Which landing page format the ad has earned, the first screen written, and your three biggest funnel risks.</p></div>
+        <div class="out__card"><h3>The Shortlist</h3><p>Three things to do today, ranked by impact. Because a report without an order of operations is a PDF.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>The machine writes the brief. Someone still has to <span class="em">build</span>.</h2>
+      <p>When the output says "this ad earned an advertorial and your product page isn't one," that's Page Lab's whole job: pages built in days, tested against your control, winners scaled.</p>
+      <a class="cta__btn" href="https://clickdoselabs.com/page-lab/">See Page Lab →</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>© 2026 ClickDose · The Machine Prompt is a referral reward for <a href="https://www.clickdose.com/">Ad Dose</a> subscribers. Share your referral link, not this page. The machine notices.</p>
+  </footer>
+
+  <script>
+    document.querySelector('.copybtn').addEventListener('click', function () {
+      var btn = this;
+      navigator.clipboard.writeText(document.querySelector('.prompt__box pre').textContent).then(function () {
+        btn.textContent = 'Copied ✓';
+        setTimeout(function () { btn.textContent = 'Copy the machine'; }, 1600);
+      });
+    });
+  </script>
+</body>
+</html>
